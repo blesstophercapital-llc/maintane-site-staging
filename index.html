@@ -3,1515 +3,309 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maintane — Natural Septic Care</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Blessopher Capital — Mission Control</title>
 <style>
-  :root {
-    --sage: #7a9a7e;
-    --sage-light: #a8c4a2;
-    --sage-dark: #4a6b4e;
-    --cream: #f5f0e8;
-    --cream-dark: #ede5d4;
-    --dark: #1a1f1b;
-    --dark-mid: #2c342d;
-    --dark-light: #3d4a3e;
-    --text-muted: #8a9a8b;
-    --white: #ffffff;
-    --accent: #c8b87a;
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--dark);
-    color: var(--cream);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(26,31,27,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(122,154,126,0.15);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--cream);
-    text-decoration: none;
-  }
-
-  .nav-logo-mark {
-    width: 28px; height: 28px;
-    background: var(--sage);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: white;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-    cursor: pointer;
-  }
-
-  .nav-links a:hover { color: var(--cream); }
-
-  .nav-cta {
-    background: var(--sage) !important;
-    color: white !important;
-    padding: 0.6rem 1.4rem;
-    border-radius: 100px;
-    font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--sage-dark) !important; }
-
-  /* PAGES */
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8rem 3rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(122,154,126,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(168,196,162,0.08) 0%, transparent 60%);
-  }
-
-  .hero-tag {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 400;
-    line-height: 1.05;
-    color: var(--cream);
-    max-width: 700px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sage-light);
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--sage);
-    color: white;
-    padding: 0.85rem 2rem;
-    border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    transition: background 0.2s, transform 0.15s;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--cream);
-    padding: 0.85rem 2rem;
-    border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 400;
-    cursor: pointer;
-    border: 1px solid rgba(245,240,232,0.2);
-    transition: border-color 0.2s, transform 0.15s;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .btn-ghost:hover { border-color: rgba(245,240,232,0.5); transform: translateY(-1px); }
-
-  .hero-badges {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 4rem;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .badge-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--sage);
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 6rem 3rem;
-  }
-
-  .section-tag {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 400;
-    color: var(--cream);
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
-  }
-
-  .section-sub {
-    font-size: 1rem;
-    color: var(--text-muted);
-    max-width: 520px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* BATHROOM SELECTOR */
-  .selector-section {
-    background: var(--dark-mid);
-    border-top: 1px solid rgba(122,154,126,0.1);
-    border-bottom: 1px solid rgba(122,154,126,0.1);
-  }
-
-  .selector-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .bathroom-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .bathroom-card {
-    border: 1px solid rgba(122,154,126,0.2);
-    border-radius: 16px;
-    padding: 1.25rem 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-  }
-
-  .bathroom-card:hover {
-    border-color: var(--sage);
-    background: rgba(122,154,126,0.05);
-  }
-
-  .bathroom-card.selected {
-    border-color: var(--sage);
-    background: rgba(122,154,126,0.1);
-  }
-
-  .bathroom-card-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .bathroom-radio {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    border: 2px solid rgba(122,154,126,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.2s;
-    flex-shrink: 0;
-  }
-
-  .bathroom-card.selected .bathroom-radio {
-    border-color: var(--sage);
-  }
-
-  .bathroom-radio-inner {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--sage);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .bathroom-card.selected .bathroom-radio-inner { opacity: 1; }
-
-  .bathroom-label {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--cream);
-  }
-
-  .bathroom-sub {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-
-  .bathroom-price {
-    text-align: right;
-  }
-
-  .bathroom-price-main {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--cream);
-  }
-
-  .bathroom-price-sub {
-    font-size: 0.75rem;
-    color: var(--sage-light);
-  }
-
-  .selector-summary {
-    background: rgba(122,154,126,0.08);
-    border: 1px solid rgba(122,154,126,0.2);
-    border-radius: 20px;
-    padding: 2.5rem;
-  }
-
-  .summary-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-  }
-
-  .summary-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(122,154,126,0.1);
-    font-size: 0.9rem;
-  }
-
-  .summary-row:last-of-type { border-bottom: none; }
-  .summary-label { color: var(--text-muted); }
-  .summary-val { color: var(--cream); font-weight: 500; }
-  .summary-val.highlight { color: var(--sage-light); }
-
-  .summary-cta {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    border-radius: 12px;
-  }
-
-  .summary-note {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: 0.75rem;
-  }
-
-  /* HOW IT WORKS */
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-    max-width: 1000px;
-  }
-
-  .step-card {
-    padding: 2rem;
-    border: 1px solid rgba(122,154,126,0.15);
-    border-radius: 20px;
-    position: relative;
-    background: rgba(122,154,126,0.03);
-  }
-
-  .step-num {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    color: rgba(122,154,126,0.2);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .step-title {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-body {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /* SCIENCE SECTION */
-  .science-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .science-items {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .science-item {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .science-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--sage);
-    flex-shrink: 0;
-    margin-top: 6px;
-  }
-
-  .science-item-title {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.25rem;
-  }
-
-  .science-item-body {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  .science-visual {
-    background: var(--dark-mid);
-    border: 1px solid rgba(122,154,126,0.15);
-    border-radius: 24px;
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  .science-icon-large {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .stat-box {
-    background: rgba(122,154,126,0.08);
-    border-radius: 12px;
-    padding: 1.25rem;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--sage-light);
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-  }
-
-  /* TESTIMONIALS */
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-    max-width: 1100px;
-  }
-
-  .review-card {
-    background: var(--dark-mid);
-    border: 1px solid rgba(122,154,126,0.12);
-    border-radius: 16px;
-    padding: 1.75rem;
-  }
-
-  .review-stars {
-    color: var(--accent);
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-  }
-
-  .review-text {
-    font-size: 0.9rem;
-    color: var(--cream);
-    line-height: 1.65;
-    font-weight: 300;
-    margin-bottom: 1.25rem;
-    font-style: italic;
-    font-family: var(--font-display);
-  }
-
-  .review-author {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
-  /* HOW IT WORKS PAGE */
-  .hiw-hero {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 9rem 3rem 4rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .hiw-hero h1 { margin: 0 auto 1rem; }
-  .hiw-hero .section-sub { margin: 0 auto; text-align: center; }
-
-  .hiw-steps {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .hiw-step {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid rgba(122,154,126,0.1);
-    align-items: start;
-  }
-
-  .hiw-step:last-child { border-bottom: none; }
-
-  .hiw-step-num {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: rgba(122,154,126,0.1);
-    border: 1px solid rgba(122,154,126,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--sage-light);
-    flex-shrink: 0;
-  }
-
-  .hiw-step-title {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-  }
-
-  .hiw-step-body {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .hiw-science-strip {
-    background: var(--dark-mid);
-    border-radius: 24px;
-    padding: 3rem;
-    margin: 4rem auto;
-    max-width: 800px;
-    border: 1px solid rgba(122,154,126,0.15);
-  }
-
-  .ingredient-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .ingredient-box {
-    background: rgba(122,154,126,0.06);
-    border-radius: 12px;
-    padding: 1.25rem;
-    text-align: center;
-    border: 1px solid rgba(122,154,126,0.12);
-  }
-
-  .ingredient-icon { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
-  .ingredient-name { font-size: 0.85rem; font-weight: 500; color: var(--cream); }
-  .ingredient-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
-
-  /* POLICY PAGE */
-  .policy-content {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 9rem 3rem 6rem;
-  }
-
-  .policy-content h1 {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-  }
-
-  .policy-date {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
-  }
-
-  .policy-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .policy-section h2 {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--sage-light);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.8rem;
-  }
-
-  .policy-section p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.75;
-    font-weight: 300;
-  }
-
-  /* CONTACT PAGE */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 9rem 3rem 6rem;
-    align-items: start;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-label {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
-  .form-input {
-    background: var(--dark-mid);
-    border: 1px solid rgba(122,154,126,0.2);
-    border-radius: 10px;
-    padding: 0.85rem 1rem;
-    color: var(--cream);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-    font-weight: 300;
-  }
-
-  .form-input:focus { border-color: var(--sage); }
-  textarea.form-input { min-height: 140px; resize: vertical; }
-
-  .contact-info-item {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-    align-items: flex-start;
-  }
-
-  .contact-info-icon {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: rgba(122,154,126,0.1);
-    border: 1px solid rgba(122,154,126,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
-  .contact-info-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 0.25rem;
-  }
-
-  .contact-info-val {
-    font-size: 0.9rem;
-    color: var(--cream);
-    font-weight: 300;
-  }
-
-  /* SUBSCRIBE PAGE */
-  .subscribe-hero {
-    text-align: center;
-    padding: 9rem 3rem 3rem;
-    position: relative;
-  }
-
-  .plans-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 960px;
-    margin: 3rem auto;
-    padding: 0 3rem;
-  }
-
-  .plan-card {
-    background: var(--dark-mid);
-    border: 1px solid rgba(122,154,126,0.15);
-    border-radius: 24px;
-    padding: 2rem;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .plan-card:hover {
-    border-color: var(--sage);
-    transform: translateY(-4px);
-  }
-
-  .plan-card.featured {
-    border-color: var(--sage);
-    background: rgba(122,154,126,0.08);
-  }
-
-  .plan-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--sage);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 0.3rem 1rem;
-    border-radius: 100px;
-    white-space: nowrap;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .plan-bathrooms {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--sage-light);
-    margin-bottom: 0.5rem;
-  }
-
-  .plan-name {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    color: var(--cream);
-    margin-bottom: 0.25rem;
-  }
-
-  .plan-units {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-  }
-
-  .plan-price {
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-
-  .plan-price span {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 300;
-  }
-
-  .plan-savings {
-    font-size: 0.8rem;
-    color: var(--sage-light);
-    margin-bottom: 1.5rem;
-  }
-
-  .plan-divider {
-    height: 1px;
-    background: rgba(122,154,126,0.1);
-    margin: 1.25rem 0;
-  }
-
-  .plan-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .plan-features li {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex;
-    gap: 0.6rem;
-    align-items: flex-start;
-    font-weight: 300;
-  }
-
-  .plan-features li::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--sage);
-    flex-shrink: 0;
-    margin-top: 5px;
-  }
-
-  .plan-btn {
-    width: 100%;
-    padding: 0.9rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-
-  .subscribe-faq {
-    max-width: 680px;
-    margin: 2rem auto 6rem;
-    padding: 0 3rem;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid rgba(122,154,126,0.1);
-    padding: 1.25rem 0;
-  }
-
-  .faq-q {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-  }
-
-  .faq-a {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid rgba(122,154,126,0.1);
-    padding: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--cream);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--cream); }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    width: 100%;
-  }
-
-  /* Utility */
-  .max-w { max-width: 1200px; margin: 0 auto; }
-  .text-center { text-align: center; }
-  .mt-sm { margin-top: 1rem; }
-  .mt-md { margin-top: 2rem; }
-  .mt-lg { margin-top: 3rem; }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    section, .hero { padding: 5rem 1.5rem; }
-    .selector-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .steps-grid, .reviews-grid, .plans-grid, .ingredient-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2.8rem; }
-    .plans-grid { padding: 0 1.5rem; }
-    .subscribe-faq, .subscribe-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .contact-grid { padding: 6rem 1.5rem 4rem; }
-    .policy-content { padding: 7rem 1.5rem 4rem; }
-    footer { padding: 2rem 1.5rem; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F8F8F6; color: #1a1a1a; min-height: 100vh; }
+  .portal { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #E5E5E0; }
+  .logo { font-size: 20px; font-weight: 600; letter-spacing: -0.5px; }
+  .logo span { color: #3B5C3A; }
+  .date-str { font-size: 13px; color: #888; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+  .metric { background: #EFEFEB; border-radius: 10px; padding: 1rem; }
+  .metric .lbl { font-size: 12px; color: #666; margin-bottom: 6px; }
+  .metric .val { font-size: 22px; font-weight: 600; color: #1a1a1a; line-height: 1.2; }
+  .metric .sub { font-size: 12px; color: #999; margin-top: 4px; }
+  .metric .val.green { color: #1D9E75; }
+  .metric .val.amber { color: #BA7517; }
+  .nav-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .nav-tab { font-size: 13px; padding: 7px 16px; border: 1px solid #DDD; border-radius: 20px; cursor: pointer; color: #666; background: #fff; transition: all 0.15s; }
+  .nav-tab:hover { background: #F0F0EC; }
+  .nav-tab.active { background: #3B5C3A; color: #FAF6F0; border-color: #3B5C3A; }
+  .streams { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .stream-card { background: #fff; border: 1px solid #E5E5E0; border-radius: 14px; padding: 1.25rem; cursor: pointer; transition: border-color 0.15s; }
+  .stream-card:hover { border-color: #3B5C3A; }
+  .stream-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .stream-name { font-size: 15px; font-weight: 600; }
+  .stream-status { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 20px; }
+  .st-active { background: #EAF3DE; color: #27500A; }
+  .st-pending { background: #FAEEDA; color: #633806; }
+  .st-building { background: #E6F1FB; color: #0C447C; }
+  .stream-amount { font-size: 26px; font-weight: 600; margin-bottom: 4px; }
+  .stream-freq { font-size: 12px; color: #999; }
+  .stream-bar { height: 4px; background: #EFEFEB; border-radius: 2px; margin-top: 14px; overflow: hidden; }
+  .stream-fill { height: 100%; border-radius: 2px; }
+  .detail-panel { background: #fff; border: 1px solid #E5E5E0; border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #EFEFEB; }
+  .panel-title { font-size: 17px; font-weight: 600; }
+  .back-btn { font-size: 12px; color: #666; cursor: pointer; padding: 5px 12px; border: 1px solid #DDD; border-radius: 8px; background: #fff; }
+  .back-btn:hover { background: #F5F5F0; }
+  .detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card { background: #fff; border: 1px solid #E5E5E0; border-radius: 12px; padding: 1.25rem; }
+  .card-title { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 12px; }
+  .info-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #F0F0EC; }
+  .info-row:last-child { border-bottom: none; }
+  .info-lbl { color: #777; }
+  .info-val { font-weight: 500; }
+  .info-val.g { color: #1D9E75; }
+  .info-val.a { color: #BA7517; }
+  .info-val.r { color: #E24B4A; }
+  .task-list { }
+  .task-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #F0F0EC; }
+  .task-row:last-child { border-bottom: none; }
+  .tdot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .td-urgent { background: #E24B4A; }
+  .td-active { background: #1D9E75; }
+  .td-waiting { background: #EF9F27; }
+  .task-text { font-size: 13px; line-height: 1.5; }
+  .task-due { font-size: 11px; color: #999; margin-top: 2px; }
+  .price-step { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #F0F0EC; font-size: 13px; }
+  .price-step:last-child { border-bottom: none; }
+  .step-week { color: #999; width: 55px; }
+  .step-price { font-weight: 500; flex: 1; padding: 0 8px; }
+  .step-net { color: #1D9E75; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 20px; }
+  .b-act { background: #EAF3DE; color: #27500A; }
+  .b-pend { background: #FAEEDA; color: #633806; }
+  .b-hold { background: #E6F1FB; color: #0C447C; }
+  .b-dead { background: #F1EFE8; color: #5F5E5A; }
+  .sup-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #F0F0EC; }
+  .sup-row:last-child { border-bottom: none; }
+  .sup-name { font-size: 14px; font-weight: 500; }
+  .sup-detail { font-size: 12px; color: #999; margin-top: 2px; }
+  .hidden { display: none; }
+  .section-divider { font-size: 11px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.6px; margin: 1.25rem 0 0.75rem; }
+  @media (max-width: 700px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .streams { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
 <body>
+<div class="portal">
+  <div class="topbar">
+    <div class="logo"><span>Blessopher</span> Capital LLC</div>
+    <div class="date-str" id="ds"></div>
+  </div>
 
-<nav>
-  <a class="nav-logo" onclick="showPage('home')">
-    <div class="nav-logo-mark">★</div>
-    Maintane
-  </a>
-  <ul class="nav-links">
-    <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('how')">How it works</a></li>
-    <li><a onclick="showPage('subscribe')">Subscribe & Save</a></li>
-    <li><a onclick="showPage('contact')">Contact</a></li>
-    <li><a onclick="showPage('policy')">Policy</a></li>
-    <li><a class="nav-cta" onclick="showPage('subscribe')">Start my plan</a></li>
-  </ul>
-</nav>
+  <div id="main-view">
+    <div class="grid-4">
+      <div class="metric"><div class="lbl">Monthly income</div><div class="val green">$4,900</div><div class="sub">W2 active</div></div>
+      <div class="metric"><div class="lbl">Pending capital</div><div class="val amber">$22,500</div><div class="sub">Solar + commissions</div></div>
+      <div class="metric"><div class="lbl">Monthly surplus</div><div class="val green">$1,900</div><div class="sub">After $3k expenses</div></div>
+      <div class="metric"><div class="lbl">Acquisition target</div><div class="val">$3,500</div><div class="sub">BioWonder · offer sent</div></div>
+    </div>
 
-<!-- ========== HOME ========== -->
-<div class="page active" id="page-home">
+    <div class="nav-tabs">
+      <div class="nav-tab active" onclick="showMain()">Overview</div>
+      <div class="nav-tab" onclick="showStream('jnj')">J&J W2</div>
+      <div class="nav-tab" onclick="showStream('solar')">Solar</div>
+      <div class="nav-tab" onclick="showStream('ecom')">BioWonder</div>
+      <div class="nav-tab" onclick="showStream('capital')">Capital plan</div>
+    </div>
 
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div style="position:relative; z-index:1;">
-      <p class="hero-tag">Natural Septic Care, Redefined</p>
-      <h1>Your system.<br><em>Maintained.</em><br>Every month.</h1>
-      <p class="hero-sub">Premium biosafety-level-1 bacteria in every pod. Safe for kids, pets, and the environment. One flush per toilet, once a month — that's it.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" onclick="showPage('subscribe')">Find my plan</a>
-        <a class="btn-ghost" onclick="showPage('how')">How it works</a>
+    <div class="streams">
+      <div class="stream-card" onclick="showStream('jnj')">
+        <div class="stream-header"><div class="stream-name">Johnson & Johnson</div><span class="stream-status st-active">Active</span></div>
+        <div class="stream-amount">$2,450</div>
+        <div class="stream-freq">Every 2 weeks · W2</div>
+        <div class="stream-bar"><div class="stream-fill" style="width:100%;background:#1D9E75"></div></div>
       </div>
-      <div class="hero-badges">
-        <div class="badge"><div class="badge-dot"></div> Made in USA</div>
-        <div class="badge"><div class="badge-dot"></div> Pet & Kid Safe</div>
-        <div class="badge"><div class="badge-dot"></div> 407 Five-Star Reviews</div>
-        <div class="badge"><div class="badge-dot"></div> Amazon's Choice</div>
+      <div class="stream-card" onclick="showStream('solar')">
+        <div class="stream-header"><div class="stream-name">Solar sales</div><span class="stream-status st-pending">Pending</span></div>
+        <div class="stream-amount">$10,000</div>
+        <div class="stream-freq">3 deals · awaiting payout</div>
+        <div class="stream-bar"><div class="stream-fill" style="width:60%;background:#EF9F27"></div></div>
+      </div>
+      <div class="stream-card" onclick="showStream('ecom')">
+        <div class="stream-header"><div class="stream-name">BioWonder FBA</div><span class="stream-status st-building">Acquisition</span></div>
+        <div class="stream-amount">$1,575</div>
+        <div class="stream-freq">Projected · post-close</div>
+        <div class="stream-bar"><div class="stream-fill" style="width:25%;background:#378ADD"></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Bathroom Selector -->
-  <section class="selector-section">
-    <div class="selector-grid">
-      <div>
-        <p class="section-tag">Monthly Protection Plans</p>
-        <h2 class="section-title">How many bathrooms are you protecting?</h2>
-        <p class="section-sub">One treatment per toilet, once a month. Select your home size and we'll handle the rest.</p>
-
-        <div class="bathroom-options">
-          <div class="bathroom-card" onclick="selectPlan(0)">
-            <div class="bathroom-card-left">
-              <div class="bathroom-radio"><div class="bathroom-radio-inner"></div></div>
-              <div>
-                <div class="bathroom-label">1–2 Bathrooms</div>
-                <div class="bathroom-sub">2 pods per month</div>
-              </div>
-            </div>
-            <div class="bathroom-price">
-              <div class="bathroom-price-main">$14.95/mo</div>
-              <div class="bathroom-price-sub">Save 10%</div>
-            </div>
-          </div>
-          <div class="bathroom-card selected" onclick="selectPlan(1)">
-            <div class="bathroom-card-left">
-              <div class="bathroom-radio"><div class="bathroom-radio-inner"></div></div>
-              <div>
-                <div class="bathroom-label">3–4 Bathrooms</div>
-                <div class="bathroom-sub">4 pods per month</div>
-              </div>
-            </div>
-            <div class="bathroom-price">
-              <div class="bathroom-price-main">$27.95/mo</div>
-              <div class="bathroom-price-sub">Save 12% — Most popular</div>
-            </div>
-          </div>
-          <div class="bathroom-card" onclick="selectPlan(2)">
-            <div class="bathroom-card-left">
-              <div class="bathroom-radio"><div class="bathroom-radio-inner"></div></div>
-              <div>
-                <div class="bathroom-label">5+ Bathrooms</div>
-                <div class="bathroom-sub">6 pods per month</div>
-              </div>
-            </div>
-            <div class="bathroom-price">
-              <div class="bathroom-price-main">$39.95/mo</div>
-              <div class="bathroom-price-sub">Save 15%</div>
-            </div>
+  <div id="jnj-view" class="hidden">
+    <div class="detail-panel">
+      <div class="panel-header">
+        <div class="panel-title">Johnson & Johnson — W2</div>
+        <button class="back-btn" onclick="showMain()">← Back</button>
+      </div>
+      <div class="detail-grid">
+        <div class="metric"><div class="lbl">Per paycheck</div><div class="val">$2,450</div><div class="sub">Every 2 weeks</div></div>
+        <div class="metric"><div class="lbl">Monthly</div><div class="val">$4,900</div><div class="sub">2 paychecks</div></div>
+        <div class="metric"><div class="lbl">Q1 commissions</div><div class="val amber">~$8,794</div><div class="sub">Expected this week</div></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Income details</div>
+          <div class="info-row"><span class="info-lbl">Role</span><span class="info-val">Medical device sales</span></div>
+          <div class="info-row"><span class="info-lbl">Company</span><span class="info-val">Johnson & Johnson</span></div>
+          <div class="info-row"><span class="info-lbl">Pay frequency</span><span class="info-val">Bi-weekly</span></div>
+          <div class="info-row"><span class="info-lbl">State tax</span><span class="info-val g">None (FL)</span></div>
+          <div class="info-row"><span class="info-lbl">Q1 gross commission</span><span class="info-val">$12,500</span></div>
+          <div class="info-row"><span class="info-lbl">Est. net after tax</span><span class="info-val g">~$8,794</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Open tasks</div>
+          <div class="task-list">
+            <div class="task-row"><div class="tdot td-active"></div><div><div class="task-text">Confirm Q1 commission amount with payroll</div><div class="task-due">This week</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Allocate commission to BioWonder acquisition + inventory</div><div class="task-due">Upon receipt</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Track Q2 performance vs quota</div><div class="task-due">Ongoing</div></div></div>
           </div>
         </div>
       </div>
-
-      <div>
-        <div class="selector-summary">
-          <div class="summary-title" id="summary-title">3–4 Bathroom Plan</div>
-          <div class="summary-row">
-            <span class="summary-label">Pods per shipment</span>
-            <span class="summary-val" id="summary-pods">4 pods</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Monthly cost</span>
-            <span class="summary-val" id="summary-price">$27.95</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">You save vs. one-time</span>
-            <span class="summary-val highlight" id="summary-save">$3.84/mo</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Annual savings</span>
-            <span class="summary-val highlight" id="summary-annual">$46/yr</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Shipping</span>
-            <span class="summary-val">Always free</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Cancel anytime</span>
-            <span class="summary-val">No fees, ever</span>
-          </div>
-          <button class="btn-primary summary-cta" onclick="showPage('subscribe')">Start my plan →</button>
-          <p class="summary-note">Ships every 30 days. Pause or cancel from your account.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Maintane -->
-  <section>
-    <div class="max-w">
-      <div class="science-grid">
-        <div>
-          <p class="section-tag">The Science</p>
-          <h2 class="section-title">Not chemicals.<br>Living bacteria.</h2>
-          <p class="section-sub">Most septic treatments dump harsh chemicals that kill everything — including the beneficial bacteria your system needs. Maintane does the opposite.</p>
-          <div class="science-items">
-            <div class="science-item">
-              <div class="science-dot"></div>
-              <div>
-                <div class="science-item-title">Biosafety Level 1 bacteria</div>
-                <div class="science-item-body">The same safety classification used in research labs. Safe for daily home use, verified non-pathogenic.</div>
-              </div>
-            </div>
-            <div class="science-item">
-              <div class="science-dot"></div>
-              <div>
-                <div class="science-item-title">Table salt carrier</div>
-                <div class="science-item-body">The bacteria are delivered in a simple saline matrix — no synthetic binders, no harsh preservatives.</div>
-              </div>
-            </div>
-            <div class="science-item">
-              <div class="science-dot"></div>
-              <div>
-                <div class="science-item-title">Works in 24–72 hours</div>
-                <div class="science-item-body">Bacteria colonize and begin breaking down waste within days of the first treatment.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="science-visual">
-          <span class="science-icon-large">🧬</span>
-          <p class="section-tag text-center">By the numbers</p>
-          <div class="stat-grid">
-            <div class="stat-box">
-              <span class="stat-num">6+</span>
-              <div class="stat-label">Years on Amazon</div>
-            </div>
-            <div class="stat-box">
-              <span class="stat-num">407</span>
-              <div class="stat-label">Verified reviews</div>
-            </div>
-            <div class="stat-box">
-              <span class="stat-num">#3</span>
-              <div class="stat-label">Category ranking</div>
-            </div>
-            <div class="stat-box">
-              <span class="stat-num">USA</span>
-              <div class="stat-label">Made in America</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Strip -->
-  <section style="background: var(--dark-mid); border-top: 1px solid rgba(122,154,126,0.1); border-bottom: 1px solid rgba(122,154,126,0.1);">
-    <div class="max-w">
-      <p class="section-tag">Simple by design</p>
-      <h2 class="section-title">Three steps.<br>Every month.</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div class="step-title">Select your plan</div>
-          <div class="step-body">Choose your bathroom count. We calculate the exact number of pods your home needs for full coverage.</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div class="step-title">We ship every 30 days</div>
-          <div class="step-body">Your pods arrive automatically. No reordering, no forgetting. Just open your door and grab the package.</div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div class="step-title">Flush. Done.</div>
-          <div class="step-body">Drop one pod in each toilet. Flush. The living bacteria go to work immediately. Your septic stays protected.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section>
-    <div class="max-w">
-      <p class="section-tag">What customers say</p>
-      <h2 class="section-title">Real homes.<br>Real results.</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"We've had zero septic issues in 18 months since switching. Our system pumper actually commented on how clean the tank looked."</p>
-          <div class="review-author">Sandra M. — Vermont</div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"The subscription means I literally never think about my septic system anymore. It just works. Worth every penny."</p>
-          <div class="review-author">James T. — North Carolina</div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"I have dogs and two kids. The pet and kid safe label wasn't marketing fluff — I did my research and this is the real deal."</p>
-          <div class="review-author">Cara L. — Texas</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- ========== HOW IT WORKS ========== -->
-<div class="page" id="page-how">
-  <div class="hiw-hero">
-    <div class="hero-bg"></div>
-    <div style="position:relative; z-index:1;">
-      <p class="section-tag">The method</p>
-      <h1 class="section-title">How Maintane works</h1>
-      <p class="section-sub">A simple monthly ritual backed by real microbiology. Here's exactly what happens from the moment you subscribe to the moment your septic tank is protected.</p>
     </div>
   </div>
 
-  <section>
-    <div class="hiw-steps">
-      <div class="hiw-step">
-        <div class="hiw-step-num">1</div>
-        <div>
-          <div class="hiw-step-title">You choose your bathroom count</div>
-          <div class="hiw-step-body">Every bathroom in your home has a toilet connected to your septic system. One pod per toilet per month is the right dosage to maintain healthy bacterial levels throughout your tank and drain field. We calculate it for you — just tell us how many bathrooms you have.</div>
+  <div id="solar-view" class="hidden">
+    <div class="detail-panel">
+      <div class="panel-header">
+        <div class="panel-title">Solar sales</div>
+        <button class="back-btn" onclick="showMain()">← Back</button>
+      </div>
+      <div class="detail-grid">
+        <div class="metric"><div class="lbl">Pending payout</div><div class="val amber">$10,000</div><div class="sub">3 deals closed</div></div>
+        <div class="metric"><div class="lbl">Deals pending</div><div class="val">3</div><div class="sub">Awaiting commission</div></div>
+        <div class="metric"><div class="lbl">Timeline confidence</div><div class="val" style="color:#E24B4A">Low</div><div class="sub">Not confirmed</div></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Pipeline status</div>
+          <div class="info-row"><span class="info-lbl">Deal 1</span><span class="info-val a">Pending payout</span></div>
+          <div class="info-row"><span class="info-lbl">Deal 2</span><span class="info-val a">Pending payout</span></div>
+          <div class="info-row"><span class="info-lbl">Deal 3</span><span class="info-val a">Pending payout</span></div>
+          <div class="info-row"><span class="info-lbl">Total expected</span><span class="info-val g">$10,000</span></div>
+          <div class="info-row"><span class="info-lbl">Strategy</span><span class="info-val">Do not rely for BioWonder</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Open tasks</div>
+          <div class="task-list">
+            <div class="task-row"><div class="tdot td-urgent"></div><div><div class="task-text">Follow up on payout timeline for all 3 deals</div><div class="task-due">This week</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">When received — allocate to debt payoff or next acquisition</div><div class="task-due">Upon receipt</div></div></div>
+          </div>
         </div>
       </div>
-      <div class="hiw-step">
-        <div class="hiw-step-num">2</div>
-        <div>
-          <div class="hiw-step-title">Your first shipment arrives within 5 days</div>
-          <div class="hiw-step-body">We ship via USPS or UPS ground. Every package arrives in discreet, recyclable packaging. No subscriptions showing up in branded boxes that shout "septic treatment" to your neighbors.</div>
-        </div>
-      </div>
-      <div class="hiw-step">
-        <div class="hiw-step-num">3</div>
-        <div>
-          <div class="hiw-step-title">Drop one pod in each toilet and flush</div>
-          <div class="hiw-step-body">That's the entire protocol. The pod dissolves on contact with water, releasing billions of biosafety-level-1 bacteria. They travel down your drain, through your pipes, and into your septic tank where they begin colonizing within hours.</div>
-        </div>
-      </div>
-      <div class="hiw-step">
-        <div class="hiw-step-num">4</div>
-        <div>
-          <div class="hiw-step-title">The bacteria go to work</div>
-          <div class="hiw-step-body">Within 24–72 hours, the bacteria establish colonies and begin breaking down waste, paper, and organic buildup. They survive and reproduce in your tank, maintaining a healthy population between treatments. Monthly dosing keeps the colony strong and your system running efficiently.</div>
-        </div>
-      </div>
-      <div class="hiw-step">
-        <div class="hiw-step-num">5</div>
-        <div>
-          <div class="hiw-step-title">Your next shipment arrives automatically</div>
-          <div class="hiw-step-body">30 days later, your next pods arrive. No action required. Your septic system stays maintained year-round. Most customers see measurable improvements — fewer odors, faster drainage, and cleaner tank inspections — within the first 2–3 months.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hiw-science-strip">
-      <p class="section-tag">What's inside</p>
-      <h3 class="section-title" style="font-size: 1.6rem;">Two ingredients. That's it.</h3>
-      <div class="ingredient-grid">
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🦠</span>
-          <div class="ingredient-name">Biosafety Level 1 Bacteria</div>
-          <div class="ingredient-desc">Non-pathogenic, lab-verified strains that target organic waste breakdown</div>
-        </div>
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🧂</span>
-          <div class="ingredient-name">Table Salt</div>
-          <div class="ingredient-desc">Natural saline carrier — no synthetic binders or preservatives</div>
-        </div>
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🇺🇸</span>
-          <div class="ingredient-name">Made in USA</div>
-          <div class="ingredient-desc">Manufactured in Lawrenceville, GA under strict quality controls</div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ========== SUBSCRIBE & SAVE ========== -->
-<div class="page" id="page-subscribe">
-  <div class="subscribe-hero">
-    <div class="hero-bg"></div>
-    <div style="position:relative; z-index:1;">
-      <p class="section-tag">Protect your system</p>
-      <h1 class="section-title">Subscribe & Save</h1>
-      <p class="section-sub" style="margin: 0 auto;">Choose your bathroom count. Save up to 15%. Cancel any time — no questions asked.</p>
     </div>
   </div>
 
-  <div class="plans-grid">
-    <div class="plan-card">
-      <div class="plan-bathrooms">1–2 Bathrooms</div>
-      <div class="plan-name">Essential</div>
-      <div class="plan-units">2 pods per month</div>
-      <div class="plan-price">$14<span>.95/mo</span></div>
-      <div class="plan-savings">Save 10% vs. one-time purchase</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>2 treatment pods monthly</li>
-        <li>Free shipping every cycle</li>
-        <li>Cancel or pause anytime</li>
-        <li>Kid & pet safe formula</li>
-        <li>Made in USA</li>
-      </ul>
-      <button class="btn-ghost plan-btn">Select Essential</button>
-    </div>
+  <div id="ecom-view" class="hidden">
+    <div class="detail-panel">
+      <div class="panel-header">
+        <div class="panel-title">BioWonder FBA — Acquisition</div>
+        <button class="back-btn" onclick="showMain()">← Back</button>
+      </div>
+      <div class="detail-grid">
+        <div class="metric"><div class="lbl">Acquisition cost</div><div class="val">$3,500</div><div class="sub">Offer sent · awaiting</div></div>
+        <div class="metric"><div class="lbl">COGS per unit</div><div class="val">$7.75</div><div class="sub">Invivo all-in confirmed</div></div>
+        <div class="metric"><div class="lbl">Net/month projected</div><div class="val green">$1,575</div><div class="sub">Current price + volume</div></div>
+      </div>
 
-    <div class="plan-card featured">
-      <div class="plan-badge">Most Popular</div>
-      <div class="plan-bathrooms">3–4 Bathrooms</div>
-      <div class="plan-name">Standard</div>
-      <div class="plan-units">4 pods per month</div>
-      <div class="plan-price">$27<span>.95/mo</span></div>
-      <div class="plan-savings">Save 12% vs. one-time purchase</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>4 treatment pods monthly</li>
-        <li>Free shipping every cycle</li>
-        <li>Cancel or pause anytime</li>
-        <li>Kid & pet safe formula</li>
-        <li>Made in USA</li>
-        <li>Priority customer support</li>
-      </ul>
-      <button class="btn-primary plan-btn">Select Standard</button>
-    </div>
+      <div class="section-divider">Deal status</div>
+      <div class="two-col" style="margin-bottom:12px">
+        <div class="card">
+          <div class="card-title">Negotiation</div>
+          <div class="info-row"><span class="info-lbl">Seller</span><span class="info-val">Matthew · Three Pines Capital</span></div>
+          <div class="info-row"><span class="info-lbl">Our offer</span><span class="info-val">$3,500 · awaiting response</span></div>
+          <div class="info-row"><span class="info-lbl">Last contact</span><span class="info-val">Fri Mar 27</span></div>
+          <div class="info-row"><span class="info-lbl">Follow up</span><span class="info-val a">Wed Apr 2 if no response</span></div>
+          <div class="info-row"><span class="info-lbl">Payback period</span><span class="info-val g">2-3 months</span></div>
+          <div class="info-row"><span class="info-lbl">Worst case</span><span class="info-val">Build competing brand via Invivo</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Supplier pipeline</div>
+          <div class="sup-row"><div><div class="sup-name">Invivo Biosciences</div><div class="sup-detail">Amit Choksi · $7.50 all-in · 500 MOQ · locked</div></div><span class="badge b-act">Primary</span></div>
+          <div class="sup-row"><div><div class="sup-name">Henwil Custom Chemicals</div><div class="sup-detail">Tim Phelps · custom formula offer</div></div><span class="badge b-hold">On hold</span></div>
+          <div class="sup-row"><div><div class="sup-name">QB Septic</div><div class="sup-detail">Email sent · no response yet</div></div><span class="badge b-pend">Outreach</span></div>
+          <div class="sup-row"><div><div class="sup-name">BioGP · Applied Biotech</div><div class="sup-detail">CFU too high · kills reorder velocity</div></div><span class="badge b-dead">Dead end</span></div>
+        </div>
+      </div>
 
-    <div class="plan-card">
-      <div class="plan-bathrooms">5+ Bathrooms</div>
-      <div class="plan-name">Premium</div>
-      <div class="plan-units">6 pods per month</div>
-      <div class="plan-price">$39<span>.95/mo</span></div>
-      <div class="plan-savings">Save 15% vs. one-time purchase</div>
-      <div class="plan-divider"></div>
-      <ul class="plan-features">
-        <li>6 treatment pods monthly</li>
-        <li>Free shipping every cycle</li>
-        <li>Cancel or pause anytime</li>
-        <li>Kid & pet safe formula</li>
-        <li>Made in USA</li>
-        <li>Priority customer support</li>
-        <li>Quarterly system check-in</li>
-      </ul>
-      <button class="btn-ghost plan-btn">Select Premium</button>
+      <div class="section-divider">Post-acquisition playbook</div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Price ladder</div>
+          <div class="price-step"><span class="step-week">Week 1</span><span class="step-price">$42.50 → $45.50</span><span class="step-net">+$3/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 2</span><span class="step-price">$45.50 → $49.99</span><span class="step-net">+$4.49/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 3</span><span class="step-price">$49.99 → $54.99</span><span class="step-net">+$5/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 4</span><span class="step-price">$54.99 → $59.99</span><span class="step-net">+$5/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 5</span><span class="step-price">$59.99 → $64.99</span><span class="step-net">+$5/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 6</span><span class="step-price">$64.99 → $69.99</span><span class="step-net">+$5/unit</span></div>
+          <div class="price-step"><span class="step-week">Week 7</span><span class="step-price">$69.99 → $74.95</span><span class="step-net">Target ceiling</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Open tasks</div>
+          <div class="task-list">
+            <div class="task-row"><div class="tdot td-urgent"></div><div><div class="task-text">Await Matthew's response to $3,500 offer</div><div class="task-due">Follow up Wed Apr 2 if silent</div></div></div>
+            <div class="task-row"><div class="tdot td-active"></div><div><div class="task-text">Await Murk.r logo concepts</div><div class="task-due">Pending</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Register biowonder.com + social handles</div><div class="task-due">Hold until deal confirmed</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Place first inventory order with Amit (500 units, request net-30)</div><div class="task-due">Upon close</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">File trademark assignment post-close</div><div class="task-due">Section 8 due Sep 2026</div></div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="subscribe-faq">
-    <p class="section-tag text-center">Common questions</p>
-    <h3 class="section-title text-center" style="font-size: 1.6rem; margin-bottom: 2rem;">FAQ</h3>
-
-    <div class="faq-item">
-      <div class="faq-q">How does the subscription work?</div>
-      <div class="faq-a">You select your plan based on bathroom count. We charge your card and ship your pods on the same day each month. You get a reminder email 3 days before each shipment so you can make changes.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Can I cancel anytime?</div>
-      <div class="faq-a">Yes. Cancel, pause, or change your plan at any time from your account page. No cancellation fees. No minimum commitment. Ever.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What if I have more than 6 bathrooms?</div>
-      <div class="faq-a">Contact us and we'll set up a custom plan. Large homes and small commercial properties are welcome.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is this safe for my kids and pets?</div>
-      <div class="faq-a">Yes. Maintane contains biosafety-level-1 bacteria — the safest classification — and table salt. No harsh chemicals, no synthetic compounds. It's safer than most household cleaning products.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Does it work for RVs and drain lines too?</div>
-      <div class="faq-a">Yes. Maintane works in any system that uses beneficial bacteria breakdown — septic tanks, RV holding tanks, and clogged or slow drain lines.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== CONTACT ========== -->
-<div class="page" id="page-contact">
-  <div class="contact-grid">
-    <div>
-      <p class="section-tag">Get in touch</p>
-      <h1 class="section-title" style="font-size: 2.2rem;">We're here<br>to help.</h1>
-      <p class="section-sub" style="margin-bottom: 2.5rem;">Questions about your subscription, shipping, or how the product works? Reach out — a real person responds within 24 hours.</p>
-
-      <div class="contact-info-item">
-        <div class="contact-info-icon">✉</div>
-        <div>
-          <div class="contact-info-label">Email</div>
-          <div class="contact-info-val">hello@maintane.com</div>
-        </div>
+  <div id="capital-view" class="hidden">
+    <div class="detail-panel">
+      <div class="panel-header">
+        <div class="panel-title">Capital plan</div>
+        <button class="back-btn" onclick="showMain()">← Back</button>
       </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">⏱</div>
-        <div>
-          <div class="contact-info-label">Response time</div>
-          <div class="contact-info-val">Within 24 hours, Mon–Fri</div>
-        </div>
+      <div class="detail-grid">
+        <div class="metric"><div class="lbl">Monthly surplus</div><div class="val green">$1,900</div><div class="sub">After expenses</div></div>
+        <div class="metric"><div class="lbl">J&J commission est.</div><div class="val amber">~$8,794</div><div class="sub">Expected this week</div></div>
+        <div class="metric"><div class="lbl">Total deployment</div><div class="val">~$7,625</div><div class="sub">Acquisition + inventory</div></div>
       </div>
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📦</div>
-        <div>
-          <div class="contact-info-label">Order questions</div>
-          <div class="contact-info-val">Include your order number for fastest resolution</div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Deployment plan</div>
+          <div class="info-row"><span class="info-lbl">BioWonder acquisition</span><span class="info-val r">-$3,500</span></div>
+          <div class="info-row"><span class="info-lbl">First inventory (500 units)</span><span class="info-val r">-$3,750</span></div>
+          <div class="info-row"><span class="info-lbl">FBA shipping + misc</span><span class="info-val r">-$375</span></div>
+          <div class="info-row"><span class="info-lbl">Total deployment</span><span class="info-val r">-$7,625</span></div>
+          <div class="info-row"><span class="info-lbl">Buffer remaining</span><span class="info-val g">~$1,169</span></div>
         </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="contact-form">
-        <div class="form-field">
-          <label class="form-label">Your name</label>
-          <input class="form-input" type="text" placeholder="First and last name">
+        <div class="card">
+          <div class="card-title">Milestones</div>
+          <div class="task-list">
+            <div class="task-row"><div class="tdot td-urgent"></div><div><div class="task-text">Receive J&J Q1 commission (~$8,794)</div><div class="task-due">This week</div></div></div>
+            <div class="task-row"><div class="tdot td-urgent"></div><div><div class="task-text">Close BioWonder at $3,500</div><div class="task-due">This week / next</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Pay off credit card debt</div><div class="task-due">Target Sep 2026</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Home purchase</div><div class="task-due">Post debt payoff</div></div></div>
+            <div class="task-row"><div class="tdot td-waiting"></div><div><div class="task-text">Second acquisition (new niche)</div><div class="task-due">Year 2 · funded by BioWonder CF</div></div></div>
+          </div>
         </div>
-        <div class="form-field">
-          <label class="form-label">Email address</label>
-          <input class="form-input" type="email" placeholder="you@example.com">
-        </div>
-        <div class="form-field">
-          <label class="form-label">Subject</label>
-          <input class="form-input" type="text" placeholder="What can we help with?">
-        </div>
-        <div class="form-field">
-          <label class="form-label">Message</label>
-          <textarea class="form-input" placeholder="Tell us what's going on..."></textarea>
-        </div>
-        <button class="btn-primary" style="align-self: flex-start; padding: 0.85rem 2rem;">Send message</button>
       </div>
     </div>
   </div>
 </div>
-
-<!-- ========== POLICY ========== -->
-<div class="page" id="page-policy">
-  <div class="policy-content">
-    <h1>Policies</h1>
-    <p class="policy-date">Last updated April 2026</p>
-
-    <div class="policy-section">
-      <h2>Subscription & Billing</h2>
-      <p>Subscriptions are billed on a monthly cycle starting on the date of your first order. You will receive an email reminder 3 days before each renewal. You may cancel, pause, or modify your subscription at any time through your account portal with no cancellation fees. Cancellations made after a billing date will take effect on the following cycle.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>Shipping</h2>
-      <p>All subscription orders ship free via USPS or UPS Ground. Standard delivery takes 3–7 business days. One-time orders include flat-rate shipping at checkout. We ship within 1–2 business days of each billing date. Expedited shipping is available at checkout for an additional fee.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>Returns & Refunds</h2>
-      <p>If you are not satisfied with your first order for any reason, contact us within 30 days and we will issue a full refund. No return required. After the first order, refunds are issued at our discretion for damaged or defective products only. Opened products cannot be returned for hygiene reasons.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>Privacy</h2>
-      <p>We collect only the information necessary to process your order and manage your subscription — your name, email address, shipping address, and payment method. We do not sell or share your data with third parties. Payment processing is handled by Stripe and is fully PCI-compliant. We may send transactional and promotional emails; you may unsubscribe from promotional messages at any time.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>Product Safety</h2>
-      <p>Maintane contains biosafety-level-1 bacteria and table salt. It is non-toxic and safe for use in homes with children and pets. It is not intended for human consumption. Keep out of reach of young children. In the event of eye contact, rinse with water. The product is not a substitute for routine septic system pumping and inspection.</p>
-    </div>
-
-    <div class="policy-section">
-      <h2>Contact</h2>
-      <p>For policy questions, billing disputes, or any other concerns, contact us at hello@maintane.com. We respond to all inquiries within 24 business hours.</p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-logo">Maintane</div>
-  <ul class="footer-links">
-    <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('how')">How it works</a></li>
-    <li><a onclick="showPage('subscribe')">Subscribe</a></li>
-    <li><a onclick="showPage('contact')">Contact</a></li>
-    <li><a onclick="showPage('policy')">Policy</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Maintane. Natural septic care. Made in USA.</p>
-</footer>
 
 <script>
-const plans = [
-  { title: '1–2 Bathroom Plan', pods: '2 pods', price: '$14.95', save: '$1.66/mo', annual: '$20/yr' },
-  { title: '3–4 Bathroom Plan', pods: '4 pods', price: '$27.95', save: '$3.84/mo', annual: '$46/yr' },
-  { title: '5+ Bathroom Plan',  pods: '6 pods', price: '$39.95', save: '$7.05/mo', annual: '$85/yr' }
-];
+  document.getElementById('ds').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 
-function selectPlan(idx) {
-  document.querySelectorAll('.bathroom-card').forEach((c, i) => {
-    c.classList.toggle('selected', i === idx);
-  });
-  const p = plans[idx];
-  document.getElementById('summary-title').textContent = p.title;
-  document.getElementById('summary-pods').textContent = p.pods;
-  document.getElementById('summary-price').textContent = p.price;
-  document.getElementById('summary-save').textContent = p.save;
-  document.getElementById('summary-annual').textContent = p.annual;
-}
+  function showMain(){
+    ['main-view','jnj-view','solar-view','ecom-view','capital-view'].forEach(id=>{
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById('main-view').classList.remove('hidden');
+    document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',i===0));
+  }
 
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  function showStream(name){
+    ['main-view','jnj-view','solar-view','ecom-view','capital-view'].forEach(id=>{
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(name+'-view').classList.remove('hidden');
+    const tabs=['','jnj','solar','ecom','capital'];
+    document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',tabs[i]===name));
+  }
 </script>
 </body>
 </html>
