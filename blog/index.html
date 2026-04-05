@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Maintane | Natural Septic Care</title>
+<meta name="description" content="Expert guides on septic system care, maintenance, and natural treatment options for homeowners. Written by the team at Maintane.">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a9a7e;
+    --sage-light: #a8c4a2;
+    --sage-dark: #4a6b4e;
+    --cream: #f5f0e8;
+    --dark: #1a1f1b;
+    --dark-mid: #2c342d;
+    --text-muted: #8a9a8b;
+    --accent: #c8b87a;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); background: var(--dark); color: var(--cream); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(26,31,27,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(122,154,126,0.15);
+    flex-wrap: wrap;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 1.4rem; color: var(--cream);
+    text-decoration: none; font-weight: 600; letter-spacing: 0.02em;
+  }
+  .nav-logo-mark { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none; font-size: 0.875rem;
+    font-weight: 400; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--cream); }
+  .nav-cta {
+    background: var(--sage) !important; color: white !important;
+    padding: 0.6rem 1.4rem; border-radius: 100px; font-weight: 500 !important;
+  }
+  .trust-bar {
+    width: 100%; display: flex; justify-content: center; gap: 2rem;
+    padding: 0.4rem 0 0; border-top: 1px solid rgba(122,154,126,0.15); margin-top: 0.75rem;
+  }
+
+  .blog-hero {
+    padding: 10rem 3rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .blog-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+  .blog-hero h1 {
+    font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400; color: var(--cream); line-height: 1.1; margin-bottom: 1rem;
+  }
+  .blog-hero p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; max-width: 580px; }
+
+  .posts-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 3rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    background: var(--dark-mid);
+    border: 1px solid rgba(122,154,126,0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .post-card:hover { border-color: var(--sage); transform: translateY(-2px); }
+  .post-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+
+  .post-category {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--sage); font-weight: 500; margin-bottom: 0.75rem;
+  }
+  .post-title {
+    font-family: var(--font-display); font-size: 1.3rem; color: var(--cream);
+    font-weight: 400; line-height: 1.3; margin-bottom: 0.75rem;
+  }
+  .post-card.featured .post-title { font-size: 1.8rem; }
+  .post-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; }
+  .post-meta { font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 1rem; }
+  .post-read { font-size: 0.8rem; color: var(--sage-light); font-weight: 500; margin-top: 1rem; display: inline-block; }
+
+  .post-visual {
+    background: rgba(122,154,126,0.06);
+    border-radius: 14px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  footer { border-top: 1px solid rgba(122,154,126,0.1); padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Be Vietnam Pro', sans-serif; font-size: 1.2rem; color: var(--cream); font-weight: 600; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-copy { font-size: 0.78rem; color: var(--text-muted); width: 100%; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .blog-hero { padding: 8rem 1.5rem 3rem; }
+    .posts-grid { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 4rem; }
+    .post-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-mark"><svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35 70 C35 70 20 55 25 35 C30 15 50 10 60 20 C70 30 65 55 50 65 Z" fill="#4a8c3f"/><path d="M50 65 C50 65 55 45 70 38 C85 31 95 40 90 55 C85 70 65 75 50 65 Z" fill="#6aaf3d"/></svg></div>
+    Maintane
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/how-it-works.html">How it works</a></li>
+    <li><a href="/blog/" class="active">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="#">Buy Now — $47.50</a></li>
+  </ul>
+  <div class="trust-bar">
+    <span style="font-size: 0.88rem; font-weight: 500; color: #a8c4a2; letter-spacing: 0.05em;">🐾 Kid & Pet Friendly — Guaranteed</span>
+    <span style="font-size: 0.88rem; color: rgba(122,154,126,0.4);">|</span>
+    <span style="font-size: 0.88rem; font-weight: 500; color: #a8c4a2; letter-spacing: 0.05em;">🇺🇸 Made in the USA</span>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <p class="blog-tag">The Maintane Journal</p>
+  <h1>Septic care,<br><em>simplified.</em></h1>
+  <p>Expert guides for homeowners who want to protect their septic system naturally — without the guesswork.</p>
+</div>
+
+<div class="posts-grid">
+
+  <a class="post-card featured" href="/blog/what-kills-septic-tank-bacteria.html">
+    <div>
+      <p class="post-category">Septic Health</p>
+      <h2 class="post-title">What Kills Septic Tank Bacteria — And How to Restore It</h2>
+      <p class="post-excerpt">Most homeowners don't realize the everyday products they use are quietly destroying the bacterial ecosystem their septic system depends on. Here's what to avoid — and how to rebuild a healthy tank.</p>
+      <div class="post-meta">
+        <span>5 min read</span>
+        <span>Septic Health</span>
+      </div>
+      <span class="post-read">Read article →</span>
+    </div>
+    <div class="post-visual">🦠</div>
+  </a>
+
+  <a class="post-card" href="/blog/is-septic-treatment-safe-for-pets.html">
+    <p class="post-category">Safety</p>
+    <h2 class="post-title">Is Septic Tank Treatment Safe for Kids and Pets?</h2>
+    <p class="post-excerpt">The short answer is: it depends entirely on what's in the product. Here's how to read the label and what to look for.</p>
+    <div class="post-meta"><span>4 min read</span></div>
+    <span class="post-read">Read article →</span>
+  </a>
+
+  <a class="post-card" href="/blog/how-often-septic-treatment.html">
+    <p class="post-category">Maintenance</p>
+    <h2 class="post-title">How Often Should You Treat Your Septic Tank?</h2>
+    <p class="post-excerpt">Most homeowners either overtreated or completely neglect their system. The right cadence is simpler than you think.</p>
+    <div class="post-meta"><span>3 min read</span></div>
+    <span class="post-read">Read article →</span>
+  </a>
+
+  <a class="post-card" href="/blog/natural-vs-chemical-septic-treatment.html">
+    <p class="post-category">Education</p>
+    <h2 class="post-title">Natural vs. Chemical Septic Treatments: What Homeowners Need to Know</h2>
+    <p class="post-excerpt">Chemical treatments promise fast results. But what are they actually doing to your system long term?</p>
+    <div class="post-meta"><span>6 min read</span></div>
+    <span class="post-read">Read article →</span>
+  </a>
+
+  <a class="post-card" href="/blog/signs-septic-needs-attention.html">
+    <p class="post-category">Warning Signs</p>
+    <h2 class="post-title">5 Signs Your Septic System Needs Attention Right Now</h2>
+    <p class="post-excerpt">Your septic system will tell you when something is wrong — if you know what to look for. Don't ignore these warning signs.</p>
+    <div class="post-meta"><span>4 min read</span></div>
+    <span class="post-read">Read article →</span>
+  </a>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Maintane</div>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/">Contact</a></li>
+    <li><a href="/">Policy</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Maintane™. Natural septic care. Made in USA.</p>
+</footer>
+
+</body>
+</html>
