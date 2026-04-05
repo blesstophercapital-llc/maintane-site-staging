@@ -59,6 +59,11 @@
     min-height: 100vh; display: flex; flex-direction: column;
     justify-content: center; padding: 8rem 3rem 4rem; position: relative; overflow: hidden;
   }
+  @media (max-width: 768px) {
+    .hero { min-height: auto; padding: 7rem 1.5rem 4rem; }
+    .hero-inner { grid-template-columns: 1fr !important; gap: 2rem !important; max-width: 100% !important; }
+    .hero h1 { font-size: 2.4rem !important; }
+  }
   .hero-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(122,154,126,0.12) 0%, transparent 70%),
