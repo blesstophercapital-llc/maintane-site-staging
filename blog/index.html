@@ -53,8 +53,8 @@
   }
 
   .blog-hero {
-    padding: 10rem 3rem 4rem;
-    max-width: 900px;
+    padding: 10rem 3rem 3rem;
+    max-width: 800px;
     margin: 0 auto;
   }
   .blog-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
@@ -64,48 +64,37 @@
   }
   .blog-hero p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; max-width: 580px; }
 
-  .posts-grid {
-    max-width: 900px;
+  .blog-categories {
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 3rem 6rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    padding: 1rem 3rem 6rem;
   }
-
-  .post-card {
-    background: var(--dark-mid);
-    border: 1px solid rgba(122,154,126,0.15);
-    border-radius: 20px;
-    padding: 2rem;
-    text-decoration: none;
-    display: block;
-    transition: border-color 0.2s, transform 0.2s;
+  .cat-section { margin-bottom: 3rem; }
+  .cat-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 1rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(122,154,126,0.15);
   }
-  .post-card:hover { border-color: var(--sage); transform: translateY(-2px); }
-  .post-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-
-  .post-category {
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--sage); font-weight: 500; margin-bottom: 0.75rem;
+  .cat-list { list-style: none; }
+  .cat-item {
+    display: block; text-decoration: none;
+    padding: 1rem 0; border-bottom: 1px solid rgba(122,154,126,0.06);
+    transition: padding-left 0.2s;
   }
-  .post-title {
-    font-family: var(--font-display); font-size: 1.3rem; color: var(--cream);
-    font-weight: 400; line-height: 1.3; margin-bottom: 0.75rem;
+  .cat-item:last-child { border-bottom: none; }
+  .cat-item:hover { padding-left: 0.5rem; }
+  .cat-item-title {
+    font-family: var(--font-display); font-size: 1.15rem; color: var(--cream);
+    font-weight: 400; line-height: 1.3; margin-bottom: 0.3rem;
   }
-  .post-card.featured .post-title { font-size: 1.8rem; }
-  .post-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; }
-  .post-meta { font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 1rem; }
-  .post-read { font-size: 0.8rem; color: var(--sage-light); font-weight: 500; margin-top: 1rem; display: inline-block; }
-
-  .post-visual {
-    background: rgba(122,154,126,0.06);
-    border-radius: 14px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
+  .cat-item-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem;
+  }
+  .cat-item-excerpt {
+    font-size: 0.85rem; color: var(--text-muted); font-weight: 300; line-height: 1.5;
+  }
+  .cat-item-link {
+    font-size: 0.8rem; color: var(--sage-light); font-weight: 500; white-space: nowrap; flex-shrink: 0;
   }
 
   footer { border-top: 1px solid rgba(122,154,126,0.1); padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
@@ -130,9 +119,10 @@
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .hamburger { display: block; }
-    .blog-hero { padding: 6rem 1.5rem 3rem; }
-    .posts-grid { grid-template-columns: 1fr; padding: 1.5rem 1.5rem 4rem; }
-    .post-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+    .blog-hero { padding: 6rem 1.5rem 2rem; }
+    .blog-categories { padding: 0.5rem 1.5rem 4rem; }
+    .cat-item-row { flex-direction: column; gap: 0.25rem; }
+    .cat-item-title { font-size: 1.05rem; }
     footer { padding: 2rem 1.5rem; }
   }
 </style>
@@ -169,93 +159,94 @@
   <p>Expert guides for homeowners who want to protect their septic system naturally — without the guesswork.</p>
 </div>
 
-<div class="posts-grid">
+<div class="blog-categories">
 
-  <a class="post-card featured" href="/blog/what-kills-septic-tank-bacteria.html">
-    <div>
-      <p class="post-category">Septic Health</p>
-      <h2 class="post-title">What Kills Septic Tank Bacteria — And How to Restore It</h2>
-      <p class="post-excerpt">Most homeowners don't realize the everyday products they use are quietly destroying the bacterial ecosystem their septic system depends on. Here's what to avoid — and how to rebuild a healthy tank.</p>
-      <div class="post-meta">
-        <span>5 min read</span>
-        <span>Septic Health</span>
-      </div>
-      <span class="post-read">Read article →</span>
+  <div class="cat-section">
+    <h2 class="cat-label">Septic Health</h2>
+    <div class="cat-list">
+      <a class="cat-item" href="/blog/what-kills-septic-tank-bacteria.html">
+        <div class="cat-item-title">What Kills Septic Tank Bacteria — And How to Restore It</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Everyday products quietly destroy the bacterial ecosystem your system depends on.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+      <a class="cat-item" href="/blog/why-septic-system-smells.html">
+        <div class="cat-item-title">Why Your Septic System Smells and How to Fix It Naturally</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Septic odors are common and usually fixable — without harsh chemicals.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+      <a class="cat-item" href="/blog/how-to-know-septic-tank-full.html">
+        <div class="cat-item-title">How to Know If Your Septic Tank Is Full (And What to Do About It)</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Slow drains, gurgling pipes, and soggy yard patches — here's how to read the signs.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
     </div>
-    <div class="post-visual">🦠</div>
-  </a>
+  </div>
 
-  <a class="post-card" href="/blog/is-septic-treatment-safe-for-pets.html">
-    <p class="post-category">Safety</p>
-    <h2 class="post-title">Is Septic Tank Treatment Safe for Kids and Pets?</h2>
-    <p class="post-excerpt">The short answer is: it depends entirely on what's in the product. Here's how to read the label and what to look for.</p>
-    <div class="post-meta"><span>4 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
+  <div class="cat-section">
+    <h2 class="cat-label">Maintenance</h2>
+    <div class="cat-list">
+      <a class="cat-item" href="/blog/how-often-septic-treatment.html">
+        <div class="cat-item-title">How Often Should You Treat Your Septic Tank?</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">The right cadence is simpler than you think. Here's the definitive answer.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+      <a class="cat-item" href="/blog/septic-maintenance-new-homeowners.html">
+        <div class="cat-item-title">Septic System Maintenance for New Homeowners: A Complete Guide</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Everything you need to know — from how it works to what to do each month.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+      <a class="cat-item" href="/blog/how-bacteria-keep-septic-healthy.html">
+        <div class="cat-item-title">How Bacteria Keep Your Septic Tank Healthy (The Science Behind It)</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Billions of living bacteria do invisible but essential work inside your tank.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <a class="post-card" href="/blog/how-often-septic-treatment.html">
-    <p class="post-category">Maintenance</p>
-    <h2 class="post-title">How Often Should You Treat Your Septic Tank?</h2>
-    <p class="post-excerpt">Most homeowners either overtreated or completely neglect their system. The right cadence is simpler than you think.</p>
-    <div class="post-meta"><span>3 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
+  <div class="cat-section">
+    <h2 class="cat-label">Safety</h2>
+    <div class="cat-list">
+      <a class="cat-item" href="/blog/is-septic-treatment-safe-for-pets.html">
+        <div class="cat-item-title">Is Septic Tank Treatment Safe for Kids and Pets?</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">It depends entirely on what's in the product. Here's how to read the label.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <a class="post-card" href="/blog/natural-vs-chemical-septic-treatment.html">
-    <p class="post-category">Education</p>
-    <h2 class="post-title">Natural vs. Chemical Septic Treatments: What Homeowners Need to Know</h2>
-    <p class="post-excerpt">Chemical treatments promise fast results. But what are they actually doing to your system long term?</p>
-    <div class="post-meta"><span>6 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/signs-septic-needs-attention.html">
-    <p class="post-category">Warning Signs</p>
-    <h2 class="post-title">5 Signs Your Septic System Needs Attention Right Now</h2>
-    <p class="post-excerpt">Your septic system will tell you when something is wrong — if you know what to look for. Don't ignore these warning signs.</p>
-    <div class="post-meta"><span>4 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/how-to-know-septic-tank-full.html">
-    <p class="post-category">Maintenance</p>
-    <h2 class="post-title">How to Know If Your Septic Tank Is Full (And What to Do About It)</h2>
-    <p class="post-excerpt">Slow drains, gurgling pipes, and soggy yard patches are your septic system's way of asking for help. Here's how to read the signs.</p>
-    <div class="post-meta"><span>5 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/truth-about-septic-tank-additives.html">
-    <p class="post-category">Education</p>
-    <h2 class="post-title">The Truth About Septic Tank Additives: What Works and What Doesn't</h2>
-    <p class="post-excerpt">Not all additives are created equal. Some help your system thrive, others quietly destroy it. Here's how to tell the difference.</p>
-    <div class="post-meta"><span>6 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/why-septic-system-smells.html">
-    <p class="post-category">Troubleshooting</p>
-    <h2 class="post-title">Why Your Septic System Smells and How to Fix It Naturally</h2>
-    <p class="post-excerpt">Septic odors are common and usually fixable. Learn the most likely causes and how to eliminate them without harsh chemicals.</p>
-    <div class="post-meta"><span>5 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/septic-maintenance-new-homeowners.html">
-    <p class="post-category">Guide</p>
-    <h2 class="post-title">Septic System Maintenance for New Homeowners: A Complete Guide</h2>
-    <p class="post-excerpt">Just bought a home with a septic system? Everything you need to know about maintaining it — from how it works to what to do each month.</p>
-    <div class="post-meta"><span>7 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
-
-  <a class="post-card" href="/blog/how-bacteria-keep-septic-healthy.html">
-    <p class="post-category">Science</p>
-    <h2 class="post-title">How Bacteria Keep Your Septic Tank Healthy (The Science Behind It)</h2>
-    <p class="post-excerpt">Your septic tank depends on billions of living bacteria to function. Here's the science behind how they work and why they matter.</p>
-    <div class="post-meta"><span>6 min read</span></div>
-    <span class="post-read">Read article →</span>
-  </a>
+  <div class="cat-section">
+    <h2 class="cat-label">Education</h2>
+    <div class="cat-list">
+      <a class="cat-item" href="/blog/natural-vs-chemical-septic-treatment.html">
+        <div class="cat-item-title">Natural vs. Chemical Septic Treatments: What Homeowners Need to Know</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Chemical treatments promise fast results — but what are they doing long term?</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+      <a class="cat-item" href="/blog/truth-about-septic-tank-additives.html">
+        <div class="cat-item-title">The Truth About Septic Tank Additives: What Works and What Doesn't</div>
+        <div class="cat-item-row">
+          <span class="cat-item-excerpt">Not all additives are created equal. Some help, others quietly cause damage.</span>
+          <span class="cat-item-link">Read article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
 </div>
 
