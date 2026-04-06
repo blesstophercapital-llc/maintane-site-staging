@@ -147,10 +147,13 @@
   .footer-links a:hover { color: var(--cream); }
   .footer-copy { font-size: 0.78rem; color: var(--text-muted); width: 100%; }
 
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;z-index:201;}.hamburger span{display:block;width:22px;height:2px;background:var(--cream);margin:5px 0;border-radius:2px;transition:transform 0.3s,opacity 0.3s;}.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}.hamburger.active span:nth-child(2){opacity:0;}.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}.mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:rgba(26,31,27,0.98);backdrop-filter:blur(16px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;}.mobile-menu.open{display:flex;}.mobile-menu a{font-family:'Be Vietnam Pro',sans-serif;font-size:1.2rem;color:var(--cream);text-decoration:none;font-weight:500;transition:color 0.2s;}.mobile-menu a:hover{color:var(--sage-light);}.mobile-menu .mobile-cta{background:var(--sage);color:white;padding:0.85rem 2rem;border-radius:100px;font-weight:600;font-size:1rem;margin-top:1rem;}
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+    nav { padding: 0.8rem 1.2rem; }
     .nav-links { display: none; }
-    .article-wrap { padding: 8rem 1.5rem 4rem; }
+    .nav-cta { display: none; }
+    .hamburger { display: block; }
+    .article-wrap { padding: 6rem 1.5rem 4rem; }
     .related-grid { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; }
   }
@@ -171,7 +174,16 @@
         <li><a href="https://getmaintane.com/#policy">Policy</a></li>
         <li><a class="nav-cta" href="#" target="_blank">Buy Now — $47.50</a></li>
       </ul>
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://getmaintane.com/">Home</a>
+  <a href="https://getmaintane.com/#how">How It Works</a>
+  <a href="https://getmaintane.com/blog/">Blog</a>
+  <a href="https://getmaintane.com/#contact">Contact</a>
+  <a href="https://getmaintane.com/#policy">Policy</a>
+  <a class="mobile-cta" href="#" target="_blank">Buy Now — $47.50</a>
+</div>
 
 <div class="article-wrap">
 
@@ -294,5 +306,8 @@
   <p class="footer-copy">© 2026 Maintane™. Natural septic care. Made in USA.</p>
 </footer>
 
+<script>
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+</script>
 </body>
 </html>

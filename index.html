@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maintane — Natural Septic Care</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --sage: #7a9a7e;
@@ -201,47 +201,82 @@
   .footer-links a:hover { color: var(--cream); }
   .footer-copy { font-size: 0.78rem; color: var(--text-muted); width: 100%; }
 
+  /* HAMBURGER MENU */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); margin: 5px 0; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(26,31,27,0.98); backdrop-filter: blur(16px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 1.2rem; color: var(--cream);
+    text-decoration: none; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em;
+  }
+  .mobile-menu a:hover { color: var(--sage-light); }
+  .mobile-menu .mobile-cta {
+    background: var(--sage); color: white; padding: 0.85rem 2rem; border-radius: 100px;
+    font-weight: 600; font-size: 1rem; margin-top: 1rem;
+  }
+
+  /* HIW STEP CARDS */
+  .hiw-cards {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    max-width: 1100px; margin: 3rem auto 0; padding: 0 1.5rem;
+  }
+  .hiw-card {
+    background: rgba(122,154,126,0.04); border: 1px solid rgba(122,154,126,0.15);
+    border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .hiw-card:hover { border-color: var(--sage); transform: translateY(-2px); }
+  .hiw-card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .hiw-card-num {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--sage); font-weight: 600; margin-bottom: 0.75rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  .hiw-card-title {
+    font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 0.5rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  .hiw-card-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
   @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+    nav { padding: 0.8rem 1.2rem; }
     .nav-links { display: none; }
-    section, .hero { padding: 0 1.5rem; }
+    .nav-cta { display: none; }
+    .hamburger { display: block; }
+    .trust-bar { font-size: 0.65rem; gap: 0.5rem; padding: 0.3rem 0.5rem; }
+    .trust-bar span { letter-spacing: 0.02em; font-size: 0.68rem !important; }
+    .top-trust-bar { padding: 0.5rem 1rem !important; gap: 1rem !important; }
+
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 6rem 1.5rem 3rem; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr !important; gap: 2rem !important; max-width: 100% !important; }
+    .hero-inner > div:last-child { display: none; }
+    .hero h1 { font-size: 2.4rem !important; }
+    .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .steps-grid, .reviews-grid, .ingredient-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2.8rem; }
+    .steps-grid, .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ingredient-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .product-visual { position: static; }
+
+    .hiw-hero { padding: 6rem 1.5rem 1rem; }
+    .hiw-cards { grid-template-columns: 1fr; gap: 1.25rem; padding: 0 1rem; }
+    .hiw-science-strip { margin: 2rem 1rem; padding: 2rem 1.5rem; }
+
     .contact-grid { padding: 6rem 1.5rem 4rem; }
     .policy-content { padding: 7rem 1.5rem 4rem; }
     footer { padding: 2rem 1.5rem; }
-    .product-visual { position: static; }
   }
-
-    @media (max-width: 768px) {
-      .trust-bar { font-size: 0.65rem; gap: 0.5rem; padding: 0.3rem 1rem; }
-      .trust-bar span { letter-spacing: 0.02em; }
-
-      .why-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .science-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .stat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .ingredient-grid { grid-template-columns: 1fr; }
-
-      .hiw-hero { padding: 2rem 1.5rem 1rem; }
-      .hiw-steps {
-        display: flex !important;
-        flex-direction: column !important;
-        max-width: 100% !important;
-        padding: 0 1rem 2rem !important;
-      }
-      .hiw-steps svg { width: 100% !important; max-width: 380px; margin: 0 auto; }
-      .hiw-steps > div:last-of-type { width: 100% !important; }
-
-      nav { padding: 0.8rem 1.2rem; }
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
-
-      section, .hero { padding: 0 1.5rem; }
-      .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
-    }
 
     </style>
 </head>
@@ -260,6 +295,9 @@
         <li><a onclick="showPage('policy')">Policy</a></li>
         <li><a class="nav-cta" href="#" target="_blank">Buy Now — $47.50</a></li>
 </ul>
+  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="trust-bar">
     <span style="font-size: 0.85rem; font-weight: 500; color: #a8c4a2; letter-spacing: 0.05em;">🐾 Kid & Pet Friendly — Guaranteed</span>
     <span style="font-size: 0.72rem; color: rgba(122,154,126,0.4);">|</span>
@@ -267,7 +305,16 @@
   </div>
 </nav>
 
-<div style="background: rgba(122,154,126,0.08); border-bottom: 1px solid rgba(122,154,126,0.15); padding: 0.6rem 3rem; display: flex; justify-content: center; align-items: center; gap: 3rem;">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');closeMobileMenu();">Home</a>
+  <a href="#" onclick="showPage('how');closeMobileMenu();">How It Works</a>
+  <a href="https://getmaintane.com/blog/">Blog</a>
+  <a href="#" onclick="showPage('contact');closeMobileMenu();">Contact</a>
+  <a href="#" onclick="showPage('policy');closeMobileMenu();">Policy</a>
+  <a class="mobile-cta" href="#" target="_blank">Buy Now — $47.50</a>
+</div>
+
+<div class="top-trust-bar" style="background: rgba(122,154,126,0.08); border-bottom: 1px solid rgba(122,154,126,0.15); padding: 0.6rem 3rem; display: flex; justify-content: center; align-items: center; gap: 3rem;">
   <span style="font-size: 0.78rem; font-weight: 500; color: var(--sage-light); letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">🐾 Kid & Pet Friendly — Guaranteed</span>
   <span style="width: 1px; height: 14px; background: rgba(122,154,126,0.3); display: inline-block;"></span>
   <span style="font-size: 0.78rem; font-weight: 500; color: var(--sage-light); letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">🇺🇸 Made in the USA</span>
@@ -499,75 +546,35 @@
 <div class="page" id="page-how">
     <div class="hiw-hero">
       <p class="section-tag">The method</p>
-      <h1 class="section-title">How Maintane works</h1>
-      <p class="section-sub">A simple monthly ritual. Once it starts, it keeps itself going.</p>
-      <p style="font-size:0.78rem;color:#5a8a5a;font-family:system-ui;margin-top:0.5rem;">Click on each step for more information</p>
+      <h1 class="section-title">How Maintane Works</h1>
+      <p class="section-sub" style="margin: 0 auto;">A simple monthly ritual. Once it starts, it keeps itself going.</p>
     </div>
-    <div class="hiw-steps" style="max-width:1200px;margin:0 auto;padding:0 1rem 3rem;display:grid;grid-template-columns:4fr 2fr;gap:2rem;align-items:center;">
-      <svg width="100%" viewBox="0 0 680 530" xmlns="http://www.w3.org/2000/svg" style="display:block;">
-        <defs>
-          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </marker>
-        </defs>
-        <circle cx="340" cy="262" r="110" fill="none" stroke="#2a4a2a" stroke-width="1" stroke-dasharray="4 4"/>
-        <text x="340" y="255" text-anchor="middle" font-size="13" fill="#4a7a4a" font-family="system-ui">your septic</text>
-        <text x="340" y="272" text-anchor="middle" font-size="13" fill="#4a7a4a" font-family="system-ui">system</text>
-        <text x="340" y="290" text-anchor="middle" font-size="11" fill="#3a5a3a" font-family="system-ui">protected year-round</text>
-        <path d="M 388 148 A 130 130 0 0 1 453 197" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <path d="M 501 210 A 130 130 0 0 1 501 314" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <path d="M 453 327 A 130 130 0 0 1 388 378" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <path d="M 292 378 A 130 130 0 0 1 227 327" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <path d="M 179 314 A 130 130 0 0 1 179 210" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <path d="M 227 197 A 130 130 0 0 1 292 148" fill="none" stroke="#5a8a5a" stroke-width="1.2" marker-end="url(#arr)"/>
-        <g id="n1" style="cursor:pointer" onclick="showStep(1)">
-          <circle cx="340" cy="132" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="340" y="128" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">1</text>
-          <text x="340" y="146" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">tub arrives</text>
-        </g>
-        <g id="n2" style="cursor:pointer" onclick="showStep(2)">
-          <circle cx="453" cy="197" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="453" y="193" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">2</text>
-          <text x="453" y="207" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">set monthly</text>
-          <text x="453" y="219" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">reminder</text>
-        </g>
-        <g id="n3" style="cursor:pointer" onclick="showStep(3)">
-          <circle cx="453" cy="327" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="453" y="323" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">3</text>
-          <text x="453" y="337" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">scoop</text>
-          <text x="453" y="349" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">+ flush</text>
-        </g>
-        <g id="n4" style="cursor:pointer" onclick="showStep(4)">
-          <circle cx="340" cy="392" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="340" y="388" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">4</text>
-          <text x="340" y="402" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">bacteria go</text>
-          <text x="340" y="414" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">to work</text>
-        </g>
-        <g id="n5" style="cursor:pointer" onclick="showStep(5)">
-          <circle cx="227" cy="327" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="227" y="323" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">5</text>
-          <text x="227" y="337" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">results</text>
-          <text x="227" y="349" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">build</text>
-        </g>
-        <g id="n6" style="cursor:pointer" onclick="showStep(6)">
-          <circle cx="227" cy="197" r="48" fill="#1e3a1e" stroke="#4a7a4a" stroke-width="1.5"/>
-          <text x="227" y="193" text-anchor="middle" font-size="22" fill="#7ab87a" font-family="system-ui" font-weight="bold">6</text>
-          <text x="227" y="207" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">reorder</text>
-          <text x="227" y="219" text-anchor="middle" font-size="9" fill="#5a8a5a" font-family="system-ui">+ repeat</text>
-        </g>
-      </svg>
-      <div style="display:flex;flex-direction:column;justify-content:center;gap:1.5rem;">
-        <div style="background:rgba(255,255,255,0.04);border:1px solid #3a5a3a;border-radius:12px;padding:2rem;">
-          <div id="d-num" style="width:44px;height:44px;border-radius:50%;border:1px solid #5a8a5a;display:flex;align-items:center;justify-content:center;color:#7ab87a;font-size:1.1rem;font-family:system-ui;margin-bottom:1rem;">1</div>
-          <h3 id="d-title" style="font-size:1.2rem;color:var(--cream);margin-bottom:0.6rem;font-family:var(--font-display);">Your tub arrives</h3>
-          <p id="d-body" style="font-size:0.88rem;color:#9ab89a;line-height:1.7;font-family:system-ui;">Order once and your tub ships within 1-2 business days. Each tub contains enough treatments to keep your system protected for months.</p>
-        </div>
+
+    <div class="hiw-cards">
+      <div class="hiw-card">
+        <span class="hiw-card-icon">📦</span>
+        <div class="hiw-card-num">Step 1</div>
+        <div class="hiw-card-title">Tub Arrives</div>
+        <div class="hiw-card-body">Order once and your tub ships within 1–2 business days. Each tub contains enough treatments to keep your system protected for months.</div>
       </div>
-      <script>
-        var maintaneSteps=[{num:1,title:"Your tub arrives",body:"Order once and your tub ships within 1-2 business days. Each tub contains enough treatments to keep your system protected for months."},{num:2,title:"Set a monthly reminder",body:"Pick any day of the month. Set a recurring reminder on your phone. That's your Maintane day. The whole routine takes under 5 minutes."},{num:3,title:"One scoop per toilet, then flush",body:"Use the included scoop. One level scoop per toilet. Drop it in, flush. The powder dissolves instantly and the living bacteria travel through your pipes."},{num:4,title:"Bacteria go to work",body:"Within 24-72 hours, 3 billion CFU across 6 bacterial strains establish colonies in your tank, breaking down waste, grease, and organic buildup continuously."},{num:5,title:"Results build over time",body:"Most customers notice fewer odors and faster drainage within 2-3 months. By month 6, your system runs the way it was designed to."},{num:6,title:"Running low? Reorder and repeat",body:"When your tub is nearly empty, reorder before your next Maintane day. The cycle continues - your system stays protected year-round."}];
-        function showStep(n){var s=maintaneSteps[n-1];document.getElementById("d-num").textContent=s.num;document.getElementById("d-title").textContent=s.title;document.getElementById("d-body").textContent=s.body;for(var i=1;i<=6;i++){var c=document.getElementById("n"+i).querySelector("circle");if(i===n){c.setAttribute("fill","#2a5a2a");c.setAttribute("stroke","#7ab87a");c.setAttribute("stroke-width","2");}else{c.setAttribute("fill","#1e3a1e");c.setAttribute("stroke","#4a7a4a");c.setAttribute("stroke-width","1.5");}}}
-        showStep(1);
-      </script>
+      <div class="hiw-card">
+        <span class="hiw-card-icon">📅</span>
+        <div class="hiw-card-num">Step 2</div>
+        <div class="hiw-card-title">Set Monthly Reminder</div>
+        <div class="hiw-card-body">Pick any day of the month. Set a recurring reminder on your phone. That's your Maintane day — the whole routine takes under 5 minutes.</div>
+      </div>
+      <div class="hiw-card">
+        <span class="hiw-card-icon">🚽</span>
+        <div class="hiw-card-num">Step 3</div>
+        <div class="hiw-card-title">Scoop + Flush</div>
+        <div class="hiw-card-body">Use the included scoop. One level scoop per toilet. Drop it in, flush. The powder dissolves instantly and the living bacteria travel through your pipes.</div>
+      </div>
+      <div class="hiw-card">
+        <span class="hiw-card-icon">🦠</span>
+        <div class="hiw-card-num">Step 4</div>
+        <div class="hiw-card-title">Bacteria Go to Work</div>
+        <div class="hiw-card-body">Within 24–72 hours, 3 billion CFU across 6 bacterial strains colonize your tank — breaking down waste, grease, and buildup. Results build over time.</div>
+      </div>
     </div>
 
     <div class="hiw-science-strip">
@@ -591,7 +598,6 @@
         </div>
       </div>
     </div>
-  </section>
 </div>
 
 <!-- ========== CONTACT ========== -->
@@ -670,6 +676,16 @@ function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow = '';
 }
 </script>
 </body>
