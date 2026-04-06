@@ -213,7 +213,37 @@
     footer { padding: 2rem 1.5rem; }
     .product-visual { position: static; }
   }
-</style>
+
+    @media (max-width: 768px) {
+      .trust-bar { font-size: 0.65rem; gap: 0.5rem; padding: 0.3rem 1rem; }
+      .trust-bar span { letter-spacing: 0.02em; }
+
+      .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .science-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .ingredient-grid { grid-template-columns: 1fr; }
+
+      .hiw-hero { padding: 2rem 1.5rem 1rem; }
+      .hiw-steps {
+        display: flex !important;
+        flex-direction: column !important;
+        max-width: 100% !important;
+        padding: 0 1rem 2rem !important;
+      }
+      .hiw-steps svg { width: 100% !important; max-width: 380px; margin: 0 auto; }
+      .hiw-steps > div:last-of-type { width: 100% !important; }
+
+      nav { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+
+      section, .hero { padding: 0 1.5rem; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+    }
+
+    </style>
 </head>
 <body>
 
