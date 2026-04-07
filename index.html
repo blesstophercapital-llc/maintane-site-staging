@@ -844,17 +844,29 @@ function closeMobileMenu() {
   tick();
 })();
 
-// Klaviyo email signup
+// Klaviyo email signup (Client API v3 — CORS-safe)
 function submitLaunchEmail(e) {
   e.preventDefault();
   var email = document.getElementById('launchEmailInput').value;
   var form = document.getElementById('launchForm');
-  fetch('https://a.klaviyo.com/api/v2/list/Vdj2X8/subscribe', {
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=UnVzdk', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'revision': '2024-10-15' },
     body: JSON.stringify({
-      api_key: 'UnVzdk',
-      profiles: [{ email: email }]
+      data: {
+        type: 'subscription',
+        attributes: {
+          custom_source: 'Website Launch Banner',
+          profile: {
+            data: { type: 'profile', attributes: { email: email } }
+          }
+        },
+        relationships: {
+          list: {
+            data: { type: 'list', id: 'Vdj2X8' }
+          }
+        }
+      }
     })
   }).then(function() {
     form.innerHTML = '<span class="launch-success">You\'re on the list!</span>';
