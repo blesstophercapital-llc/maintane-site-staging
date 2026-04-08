@@ -88,6 +88,21 @@
   <a class="mobile-cta" href="#" target="_blank">Buy Now — $39.99</a>
 </div>
 
+<div class="launch-banner" id="launchBanner">
+  <span class="launch-copy">Maintane launches soon — be the first to know</span>
+  <div class="launch-countdown" id="launchCountdown">
+    <div class="launch-unit"><span class="launch-num" id="cd-days">--</span><span class="launch-label">Days</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-hours">--</span><span class="launch-label">Hrs</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-mins">--</span><span class="launch-label">Min</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-secs">--</span><span class="launch-label">Sec</span></div>
+  </div>
+  <form class="launch-form" id="launchForm" onsubmit="return submitLaunchEmail(event)">
+    <input class="launch-email" type="email" id="launchEmailInput" placeholder="your.com" required>
+    <button class="launch-submit" type="submit">Notify Me</button>
+  </form>
+</div>
+
+
 <div class="article-wrap">
   <a class="article-back" href="/blog/">← Back to blog</a>
   <p class="article-category">Warning Signs</p>
@@ -182,6 +197,9 @@
 </footer>
 <script>
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+
+(function(){var t=new Date("2026-05-15T00:00:00-04:00").getTime();function k(){var n=Date.now(),d=Math.max(0,t-n);document.getElementById("cd-days").textContent=Math.floor(d/864e5);document.getElementById("cd-hours").textContent=Math.floor(d%864e5/36e5);document.getElementById("cd-mins").textContent=Math.floor(d%36e5/6e4);document.getElementById("cd-secs").textContent=Math.floor(d%6e4/1e3);if(d>0)setTimeout(k,1e3);}k();})();
+function submitLaunchEmail(e){e.preventDefault();var email=document.getElementById("launchEmailInput").value;var form=document.getElementById("launchForm");fetch("https://a.klaviyo.com/client/subscriptions/?company_id=UnVzdk",{method:"POST",headers:{"Content-Type":"application/json","revision":"2024-10-15"},body:JSON.stringify({data:{type:"subscription",attributes:{custom_source:"Website Launch Banner",profile:{data:{type:"profile",attributes:{email:email}}}},relationships:{list:{data:{type:"list",id:"Vdj2X8"}}}}})}).then(function(){form.innerHTML="<span class="launch-success">You're on the list!</span>";}).catch(function(){form.innerHTML="<span class="launch-success">You're on the list!</span>";});return false;}
 </script>
 </body>
 </html>

@@ -44,6 +44,8 @@
   .nav-cta { background: var(--sage) !important; color: white !important; padding: 0.6rem 1.4rem; border-radius: 100px; font-weight: 500 !important; }
   .trust-bar { width: 100%; display: flex; justify-content: center; gap: 2rem; padding: 0.4rem 0 0; border-top: 1px solid rgba(122,154,126,0.15); margin-top: 0.75rem; }
 
+  .launch-banner{background:#3B5C3A;color:#FAF6F0;padding:0.9rem 2rem;margin-top:5.5rem;position:relative;z-index:50;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-family:"Be Vietnam Pro",sans-serif;}.launch-copy{font-size:0.85rem;font-weight:600;letter-spacing:0.02em;}.launch-countdown{display:flex;gap:0.75rem;}.launch-unit{text-align:center;min-width:42px;}.launch-num{font-size:1.1rem;font-weight:700;display:block;line-height:1;}.launch-label{font-size:0.55rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0.7;}.launch-form{display:flex;gap:0.5rem;}.launch-email{background:rgba(250,246,240,0.12);border:1px solid rgba(250,246,240,0.3);border-radius:100px;padding:0.45rem 1rem;color:#FAF6F0;font-family:"DM Sans",sans-serif;font-size:0.8rem;outline:none;width:200px;}.launch-email::placeholder{color:rgba(250,246,240,0.5);}.launch-submit{background:#FAF6F0;color:#3B5C3A;border:none;border-radius:100px;padding:0.45rem 1.1rem;font-family:"Be Vietnam Pro",sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;white-space:nowrap;}.launch-success{font-size:0.8rem;font-weight:500;color:#FAF6F0;}
+
   /* ARTICLE */
   .article-wrap {
     max-width: 720px;
@@ -187,6 +189,21 @@
   <a class="mobile-cta" href="#" target="_blank">Buy Now — $39.99</a>
 </div>
 
+<div class="launch-banner" id="launchBanner">
+  <span class="launch-copy">Maintane launches soon — be the first to know</span>
+  <div class="launch-countdown" id="launchCountdown">
+    <div class="launch-unit"><span class="launch-num" id="cd-days">--</span><span class="launch-label">Days</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-hours">--</span><span class="launch-label">Hrs</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-mins">--</span><span class="launch-label">Min</span></div>
+    <div class="launch-unit"><span class="launch-num" id="cd-secs">--</span><span class="launch-label">Sec</span></div>
+  </div>
+  <form class="launch-form" id="launchForm" onsubmit="return submitLaunchEmail(event)">
+    <input class="launch-email" type="email" id="launchEmailInput" placeholder="your.com" required>
+    <button class="launch-submit" type="submit">Notify Me</button>
+  </form>
+</div>
+
+
 <div class="article-wrap">
 
   <a class="article-back" href="/blog/">← Back to blog</a>
@@ -311,6 +328,9 @@
 
 <script>
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
+
+(function(){var t=new Date("2026-05-15T00:00:00-04:00").getTime();function k(){var n=Date.now(),d=Math.max(0,t-n);document.getElementById("cd-days").textContent=Math.floor(d/864e5);document.getElementById("cd-hours").textContent=Math.floor(d%864e5/36e5);document.getElementById("cd-mins").textContent=Math.floor(d%36e5/6e4);document.getElementById("cd-secs").textContent=Math.floor(d%6e4/1e3);if(d>0)setTimeout(k,1e3);}k();})();
+function submitLaunchEmail(e){e.preventDefault();var email=document.getElementById("launchEmailInput").value;var form=document.getElementById("launchForm");fetch("https://a.klaviyo.com/client/subscriptions/?company_id=UnVzdk",{method:"POST",headers:{"Content-Type":"application/json","revision":"2024-10-15"},body:JSON.stringify({data:{type:"subscription",attributes:{custom_source:"Website Launch Banner",profile:{data:{type:"profile",attributes:{email:email}}}},relationships:{list:{data:{type:"list",id:"Vdj2X8"}}}}})}).then(function(){form.innerHTML="<span class="launch-success">You're on the list!</span>";}).catch(function(){form.innerHTML="<span class="launch-success">You're on the list!</span>";});return false;}
 </script>
 </body>
 </html>
