@@ -441,7 +441,7 @@
             <span style="font-size: 0.85rem; color: var(--sage-light);">30-day full refund</span>
           </div>
         </div>
-        
+        <div id='product-component-1776173676536'></div>
       </div>
     </div>
   </div>
@@ -928,6 +928,85 @@ function submitLaunchEmail(e) {
   });
   return false;
 }
+</script>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'aykixg-rn.myshopify.com',
+      storefrontAccessToken: 'eb671cc3145aef9d9df8a6ed70241662',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '14944300204395',
+        node: document.getElementById('product-component-1776173676536'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "button": {
+        "font-family": "Droid Sans, sans-serif",
+        "font-weight": "bold",
+        ":hover": {"background-color": "#355334"},
+        "background-color": "#3b5c3a",
+        ":focus": {"background-color": "#355334"},
+        "border-radius": "15px",
+        "padding-left": "60px",
+        "padding-right": "60px",
+        "width": "100%"
+      }
+    },
+    "buttonDestination": "checkout",
+    "text": {"button": "Buy now"}
+  },
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Droid Sans, sans-serif",
+        "font-weight": "bold",
+        ":hover": {"background-color": "#355334"},
+        "background-color": "#3b5c3a",
+        ":focus": {"background-color": "#355334"},
+        "border-radius": "15px"
+      }
+    },
+    "text": {"total": "Subtotal", "button": "Checkout"}
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Droid Sans, sans-serif",
+        "font-weight": "bold",
+        "background-color": "#3b5c3a",
+        ":hover": {"background-color": "#355334"},
+        ":focus": {"background-color": "#355334"}
+      }
+    }
+  }
+}
+      });
+    });
+  }
+})();
+/*]]>*/
 </script>
 </body>
 </html>
