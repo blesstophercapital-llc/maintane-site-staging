@@ -362,7 +362,7 @@
         <li><a href="https://getmaintane.com/blog/">Blog</a></li>
         <li><a onclick="showPage('contact')">Contact</a></li>
         <li><a onclick="showPage('policy')">Policy</a></li>
-        <li><a class="nav-cta" href="#hero">Buy Now</a></li>
+        <li><a class="nav-cta" href="/#hero">Buy Now</a></li>
 </ul>
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -544,7 +544,7 @@
           </div>
           <div class="product-price">$39.99</div>
           <div class="product-price-sub">Free shipping on orders over $35</div>
-
+          <div id='product-component-why-maintane'></div>
         </div>
       </div>
     </div>
@@ -788,6 +788,9 @@
         </div>
       </div>
     </div>
+    <div style="max-width:400px;margin:2rem auto 0;">
+      <div id='product-component-hiw'></div>
+    </div>
 </div>
 
 <!-- ========== CONTACT ========== -->
@@ -962,62 +965,22 @@ function submitLaunchEmail(e) {
       domain: 'aykixg-rn.myshopify.com',
       storefrontAccessToken: 'eb671cc3145aef9d9df8a6ed70241662',
     });
+    var btnOpts = {
+      "product": {
+        "contents": {"title":false,"price":false,"compareAtPrice":false,"img":false,"imgWithCarousel":false,"description":false,"options":false,"button":true,"buttonWithQuantity":false},
+        "styles": {"button": {"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px","padding-left":"40px","padding-right":"40px","width":"100%"}},
+        "buttonDestination": "checkout",
+        "text": {"button": "Buy now"}
+      },
+      "cart": {"styles": {"button": {"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px"}},"text":{"total":"Subtotal","button":"Checkout"}},
+      "toggle": {"styles": {"toggle": {"background-color":"#3b5c3a",":hover":{"background-color":"#355334"},":focus":{"background-color":"#355334"}}}}
+    };
     ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '14944300204395',
-        node: document.getElementById('product-component-1776173676536'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-          "product": {
-            "contents": {
-              "title": false,
-              "price": false,
-              "compareAtPrice": false,
-              "img": false,
-              "imgWithCarousel": false,
-              "description": false,
-              "options": false,
-              "button": true,
-              "buttonWithQuantity": false
-            },
-            "styles": {
-              "button": {
-                "font-family": "Droid Sans, sans-serif",
-                "font-weight": "bold",
-                ":hover": {"background-color": "#355334"},
-                "background-color": "#3b5c3a",
-                ":focus": {"background-color": "#355334"},
-                "border-radius": "15px",
-                "padding-left": "40px",
-                "padding-right": "40px",
-                "width": "100%"
-              }
-            },
-            "buttonDestination": "checkout",
-            "text": {"button": "Buy now"}
-          },
-          "cart": {
-            "styles": {
-              "button": {
-                "font-family": "Droid Sans, sans-serif",
-                "font-weight": "bold",
-                ":hover": {"background-color": "#355334"},
-                "background-color": "#3b5c3a",
-                ":focus": {"background-color": "#355334"},
-                "border-radius": "15px"
-              }
-            },
-            "text": {"total": "Subtotal", "button": "Checkout"}
-          },
-          "toggle": {
-            "styles": {
-              "toggle": {
-                "background-color": "#3b5c3a",
-                ":hover": {"background-color": "#355334"},
-                ":focus": {"background-color": "#355334"}
-              }
-            }
-          }
+      var nodes = ['product-component-1776173676536','product-component-why-maintane','product-component-hiw'];
+      nodes.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) {
+          ui.createComponent('product', {id:'14944300204395', node:el, moneyFormat:'%24%7B%7Bamount%7D%7D', options:btnOpts});
         }
       });
     });
