@@ -13,13 +13,6 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=DM+Serif+Display:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  #product-component-1776173676536 .shopify-buy__product__title,
-  #product-component-1776173676536 .shopify-buy__product__price { display: none !important; }
-  #product-component-1776173676536 iframe {
-    min-height: 50px !important;
-    max-height: 60px !important;
-    overflow: hidden !important;
-  }
   :root {
     --sage: #7a9a7e;
     --sage-light: #a8c4a2;
@@ -369,7 +362,7 @@
         <li><a href="https://getmaintane.com/blog/">Blog</a></li>
         <li><a onclick="showPage('contact')">Contact</a></li>
         <li><a onclick="showPage('policy')">Policy</a></li>
-        <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/14944300204395:1?channel=buy_button" target="_blank">Buy Now</a></li>
+        <li><a class="nav-cta" href="https://shop.getmaintane.com" target="_blank">Buy Now</a></li>
 </ul>
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -449,6 +442,11 @@
             <span style="font-size: 0.85rem; color: var(--sage-light);">30-day full refund</span>
           </div>
         </div>
+        <style>
+        .shopify-buy__product__title { display: none !important; }
+        .shopify-buy__product__price { display: none !important; }
+        .shopify-buy__product { padding: 0 !important; }
+        </style>
         <div id='product-component-1776173676536'></div>
       </div>
     </div>
