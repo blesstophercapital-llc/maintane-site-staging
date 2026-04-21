@@ -259,20 +259,13 @@
     });
   }
 
-  // ── Event 11: contact_form_submit (button-click on Send message) ─────────
-  // Note: contact "form" is a non-form <div> as of 2026-04-21. This fires on
-  // click intent. When real form submission is wired up (FormSubmit etc.),
-  // swap to a 'submit' listener on the actual <form> element.
+  // ── Event 11: contact_form_submit (real form submission) ────────────────
   function setupContactForm() {
-    var btns = document.querySelectorAll('.contact-form button');
-    for (var i = 0; i < btns.length; i++) {
-      var btn = btns[i];
-      var label = (btn.textContent || '').trim().toLowerCase();
-      if (label.indexOf('send') === -1) continue;
-      btn.addEventListener('click', function () {
-        fire('contact_form_submit', baseParams());
-      });
-    }
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function () {
+      fire('contact_form_submit', baseParams());
+    });
   }
 
   // ── Init ─────────────────────────────────────────────────────────────────
