@@ -362,7 +362,7 @@
         <li><a href="https://getmaintane.com/blog/">Blog</a></li>
         <li><a onclick="showPage('contact')">Contact</a></li>
         <li><a onclick="showPage('policy')">Policy</a></li>
-        <li><a class="nav-cta" href="#" onclick="showPage('home');document.getElementById('hero').scrollIntoView({behavior:'smooth'});return false;">Buy Now</a></li>
+        <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></li>
 </ul>
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -381,7 +381,7 @@
   <a href="https://getmaintane.com/blog/">Blog</a>
   <a href="#" onclick="showPage('contact');closeMobileMenu();">Contact</a>
   <a href="#" onclick="showPage('policy');closeMobileMenu();">Policy</a>
-  <a class="mobile-cta" href="#" onclick="showPage('home');closeMobileMenu();setTimeout(function(){document.getElementById('hero').scrollIntoView({behavior:'smooth'});},100);return false;">Buy Now</a>
+  <a class="mobile-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a>
 </div>
 
 <!-- ========== HOME ========== -->
@@ -436,7 +436,7 @@
         .shopify-buy__product { padding: 0 !important; margin: 0 !important; }
         .shopify-buy-frame--product { max-width: 100% !important; }
         </style>
-        <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy now</a></div>
+        <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
       </div>
     </div>
   </div>
@@ -530,7 +530,7 @@
             <span class="product-tag">12B CFU</span>
           </div>
           <div class="product-price">$39.99</div>
-          <div style="display:flex;justify-content:center;width:100%;"><div id='product-component-why-maintane'></div></div>
+          <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
         </div>
       </div>
     </div>
@@ -775,7 +775,7 @@
       </div>
     </div>
     <div style="max-width:400px;margin:2rem auto 0;">
-      <div style="display:flex;justify-content:center;width:100%;"><div id='product-component-hiw'></div></div>
+      <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
     </div>
 </div>
 
@@ -876,54 +876,6 @@ function closeMobileMenu() {
   document.body.style.overflow = '';
 }
 
-</script>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'aykixg-rn.myshopify.com',
-      storefrontAccessToken: 'eb671cc3145aef9d9df8a6ed70241662',
-    });
-    var btnOpts = {
-      "product": {
-        "contents": {"title":false,"price":false,"compareAtPrice":false,"img":false,"imgWithCarousel":false,"description":false,"options":false,"button":true,"buttonWithQuantity":false},
-        "styles": {"button": {"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px","padding-left":"40px","padding-right":"40px","width":"100%"}},
-        "buttonDestination": "checkout",
-        "text": {"button": "Buy now"}
-      },
-      "cart": {"styles": {"button": {"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px"}},"text":{"total":"Subtotal","button":"Checkout"}},
-      "toggle": {"styles": {"toggle": {"background-color":"#3b5c3a",":hover":{"background-color":"#355334"},":focus":{"background-color":"#355334"}}}}
-    };
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      var nodes = ['product-component-why-maintane','product-component-hiw'];
-      nodes.forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) {
-          ui.createComponent('product', {id:'14944300204395', node:el, moneyFormat:'%24%7B%7Bamount%7D%7D', options:btnOpts});
-        }
-      });
-    });
-  }
-})();
-/*]]>*/
 </script>
 </body>
 </html>

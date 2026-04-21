@@ -135,7 +135,7 @@
         <li><a href="https://getmaintane.com/blog/">Blog</a></li>
         <li><a href="https://getmaintane.com/#contact">Contact</a></li>
         <li><a href="https://getmaintane.com/#policy">Policy</a></li>
-        <li><a class="nav-cta" href="/#hero">Buy Now</a></li>
+        <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></li>
       </ul>
       <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
@@ -146,7 +146,7 @@
   <a href="https://getmaintane.com/blog/">Blog</a>
   <a href="https://getmaintane.com/#contact">Contact</a>
   <a href="https://getmaintane.com/#policy">Policy</a>
-  <a class="mobile-cta" href="/#hero">Buy Now</a>
+  <a class="mobile-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a>
 </div>
 
 <article class="article-wrap">
@@ -218,7 +218,7 @@
     <div class="cta-block">
       <h3>Start simple, start monthly</h3>
       <p><a href="/">Maintane™ makes septic maintenance simple</a> — one scoop of live bacterial powder into any toilet, once a month. No harsh chemicals, safe for kids and pets, made in the USA.</p>
-      <div style="display:flex;justify-content:center;width:100%;"><div id='product-component-blog-vs-sewer'></div></div>
+      <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
     </div>
 
     <p>A septic system that's well-maintained can last 25 to 30 years or more. One that's neglected can fail in under 10. The difference is almost entirely a matter of awareness and a few minutes of maintenance per month.</p>
@@ -264,8 +264,6 @@
 <script>
 function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':'';}
 
-function initShopifyBtn(nodeId){var s='https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';var FB='https://aykixg-rn.myshopify.com/cart/53069455917419:1';var rendered=false;function hasIframe(el){return !!(el&&el.querySelector('iframe'));}function showFB(){var el=document.getElementById(nodeId);if(!el||rendered||hasIframe(el)||el.querySelector('[data-shopify-fb]'))return;var a=document.createElement('a');a.href=FB;a.textContent='Buy now';a.setAttribute('data-shopify-fb','');a.style.cssText='display:block;width:100%;box-sizing:border-box;text-align:center;font-family:"Droid Sans",sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;';a.onmouseover=function(){a.style.backgroundColor='#355334';};a.onmouseout=function(){a.style.backgroundColor='#3b5c3a';};el.appendChild(a);}function hideFB(){var el=document.getElementById(nodeId);if(!el)return;var f=el.querySelector('[data-shopify-fb]');if(f)f.remove();}var fbTimer=setTimeout(showFB,3000);var watchEl=document.getElementById(nodeId);if(watchEl&&window.MutationObserver){var mo=new MutationObserver(function(){if(hasIframe(watchEl)){rendered=true;clearTimeout(fbTimer);hideFB();mo.disconnect();}});mo.observe(watchEl,{childList:true,subtree:true});}function go(){var c=ShopifyBuy.buildClient({domain:'aykixg-rn.myshopify.com',storefrontAccessToken:'eb671cc3145aef9d9df8a6ed70241662'});ShopifyBuy.UI.onReady(c).then(function(ui){var o={product:{contents:{title:false,price:false,compareAtPrice:false,img:false,description:false,options:false,button:true,buttonWithQuantity:false},styles:{button:{"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px","padding-left":"40px","padding-right":"40px","width":"100%"}},buttonDestination:"checkout",text:{button:"Buy now"}},cart:{styles:{button:{"font-family":"Droid Sans,sans-serif","font-weight":"bold",":hover":{"background-color":"#355334"},"background-color":"#3b5c3a",":focus":{"background-color":"#355334"},"border-radius":"15px"}},text:{total:"Subtotal",button:"Checkout"}},toggle:{styles:{toggle:{"background-color":"#3b5c3a",":hover":{"background-color":"#355334"},":focus":{"background-color":"#355334"}}}}};var el=document.getElementById(nodeId);if(el)ui.createComponent('product',{id:'14944300204395',node:el,moneyFormat:'%24%7B%7Bamount%7D%7D',options:o});});}if(window.ShopifyBuy&&window.ShopifyBuy.UI){go();}else{var e=document.createElement('script');e.async=true;e.src=s;e.onload=go;e.onerror=function(){clearTimeout(fbTimer);showFB();};document.head.appendChild(e);}}
-initShopifyBtn('product-component-blog-vs-sewer');
 </script>
 </body>
 </html>
