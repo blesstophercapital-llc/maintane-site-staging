@@ -1,0 +1,210 @@
+/* Pre-launch waitlist popup — getmaintane.com
+ * Independent from the main site stylesheet. Uses literal brand color values
+ * (not CSS custom properties) so it renders correctly even if loaded in a
+ * context where :root vars aren't defined.
+ *
+ * Brand tokens:
+ *   Forest Green   #3B5C3A
+ *   Warm Cream     #FAF6F0
+ *   Botanical Tan  #C4A882
+ *   Dark Bark      #2C2417
+ *   Sage           #7a9a7e
+ */
+
+.maintane-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+.maintane-popup--visible { display: flex; }
+
+/* Backdrop */
+.maintane-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 36, 23, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.maintane-popup--visible .maintane-popup__backdrop { opacity: 1; }
+
+/* Container */
+.maintane-popup__container {
+  position: relative;
+  background: #FAF6F0;
+  border-radius: 16px;
+  border-left: 4px solid #7a9a7e;
+  max-width: 480px;
+  width: calc(100% - 4rem);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  box-sizing: border-box;
+}
+.maintane-popup--visible .maintane-popup__container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Close button */
+.maintane-popup__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #2C2417;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.maintane-popup__close:hover {
+  background: rgba(122, 154, 126, 0.15);
+  color: #7a9a7e;
+}
+.maintane-popup__close:focus-visible {
+  outline: 2px solid #7a9a7e;
+  outline-offset: 2px;
+}
+
+/* Typography */
+.maintane-popup__kicker {
+  color: #C4A882;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin: 0;
+}
+.maintane-popup__headline {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #2C2417;
+  line-height: 1.1;
+  margin: 0.5rem 0 0;
+}
+.maintane-popup__subhead {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  color: rgba(44, 36, 23, 0.8);
+  line-height: 1.5;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Form */
+.maintane-popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+}
+.maintane-popup__input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid rgba(196, 168, 130, 0.4);
+  border-radius: 8px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  color: #2C2417;
+  background: #FAF6F0;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+.maintane-popup__input:focus {
+  outline: none;
+  border-color: #3B5C3A;
+}
+.maintane-popup__input--invalid {
+  border-color: #c44;
+}
+.maintane-popup__submit {
+  width: 100%;
+  padding: 1rem;
+  background: #3B5C3A;
+  color: #FAF6F0;
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.maintane-popup__submit:hover { background: #2d4a2c; }
+.maintane-popup__submit:active { transform: scale(0.98); }
+.maintane-popup__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success state */
+.maintane-popup__success {
+  text-align: center;
+  margin-top: 1rem;
+}
+.maintane-popup__check {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  background: #7a9a7e;
+  color: #FAF6F0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.maintane-popup__success p {
+  margin: 1rem 0 0;
+  color: #2C2417;
+  font-size: 1rem;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Error state */
+.maintane-popup__error { margin-top: 0.75rem; text-align: center; }
+.maintane-popup__error p {
+  color: #c44;
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Footnote */
+.maintane-popup__footnote {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: rgba(44, 36, 23, 0.6);
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .maintane-popup__container {
+    width: calc(100% - 2rem);
+    padding: 1.5rem;
+  }
+  .maintane-popup__headline { font-size: 1.5rem; }
+}
