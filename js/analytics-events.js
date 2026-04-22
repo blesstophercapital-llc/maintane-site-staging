@@ -260,25 +260,15 @@
   }
 
   // ── Event 11: contact_form_submit (real form submission) ────────────────
-  // Explicit preventDefault + fetch to bypass any SPA / browser quirks that
-  // could intercept native form navigation. FormSubmit accepts the POST, then
-  // we manually navigate to /thank-you.html instead of relying on its 302.
+  // Native form submission required for hCaptcha token to be included in POST.
+  // target="_top" on the form element bypasses SPA interception.
   function setupContactForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    form.addEventListener('submit', function () {
+      // Fire analytics before native form navigates away
       fire('contact_form_submit', baseParams());
-      var formData = new FormData(form);
-      fetch(form.action, { method: 'POST', body: formData })
-        .then(function () {
-          window.location.href = '/thank-you.html';
-        })
-        .catch(function (err) {
-          console.error('Form submission failed:', err);
-          // Fallback: native submit (target="_top" on the form itself bypasses SPA)
-          form.submit();
-        });
+      // Native form submission proceeds to FormSubmit with hCaptcha token attached
     });
   }
 

@@ -188,6 +188,11 @@
   .form-input { background: var(--dark-mid); border: 1px solid rgba(122,154,126,0.2); border-radius: 10px; padding: 0.85rem 1rem; color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; transition: border-color 0.2s; outline: none; width: 100%; font-weight: 300; }
   .form-input:focus { border-color: var(--sage); }
   textarea.form-input { min-height: 140px; resize: vertical; }
+  .h-captcha { margin: 1rem 0; display: flex; justify-content: flex-start; }
+  .h-captcha iframe { border-radius: 8px; }
+  @media (max-width: 768px) {
+    .h-captcha { transform: scale(0.95); transform-origin: left top; }
+  }
   .contact-info-item { display: flex; gap: 1rem; margin-bottom: 1.75rem; align-items: flex-start; }
   .contact-info-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(122,154,126,0.1); border: 1px solid rgba(122,154,126,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
   .contact-info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.25rem; }
@@ -347,6 +352,7 @@
   }
 }
 </script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -807,7 +813,6 @@
       <form class="contact-form" action="https://formsubmit.co/el/receru" method="POST" id="contact-form" target="_top">
         <input type="hidden" name="_subject" value="New Maintane Contact Form Submission">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://getmaintane.com/thank-you.html">
         <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Maintane! We received your message and will respond within 24 hours (Monday-Friday). — Chris">
         <input type="hidden" name="_honey" value="">
@@ -815,6 +820,7 @@
         <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" name="email" placeholder="you@example.com" required></div>
         <div class="form-field"><label class="form-label">Subject</label><input class="form-input" type="text" name="subject" placeholder="What can we help with?"></div>
         <div class="form-field"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="Tell us what's going on..." required></textarea></div>
+        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
         <button type="submit" class="btn-primary" style="align-self: flex-start; padding: 0.85rem 2rem;">Send message</button>
       </form>
     </div>
