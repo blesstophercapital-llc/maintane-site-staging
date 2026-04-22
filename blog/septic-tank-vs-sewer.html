@@ -267,5 +267,30 @@ function toggleMobileMenu(){document.getElementById('mobileMenu').classList.togg
 
 </script>
 <script src="/js/analytics-events.js" defer></script>
+<link rel="stylesheet" href="/css/popup.css">
+<div id="maintane-popup" class="maintane-popup" style="display: none;" aria-hidden="true">
+  <div class="maintane-popup__backdrop"></div>
+  <div class="maintane-popup__container" role="dialog" aria-labelledby="maintane-popup-title" aria-describedby="maintane-popup-desc">
+    <button class="maintane-popup__close" aria-label="Close popup">×</button>
+    <div class="maintane-popup__content">
+      <div class="maintane-popup__kicker">LAUNCHING MAY 15, 2026</div>
+      <h2 id="maintane-popup-title" class="maintane-popup__headline">Be first. Save $20.</h2>
+      <p id="maintane-popup-desc" class="maintane-popup__subhead">Waitlist members get launch-day access at $39.99 — before the price goes up.</p>
+      <form class="maintane-popup__form" id="maintane-popup-form">
+        <input type="email" class="maintane-popup__input" id="maintane-popup-email" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit" class="maintane-popup__submit">Join the waitlist</button>
+      </form>
+      <div class="maintane-popup__success" id="maintane-popup-success" style="display: none;">
+        <div class="maintane-popup__check">✓</div>
+        <p>You're in. Check your email for confirmation.</p>
+      </div>
+      <div class="maintane-popup__error" id="maintane-popup-error" style="display: none;">
+        <p>Something went wrong. Try again or email hello@getmaintane.com.</p>
+      </div>
+      <p class="maintane-popup__footnote">No spam. One email at launch. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+<script src="/js/popup.js" defer></script>
 </body>
 </html>
