@@ -122,31 +122,41 @@
 
   /* HERO */
   .hero {
-    padding: 9rem 0 0 0;
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    min-height: 640px;
+    padding: 0;
     background: var(--forest);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   @media (max-width: 768px) {
-    .hero { padding: 7rem 0 0 0; }
+    .hero { min-height: 560px; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; }
-    .hero h1 { font-size: 2rem !important; }
+    .hero h1 { font-size: 2.4rem !important; }
   }
   .hero-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(122,154,126,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 40% 60% at 20% 80%, rgba(168,196,162,0.08) 0%, transparent 60%);
   }
-  .hero-tag { font-size: 1.125rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tan); margin-bottom: 1.5rem; }
+  .hero-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: #C4A882; font-weight: 500; text-align: center; margin: 0 0 24px 0; }
   .hero h1 {
-    font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 400; line-height: 1.05; color: var(--warm-cream); max-width: 700px; margin-bottom: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--warm-cream);
+    margin: 0;
+    text-align: center;
   }
   .hero h1 em { font-style: italic; color: var(--tan); }
-  .hero-sub { font-size: 1.1rem; color: rgba(250, 246, 240, 0.8); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-sub { font-family: 'DM Sans', system-ui, sans-serif; font-size: 1.25rem; color: rgba(250, 246, 240, 0.92); max-width: 580px; line-height: 1.5; margin: 24px auto 32px; font-weight: 300; text-align: center; }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .hero-badges { display: flex; gap: 10px 12px; margin-top: 32px; flex-wrap: wrap; }
+  .hero-badges { display: flex; justify-content: center; gap: 10px 12px; margin: 0 0 32px 0; flex-wrap: wrap; }
   .badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid #C4A882; border-radius: 999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #FAF6F0; }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #C4A882; flex-shrink: 0; }
 
@@ -356,11 +366,11 @@
     .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { padding: 7rem 0 0 0; }
+    .hero { min-height: 560px; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
-    .hero h1 { font-size: 2rem !important; }
-    .hero-sub { font-size: 0.95rem !important; }
+    .hero h1 { font-size: 2.4rem !important; }
+    .hero-sub { font-size: 1rem !important; max-width: 340px !important; }
     .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -390,65 +400,95 @@
     .badge { font-size: 0.7rem; }
   }
 
-  /* ── Phase 1.5n: Hero photo redesign ── */
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-  }
-  .hero-text-column {
-    padding: 80px 60px 80px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-  .hero-text-inner {
-    max-width: 560px;
-    width: 100%;
-  }
-  .hero-photo {
-    position: relative;
-    overflow: hidden;
-    background: var(--forest);
-    min-height: 480px;
-    align-self: stretch;
-  }
-  .hero-photo img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-  .hero-photo::before {
-    content: '';
+  /* ── Phase 1.5o: Hero carousel ── */
+  .hero-carousel {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(59,92,58,0.25) 0%, rgba(59,92,58,0) 25%);
-    pointer-events: none;
-    z-index: 1;
+    z-index: 0;
   }
-  .hero-photo-credit {
+  .hero-slide {
     position: absolute;
-    bottom: 12px;
-    right: 16px;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .hero-slide.active { opacity: 1; }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(59,92,58,0.55) 100%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 880px;
+    padding: 9rem 24px 6rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: none;
+    border: none;
+    color: rgba(250, 246, 240, 0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 12px 16px;
+    transition: color 0.2s;
+    font-family: inherit;
+    line-height: 1;
+  }
+  .hero-arrow:hover { color: rgba(250, 246, 240, 1); }
+  .hero-arrow-prev { left: 32px; }
+  .hero-arrow-next { right: 32px; }
+  .hero-dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FAF6F0;
+    opacity: 0.4;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .hero-dot.active,
+  .hero-dot:hover { opacity: 1; }
+  .hero-credit {
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    z-index: 3;
     color: rgba(250, 246, 240, 0.4);
     font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 0.7rem;
-    z-index: 2;
+    transition: opacity 0.2s;
   }
   .hero-cta-tan {
     display: inline-block;
-    width: fit-content;
     background: #C4A882;
     color: #2C2417;
-    padding: 14px 32px;
+    padding: 14px 36px;
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 500;
     font-size: 1rem;
@@ -456,7 +496,6 @@
     text-decoration: none;
     border: 1px solid #C4A882;
     border-radius: 0;
-    margin-top: 32px;
     transition: background 0.2s, color 0.2s, border-color 0.2s;
     cursor: pointer;
   }
@@ -465,22 +504,16 @@
     color: #3B5C3A;
     border-color: #3B5C3A;
   }
-  /* Mobile hero stack */
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-photo {
-      aspect-ratio: 4 / 3;
-      min-height: 0;
-      order: -1;
-    }
-    .hero-text-column {
-      padding: 48px 32px;
-    }
+    .hero-content { padding: 7rem 24px 6rem; }
+    .hero-arrow { display: none; }
+    .hero-credit { font-size: 0.65rem; left: 16px; bottom: 12px; }
+    .hero-dots { bottom: 24px; }
     .hero-cta-tan {
       display: block;
       width: 100%;
       max-width: 360px;
-      margin: 32px auto 0 auto;
+      margin: 0 auto;
       box-sizing: border-box;
       text-align: center;
     }
@@ -947,26 +980,31 @@
   
 
   <div class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div class="hero-text-column">
-        <div class="hero-text-inner">
-          <p class="hero-tag">Natural Septic Care, Redefined</p>
-          <h1>Your system.<br><em>Maintained.</em><br>Every month.</h1>
-          <p class="hero-sub">One scoop. Per toilet. Once a month. Never think about your septic again.</p>
-          <div class="hero-badges">
-            <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
-            <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
-            <div class="badge"><div class="badge-dot"></div> Made in USA</div>
-          </div>
-          <a class="hero-cta-tan" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="/hero-family-field.jpg" alt="A family of five walking together through tall grass toward a rural field at dusk" loading="eager">
-        <span class="hero-photo-credit">Photo: Jessica Rockowitz / Unsplash</span>
-      </div>
+    <div class="hero-carousel" id="hero-carousel">
+      <div class="hero-slide active" style="background-image: url('/hero-family-field.jpg');" data-credit="Photo: Jessica Rockowitz / Unsplash"></div>
+      <div class="hero-slide" style="background-image: url('/emotional-trigger-kid-shepherd.jpg');" data-credit="Photo: Holly Landkammer / Unsplash"></div>
+      <div class="hero-slide" style="background-image: url('/emotional-trigger-baby-grass.jpg');" data-credit="Photo: Alexander Mass / Unsplash"></div>
     </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Natural Septic Care, Redefined</p>
+      <h1>Your system. <em>Maintained.</em> Every month.</h1>
+      <p class="hero-sub">One scoop. Per toilet. Once a month. Never think about your septic again.</p>
+      <div class="hero-badges">
+        <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
+        <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
+        <div class="badge"><div class="badge-dot"></div> Made in USA</div>
+      </div>
+      <a class="hero-cta-tan" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+    </div>
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide">‹</button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide">›</button>
+    <div class="hero-dots" role="tablist" aria-label="Hero slides">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="hero-credit" id="hero-credit">Photo: Jessica Rockowitz / Unsplash</div>
   </div>
 
   <!-- Emotional Trigger (Phase 1.5e) -->
@@ -1646,6 +1684,53 @@ function closeMobileMenu() {
 
   // Initial paint (no fade)
   render(false);
+  startAuto();
+})();
+</script>
+<script>
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var prevBtn = document.getElementById('hero-prev');
+  var nextBtn = document.getElementById('hero-next');
+  var credit = document.getElementById('hero-credit');
+  var carousel = document.getElementById('hero-carousel');
+  if (!slides.length || !carousel) return;
+
+  var INTERVAL = 7000;
+  var idx = 0;
+  var timer = null;
+
+  function showSlide(i) {
+    slides.forEach(function(s, j) { s.classList.toggle('active', j === i); });
+    dots.forEach(function(d, j) { d.classList.toggle('active', j === i); });
+    if (credit && slides[i].dataset.credit) credit.textContent = slides[i].dataset.credit;
+    idx = i;
+  }
+  function goto(i) {
+    showSlide((i + slides.length) % slides.length);
+    restart();
+  }
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(function() { goto(idx + 1); }, INTERVAL);
+  }
+  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stopAuto(); startAuto(); }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { goto(idx - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goto(idx + 1); });
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { goto(i); }); });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') stopAuto();
+    else startAuto();
+  });
+
+  showSlide(0);
   startAuto();
 })();
 </script>
