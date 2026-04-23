@@ -528,7 +528,7 @@
   }
   .why-maintane {
     background: #FAF6F0;
-    padding: 100px 0;
+    padding: 100px 80px;
     box-sizing: border-box;
   }
   .why-inner {
@@ -604,7 +604,7 @@
   }
   /* Maintane column tint + 2px Forest Green frame */
   .why-comparison .col-maintane {
-    background: #E8EFE5;
+    background: #4A6B48;
     border-left: 2px solid #C4A882;
     border-right: 2px solid #C4A882;
   }
@@ -658,14 +658,189 @@
   .why-card {
     background: #3B5C3A;
     width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     padding: 100px 80px;
     box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* ── Phase 2.5: Solution section ── */
+  .solution-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .solution-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+  }
+  .solution-headline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #FAF6F0;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .solution-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 16px auto 80px;
+  }
+  /* Block-level header (THE SCIENCE / THE COMPARISON) */
+  .block-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+  .block-headline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #FAF6F0;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+  .block-intro {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 780px;
+    text-align: center;
+    margin: 0 auto 56px;
+  }
+  /* Strain grid */
+  .strain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .strain-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(196, 168, 130, 0.2);
+    border-radius: 0;
+    padding: 32px 28px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+  .strain-num {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .strain-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #FAF6F0;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .strain-name em { font-style: italic; }
+  .strain-target {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .strain-role {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  /* Science supporting claim block */
+  .science-claim {
+    text-align: center;
+    max-width: 780px;
+    margin: 48px auto 0;
+  }
+  .claim-primary {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #FAF6F0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    margin: 0 0 20px 0;
+  }
+  .claim-cite {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: #C4A882;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  /* Divider between blocks */
+  .solution-divider {
+    width: 80px;
+    height: 1px;
+    border: none;
+    background: rgba(196, 168, 130, 0.3);
+    margin: 96px auto;
+    display: block;
+  }
+  /* CTA below comparison */
+  .solution-cta {
+    text-align: center;
+    margin-top: 72px;
+  }
+  .cta-label {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: rgba(250, 246, 240, 0.7);
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+  }
+  /* Scroll-triggered animation */
+  [data-solution-anim] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+  [data-solution-anim].in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-solution-anim] { opacity: 1; transform: none; transition: none; }
   }
 
   @media (max-width: 768px) {
-    .why-maintane { padding: 64px 0; }
+    .why-maintane { padding: 64px 20px; }
     .why-card { padding: 64px 32px; }
     .why-headline { font-size: 1.8rem; }
+    .solution-headline { font-size: 2rem; }
+    .solution-sub { font-size: 1rem; margin-bottom: 56px; }
+    .block-headline { font-size: 1.6rem; }
+    .block-intro { font-size: 1rem; margin-bottom: 40px; }
+    .strain-grid { grid-template-columns: 1fr; }
+    .strain-card { padding: 28px 24px; }
+    .strain-name { font-size: 1.15rem; }
+    .solution-divider { margin: 64px auto; }
+    .solution-cta { margin-top: 56px; }
     .why-sub { font-size: 1rem; margin-bottom: 40px; }
     .why-comparison { display: block; }
     .why-comparison thead { display: none; }
@@ -692,7 +867,7 @@
     }
     .why-comparison tbody td.col-other { background: transparent; }
     .why-comparison tbody td.col-maintane {
-      background: #E8EFE5;
+      background: #4A6B48;
       border: none;
     }
     .why-icon { width: 20px; height: 20px; }
@@ -1051,54 +1226,112 @@
     </div>
   </section>
 
-  <!-- Why Maintane (Phase 2.1) -->
-  <section class="why-maintane" aria-labelledby="why-heading">
+  <!-- Solution Section (Phase 2.5) -->
+  <section class="why-maintane" aria-labelledby="solution-heading">
     <div class="why-card">
-    <div class="why-inner">
-      <p class="why-eyebrow">WHY MAINTANE</p>
-      <h2 class="why-headline" id="why-heading">See what’s actually different.</h2>
-      <p class="why-sub">A side-by-side look at what goes into Maintane versus the septic treatments on the shelf next to it.</p>
-      <table class="why-comparison" role="table">
-        <thead>
+      <div class="solution-inner">
+        <p class="solution-eyebrow">THE SOLUTION</p>
+        <h2 class="solution-headline" id="solution-heading">Built with nature. Backed by science.</h2>
+        <p class="solution-sub">Two ingredients. Six strains. One monthly scoop.</p>
+
+        <!-- BLOCK 1: Science -->
+        <div class="science-block" data-solution-anim data-stagger-ms="0">
+          <p class="block-eyebrow">THE SCIENCE</p>
+          <h3 class="block-headline">Six strains. Six jobs. Zero chemicals.</h3>
+          <p class="block-intro">Most septic treatments rely on harsh chemistry to dissolve what nature already knows how to digest. Maintane works with your system, not against it — using six Biosafety Level 1 bacterial strains, each selected to target a specific type of waste.</p>
+          <div class="strain-grid">
+          <article class="strain-card" data-solution-anim data-stagger-ms="0">
+            <div class="strain-num">01</div>
+            <div class="strain-name"><em>Bacillus subtilis</em></div>
+            <div class="strain-target">PROTEINS & STARCHES</div>
+            <p class="strain-role">The generalist. Tolerates variable tank conditions and produces enzymes that start waste breakdown within hours of entering your system.</p>
+          </article>
+          <article class="strain-card" data-solution-anim data-stagger-ms="80">
+            <div class="strain-num">02</div>
+            <div class="strain-name"><em>Bacillus licheniformis</em></div>
+            <div class="strain-target">FATS, OILS & GREASE</div>
+            <p class="strain-role">The grease specialist. Targets FOG buildup before it reaches your drain field, where it causes the most expensive damage.</p>
+          </article>
+          <article class="strain-card" data-solution-anim data-stagger-ms="160">
+            <div class="strain-num">03</div>
+            <div class="strain-name"><em>Bacillus amyloliquefaciens</em></div>
+            <div class="strain-target">CARBOHYDRATES & SUGARS</div>
+            <p class="strain-role">Handles food waste and household sugars that would otherwise accelerate solid accumulation in your tank.</p>
+          </article>
+          <article class="strain-card" data-solution-anim data-stagger-ms="240">
+            <div class="strain-num">04</div>
+            <div class="strain-name"><em>Bacillus megaterium</em></div>
+            <div class="strain-target">CELLULOSE & PAPER</div>
+            <p class="strain-role">Breaks down toilet paper and plant fibers that form the sludge layer at the bottom of your tank.</p>
+          </article>
+          <article class="strain-card" data-solution-anim data-stagger-ms="320">
+            <div class="strain-num">05</div>
+            <div class="strain-name"><em>Bacillus pumilus</em></div>
+            <div class="strain-target">PROTEINS & ORGANIC BUILDUP</div>
+            <p class="strain-role">Reinforces primary digestion and thrives in the low-oxygen conditions deep within a working septic tank.</p>
+          </article>
+          <article class="strain-card" data-solution-anim data-stagger-ms="400">
+            <div class="strain-num">06</div>
+            <div class="strain-name"><em>Pseudomonas putida</em></div>
+            <div class="strain-target">COMPLEX ORGANICS</div>
+            <p class="strain-role">Tackles what other strains leave behind — soaps, detergents, and residual organic compounds from household wastewater.</p>
+          </article>
+          </div>
+          <div class="science-claim">
+            <p class="claim-primary">Together, 12 billion live cultures per dose work continuously to keep your tank’s natural ecosystem balanced.</p>
+            <p class="claim-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
+          </div>
+        </div>
+
+        <hr class="solution-divider" data-solution-anim data-stagger-ms="0" aria-hidden="true">
+
+        <!-- BLOCK 2: Comparison -->
+        <div class="comparison-block" data-solution-anim data-stagger-ms="0">
+          <p class="block-eyebrow">THE COMPARISON</p>
+          <h3 class="block-headline">See what’s actually different.</h3>
+          <p class="block-intro">A side-by-side look at what goes into Maintane versus the septic treatments on the shelf next to it.</p>
+          <table class="why-comparison" role="table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="visually-hidden">Feature</span></th>
+                <th scope="col" class="col-other">Other Brands</th>
+                <th scope="col" class="col-maintane">Maintane</th>
+              </tr>
+            </thead>
+            <tbody>
           <tr>
-            <th scope="col"><span class="visually-hidden">Feature</span></th>
-            <th scope="col" class="col-other">Other Brands</th>
-            <th scope="col" class="col-maintane">Maintane</th>
+            <th scope="row">Two-ingredient formula</th>
+            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
           </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th scope="row">Two-ingredient formula</th>
-          <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-          <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#3B5C3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row">12B CFU, 6 named bacterial strains</th>
-          <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-          <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#3B5C3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row">Kid & pet safe from day one</th>
-          <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-          <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#3B5C3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row">Made in a U.S. biosafety-certified lab</th>
-          <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-          <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#3B5C3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-        </tr>
-        <tr>
-          <th scope="row">No sulfuric acid, solvents, or surfactants</th>
-          <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-          <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#3B5C3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-        </tr>
-        </tbody>
-      </table>
-      <div class="why-cta">
-        <p class="why-cta-label">Ready to make the switch?</p>
-        <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+          <tr>
+            <th scope="row">12B CFU, 6 named bacterial strains</th>
+            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row">Kid & pet safe from day one</th>
+            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row">Made in a U.S. biosafety-certified lab</th>
+            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row">No sulfuric acid, solvents, or surfactants</th>
+            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+          </tr>
+            </tbody>
+          </table>
+          <div class="solution-cta">
+            <p class="cta-label">Ready to make the switch?</p>
+            <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 
@@ -1781,6 +2014,32 @@ function closeMobileMenu() {
     });
   }, { threshold: 0.15 });
   cards.forEach(function(c) { io.observe(c); });
+})();
+</script>
+<script>
+(function() {
+  var elems = document.querySelectorAll('[data-solution-anim]');
+  if (!elems.length) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    elems.forEach(function(e) { e.classList.add('in-view'); });
+    return;
+  }
+  if (!('IntersectionObserver' in window)) {
+    elems.forEach(function(e) { e.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var stagger = parseInt(entry.target.dataset.staggerMs || '0', 10);
+        setTimeout(function() {
+          entry.target.classList.add('in-view');
+        }, stagger);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  elems.forEach(function(e) { io.observe(e); });
 })();
 </script>
 </body>
