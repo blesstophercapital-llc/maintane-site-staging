@@ -397,14 +397,14 @@
     align-items: stretch;
   }
   .et-text {
-    padding: 120px 80px;
-    max-width: 600px;
+    padding: 80px 60px;
+    max-width: 660px;
     width: 100%;
     margin-left: auto;
     color: #FAF6F0;
     box-sizing: border-box;
   }
-  .et-text-inner { max-width: 520px; }
+  .et-text-inner { max-width: 560px; }
   .et-eyebrow {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
@@ -418,8 +418,8 @@
     font-family: 'DM Serif Display', Georgia, serif;
     font-weight: 400;
     color: #FAF6F0;
-    font-size: 2.8rem;
-    line-height: 1.15;
+    font-size: 2.4rem;
+    line-height: 1.2;
     margin: 0 0 2rem 0;
   }
   .et-body {
@@ -430,7 +430,33 @@
     font-weight: 300;
     margin: 0 0 1.5rem 0;
   }
-  .et-quote-block { margin: 0 0 1.5rem 0; }
+  .et-quote-block {
+    position: relative;
+    margin: 48px 0;
+    padding: 1.5rem 0 0 1.5rem;
+    text-align: center;
+  }
+  .et-quote-block::before {
+    content: '\201C';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 4rem;
+    line-height: 0.5;
+    color: #C4A882;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .et-quote-attribution {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 1.25rem;
+  }
   .et-quote-leadin {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 1rem;
@@ -442,11 +468,11 @@
     font-family: 'DM Serif Display', Georgia, serif;
     font-style: italic;
     color: #FAF6F0;
-    font-size: 1.35rem;
-    line-height: 1.5;
-    margin: 0 0 0.75rem 40px;
-    padding-left: 1.25rem;
-    border-left: 2px solid #C4A882;
+    font-size: 1.65rem;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    border: none;
     quotes: none;
   }
   .et-quote-tail {
@@ -468,7 +494,8 @@
     position: relative;
     overflow: hidden;
     background: #3B5C3A;
-    min-height: 600px;
+    max-height: 640px;
+    align-self: stretch;
   }
   .et-photo img {
     display: block;
@@ -494,6 +521,15 @@
     font-size: 0.7rem;
     z-index: 2;
   }
+  /* Phase 1.5f: cream separator between Hero and Emotional Trigger */
+  .hero-emotional-separator {
+    width: 100%;
+    height: 60px;
+    background: #FAF6F0;
+  }
+  @media (max-width: 768px) {
+    .hero-emotional-separator { height: 40px; }
+  }
   @media (max-width: 768px) {
     .emotional-trigger { grid-template-columns: 1fr; }
     .et-photo {
@@ -507,7 +543,9 @@
       margin: 0;
     }
     .et-headline { font-size: 1.8rem; }
-    .et-quote { margin-left: 16px; font-size: 1.15rem; }
+    .et-quote-block { margin: 32px 0; }
+    .et-quote { margin: 0; font-size: 1.35rem; }
+    .et-quote-block::before { font-size: 3rem; }
   }
 
   /* ── Phase 1.5e: Economics card fix (Maintane = winner) ── */
@@ -677,6 +715,8 @@
     </div>
   </div>
 
+  <div class="hero-emotional-separator" aria-hidden="true"></div>
+
   <!-- Emotional Trigger (Phase 1.5e) -->
   <section class="emotional-trigger" aria-labelledby="drainfield-heading">
     <div class="et-text">
@@ -684,11 +724,12 @@
         <p class="et-eyebrow">WHAT'S ACTUALLY IN YOUR DRAIN FIELD</p>
         <h2 class="et-headline" id="drainfield-heading">The chemicals don’t stay in the tank.</h2>
         <p class="et-body">Most septic treatments on the shelf are built on harsh chemicals — sulfuric acid, solvents, surfactants. They don’t disappear after you flush. They move through your tank, out into your drain field, and down into the soil your kids play on and your dog drinks from.</p>
+        <p class="et-quote-leadin">The EPA has been direct about this:</p>
         <div class="et-quote-block">
-          <p class="et-quote-leadin">The EPA has been direct about this:</p>
           <blockquote class="et-quote">“Children and pets can unknowingly be exposed to this hazard which can cause illness.”</blockquote>
-          <p class="et-quote-tail">Twenty-seven states now restrict or ban specific chemical septic additives because of documented groundwater contamination.</p>
+          <div class="et-quote-attribution">— U.S. Environmental Protection Agency</div>
         </div>
+        <p class="et-body">Twenty-seven states now restrict or ban specific chemical septic additives because of documented groundwater contamination.</p>
         <p class="et-body">Maintane is the opposite design. Two ingredients: live bacteria and table salt. Nothing to leach. Nothing to warn about. Nothing that doesn’t belong in the earth beneath your home.</p>
         <p class="et-source">Sources: U.S. EPA, Septic System Impacts on Water Sources · Septic Tank Additives Fact Sheet (2024)</p>
       </div>
