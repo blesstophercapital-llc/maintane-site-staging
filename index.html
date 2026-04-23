@@ -389,6 +389,167 @@
     .badge { font-size: 0.72rem; }
   }
 
+  /* ── Phase 1.5e: Emotional Trigger ── */
+  .emotional-trigger {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    background: #3B5C3A;
+    align-items: stretch;
+  }
+  .et-text {
+    padding: 120px 80px;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    color: #FAF6F0;
+    box-sizing: border-box;
+  }
+  .et-text-inner { max-width: 520px; }
+  .et-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+  }
+  .et-headline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #FAF6F0;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    margin: 0 0 2rem 0;
+  }
+  .et-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #FAF6F0;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
+  }
+  .et-quote-block { margin: 0 0 1.5rem 0; }
+  .et-quote-leadin {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    margin: 0 0 0.75rem 0;
+    color: rgba(250, 246, 240, 0.85);
+    font-weight: 300;
+  }
+  .et-quote {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    color: #FAF6F0;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem 40px;
+    padding-left: 1.25rem;
+    border-left: 2px solid #C4A882;
+    quotes: none;
+  }
+  .et-quote-tail {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: rgba(250, 246, 240, 0.85);
+    font-weight: 300;
+  }
+  .et-source {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(196, 168, 130, 0.6);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 2rem 0 0 0;
+    line-height: 1.5;
+  }
+  .et-photo {
+    position: relative;
+    overflow: hidden;
+    background: #3B5C3A;
+    min-height: 600px;
+  }
+  .et-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .et-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(59, 92, 58, 0.3) 0%, rgba(59, 92, 58, 0) 40%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .et-credit {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    color: rgba(250, 246, 240, 0.4);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    z-index: 2;
+  }
+  @media (max-width: 768px) {
+    .emotional-trigger { grid-template-columns: 1fr; }
+    .et-photo {
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+      order: -1;
+    }
+    .et-text {
+      padding: 80px 40px;
+      max-width: 100%;
+      margin: 0;
+    }
+    .et-headline { font-size: 1.8rem; }
+    .et-quote { margin-left: 16px; font-size: 1.15rem; }
+  }
+
+  /* ── Phase 1.5e: Economics card fix (Maintane = winner) ── */
+  .econ-card.highlight {
+    background: #A8BFA0 !important;
+    border-color: rgba(59, 92, 58, 0.3) !important;
+    box-shadow: 0 8px 32px rgba(59, 92, 58, 0.15);
+    transform: scale(1.03);
+    position: relative;
+    z-index: 1;
+  }
+  .econ-card.highlight .econ-card-name { color: #2C2417; }
+  .econ-card.highlight .econ-card-body { color: #2C2417; }
+  .econ-card.highlight .econ-card-cost {
+    color: #3B5C3A;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .econ-card-label.smart {
+    background: #3B5C3A !important;
+    color: #FAF6F0 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+  }
+  .econ-bottom-note { color: #2C2417 !important; }
+  @media (max-width: 768px) {
+    .econ-grid { grid-template-columns: 1fr; }
+    .econ-card.highlight {
+      transform: none;
+      order: -1;
+      box-shadow: 0 8px 24px rgba(59, 92, 58, 0.18);
+    }
+  }
+
+  /* ── Phase 1.5e: Footer link hover (text-only effect) ── */
+  .site-footer a.footer-link:hover {
+    text-decoration: underline;
+    text-decoration-color: #C4A882;
+    text-underline-offset: 2px;
+  }
+  .site-footer .footer-submit:hover { color: #3B5C3A; }
+
     </style>
 <script type="application/ld+json">
 {
@@ -516,35 +677,25 @@
     </div>
   </div>
 
-  <!-- The Economics -->
-  <section style="background: var(--off-cream); border-top: 1px solid rgba(59,92,58,0.1); border-bottom: 1px solid rgba(59,92,58,0.1);">
-    <div class="max-w">
-      <p class="section-tag">The economics</p>
-      <h2 class="section-title">Septic repairs are expensive.<br>Prevention isn't.</h2>
-      <p class="section-sub">Most homeowners spend more on coffee each month than on the system that keeps their home functioning.</p>
-      <div class="econ-grid">
-        <div class="econ-card">
-          <span class="econ-card-label risk">High Risk</span>
-          <div class="econ-card-name">Do nothing</div>
-          <div class="econ-card-cost">$0/month</div>
-          <div class="econ-card-body">Pump-out every 2–3 years ($400). Repairs when bacteria die off ($1,500–5,000). Full replacement if neglected ($10,000–30,000).</div>
+  <!-- Emotional Trigger (Phase 1.5e) -->
+  <section class="emotional-trigger" aria-labelledby="drainfield-heading">
+    <div class="et-text">
+      <div class="et-text-inner">
+        <p class="et-eyebrow">WHAT'S ACTUALLY IN YOUR DRAIN FIELD</p>
+        <h2 class="et-headline" id="drainfield-heading">The chemicals don’t stay in the tank.</h2>
+        <p class="et-body">Most septic treatments on the shelf are built on harsh chemicals — sulfuric acid, solvents, surfactants. They don’t disappear after you flush. They move through your tank, out into your drain field, and down into the soil your kids play on and your dog drinks from.</p>
+        <div class="et-quote-block">
+          <p class="et-quote-leadin">The EPA has been direct about this:</p>
+          <blockquote class="et-quote">“Children and pets can unknowingly be exposed to this hazard which can cause illness.”</blockquote>
+          <p class="et-quote-tail">Twenty-seven states now restrict or ban specific chemical septic additives because of documented groundwater contamination.</p>
         </div>
-        <div class="econ-card highlight">
-          <span class="econ-card-label smart">Smart Maintenance</span>
-          <div class="econ-card-name">Maintane</div>
-          <div class="econ-card-cost">$13.33/month</div>
-          <div class="econ-card-body">12B CFU restore your bacterial ecosystem monthly. No pump-out surprises. No odors. No panic calls to a plumber.</div>
-        </div>
-        <div class="econ-card">
-          <span class="econ-card-label complex">Complicated</span>
-          <div class="econ-card-name">Traditional treatments</div>
-          <div class="econ-card-cost">Varies</div>
-          <div class="econ-card-body">Vague "billions" of CFU, no strain transparency, shock protocols that require daily dosing for a week. Complex and inconsistent.</div>
-        </div>
+        <p class="et-body">Maintane is the opposite design. Two ingredients: live bacteria and table salt. Nothing to leach. Nothing to warn about. Nothing that doesn’t belong in the earth beneath your home.</p>
+        <p class="et-source">Sources: U.S. EPA, Septic System Impacts on Water Sources · Septic Tank Additives Fact Sheet (2024)</p>
       </div>
-      <div class="econ-bottom">
-        <p class="econ-bottom-note">One tub = 3 months of protection. $39.99. Free shipping.</p>
-      </div>
+    </div>
+    <div class="et-photo">
+      <img src="/emotional-trigger-baby-grass.jpg" alt="A barefoot child stands on grass with a parent nearby" loading="lazy">
+      <span class="et-credit">Photo: Alexander Mass / Unsplash</span>
     </div>
   </section>
 
@@ -611,7 +762,38 @@
     </div>
   </section>
 
-  <!-- Founder Quote -->
+  <!-- The Economics -->
+  <section style="background: var(--off-cream); border-top: 1px solid rgba(59,92,58,0.1); border-bottom: 1px solid rgba(59,92,58,0.1);">
+    <div class="max-w">
+      <p class="section-tag">The economics</p>
+      <h2 class="section-title">Septic repairs are expensive.<br>Prevention isn't.</h2>
+      <p class="section-sub">Most homeowners spend more on coffee each month than on the system that keeps their home functioning.</p>
+      <div class="econ-grid">
+        <div class="econ-card">
+          <span class="econ-card-label risk">High Risk</span>
+          <div class="econ-card-name">Do nothing</div>
+          <div class="econ-card-cost">$0/month</div>
+          <div class="econ-card-body">Pump-out every 2–3 years ($400). Repairs when bacteria die off ($1,500–5,000). Full replacement if neglected ($10,000–30,000).</div>
+        </div>
+        <div class="econ-card highlight">
+          <span class="econ-card-label smart">Smart Maintenance</span>
+          <div class="econ-card-name">Maintane</div>
+          <div class="econ-card-cost">$13.33/month</div>
+          <div class="econ-card-body">12B CFU restore your bacterial ecosystem monthly. No pump-out surprises. No odors. No panic calls to a plumber.</div>
+        </div>
+        <div class="econ-card">
+          <span class="econ-card-label complex">Complicated</span>
+          <div class="econ-card-name">Traditional treatments</div>
+          <div class="econ-card-cost">Varies</div>
+          <div class="econ-card-body">Vague "billions" of CFU, no strain transparency, shock protocols that require daily dosing for a week. Complex and inconsistent.</div>
+        </div>
+      </div>
+      <div class="econ-bottom">
+        <p class="econ-bottom-note">One tub = 3 months of protection. $39.99. Free shipping.</p>
+      </div>
+    </div>
+  </section>
+<!-- Founder Quote -->
   <section class="founder-quote-section" style="background: #3B5C3A; padding: 6rem 1.5rem; border-left: 4px solid #7a9a7e;">
     <div style="max-width: 680px; margin: 0 auto; text-align: center;">
       <div class="founder-kicker" style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem;">FROM THE FOUNDER</div>
@@ -945,64 +1127,64 @@
   </div>
 </div>
 
-<footer class="site-footer" style="background: #FAF6F0; border-top: 1px solid rgba(196, 168, 130, 0.3); padding: 4rem 4rem 2rem; margin-top: 4rem; width: 100%; box-sizing: border-box;">
+<footer class="site-footer" style="background: #3B5C3A; border-top: 1px solid rgba(196, 168, 130, 0.3); padding: 4rem 4rem 2rem; margin-top: 4rem; width: 100%; box-sizing: border-box;">
   <div style="max-width: 1280px; margin: 0 auto; width: 100%;">
-    <div class="footer-top" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem; border-bottom: 1px solid rgba(196, 168, 130, 0.3); flex-wrap: wrap; gap: 1rem;">
-      <div style="font-family: 'Be Vietnam Pro', system-ui, sans-serif; font-weight: 700; font-size: 1.5rem; color: #3B5C3A;">
+    <div class="footer-top" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem; border-bottom: 1px solid rgba(196, 168, 130, 0.4); flex-wrap: wrap; gap: 1rem;">
+      <div style="font-family: 'Be Vietnam Pro', system-ui, sans-serif; font-weight: 700; font-size: 1.5rem; color: #FAF6F0;">
         Maintane<span style="font-size: 0.75rem; vertical-align: super;">™</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 0.5rem; color: rgba(44, 36, 23, 0.7); font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; color: #C4A882; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem;">
         🐾
         <span>Kid & Pet Friendly — Guaranteed</span>
       </div>
     </div>
-    <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(196, 168, 130, 0.3);">
+    <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(196, 168, 130, 0.4);">
       <div class="footer-column">
         <div style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem;">Explore</div>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-          <li><a href="/" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Home</a></li>
-          <li><a href="/#how" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">How it works</a></li>
-          <li><a href="/blog/dosing-guide.html" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Dosing Guide</a></li>
-          <li><a href="/blog/" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Blog</a></li>
+          <li><a href="/" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Home</a></li>
+          <li><a href="/#how" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">How it works</a></li>
+          <li><a href="/blog/dosing-guide.html" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Dosing Guide</a></li>
+          <li><a href="/blog/" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Blog</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <div style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem;">Support</div>
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-          <li><a href="/#contact" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Contact</a></li>
-          <li><a href="/#policy" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Policy</a></li>
-          <li><a href="/#policy" style="color: #2C2417; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Shipping</a></li>
+          <li><a href="/#contact" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Contact</a></li>
+          <li><a href="/#policy" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Policy</a></li>
+          <li><a href="/#policy" class="footer-link" style="color: #FAF6F0; text-decoration: none; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;">Shipping</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <div style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem;">Follow</div>
         <div style="display: flex; gap: 1rem;">
-          <a href="https://www.tiktok.com/@maintane" target="_blank" rel="noopener" aria-label="TikTok" style="color: #3B5C3A;">
+          <a href="https://www.tiktok.com/@maintane" target="_blank" rel="noopener" aria-label="TikTok" style="color: #C4A882;">
             <span class="maintane-icon" style="width:24px;height:24px;"><svg viewBox="0 0 24 24"><path d="M16 3v12.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M16 3c0 2.5 2 4.5 4.5 4.5"/></svg></span>
           </a>
-          <a href="https://www.instagram.com/getmaintane" target="_blank" rel="noopener" aria-label="Instagram" style="color: #3B5C3A;">
+          <a href="https://www.instagram.com/getmaintane" target="_blank" rel="noopener" aria-label="Instagram" style="color: #C4A882;">
             <span class="maintane-icon" style="width:24px;height:24px;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/></svg></span>
           </a>
         </div>
       </div>
     </div>
-    <div class="footer-waitlist" style="padding: 2.5rem 0; border-bottom: 1px solid rgba(196, 168, 130, 0.3); text-align: center;">
+    <div class="footer-waitlist" style="padding: 2.5rem 0; border-bottom: 1px solid rgba(196, 168, 130, 0.4); text-align: center;">
       <div style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.75rem;">Join the waitlist</div>
-      <div style="font-family: 'DM Serif Display', Georgia, serif; color: #2C2417; font-size: 1.5rem; line-height: 1.3; margin-bottom: 1.5rem;">
+      <div style="font-family: 'DM Serif Display', Georgia, serif; color: #FAF6F0; font-size: 1.5rem; line-height: 1.3; margin-bottom: 1.5rem;">
         Launching May 15. Get 10% off.
       </div>
       <form id="footer-waitlist-form" style="display: flex; gap: 0.5rem; max-width: 560px; margin: 0 auto; flex-wrap: wrap;">
-        <input type="email" id="footer-waitlist-email" placeholder="you@example.com" required aria-label="Email address" style="flex: 1 1 240px; min-width: 0; padding: 0.75rem 1rem; border: 2px solid rgba(196, 168, 130, 0.4); border-radius: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem; color: #2C2417; background: #FAF6F0; box-sizing: border-box;">
-        <button type="submit" style="padding: 0.75rem 1.5rem; background: #3B5C3A; color: #FAF6F0; border: none; border-radius: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; white-space: nowrap;">Join</button>
+        <input type="email" id="footer-waitlist-email" placeholder="you@example.com" required aria-label="Email address" style="flex: 1 1 240px; min-width: 0; padding: 0.75rem 1rem; border: 1px solid #C4A882; border-radius: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem; color: #2C2417; background: #FAF6F0; box-sizing: border-box;">
+        <button type="submit" class="footer-submit" style="padding: 0.75rem 1.5rem; background: #C4A882; color: #2C2417; border: none; border-radius: 8px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: color 0.2s;">Join</button>
       </form>
-      <div id="footer-waitlist-success" style="display: none; color: #7a9a7e; font-family: 'DM Sans', system-ui, sans-serif; margin-top: 0.75rem; font-size: 0.9rem;">
+      <div id="footer-waitlist-success" style="display: none; color: #C4A882; font-family: 'DM Sans', system-ui, sans-serif; margin-top: 0.75rem; font-size: 0.9rem;">
         ✓ You're in. Check your email for confirmation.
       </div>
-      <div id="footer-waitlist-error" style="display: none; color: #c44; font-family: 'DM Sans', system-ui, sans-serif; margin-top: 0.75rem; font-size: 0.9rem;">
+      <div id="footer-waitlist-error" style="display: none; color: #e8b4a8; font-family: 'DM Sans', system-ui, sans-serif; margin-top: 0.75rem; font-size: 0.9rem;">
         Something went wrong. Try again.
       </div>
     </div>
-    <div style="padding-top: 2rem; text-align: center; font-family: 'DM Sans', system-ui, sans-serif; color: rgba(44, 36, 23, 0.5); font-size: 0.8rem;">
+    <div style="padding-top: 2rem; text-align: center; font-family: 'DM Sans', system-ui, sans-serif; color: rgba(250, 246, 240, 0.5); font-size: 0.8rem;">
       © 2026 Maintane™. Natural septic care. Made in the USA.
     </div>
   </div>
