@@ -122,12 +122,13 @@
 
   /* HERO */
   .hero {
-    min-height: auto; display: flex; flex-direction: column;
-    justify-content: flex-start; padding: 9rem 3rem 4rem; position: relative; overflow: hidden;
+    padding: 9rem 0 0 0;
+    position: relative;
+    overflow: hidden;
     background: var(--forest);
   }
   @media (max-width: 768px) {
-    .hero { min-height: auto; padding: 8rem 1.5rem 2rem; }
+    .hero { padding: 7rem 0 0 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; }
     .hero h1 { font-size: 2rem !important; }
@@ -355,7 +356,7 @@
     .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { padding: 8rem 1rem 2rem; min-height: auto; }
+    .hero { padding: 7rem 0 0 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
     .hero h1 { font-size: 2rem !important; }
@@ -387,6 +388,102 @@
     .bullets { gap: 1.25rem; }
     .hero-badges { gap: 10px 12px; }
     .badge { font-size: 0.7rem; }
+  }
+
+  /* ── Phase 1.5n: Hero photo redesign ── */
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  .hero-text-column {
+    padding: 80px 60px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .hero-text-inner {
+    max-width: 560px;
+    width: 100%;
+  }
+  .hero-photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--forest);
+    min-height: 480px;
+    align-self: stretch;
+  }
+  .hero-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(59,92,58,0.25) 0%, rgba(59,92,58,0) 25%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-photo-credit {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    color: rgba(250, 246, 240, 0.4);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    z-index: 2;
+  }
+  .hero-cta-tan {
+    display: inline-block;
+    width: fit-content;
+    background: #C4A882;
+    color: #2C2417;
+    padding: 14px 32px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid #C4A882;
+    border-radius: 0;
+    margin-top: 32px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .hero-cta-tan:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #3B5C3A;
+  }
+  /* Mobile hero stack */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo {
+      aspect-ratio: 4 / 3;
+      min-height: 0;
+      order: -1;
+    }
+    .hero-text-column {
+      padding: 48px 32px;
+    }
+    .hero-cta-tan {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      margin: 32px auto 0 auto;
+      box-sizing: border-box;
+      text-align: center;
+    }
   }
 
   /* ── Phase 2.1: Why Maintane comparison grid ── */
@@ -851,53 +948,23 @@
 
   <div class="hero" id="hero">
     <div class="hero-bg"></div>
-    <div class="hero-inner" style="position:relative; z-index:1; display:grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; width: 100%;">
-      <div>
-        <p class="hero-tag">Natural Septic Care, Redefined</p>
-        <h1>Your system.<br><em>Maintained.</em><br>Every month.</h1>
-        <p class="hero-sub">One scoop. Per toilet. Once a month. Never think about your septic again.</p>
-        <div class="hero-actions">
-
-        </div>
-        <div class="hero-badges">
-          <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
-          <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
-          <div class="badge"><div class="badge-dot"></div> Made in USA</div>
+    <div class="hero-inner">
+      <div class="hero-text-column">
+        <div class="hero-text-inner">
+          <p class="hero-tag">Natural Septic Care, Redefined</p>
+          <h1>Your system.<br><em>Maintained.</em><br>Every month.</h1>
+          <p class="hero-sub">One scoop. Per toilet. Once a month. Never think about your septic again.</p>
+          <div class="hero-badges">
+            <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
+            <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
+            <div class="badge"><div class="badge-dot"></div> Made in USA</div>
+          </div>
+          <a class="hero-cta-tan" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
         </div>
       </div>
-      <div style="background: var(--warm-cream); border: 1px solid rgba(250,246,240,0.2); border-radius: 24px; padding: 2.5rem; backdrop-filter: blur(12px); box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
-        <div style="text-align:center; margin-bottom: 1.5rem;">
-          <span style="display:flex; justify-content:center; margin-bottom: 0.75rem;"><span class="maintane-icon" style="width:64px;height:64px;"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="3" rx="0.5"/><path d="M8 6h8v13a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"/><line x1="8" y1="13" x2="16" y2="13"/></svg></span></span>
-          <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--bark); margin-bottom: 0.25rem;">Maintane</div>
-          <div style="font-size: 0.8rem; color: rgba(44, 36, 23, 0.7); font-weight: 300;">3-Month Supply — $39.99<br></div>
-        </div>
-        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; background: rgba(122,154,126,0.12); border: 1px solid rgba(122,154,126,0.3); color: #3B5C3A; text-transform: uppercase; letter-spacing: 0.04em;">Made in USA</span>
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; background: rgba(122,154,126,0.12); border: 1px solid rgba(122,154,126,0.3); color: #3B5C3A; text-transform: uppercase; letter-spacing: 0.04em;">Pet & Kid Safe</span>
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; background: rgba(122,154,126,0.12); border: 1px solid rgba(122,154,126,0.3); color: #3B5C3A; text-transform: uppercase; letter-spacing: 0.04em;">12B CFU</span>
-        </div>
-        <div style="border-top: 1px solid rgba(59,92,58,0.15); border-bottom: 1px solid rgba(59,92,58,0.15); padding: 1.25rem 0; margin-bottom: 1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-            <span style="font-size: 0.8rem; color: rgba(44, 36, 23, 0.7);">Price</span>
-            <span style="font-size: 1.5rem; font-weight: 500; color: var(--bark);">$39.99</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-            <span style="font-size: 0.8rem; color: rgba(44, 36, 23, 0.7);">Shipping</span>
-            <span style="font-size: 0.85rem; color: var(--bark);">Free shipping</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size: 0.8rem; color: rgba(44, 36, 23, 0.7);">Guarantee</span>
-            <span style="font-size: 0.85rem; color: #3B5C3A;">30-day full refund</span>
-          </div>
-        </div>
-        <style>
-        .shopify-buy__product__title { display: none !important; }
-        .shopify-buy__product__price { display: none !important; }
-        .shopify-buy__product__compare-at-price { display: none !important; }
-        .shopify-buy__product { padding: 0 !important; margin: 0 !important; }
-        .shopify-buy-frame--product { max-width: 100% !important; }
-        </style>
-        <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
+      <div class="hero-photo">
+        <img src="/hero-family-field.jpg" alt="A family of five walking together through tall grass toward a rural field at dusk" loading="eager">
+        <span class="hero-photo-credit">Photo: Jessica Rockowitz / Unsplash</span>
       </div>
     </div>
   </div>
