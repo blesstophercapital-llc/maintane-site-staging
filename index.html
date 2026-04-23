@@ -332,26 +332,6 @@
   .hiw-card-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
 
   /* ECONOMICS SECTION */
-  .econ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1100px; margin: 2.5rem auto 0; }
-  .econ-card {
-    border: 1px solid rgba(122,154,126,0.15); border-radius: 20px; padding: 2rem 1.5rem;
-    background: rgba(122,154,126,0.03);
-  }
-  .econ-card.highlight {
-    background: rgba(59,92,58,0.25); border-color: var(--sage);
-  }
-  .econ-card-label {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1rem; padding: 0.25rem 0.6rem; border-radius: 100px; display: inline-block;
-  }
-  .econ-card-label.risk { background: rgba(200,100,80,0.15); color: #d4806a; }
-  .econ-card-label.smart { background: rgba(122,154,126,0.2); color: var(--sage-light); }
-  .econ-card-label.complex { background: rgba(200,180,120,0.15); color: #c8b87a; }
-  .econ-card-name { font-family: var(--font-display); font-size: 1.2rem; color: var(--bark); margin-bottom: 0.5rem; }
-  .econ-card-cost { font-size: 0.85rem; color: var(--sage-light); font-weight: 500; margin-bottom: 1rem; }
-  .econ-card-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
-  .econ-bottom { text-align: center; margin-top: 2.5rem; }
-  .econ-bottom-note { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; margin-bottom: 1.5rem; }
 
   @media (max-width: 768px) {
     .announcement-bar { font-size: 0.85rem; padding: 0 12px; letter-spacing: 0.03em; }
@@ -376,11 +356,10 @@
     .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .steps-grid, .reviews-grid, .econ-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .ingredient-grid { grid-template-columns: 1fr; }
     .stat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .product-visual { position: static; width: 100%; }
-    .econ-card { padding: 1.5rem 1rem; }
     .review-card { padding: 1.25rem; }
     .step-card { padding: 1.5rem; }
     [id^="product-component-"] { width: 100% !important; }
@@ -1139,37 +1118,6 @@
     .facts-closer { font-size: 1.1rem; margin-top: 40px; }
   }
 
-  /* ── Phase 1.5e: Economics card fix (Maintane = winner) ── */
-  .econ-card.highlight {
-    background: #A8BFA0 !important;
-    border-color: rgba(59, 92, 58, 0.3) !important;
-    box-shadow: 0 8px 32px rgba(59, 92, 58, 0.15);
-    transform: scale(1.03);
-    position: relative;
-    z-index: 1;
-  }
-  .econ-card.highlight .econ-card-name { color: #2C2417; }
-  .econ-card.highlight .econ-card-body { color: #2C2417; }
-  .econ-card.highlight .econ-card-cost {
-    color: #3B5C3A;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-  .econ-card-label.smart {
-    background: #3B5C3A !important;
-    color: #FAF6F0 !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.08em !important;
-  }
-  .econ-bottom-note { color: #2C2417 !important; }
-  @media (max-width: 768px) {
-    .econ-grid { grid-template-columns: 1fr; }
-    .econ-card.highlight {
-      transform: none;
-      order: -1;
-      box-shadow: 0 8px 24px rgba(59, 92, 58, 0.18);
-    }
-  }
 
   /* ── Phase 1.5e: Footer link hover (text-only effect) ── */
   .site-footer a.footer-link:hover {
@@ -1450,38 +1398,7 @@
   }
   </style>
 
-  <!-- The Economics -->
-  <section style="background: var(--off-cream); border-top: 1px solid rgba(59,92,58,0.1); border-bottom: 1px solid rgba(59,92,58,0.1);">
-    <div class="max-w">
-      <p class="section-tag">The economics</p>
-      <h2 class="section-title">Septic repairs are expensive.<br>Prevention isn't.</h2>
-      <p class="section-sub">Most homeowners spend more on coffee each month than on the system that keeps their home functioning.</p>
-      <div class="econ-grid">
-        <div class="econ-card">
-          <span class="econ-card-label risk">High Risk</span>
-          <div class="econ-card-name">Do nothing</div>
-          <div class="econ-card-cost">$0/month</div>
-          <div class="econ-card-body">Pump-out every 2–3 years ($400). Repairs when bacteria die off ($1,500–5,000). Full replacement if neglected ($10,000–30,000).</div>
-        </div>
-        <div class="econ-card highlight">
-          <span class="econ-card-label smart">Smart Maintenance</span>
-          <div class="econ-card-name">Maintane</div>
-          <div class="econ-card-cost">$13.33/month</div>
-          <div class="econ-card-body">12B CFU restore your bacterial ecosystem monthly. No pump-out surprises. No odors. No panic calls to a plumber.</div>
-        </div>
-        <div class="econ-card">
-          <span class="econ-card-label complex">Complicated</span>
-          <div class="econ-card-name">Traditional treatments</div>
-          <div class="econ-card-cost">Varies</div>
-          <div class="econ-card-body">Vague "billions" of CFU, no strain transparency, shock protocols that require daily dosing for a week. Complex and inconsistent.</div>
-        </div>
-      </div>
-      <div class="econ-bottom">
-        <p class="econ-bottom-note">One tub = 3 months of protection. $39.99. Free shipping.</p>
-      </div>
-    </div>
-  </section>
-<!-- Reviews -->
+  <!-- Reviews -->
   <section style="background: var(--off-cream);">
     <div class="max-w">
       <p class="section-tag">What customers say</p>
