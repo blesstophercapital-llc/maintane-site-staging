@@ -696,175 +696,143 @@
     }
   }
 
-  /* ── Phase 1.5e: Emotional Trigger ── */
-  .emotional-trigger {
+  /* ── Phase 2.2: Cold Hard Facts ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .facts {
     background: #FAF6F0;
-    padding: 80px 80px 40px 80px;
+    padding: 120px 40px;
     box-sizing: border-box;
   }
-  .et-card {
-    display: grid;
-    grid-template-columns: 55% 45%;
-    background: #3B5C3A;
-    max-width: 1100px;
+  .facts-inner {
+    max-width: 1200px;
     margin: 0 auto;
-    overflow: hidden;
-    align-items: stretch;
-    border-radius: 0;
   }
-  .et-text {
-    padding: 80px 60px;
-    max-width: 660px;
-    width: 100%;
-    margin-left: auto;
-    color: #FAF6F0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .et-text-inner { max-width: 560px; }
-  .et-eyebrow {
+  .facts-eyebrow {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 700;
+    text-align: center;
     margin: 0 0 1.5rem 0;
   }
-  .et-headline {
+  .facts-headline {
     font-family: 'DM Serif Display', Georgia, serif;
     font-weight: 400;
-    color: #FAF6F0;
-    font-size: 2.4rem;
-    line-height: 1.2;
-    margin: 0;
-  }
-  .et-body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    color: #FAF6F0;
-    font-size: 1.125rem;
-    line-height: 1.65;
-    font-weight: 300;
-    margin: 0 0 1.5rem 0;
-  }
-  .et-quote-block {
-    position: relative;
-    margin: 48px 0 32px 0;
-    padding: 1.5rem 0 0 1.5rem;
+    color: #2C2417;
+    font-size: 2.8rem;
+    line-height: 1.15;
     text-align: center;
+    margin: 0 auto;
+    max-width: 900px;
   }
-  .et-quote-block::before {
-    content: '\201C';
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 4rem;
-    line-height: 0.5;
-    color: #C4A882;
-    opacity: 0.4;
-    pointer-events: none;
-  }
-  .et-quote-attribution {
+  .facts-sub {
     font-family: 'DM Sans', system-ui, sans-serif;
-    color: #C4A882;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 1.25rem;
-  }
-  .et-divider {
-    width: 60px;
-    height: 1px;
-    border: none;
-    background: #C4A882;
-    margin: 40px auto;
-    display: block;
-  }
-  .et-quote-leadin {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 1rem;
-    margin: 0 0 0.75rem 0;
-    color: rgba(250, 246, 240, 0.85);
-    font-weight: 300;
-  }
-  .et-quote {
-    font-family: 'DM Serif Display', Georgia, serif;
     font-style: italic;
-    color: #FAF6F0;
-    font-size: 1.65rem;
-    line-height: 1.4;
-    margin: 0;
-    padding: 0;
+    color: rgba(44, 36, 23, 0.7);
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 16px auto 72px;
+  }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .fact-card {
+    background: #FFFFFF;
     border: none;
-    quotes: none;
-  }
-  .et-quote-tail {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 1rem;
-    margin: 0;
-    color: rgba(250, 246, 240, 0.85);
-    font-weight: 300;
-  }
-  .et-source {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    color: rgba(196, 168, 130, 0.6);
-    font-size: 0.8rem;
-    font-style: italic;
-    margin: 2rem 0 0 0;
-    line-height: 1.5;
-  }
-  .et-photo {
-    position: relative;
-    overflow: hidden;
-    background: #3B5C3A;
+    border-radius: 0;
+    padding: 40px 28px;
+    box-shadow: 0 4px 24px rgba(44, 36, 23, 0.06);
+    text-align: center;
+    min-height: 340px;
     display: flex;
-    align-items: stretch;
-    padding: 24px;
+    flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
   }
-  .et-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    align-self: center;
+  .fact-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .et-photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(59, 92, 58, 0.3) 0%, rgba(59, 92, 58, 0) 40%);
-    pointer-events: none;
-    z-index: 1;
+  .fact-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #3B5C3A;
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 400;
+    margin: 0 0 16px 0;
   }
-  .et-credit {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    color: rgba(250, 246, 240, 0.4);
+  .fact-body {
     font-family: 'DM Sans', system-ui, sans-serif;
-    font-size: 0.7rem;
-    z-index: 2;
+    color: #2C2417;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0;
   }
-
+  .fact-mid {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.65);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 16px 0 0 0;
+  }
+  .fact-list-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+  }
+  .fact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #2C2417;
+    font-size: 1.15rem;
+    line-height: 1.9;
+  }
+  .fact-cite {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.45);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    margin: auto 0 0 0;
+    padding-top: 24px;
+  }
+  .facts-closer {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.85);
+    font-size: 1.35rem;
+    line-height: 1.45;
+    text-align: center;
+    max-width: 720px;
+    margin: 48px auto 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fact-card { opacity: 1; transform: none; transition: none; }
+  }
   @media (max-width: 768px) {
-    .emotional-trigger { padding: 40px 20px 20px 20px; }
-    .et-card { grid-template-columns: 1fr; }
-    .et-photo {
-      order: -1;
-    }
-    .et-text {
-      padding: 64px 40px;
-      max-width: 100%;
-      margin: 0;
-    }
-    .et-headline { font-size: 1.6rem; }
-    .et-quote-block { margin: 32px 0; }
-    .et-quote { margin: 0; font-size: 1.35rem; }
-    .et-quote-block::before { font-size: 3rem; }
+    .facts { padding: 80px 24px; }
+    .facts-headline { font-size: 2rem; }
+    .facts-sub { font-size: 1rem; margin-bottom: 48px; }
+    .facts-grid { grid-template-columns: 1fr; gap: 20px; }
+    .fact-card { min-height: 0; padding: 32px 24px; }
+    .fact-num { font-size: 4rem; }
+    .facts-closer { font-size: 1.1rem; margin-top: 40px; }
   }
 
   /* ── Phase 1.5e: Economics card fix (Maintane = winner) ── */
@@ -1013,26 +981,46 @@
     <div class="hero-credit" id="hero-credit">Photo: Jessica Rockowitz / Unsplash</div>
   </div>
 
-  <!-- Emotional Trigger (Phase 1.5e) -->
-  <section class="emotional-trigger" aria-labelledby="drainfield-heading">
-    <div class="et-card">
-    <div class="et-text">
-      <div class="et-text-inner">
-        <p class="et-eyebrow">THE HARD TRUTH ABOUT SEPTIC CHEMICALS</p>
-        <h2 class="et-headline" id="drainfield-heading">Don’t just take our word for it. Here’s what the EPA says.</h2>
-        <div class="et-quote-block">
-          <blockquote class="et-quote">“Chemicals discharged into septic systems can negatively impact water quality and public health — in both groundwater and surface water sources — even in very small amounts.”</blockquote>
-          <div class="et-quote-attribution">— U.S. Environmental Protection Agency</div>
-        </div>
-        <p class="et-eyebrow" style="margin: 24px 0 16px 0;">WHAT WE MADE INSTEAD</p>
-        <p class="et-body" style="font-size: 1.25rem;"><strong style="color: inherit; font-weight: 600;">Maintane was built the opposite way.</strong> Just two core ingredients: live bacteria and mineral salt. Made in a U.S. biosafety-certified lab and designed to be safe for everyone in the home from day one. Nothing harsh to leach into the ground. Nothing toxic to warn about. Nothing that doesn’t belong beneath your home.</p>
-        <p class="et-source">Sources: U.S. EPA, Septic System Impacts on Water Sources · Septic Tank Additives Fact Sheet (2024)</p>
+  <!-- Cold Hard Facts (Phase 2.2) -->
+  <section class="facts" aria-labelledby="facts-heading">
+    <div class="facts-inner">
+      <p class="facts-eyebrow">THE TRUTH ABOUT CONVENTIONAL SEPTIC CARE</p>
+      <h2 class="facts-headline" id="facts-heading">The septic aisle has a chemistry problem.</h2>
+      <p class="facts-sub">Not a marketing claim. A regulatory record.</p>
+      <div class="facts-grid">
+        <article class="fact-card" data-fact-card data-stagger="0">
+          <div class="fact-num" aria-hidden="true">27</div>
+          <span class="sr-only">Twenty-seven U.S. states restrict or ban chemical septic additives.</span>
+          <p class="fact-body">U.S. states restrict or ban chemical septic additives because of documented groundwater contamination.</p>
+          <p class="fact-mid">Washington, Montana, Connecticut, Rhode Island, Delaware, and California have enacted restrictions.</p>
+          <p class="fact-cite">Source: U.S. EPA Onsite Wastewater Treatment Systems Manual</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="1">
+          <div class="fact-num" aria-hidden="true">1 in 5</div>
+          <span class="sr-only">One in five U.S. households depend on a septic system.</span>
+          <p class="fact-body">U.S. households depend on a septic system. That’s over 60 million Americans managing wastewater on their own property.</p>
+          <p class="fact-cite">Source: U.S. EPA · U.S. Census Bureau</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="2">
+          <p class="fact-list-eyebrow">FOUND IN CONVENTIONAL SEPTIC PRODUCTS</p>
+          <ul class="fact-list">
+            <li>Sulfuric acid</li>
+            <li>Sodium hydroxide</li>
+            <li>Trichloroethylene</li>
+            <li>Methylene chloride</li>
+            <li>Formaldehyde</li>
+            <li>Hydrogen peroxide</li>
+          </ul>
+          <p class="fact-cite">Source: U.S. EPA · WSU Extension</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="3">
+          <div class="fact-num" aria-hidden="true">$25,000</div>
+          <span class="sr-only">Twenty-five thousand dollars is the average cost to fully replace a failed septic system.</span>
+          <p class="fact-body">The average cost to fully replace a failed septic system. Drain field damage alone can run $20,000.</p>
+          <p class="fact-cite">Source: Angi · HomeGuide (2026)</p>
+        </article>
       </div>
-    </div>
-    <div class="et-photo">
-      <img src="/emotional-trigger-kid-shepherd%20%281%29.jpg" alt="A toddler walking across an open field beside a German Shepherd, fence and farmland in the background." loading="lazy">
-      <span class="et-credit">Photo: Holly Landkammer / Unsplash</span>
-    </div>
+      <p class="facts-closer">Maintane is built with live bacteria and mineral salt. Nothing else belongs in your drain field.</p>
     </div>
   </section>
 
@@ -1738,6 +1726,32 @@ function closeMobileMenu() {
 
   showSlide(0);
   startAuto();
+})();
+</script>
+<script>
+(function() {
+  var cards = document.querySelectorAll('[data-fact-card]');
+  if (!cards.length) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cards.forEach(function(c) { c.classList.add('in-view'); });
+    return;
+  }
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(function(c) { c.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var stagger = parseInt(entry.target.dataset.stagger || '0', 10) * 100;
+        setTimeout(function() {
+          entry.target.classList.add('in-view');
+        }, stagger);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function(c) { io.observe(c); });
 })();
 </script>
 </body>
