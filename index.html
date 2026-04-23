@@ -589,6 +589,11 @@
     padding-top: 24px;
     padding-bottom: 24px;
   }
+  .why-comparison thead th.col-features {
+    color: rgba(250, 246, 240, 0.6);
+    font-weight: 500;
+    text-align: left;
+  }
   .why-comparison thead th.col-other {
     color: rgba(250, 246, 240, 0.6);
     font-weight: 500;
@@ -665,7 +670,7 @@
 
   /* ── Phase 2.5c: Solution bottom bun ── */
   .solution-bottom {
-    margin: 96px auto 0;
+    margin: 64px auto 0;
     max-width: 900px;
     text-align: center;
   }
@@ -684,21 +689,21 @@
     font-size: 2.2rem;
     line-height: 1.25;
     text-align: center;
-    margin: 0 0 24px 0;
+    margin: 0;
   }
   .solution-bottom-cite {
     font-family: 'DM Serif Display', Georgia, serif;
     font-style: italic;
     color: #C4A882;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1.4rem;
+    line-height: 1.45;
     text-align: center;
-    margin: 0;
+    margin: 28px 0 0 0;
   }
   @media (max-width: 768px) {
     .solution-bottom { margin-top: 64px; }
     .solution-bottom-primary { font-size: 1.6rem; }
-    .solution-bottom-cite { font-size: 0.95rem; }
+    .solution-bottom-cite { font-size: 1.15rem; }
   }
 
   /* ── Phase 2.5: Solution section ── */
@@ -1374,7 +1379,7 @@
             <table class="why-comparison" role="table">
               <thead>
                 <tr>
-                  <th scope="col"><span class="visually-hidden">Feature</span></th>
+                  <th scope="col" class="col-features">PRODUCT FEATURES</th>
                   <th scope="col" class="col-other">Other Brands</th>
                   <th scope="col" class="col-maintane">Maintane</th>
                 </tr>
@@ -1416,7 +1421,6 @@
 
         <!-- Bottom bun: full-width closing statement -->
         <div class="solution-bottom" data-solution-anim data-stagger-ms="540">
-          <hr class="solution-bottom-rule" aria-hidden="true">
           <p class="solution-bottom-primary">Together, 12 billion live cultures per dose keep your tank’s ecosystem balanced.</p>
           <p class="solution-bottom-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
         </div>
