@@ -400,6 +400,7 @@
     grid-template-columns: 55% 45%;
     background: #3B5C3A;
     max-width: 1280px;
+    max-height: 720px;
     margin: 0 auto;
     overflow: hidden;
     align-items: stretch;
@@ -429,7 +430,7 @@
     color: #FAF6F0;
     font-size: 2.4rem;
     line-height: 1.2;
-    margin: 0 0 2rem 0;
+    margin: 0;
   }
   .et-body {
     font-family: 'DM Sans', system-ui, sans-serif;
@@ -441,7 +442,7 @@
   }
   .et-quote-block {
     position: relative;
-    margin: 48px 0;
+    margin: 48px 0 32px 0;
     padding: 1.5rem 0 0 1.5rem;
     text-align: center;
   }
@@ -465,6 +466,14 @@
     text-transform: uppercase;
     font-weight: 500;
     margin-top: 1.25rem;
+  }
+  .et-divider {
+    width: 60px;
+    height: 1px;
+    border: none;
+    background: #C4A882;
+    margin: 40px auto;
+    display: block;
   }
   .et-quote-leadin {
     font-family: 'DM Sans', system-ui, sans-serif;
@@ -510,7 +519,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: 65% center;
   }
   .et-photo::before {
     content: '';
@@ -544,7 +553,7 @@
       max-width: 100%;
       margin: 0;
     }
-    .et-headline { font-size: 1.8rem; }
+    .et-headline { font-size: 1.6rem; }
     .et-quote-block { margin: 32px 0; }
     .et-quote { margin: 0; font-size: 1.35rem; }
     .et-quote-block::before { font-size: 3rem; }
@@ -722,16 +731,15 @@
     <div class="et-card">
     <div class="et-text">
       <div class="et-text-inner">
-        <p class="et-eyebrow">WHAT'S ACTUALLY IN YOUR DRAIN FIELD</p>
-        <h2 class="et-headline" id="drainfield-heading">The chemicals don’t stay in the tank.</h2>
-        <p class="et-body">Most septic treatments on the shelf are built on harsh chemicals — sulfuric acid, solvents, surfactants. They don’t disappear after you flush. They move through your tank, out into your drain field, and down into the soil your kids play on and your dog drinks from.</p>
-        <p class="et-quote-leadin">The EPA has been direct about this:</p>
+        <p class="et-eyebrow">THE HARD TRUTH ABOUT SEPTIC CHEMICALS</p>
+        <h2 class="et-headline" id="drainfield-heading">Don’t just take our word for it. Here’s what the EPA says.</h2>
         <div class="et-quote-block">
-          <blockquote class="et-quote">“Children and pets can unknowingly be exposed to this hazard which can cause illness.”</blockquote>
+          <blockquote class="et-quote">“Chemicals discharged into septic systems can negatively impact water quality and public health — in both groundwater and surface water sources — even in very small amounts.”</blockquote>
           <div class="et-quote-attribution">— U.S. Environmental Protection Agency</div>
         </div>
-        <p class="et-body">Twenty-seven states now restrict or ban specific chemical septic additives because of documented groundwater contamination.</p>
-        <p class="et-body">Maintane is the opposite design. Two ingredients: live bacteria and table salt. Nothing to leach. Nothing to warn about. Nothing that doesn’t belong in the earth beneath your home.</p>
+        <p class="et-body">Twenty-seven states now restrict or ban chemical septic additives because of documented groundwater contamination. The soil your kids play on and your dog drinks from sits right below that drain field.</p>
+        <hr class="et-divider" aria-hidden="true">
+        <p class="et-body">Maintane is the opposite design. Two ingredients: live bacteria and table salt. Made in a US biosafety-certified lab, safe for kids and pets from day one. Nothing to leach. Nothing to warn about. Nothing that doesn’t belong in the earth beneath your home.</p>
         <p class="et-source">Sources: U.S. EPA, Septic System Impacts on Water Sources · Septic Tank Additives Fact Sheet (2024)</p>
       </div>
     </div>
