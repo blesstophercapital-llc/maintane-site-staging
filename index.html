@@ -586,6 +586,7 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.85rem;
+    padding-top: 24px;
     padding-bottom: 24px;
   }
   .why-comparison thead th.col-other {
@@ -660,6 +661,44 @@
     width: 100%;
     padding: 100px 80px;
     box-sizing: border-box;
+  }
+
+  /* ── Phase 2.5c: Solution bottom bun ── */
+  .solution-bottom {
+    margin: 96px auto 0;
+    max-width: 900px;
+    text-align: center;
+  }
+  .solution-bottom-rule {
+    width: 120px;
+    height: 1px;
+    border: none;
+    background: rgba(196, 168, 130, 0.25);
+    margin: 0 auto 48px;
+    display: block;
+  }
+  .solution-bottom-primary {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #FAF6F0;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+  .solution-bottom-cite {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    color: #C4A882;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .solution-bottom { margin-top: 64px; }
+    .solution-bottom-primary { font-size: 1.6rem; }
+    .solution-bottom-cite { font-size: 0.95rem; }
   }
 
   /* ── Phase 2.5: Solution section ── */
@@ -848,7 +887,7 @@
     padding-left: 60px;
   }
   /* Tighter strain card padding + child sizes for narrower column */
-  .strain-grid { gap: 16px; }
+  .strain-grid { gap: 16px; margin: 0; }
   .strain-card { padding: 24px 18px; }
   .strain-num { margin-bottom: 12px; }
   .strain-name { font-size: 1rem; margin-bottom: 8px; hyphens: auto; }
@@ -1328,10 +1367,6 @@
               <p class="strain-role">Tackles what other strains leave behind — soaps, detergents, and residual organic compounds from household wastewater.</p>
             </article>
             </div>
-            <div class="science-claim" data-solution-anim data-stagger-ms="480">
-              <p class="claim-primary">Together, 12 billion live cultures per dose keep your tank’s ecosystem balanced.</p>
-              <p class="claim-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
-            </div>
           </div>
 
           <!-- RIGHT: Side by side -->
@@ -1377,6 +1412,13 @@
               <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
             </div>
           </div>
+        </div>
+
+        <!-- Bottom bun: full-width closing statement -->
+        <div class="solution-bottom" data-solution-anim data-stagger-ms="540">
+          <hr class="solution-bottom-rule" aria-hidden="true">
+          <p class="solution-bottom-primary">Together, 12 billion live cultures per dose keep your tank’s ecosystem balanced.</p>
+          <p class="solution-bottom-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
         </div>
       </div>
     </div>
