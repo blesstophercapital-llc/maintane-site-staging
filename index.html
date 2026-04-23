@@ -528,7 +528,7 @@
   }
   .why-maintane {
     background: #FAF6F0;
-    padding: 100px 80px;
+    padding: 100px 0;
     box-sizing: border-box;
   }
   .why-inner {
@@ -658,11 +658,8 @@
   .why-card {
     background: #3B5C3A;
     width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
     padding: 100px 80px;
     box-sizing: border-box;
-    overflow: hidden;
   }
 
   /* ── Phase 2.5: Solution section ── */
@@ -828,8 +825,48 @@
     [data-solution-anim] { opacity: 1; transform: none; transition: none; }
   }
 
-  @media (max-width: 768px) {
-    .why-maintane { padding: 64px 20px; }
+  /* ── Phase 2.5a: Solution full-width card + 2-col grid ── */
+  .solution-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: left;  /* override 2.5's center default — only header centers */
+  }
+  .solution-header { text-align: center; }
+  .solution-sub { max-width: 640px !important; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    margin-top: 0;
+  }
+  /* Subtle vertical hairline between columns + interior padding for breathing room */
+  .science-block {
+    padding-right: 60px;
+    border-right: 1px solid rgba(196, 168, 130, 0.18);
+  }
+  .comparison-block {
+    padding-left: 60px;
+  }
+  /* Tighter strain card padding + child sizes for narrower column */
+  .strain-grid { gap: 20px; }
+  .strain-card { padding: 28px 22px; }
+  .strain-num { margin-bottom: 12px; }
+  .strain-name { font-size: 1.1rem; margin-bottom: 8px; hyphens: auto; }
+  .strain-target { font-size: 0.75rem; margin-bottom: 14px; }
+  .strain-role { font-size: 0.88rem; line-height: 1.55; }
+  /* Science claim block — left-aligned in narrower column */
+  .science-claim {
+    text-align: left !important;
+    max-width: none !important;
+    margin: 40px 0 0 !important;
+  }
+  .claim-primary { font-size: 1rem !important; margin-bottom: 16px !important; }
+  .claim-cite { font-size: 0.85rem !important; }
+  /* Comparison CTA tightening (within right column) */
+  .solution-cta { margin-top: 48px; text-align: center; }
+
+    @media (max-width: 768px) {
+    .why-maintane { padding: 64px 0; }
     .why-card { padding: 64px 32px; }
     .why-headline { font-size: 1.8rem; }
     .solution-headline { font-size: 2rem; }
@@ -841,6 +878,20 @@
     .strain-name { font-size: 1.15rem; }
     .solution-divider { margin: 64px auto; }
     .solution-cta { margin-top: 56px; }
+    /* Phase 2.5a mobile: stack 2-col grid + flip vertical divider to horizontal */
+    .solution-inner { max-width: 100%; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .science-block {
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(196, 168, 130, 0.18);
+    }
+    .comparison-block {
+      padding-left: 0;
+      padding-top: 64px;
+    }
+    .strain-card { padding: 24px 20px; }
     .why-sub { font-size: 1rem; margin-bottom: 40px; }
     .why-comparison { display: block; }
     .why-comparison thead { display: none; }
@@ -1226,109 +1277,105 @@
     </div>
   </section>
 
-  <!-- Solution Section (Phase 2.5) -->
+  <!-- Solution Section (Phase 2.5a) -->
   <section class="why-maintane" aria-labelledby="solution-heading">
     <div class="why-card">
       <div class="solution-inner">
-        <p class="solution-eyebrow">THE SOLUTION</p>
-        <h2 class="solution-headline" id="solution-heading">Built with nature. Backed by science.</h2>
-        <p class="solution-sub">Two ingredients. Six strains. One monthly scoop.</p>
-
-        <!-- BLOCK 1: Science -->
-        <div class="science-block" data-solution-anim data-stagger-ms="0">
-          <p class="block-eyebrow">THE SCIENCE</p>
-          <h3 class="block-headline">Six strains. Six jobs. Zero chemicals.</h3>
-          <p class="block-intro">Most septic treatments rely on harsh chemistry to dissolve what nature already knows how to digest. Maintane works with your system, not against it — using six Biosafety Level 1 bacterial strains, each selected to target a specific type of waste.</p>
-          <div class="strain-grid">
-          <article class="strain-card" data-solution-anim data-stagger-ms="0">
-            <div class="strain-num">01</div>
-            <div class="strain-name"><em>Bacillus subtilis</em></div>
-            <div class="strain-target">PROTEINS & STARCHES</div>
-            <p class="strain-role">The generalist. Tolerates variable tank conditions and produces enzymes that start waste breakdown within hours of entering your system.</p>
-          </article>
-          <article class="strain-card" data-solution-anim data-stagger-ms="80">
-            <div class="strain-num">02</div>
-            <div class="strain-name"><em>Bacillus licheniformis</em></div>
-            <div class="strain-target">FATS, OILS & GREASE</div>
-            <p class="strain-role">The grease specialist. Targets FOG buildup before it reaches your drain field, where it causes the most expensive damage.</p>
-          </article>
-          <article class="strain-card" data-solution-anim data-stagger-ms="160">
-            <div class="strain-num">03</div>
-            <div class="strain-name"><em>Bacillus amyloliquefaciens</em></div>
-            <div class="strain-target">CARBOHYDRATES & SUGARS</div>
-            <p class="strain-role">Handles food waste and household sugars that would otherwise accelerate solid accumulation in your tank.</p>
-          </article>
-          <article class="strain-card" data-solution-anim data-stagger-ms="240">
-            <div class="strain-num">04</div>
-            <div class="strain-name"><em>Bacillus megaterium</em></div>
-            <div class="strain-target">CELLULOSE & PAPER</div>
-            <p class="strain-role">Breaks down toilet paper and plant fibers that form the sludge layer at the bottom of your tank.</p>
-          </article>
-          <article class="strain-card" data-solution-anim data-stagger-ms="320">
-            <div class="strain-num">05</div>
-            <div class="strain-name"><em>Bacillus pumilus</em></div>
-            <div class="strain-target">PROTEINS & ORGANIC BUILDUP</div>
-            <p class="strain-role">Reinforces primary digestion and thrives in the low-oxygen conditions deep within a working septic tank.</p>
-          </article>
-          <article class="strain-card" data-solution-anim data-stagger-ms="400">
-            <div class="strain-num">06</div>
-            <div class="strain-name"><em>Pseudomonas putida</em></div>
-            <div class="strain-target">COMPLEX ORGANICS</div>
-            <p class="strain-role">Tackles what other strains leave behind — soaps, detergents, and residual organic compounds from household wastewater.</p>
-          </article>
-          </div>
-          <div class="science-claim">
-            <p class="claim-primary">Together, 12 billion live cultures per dose work continuously to keep your tank’s natural ecosystem balanced.</p>
-            <p class="claim-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
-          </div>
+        <div class="solution-header" data-solution-anim data-stagger-ms="0">
+          <p class="solution-eyebrow">THE SOLUTION</p>
+          <h2 class="solution-headline" id="solution-heading">Built with nature. Backed by science.</h2>
+          <p class="solution-sub">Two ingredients. Six strains. One monthly scoop.</p>
         </div>
 
-        <hr class="solution-divider" data-solution-anim data-stagger-ms="0" aria-hidden="true">
+        <div class="solution-grid">
+          <!-- LEFT: Science -->
+          <div class="science-block">
+            <div class="strain-grid">
+            <article class="strain-card" data-solution-anim data-stagger-ms="0">
+              <div class="strain-num">01</div>
+              <div class="strain-name"><em>Bacillus subtilis</em></div>
+              <div class="strain-target">PROTEINS & STARCHES</div>
+              <p class="strain-role">The generalist. Tolerates variable tank conditions and produces enzymes that start waste breakdown within hours of entering your system.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="80">
+              <div class="strain-num">02</div>
+              <div class="strain-name"><em>Bacillus licheniformis</em></div>
+              <div class="strain-target">FATS, OILS & GREASE</div>
+              <p class="strain-role">The grease specialist. Targets FOG buildup before it reaches your drain field, where it causes the most expensive damage.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="160">
+              <div class="strain-num">03</div>
+              <div class="strain-name"><em>Bacillus amyloliquefaciens</em></div>
+              <div class="strain-target">CARBOHYDRATES & SUGARS</div>
+              <p class="strain-role">Handles food waste and household sugars that would otherwise accelerate solid accumulation in your tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="240">
+              <div class="strain-num">04</div>
+              <div class="strain-name"><em>Bacillus megaterium</em></div>
+              <div class="strain-target">CELLULOSE & PAPER</div>
+              <p class="strain-role">Breaks down toilet paper and plant fibers that form the sludge layer at the bottom of your tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="320">
+              <div class="strain-num">05</div>
+              <div class="strain-name"><em>Bacillus pumilus</em></div>
+              <div class="strain-target">PROTEINS & ORGANIC BUILDUP</div>
+              <p class="strain-role">Reinforces primary digestion and thrives in the low-oxygen conditions deep within a working septic tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="400">
+              <div class="strain-num">06</div>
+              <div class="strain-name"><em>Pseudomonas putida</em></div>
+              <div class="strain-target">COMPLEX ORGANICS</div>
+              <p class="strain-role">Tackles what other strains leave behind — soaps, detergents, and residual organic compounds from household wastewater.</p>
+            </article>
+            </div>
+            <div class="science-claim" data-solution-anim data-stagger-ms="480">
+              <p class="claim-primary">Together, 12 billion live cultures per dose keep your tank’s ecosystem balanced.</p>
+              <p class="claim-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
+            </div>
+          </div>
 
-        <!-- BLOCK 2: Comparison -->
-        <div class="comparison-block" data-solution-anim data-stagger-ms="0">
-          <p class="block-eyebrow">THE COMPARISON</p>
-          <h3 class="block-headline">See what’s actually different.</h3>
-          <p class="block-intro">A side-by-side look at what goes into Maintane versus the septic treatments on the shelf next to it.</p>
-          <table class="why-comparison" role="table">
-            <thead>
+          <!-- RIGHT: Side by side -->
+          <div class="comparison-block">
+            <table class="why-comparison" role="table">
+              <thead>
+                <tr>
+                  <th scope="col"><span class="visually-hidden">Feature</span></th>
+                  <th scope="col" class="col-other">Other Brands</th>
+                  <th scope="col" class="col-maintane">Maintane</th>
+                </tr>
+              </thead>
+              <tbody>
               <tr>
-                <th scope="col"><span class="visually-hidden">Feature</span></th>
-                <th scope="col" class="col-other">Other Brands</th>
-                <th scope="col" class="col-maintane">Maintane</th>
+                <th scope="row" data-solution-anim data-stagger-ms="0">Two-ingredient formula</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="0"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="0"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
               </tr>
-            </thead>
-            <tbody>
-          <tr>
-            <th scope="row">Two-ingredient formula</th>
-            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row">12B CFU, 6 named bacterial strains</th>
-            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row">Kid & pet safe from day one</th>
-            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row">Made in a U.S. biosafety-certified lab</th>
-            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row">No sulfuric acid, solvents, or surfactants</th>
-            <td class="col-other" aria-label="No"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
-            <td class="col-maintane" aria-label="Yes"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
-          </tr>
-            </tbody>
-          </table>
-          <div class="solution-cta">
-            <p class="cta-label">Ready to make the switch?</p>
-            <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="60">12B CFU, 6 named bacterial strains</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="60"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="60"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="120">Kid & pet safe from day one</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="120"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="120"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="180">Made in a U.S. biosafety-certified lab</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="180"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="180"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="240">No sulfuric acid, solvents, or surfactants</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="240"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="240"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="solution-cta" data-solution-anim data-stagger-ms="360">
+              <p class="cta-label">Ready to make the switch?</p>
+              <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+            </div>
           </div>
         </div>
       </div>
