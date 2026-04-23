@@ -647,6 +647,53 @@
     box-sizing: border-box;
   }
 
+  /* ── Phase 2.8: Start Your Journey CTA ── */
+  .journey-cta {
+    background: #FAF6F0;
+    padding: 140px 24px;
+    box-sizing: border-box;
+  }
+  .journey-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .journey-headline {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    color: #3B5C3A;
+    font-size: 4rem;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0;
+  }
+  .journey-btn {
+    display: inline-block;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    padding: 18px 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid #3B5C3A;
+    margin-top: 48px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .journey-btn:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #3B5C3A;
+  }
+  @media (max-width: 768px) {
+    .journey-cta { padding: 96px 24px; }
+    .journey-headline { font-size: 2.4rem; }
+  }
+
   /* ── Phase 2.5c: Solution bottom bun ── */
   .solution-bottom {
     margin: 64px auto 0;
@@ -1430,6 +1477,14 @@
     <p class="section-sub" style="margin: 0 auto 2.5rem;">We stand behind our product. If Maintane™ doesn't work for your system, we'll refund you completely.</p>
     <div style="display:flex;justify-content:center;width:100%;">
       <a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;max-width:280px;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a>
+    </div>
+  </section>
+
+  <!-- Start Your Journey CTA (Phase 2.8) -->
+  <section class="journey-cta">
+    <div class="journey-inner">
+      <h2 class="journey-headline">Start Your Journey.</h2>
+      <a class="journey-btn" href="/products">SHOP ALL PRODUCTS</a>
     </div>
   </section>
 
