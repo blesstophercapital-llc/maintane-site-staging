@@ -812,6 +812,29 @@
     margin: auto 0 0 0;
     padding-top: 24px;
   }
+  .fact-health-block {
+    margin: 32px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .fact-health {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+  }
+  .fact-health-dot {
+    color: #C4A882;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 6px 0;
+    display: block;
+  }
   .facts-closer {
     font-family: 'DM Serif Display', Georgia, serif;
     font-style: italic;
@@ -832,6 +855,7 @@
     .facts-grid { grid-template-columns: 1fr; gap: 20px; }
     .fact-card { min-height: 0; padding: 32px 24px; }
     .fact-num { font-size: 4rem; }
+    .fact-health { font-size: 0.95rem; }
     .facts-closer { font-size: 1.1rem; margin-top: 40px; }
   }
 
@@ -1002,7 +1026,9 @@
           <p class="fact-cite">Source: U.S. EPA · U.S. Census Bureau</p>
         </article>
         <article class="fact-card" data-fact-card data-stagger="2">
-          <p class="fact-list-eyebrow">FOUND IN CONVENTIONAL SEPTIC PRODUCTS</p>
+          <div class="fact-num" aria-hidden="true">6</div>
+          <span class="sr-only">Six chemicals commonly found in conventional septic products.</span>
+          <p class="fact-list-eyebrow">CHEMICALS COMMONLY FOUND IN SEPTIC PRODUCTS</p>
           <ul class="fact-list">
             <li>Sulfuric acid</li>
             <li>Sodium hydroxide</li>
@@ -1011,7 +1037,12 @@
             <li>Formaldehyde</li>
             <li>Hydrogen peroxide</li>
           </ul>
-          <p class="fact-cite">Source: U.S. EPA · WSU Extension</p>
+          <div class="fact-health-block">
+            <p class="fact-health">Three are EPA-classified human carcinogens.</p>
+            <span class="fact-health-dot" aria-hidden="true">·</span>
+            <p class="fact-health">One has been linked to Parkinson’s disease.</p>
+          </div>
+          <p class="fact-cite">Sources: U.S. EPA IRIS · National Toxicology Program · WSU Extension</p>
         </article>
         <article class="fact-card" data-fact-card data-stagger="3">
           <div class="fact-num" aria-hidden="true">$25,000</div>
