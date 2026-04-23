@@ -124,7 +124,8 @@
   .hero {
     position: relative;
     width: 100%;
-    min-height: 640px;
+    min-height: 90vh;
+    max-height: 900px;
     padding: 0;
     background: var(--forest);
     overflow: hidden;
@@ -133,20 +134,20 @@
     justify-content: center;
   }
   @media (max-width: 768px) {
-    .hero { min-height: 560px; padding: 0; }
+    .hero { min-height: 85vh; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; }
-    .hero h1 { font-size: 2.4rem !important; }
+    .hero h1 { font-size: 3rem !important; }
   }
   .hero-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(122,154,126,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 40% 60% at 20% 80%, rgba(168,196,162,0.08) 0%, transparent 60%);
   }
-  .hero-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: #C4A882; font-weight: 500; text-align: center; margin: 0 0 24px 0; }
+  .hero-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase; color: #C4A882; font-weight: 500; text-align: center; margin: 0 0 20px 0; }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: 4rem;
+    font-size: 4.8rem;
     font-weight: 400;
     line-height: 1.1;
     color: var(--warm-cream);
@@ -155,10 +156,10 @@
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
   }
   .hero h1 em { font-style: italic; color: var(--tan); }
-  .hero-sub { font-family: 'DM Sans', system-ui, sans-serif; font-size: 1.25rem; color: rgba(250, 246, 240, 0.92); max-width: 580px; line-height: 1.5; margin: 24px auto 32px; font-weight: 300; text-align: center; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+  .hero-sub { font-family: 'DM Sans', system-ui, sans-serif; font-size: 1.35rem; color: rgba(250, 246, 240, 0.92); max-width: 580px; line-height: 1.5; margin: 32px auto 44px; font-weight: 300; text-align: center; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .hero-badges { display: flex; justify-content: center; gap: 10px 12px; margin: 0 0 32px 0; flex-wrap: wrap; }
-  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid #C4A882; border-radius: 999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #FAF6F0; }
+  .hero-badges { display: flex; justify-content: center; gap: 10px 12px; margin: 0 0 48px 0; flex-wrap: wrap; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid #C4A882; border-radius: 999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #FAF6F0; }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #C4A882; flex-shrink: 0; }
 
   /* BUTTONS */
@@ -367,11 +368,11 @@
     .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { min-height: 560px; padding: 0; }
+    .hero { min-height: 85vh; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
-    .hero h1 { font-size: 2.4rem !important; }
-    .hero-sub { font-size: 1rem !important; max-width: 340px !important; }
+    .hero h1 { font-size: 3rem !important; }
+    .hero-sub { font-size: 1.125rem !important; max-width: 340px !important; }
     .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -489,10 +490,10 @@
     display: inline-block;
     background: #C4A882;
     color: #2C2417;
-    padding: 14px 36px;
+    padding: 16px 40px;
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.1rem;
     letter-spacing: 0.02em;
     text-decoration: none;
     border: 1px solid #C4A882;
