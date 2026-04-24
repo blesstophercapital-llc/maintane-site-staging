@@ -1059,7 +1059,7 @@
     box-sizing: border-box;
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
+    transition: opacity 1000ms ease-out, transform 1000ms ease-out;
   }
   .fact-card.in-view {
     opacity: 1;
@@ -2237,7 +2237,7 @@ function closeMobileMenu() {
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        var stagger = parseInt(entry.target.dataset.stagger || '0', 10) * 100;
+        var stagger = parseInt(entry.target.dataset.stagger || '0', 10) * 180;
         setTimeout(function() {
           entry.target.classList.add('in-view');
         }, stagger);
