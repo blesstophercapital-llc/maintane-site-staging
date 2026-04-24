@@ -1416,10 +1416,10 @@
   .section-forest { background: #3B5C3A; }
   .section-sage   { background: #E8EDE4; }
 
-  /* ── Hero (cream, typography only) ── */
+  /* ── Hero (Forest Green full-bleed banner, inverted typography) ── */
   .howit-hero {
-    background: #FAF6F0;
-    padding: 9rem 3rem 4rem;
+    background: #3B5C3A;
+    padding: 120px 3rem;
     text-align: center;
     box-sizing: border-box;
   }
@@ -1434,8 +1434,8 @@
   }
   .howit-hero-headline {
     font-family: 'DM Serif Display', Georgia, serif;
-    font-weight: 400;
-    color: #2C2417;
+    font-weight: 700;
+    color: #FAF6F0;
     font-size: 4.5rem;
     line-height: 1.05;
     margin: 0 auto;
@@ -1443,11 +1443,59 @@
   }
   .howit-hero-sub {
     font-family: 'DM Sans', system-ui, sans-serif;
-    color: rgba(44, 36, 23, 0.65);
+    color: rgba(250, 246, 240, 0.75);
     font-size: 1.25rem;
     line-height: 1.5;
     max-width: 600px;
     margin: 16px auto 0;
+  }
+
+  /* ── Step cards section (cream, thick padding, encapsulated cards) ── */
+  .howit-steps-section {
+    padding: 160px 3rem;
+  }
+  .step-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .step-card {
+    background: rgba(59, 92, 58, 0.05);
+    border: 1px solid rgba(59, 92, 58, 0.15);
+    border-radius: 16px;
+    padding: 48px 40px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .step-card:hover {
+    border-color: rgba(59, 92, 58, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 92, 58, 0.07);
+  }
+  .step-card-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #C4A882;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 24px 0;
+  }
+  .step-card-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    color: #2C2417;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+  }
+  .step-card-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.75);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
   }
 
   /* ── Standard major section ── */
@@ -1526,10 +1574,6 @@
     font-size: 1rem;
     line-height: 1.65;
     margin: 0;
-  }
-  .howit-hero-steps {
-    margin-top: 64px;
-    text-align: left;
   }
   .ritual-title { line-height: 1.05; }
 
@@ -1718,15 +1762,18 @@
       padding-top: 48px;
     }
     .timeline-grid::before { display: none; } /* hide line on tablet wrap */
+    .step-cards-grid { gap: 20px; }
   }
   @media (max-width: 768px) {
-    .howit-hero { padding: 7rem 1.5rem 3rem; }
+    .howit-hero { padding: 80px 1.5rem; }
     .howit-hero-headline { font-size: 3rem; }
     .howit-hero-sub { font-size: 1rem; }
+    .howit-steps-section { padding: 100px 1.5rem; }
+    .step-cards-grid { grid-template-columns: 1fr; gap: 24px; }
+    .step-card { padding: 36px 28px; }
     .howit-section { padding: 80px 1.5rem; }
     .howit-section-headline { font-size: 2.25rem; }
     .howit-section-sub { font-size: 1rem; margin-bottom: 48px; }
-    .howit-hero-steps { margin-top: 48px; }
     .ritual-grid { grid-template-columns: 1fr; gap: 48px; }
     .ritual-title { font-size: 2rem; }
     .ingredients-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1836,28 +1883,34 @@
 <!-- ========== HOME ========== -->
 
 
-  <!-- Hero + Ritual steps (merged, cream) -->
-  <section class="howit-hero">
-    <p class="howit-hero-eyebrow">THE METHOD</p>
-    <h1 class="howit-hero-headline">How Maintane Works</h1>
-    <p class="howit-hero-sub">A simple monthly ritual. Once it starts, it keeps itself going.</p>
-    <div class="howit-inner howit-hero-steps">
-      <div class="ritual-grid">
-        <div class="ritual-step">
-          <p class="ritual-num">01</p>
-          <h3 class="ritual-title">SCOOP</h3>
-          <p class="ritual-body">One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing.</p>
-        </div>
-        <div class="ritual-step">
-          <p class="ritual-num">02</p>
-          <h3 class="ritual-title">FLUSH</h3>
-          <p class="ritual-body">Drop it in any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank.</p>
-        </div>
-        <div class="ritual-step">
-          <p class="ritual-num">03</p>
-          <h3 class="ritual-title">SET REMINDER</h3>
-          <p class="ritual-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
-        </div>
+  <!-- Hero (Forest Green full-bleed banner) -->
+  <section class="howit-hero howit-hero-forest">
+    <div class="howit-inner">
+      <p class="howit-hero-eyebrow">THE METHOD</p>
+      <h1 class="howit-hero-headline">How Maintane Works</h1>
+      <p class="howit-hero-sub">A simple monthly ritual. Once it starts, it keeps itself going.</p>
+    </div>
+  </section>
+
+  <!-- Step cards (cream, thick section, headerless) -->
+  <section class="howit-section section-cream howit-steps-section">
+    <div class="howit-inner">
+      <div class="step-cards-grid">
+        <article class="step-card">
+          <p class="step-card-num">01</p>
+          <h3 class="step-card-title">SCOOP</h3>
+          <p class="step-card-body">One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing.</p>
+        </article>
+        <article class="step-card">
+          <p class="step-card-num">02</p>
+          <h3 class="step-card-title">FLUSH</h3>
+          <p class="step-card-body">Drop it in any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank.</p>
+        </article>
+        <article class="step-card">
+          <p class="step-card-num">03</p>
+          <h3 class="step-card-title">SET REMINDER</h3>
+          <p class="step-card-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
+        </article>
       </div>
     </div>
   </section>
