@@ -1545,6 +1545,7 @@
     box-sizing: border-box;
   }
   .howit-section-tight-top { padding-top: 80px; }
+  .howit-section-tight-bottom { padding-bottom: 56px; }
   .howit-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -1824,7 +1825,7 @@
   /* ── Closing CTA ── */
   .howit-cta-section {
     background: #FAF6F0;
-    padding: 120px 24px;
+    padding: 56px 24px 120px;
     text-align: center;
   }
   .howit-cta-btn {
@@ -1868,6 +1869,7 @@
     .howit-hero-sub { font-size: 1rem; }
     /* (Phase 5.3: 768px override absorbed into 900px / 600px breakpoints) */
     .howit-section { padding: 80px 1.5rem; }
+    .howit-section-tight-bottom { padding-bottom: 40px; }
     .howit-section-headline { font-size: 2.25rem; }
     .howit-section-sub { font-size: 1rem; margin-bottom: 48px; }
     .ritual-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1880,7 +1882,7 @@
     .mech-ing-grid { grid-template-columns: 1fr; gap: 16px; }
     .mech-ing-heading { font-size: 1.5rem; }
     .mech-ing-card { padding: 32px 24px; }
-    .howit-cta-section { padding: 80px 24px; }
+    .howit-cta-section { padding: 40px 24px 80px; }
   }
   @media (max-width: 600px) {
     .timeline-grid {
@@ -2110,8 +2112,8 @@
     </div>
   </section>
 
-  <!-- Section 3: The Timeline (soft sage) -->
-  <section class="howit-section section-cream">
+  <!-- Section 3: The Timeline (cream) -->
+  <section class="howit-section section-cream howit-section-tight-bottom">
     <div class="howit-inner">
       <p class="howit-section-eyebrow">THE TIMELINE</p>
       <h2 class="howit-section-headline">What changes, and when.</h2>
