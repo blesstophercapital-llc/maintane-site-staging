@@ -124,8 +124,8 @@
   .hero {
     position: relative;
     width: 100%;
-    min-height: 92vh;
-    max-height: 940px;
+    min-height: calc(100vh - 117px);
+    height: calc(100vh - 117px);
     padding: 0;
     background: var(--forest);
     overflow: hidden;
@@ -134,7 +134,7 @@
     justify-content: center;
   }
   @media (max-width: 768px) {
-    .hero { min-height: 85vh; padding: 0; }
+    .hero { min-height: calc(100vh - 108px) !important; height: calc(100vh - 108px) !important; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; }
     .hero h1 { font-size: 3rem !important; }
@@ -344,7 +344,7 @@
     .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { min-height: 85vh; padding: 0; }
+    .hero { min-height: calc(100vh - 108px) !important; height: calc(100vh - 108px) !important; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
     .hero h1 { font-size: 3rem !important; }
