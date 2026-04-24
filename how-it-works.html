@@ -1450,50 +1450,67 @@
     margin: 16px auto 0;
   }
 
-  /* ── Step cards section (cream, thick padding, encapsulated cards) ── */
-  .howit-steps-section {
-    padding: 160px 3rem;
+  /* ── Step rows (full-bleed staggered photo/text) ── */
+  .howit-steps-stagger {
+    background: var(--warm-cream);
+    padding: 0;
   }
-  .step-cards-grid {
+  .step-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    max-width: 1100px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    align-items: stretch;
   }
-  .step-card {
-    background: rgba(59, 92, 58, 0.05);
-    border: 1px solid rgba(59, 92, 58, 0.15);
-    border-radius: 16px;
-    padding: 48px 40px;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  .step-row-flipped .step-photo { order: 2; }
+  .step-row-flipped .step-text  { order: 1; }
+  .step-photo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--warm-cream);
   }
-  .step-card:hover {
-    border-color: rgba(59, 92, 58, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59, 92, 58, 0.07);
+  .step-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
-  .step-card-num {
-    font-family: 'Playfair Display', Georgia, serif;
+  .step-text {
+    background: var(--warm-cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 6rem;
+    box-sizing: border-box;
+  }
+  .step-text-inner {
+    max-width: 480px;
+    width: 100%;
+  }
+  .step-super {
+    font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
-    font-size: 2.5rem;
-    font-weight: 900;
-    line-height: 1;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
     margin: 0 0 24px 0;
   }
-  .step-card-title {
+  .step-headline {
     font-family: 'Playfair Display', Georgia, serif;
-    color: #2C2417;
-    font-size: 1.75rem;
     font-weight: 900;
-    line-height: 1.2;
+    color: #2C2417;
+    font-size: 3rem;
+    line-height: 1.1;
     text-transform: uppercase;
     margin: 0 0 20px 0;
   }
-  .step-card-body {
+  .step-body {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: rgba(44, 36, 23, 0.75);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.65;
     margin: 0;
   }
@@ -1762,15 +1779,17 @@
       padding-top: 48px;
     }
     .timeline-grid::before { display: none; } /* hide line on tablet wrap */
-    .step-cards-grid { gap: 20px; }
+    .step-row { grid-template-columns: 1fr; min-height: 0; }
+    .step-row-flipped .step-photo,
+    .step-row-flipped .step-text { order: initial; }
+    .step-photo { height: 60vh; }
+    .step-text { padding: 4rem 3rem; }
   }
   @media (max-width: 768px) {
     .howit-hero { padding: 80px 1.5rem; }
     .howit-hero-headline { font-size: 3rem; }
     .howit-hero-sub { font-size: 1rem; }
-    .howit-steps-section { padding: 100px 1.5rem; }
-    .step-cards-grid { grid-template-columns: 1fr; gap: 24px; }
-    .step-card { padding: 36px 28px; }
+    /* (Phase 5.3: 768px override absorbed into 900px / 600px breakpoints) */
     .howit-section { padding: 80px 1.5rem; }
     .howit-section-headline { font-size: 2.25rem; }
     .howit-section-sub { font-size: 1rem; margin-bottom: 48px; }
@@ -1807,6 +1826,9 @@
     .timeline-super { text-align: left; margin-bottom: 20px; }
     .timeline-phase-title { text-align: left; }
     .timeline-phase-body { text-align: left; }
+    .step-photo { height: 50vh; }
+    .step-text { padding: 3rem 2rem; }
+    .step-headline { font-size: 2rem; }
   }
 
     </style>
@@ -1891,25 +1913,47 @@
     </div>
   </section>
 
-  <!-- Step cards (cream, thick section, headerless) -->
-  <section class="howit-section section-cream howit-steps-section">
-    <div class="howit-inner">
-      <div class="step-cards-grid">
-        <article class="step-card">
-          <p class="step-card-num">01</p>
-          <h3 class="step-card-title">SCOOP</h3>
-          <p class="step-card-body">One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing.</p>
-        </article>
-        <article class="step-card">
-          <p class="step-card-num">02</p>
-          <h3 class="step-card-title">FLUSH</h3>
-          <p class="step-card-body">Drop it in any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank.</p>
-        </article>
-        <article class="step-card">
-          <p class="step-card-num">03</p>
-          <h3 class="step-card-title">SET REMINDER</h3>
-          <p class="step-card-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
-        </article>
+  <!-- Steps: full-bleed staggered photo/text rows -->
+  <section class="howit-steps-stagger">
+    <!-- Row 1: photo left, text right -->
+    <div class="step-row">
+      <div class="step-photo">
+        <img src="/scoop-step.jpeg" alt="A hand scooping Maintane powder from the jar in a warm, sunlit kitchen.">
+      </div>
+      <div class="step-text">
+        <div class="step-text-inner">
+          <p class="step-super">STEP 01</p>
+          <h2 class="step-headline">SCOOP</h2>
+          <p class="step-body">One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: text left, photo right (flipped) -->
+    <div class="step-row step-row-flipped">
+      <div class="step-photo">
+        <img src="/flush-step.png" alt="The Maintane jar on a warm wood bathroom shelf, ready for monthly use." loading="lazy">
+      </div>
+      <div class="step-text">
+        <div class="step-text-inner">
+          <p class="step-super">STEP 02</p>
+          <h2 class="step-headline">FLUSH</h2>
+          <p class="step-body">Drop it in any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: photo left, text right -->
+    <div class="step-row">
+      <div class="step-photo">
+        <img src="/set-reminder-step.jpeg" alt="The Maintane jar on a kitchen counter next to a calendar showing next dose date." loading="lazy">
+      </div>
+      <div class="step-text">
+        <div class="step-text-inner">
+          <p class="step-super">STEP 03</p>
+          <h2 class="step-headline">SET REMINDER</h2>
+          <p class="step-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
+        </div>
       </div>
     </div>
   </section>
