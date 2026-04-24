@@ -1527,6 +1527,11 @@
     line-height: 1.65;
     margin: 0;
   }
+  .howit-hero-steps {
+    margin-top: 64px;
+    text-align: left;
+  }
+  .ritual-title { line-height: 1.05; }
 
   /* ── Section 2: The Mechanism (Forest Green, full-bleed) ── */
   .mechanism-svg-wrap {
@@ -1721,6 +1726,7 @@
     .howit-section { padding: 80px 1.5rem; }
     .howit-section-headline { font-size: 2.25rem; }
     .howit-section-sub { font-size: 1rem; margin-bottom: 48px; }
+    .howit-hero-steps { margin-top: 48px; }
     .ritual-grid { grid-template-columns: 1fr; gap: 48px; }
     .ritual-title { font-size: 2rem; }
     .ingredients-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1830,19 +1836,12 @@
 <!-- ========== HOME ========== -->
 
 
-  <!-- Hero (cream) -->
+  <!-- Hero + Ritual steps (merged, cream) -->
   <section class="howit-hero">
     <p class="howit-hero-eyebrow">THE METHOD</p>
     <h1 class="howit-hero-headline">How Maintane Works</h1>
     <p class="howit-hero-sub">A simple monthly ritual. Once it starts, it keeps itself going.</p>
-  </section>
-
-  <!-- Section 1: The Ritual (cream, tighter top because it follows hero) -->
-  <section class="howit-section section-cream howit-section-tight-top">
-    <div class="howit-inner">
-      <p class="howit-section-eyebrow">THE RITUAL</p>
-      <h2 class="howit-section-headline">Three steps. Once a month.</h2>
-      <p class="howit-section-sub">Under five minutes, start to finish.</p>
+    <div class="howit-inner howit-hero-steps">
       <div class="ritual-grid">
         <div class="ritual-step">
           <p class="ritual-num">01</p>
@@ -1856,8 +1855,8 @@
         </div>
         <div class="ritual-step">
           <p class="ritual-num">03</p>
-          <h3 class="ritual-title">FORGET</h3>
-          <p class="ritual-body">Set a monthly reminder and get on with your life. The bacteria do the rest, every day, all month long.</p>
+          <h3 class="ritual-title">SET REMINDER</h3>
+          <p class="ritual-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
         </div>
       </div>
     </div>
