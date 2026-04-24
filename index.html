@@ -1280,7 +1280,7 @@
   .footer-fineprint a:hover { color: #FAF6F0; }
 
   /* Link columns */
-  .footer-link-col { }
+  .footer-link-col { transform: translateX(48px); }
   .footer-col-header {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
@@ -1384,6 +1384,7 @@
   @media (max-width: 768px) {
     .site-footer { padding: 56px 24px 40px; }
     .footer-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-link-col { transform: none; }
     .footer-signup-headline { font-size: 1.5rem; }
     .footer-badges { gap: 32px; margin-top: 40px; }
     .footer-badge { width: 64px; height: 64px; }
