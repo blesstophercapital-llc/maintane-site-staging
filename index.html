@@ -1005,7 +1005,7 @@
   }
   .facts {
     background: #FAF6F0;
-    padding: 60px 40px 120px 40px;
+    padding: 60px 40px;
     box-sizing: border-box;
   }
   .facts-inner {
@@ -1147,7 +1147,7 @@
   }
 
   @media (max-width: 768px) {
-    .facts { padding: 40px 24px 80px 24px; }
+    .facts { padding: 40px 24px; }
     .facts-headline { font-size: 2rem; }
     .facts-sub { font-size: 1rem; margin-bottom: 48px; }
     .facts-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -2272,25 +2272,40 @@ function closeMobileMenu() {
   var elems = document.querySelectorAll('[data-solution-anim]');
   if (!elems.length) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    elems.forEach(function(e) { e.classList.add('in-view'); });
+    elems.forEach(function(e) { e.style.opacity = '1'; e.style.transform = 'none'; });
     return;
   }
-  if (!('IntersectionObserver' in window)) {
-    elems.forEach(function(e) { e.classList.add('in-view'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var stagger = parseInt(entry.target.dataset.staggerMs || '0', 10);
-        setTimeout(function() {
-          entry.target.classList.add('in-view');
-        }, stagger);
-        io.unobserve(entry.target);
-      }
+  // Per-element scroll-linked: opacity peaks when element center is at viewport center,
+  // fades to 0 as element moves toward viewport edges.
+  var FULL_ZONE = 0.25;     // within ±25% of vh from viewport center → fully visible
+  var FADE_ZONE = 0.60;     // beyond ±60% → fully invisible
+  var ticking = false;
+  function update() {
+    var vh = window.innerHeight;
+    var viewCenter = vh / 2;
+    elems.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      var elemCenter = rect.top + rect.height / 2;
+      var distance = Math.abs(elemCenter - viewCenter) / vh;
+      var op;
+      if (distance < FULL_ZONE) op = 1;
+      else if (distance > FADE_ZONE) op = 0;
+      else op = 1 - (distance - FULL_ZONE) / (FADE_ZONE - FULL_ZONE);
+      el.style.opacity = op;
+      el.style.transform = 'translateY(' + ((1 - op) * 16) + 'px)';
+      el.style.transition = 'none';
     });
-  }, { threshold: 0.15 });
-  elems.forEach(function(e) { io.observe(e); });
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 })();
 </script>
 </body>
