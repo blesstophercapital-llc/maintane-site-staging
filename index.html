@@ -2221,23 +2221,38 @@ function closeMobileMenu() {
 <script>
 (function() {
   var cards = document.querySelectorAll('[data-fact-card]');
-  if (!cards.length) return;
+  var section = document.querySelector('.facts');
+  if (!cards.length || !section) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cards.forEach(function(c) { c.style.opacity = '1'; c.style.transform = 'none'; });
     return;
   }
+  // Each card has IN window then HOLD then OUT window, staggered by index.
+  // sectionProgress: 0 = section top at viewport bottom; 1 = section bottom at viewport top.
+  var STEP = 0.06;          // stagger step per card
+  var FADE_LEN = 0.18;      // length of fade in/out phase
+  function cardOpacity(p, idx) {
+    var inStart  = 0.20 + idx * STEP;
+    var inEnd    = inStart + FADE_LEN;
+    var outStart = 0.55 + idx * STEP;
+    var outEnd   = outStart + FADE_LEN;
+    if (p <= inStart) return 0;
+    if (p < inEnd)    return (p - inStart) / FADE_LEN;
+    if (p < outStart) return 1;
+    if (p < outEnd)   return 1 - (p - outStart) / FADE_LEN;
+    return 0;
+  }
   var ticking = false;
   function update() {
     var vh = window.innerHeight;
-    var startY = vh;          // card top at viewport bottom → progress 0
-    var endY = vh * 0.3;      // card top at 30% from top → progress 1
-    cards.forEach(function(card) {
-      var rect = card.getBoundingClientRect();
-      var progress = (startY - rect.top) / (startY - endY);
-      if (progress < 0) progress = 0;
-      else if (progress > 1) progress = 1;
-      card.style.opacity = progress;
-      card.style.transform = 'translateY(' + ((1 - progress) * 40) + 'px)';
+    var rect = section.getBoundingClientRect();
+    var sectionProgress = (vh - rect.top) / (vh + rect.height);
+    if (sectionProgress < 0) sectionProgress = 0;
+    else if (sectionProgress > 1) sectionProgress = 1;
+    cards.forEach(function(card, idx) {
+      var op = cardOpacity(sectionProgress, idx);
+      card.style.opacity = op;
+      card.style.transform = 'translateY(' + ((1 - op) * 24) + 'px)';
     });
     ticking = false;
   }
