@@ -1059,7 +1059,7 @@
     box-sizing: border-box;
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 1000ms ease-out, transform 1000ms ease-out;
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
   }
   .fact-card.in-view {
     opacity: 1;
@@ -1149,6 +1149,23 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .fact-card { opacity: 1; transform: none; transition: none; }
+  }
+  @supports (animation-timeline: view()) {
+    .fact-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: fact-card-scroll linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes fact-card-scroll {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fact-card { animation: none; opacity: 1; transform: none; }
+    }
   }
   @media (max-width: 768px) {
     .facts { padding: 40px 24px 80px 24px; }
@@ -1518,20 +1535,20 @@
           <div class="fact-num" aria-hidden="true">27</div>
           <span class="sr-only">Twenty-seven U.S. states restrict or ban chemical septic additives.</span>
           <p class="fact-body">U.S. states restrict or ban chemical septic additives because of documented groundwater contamination.</p>
-          <p class="fact-cite">Source: U.S. EPA Onsite Wastewater Treatment Systems Manual</p>
+          <p class="fact-cite">Source: U.S. EPA Onsite Wastewater Treatment Systems Manual (2002)</p>
         </article>
         <article class="fact-card" data-fact-card data-stagger="1">
           <div class="fact-num" aria-hidden="true">1 in 5</div>
           <span class="sr-only">One in five U.S. households depend on a septic system.</span>
           <p class="fact-body">U.S. households depend on a septic system. That’s over 60 million Americans managing wastewater on their own property.</p>
-          <p class="fact-cite">Source: U.S. EPA · U.S. Census Bureau</p>
+          <p class="fact-cite">Source: U.S. EPA · U.S. Census Bureau (2024)</p>
         </article>
         <article class="fact-card" data-fact-card data-stagger="2">
           <div class="fact-num" aria-hidden="true">3</div>
           <span class="sr-only">Three EPA-classified human carcinogens are found in common septic products.</span>
           <p class="fact-body">EPA-classified human carcinogens found in common septic products.</p>
           <p class="fact-health" style="margin-top: 20px;">Another has been linked to Parkinson’s disease.</p>
-          <p class="fact-cite">Source: U.S. EPA · WSU Extension</p>
+          <p class="fact-cite">Source: U.S. EPA · WSU Extension (2024)</p>
         </article>
         <article class="fact-card" data-fact-card data-stagger="3">
           <div class="fact-num" aria-hidden="true">$25,000</div>
@@ -2237,7 +2254,7 @@ function closeMobileMenu() {
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        var stagger = parseInt(entry.target.dataset.stagger || '0', 10) * 180;
+        var stagger = parseInt(entry.target.dataset.stagger || '0', 10) * 100;
         setTimeout(function() {
           entry.target.classList.add('in-view');
         }, stagger);
