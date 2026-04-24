@@ -2715,20 +2715,26 @@ function closeMobileMenu() {
   var pills = document.querySelectorAll('.blog-pill');
   var cards = document.querySelectorAll('.blog-card[data-category]');
   if (!pills.length || !cards.length) return;
-  pills.forEach(function(pill) {
-    pill.addEventListener('click', function() {
-      var filter = pill.dataset.filter;
-      pills.forEach(function(p) { p.classList.remove('is-active'); });
-      pill.classList.add('is-active');
-      cards.forEach(function(card) {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  function activate(filter) {
+    pills.forEach(function(p) { p.classList.toggle('is-active', p.dataset.filter === filter); });
+    cards.forEach(function(card) {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
     });
+  }
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() { activate(pill.dataset.filter); });
   });
+  // Honor ?category=<slug> on load — lets blog post category eyebrows deep-link into the index.
+  var params = new URLSearchParams(window.location.search);
+  var initial = params.get('category');
+  if (initial) {
+    var match = document.querySelector('.blog-pill[data-filter="' + initial + '"]');
+    if (match) activate(initial);
+  }
 })();
 </script>
 </body>
