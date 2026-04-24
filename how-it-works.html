@@ -1620,80 +1620,131 @@
   .ritual-title { line-height: 1.05; }
 
   /* ── Section 2: The Mechanism (Forest Green, full-bleed) ── */
-  .mechanism-svg-wrap {
-    max-width: 1100px;
-    margin: 40px auto 0;
+
+  /* ── Phase 5.6: Mechanism process+photo grid ── */
+  .mechanism-process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin: 80px auto 0;
+    max-width: 1200px;
   }
-  .mechanism-svg-wrap svg {
+  .mechanism-beats {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .mech-beat-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #C4A882;
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .mech-beat-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+  }
+  .mech-beat-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .mechanism-photo img {
     display: block;
     width: 100%;
     height: auto;
+    object-fit: cover;
+    border-radius: 12px;
   }
 
-  /* ── Section 2b: Two Ingredients (cream, sub-section) ── */
-  .ingredients-heading {
+  /* Two Ingredients trio nested inside Mechanism on Forest Green */
+  .mechanism-ingredients {
+    margin: 120px auto 0;
+    max-width: 1200px;
+  }
+  .mech-ing-heading {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
-    color: #2C2417;
+    color: #FAF6F0;
     font-size: 2rem;
     line-height: 1.15;
     text-align: center;
     margin: 0 0 48px 0;
   }
-  .ingredients-grid {
+  .mech-ing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    max-width: 1100px;
-    margin: 0 auto;
   }
-  .ingredient-card {
-    background: rgba(59, 92, 58, 0.04);
-    border: 1px solid rgba(59, 92, 58, 0.12);
+  .mech-ing-card {
+    background: rgba(250, 246, 240, 0.06);
+    border: 1px solid rgba(250, 246, 240, 0.15);
     border-radius: 12px;
     padding: 40px 32px;
     text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease;
   }
-  .ingredient-card:hover {
+  .mech-ing-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(59, 92, 58, 0.25);
-    box-shadow: 0 6px 16px rgba(59, 92, 58, 0.06);
+    border-color: rgba(250, 246, 240, 0.3);
   }
-  .ingredient-icon {
+  .mech-ing-icon {
     width: 48px;
     height: 48px;
-    margin: 0 auto 24px;
-    color: #3B5C3A;
+    margin: 0 auto 16px;
+    color: #FAF6F0;
   }
-  .ingredient-icon svg {
+  .mech-ing-icon svg {
     width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5;
     stroke-linecap: round; stroke-linejoin: round;
   }
-  .ingredient-icon .accent { stroke: #C4A882; }
-  .ingredient-title {
+  .mech-ing-icon .accent { stroke: #C4A882; }
+  .mech-ing-title {
     font-family: 'Playfair Display', Georgia, serif;
-    color: #2C2417;
-    font-size: 1.35rem;
     font-weight: 900;
-    margin: 0 0 16px 0;
+    color: #FAF6F0;
+    font-size: 1.35rem;
+    margin: 0 0 12px 0;
   }
-  .ingredient-body {
+  .mech-ing-body {
     font-family: 'DM Sans', system-ui, sans-serif;
-    color: rgba(44, 36, 23, 0.7);
+    color: rgba(250, 246, 240, 0.75);
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
   }
-  .ingredients-closer {
+  .mech-ing-closer {
     font-family: 'DM Sans', system-ui, sans-serif;
     font-style: italic;
-    color: rgba(44, 36, 23, 0.65);
+    color: rgba(250, 246, 240, 0.7);
     font-size: 0.95rem;
     line-height: 1.5;
     text-align: center;
-    margin: 56px auto 0;
+    margin: 40px auto 0;
     max-width: 720px;
+  }
+
+  /* Scroll-reveal hooks for Mechanism elements */
+  [data-mech-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+  }
+  [data-mech-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-mech-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 
   /* ── Section 3: The Timeline (soft sage) ── */
@@ -1820,9 +1871,13 @@
     .howit-section-sub { font-size: 1rem; margin-bottom: 48px; }
     .ritual-grid { grid-template-columns: 1fr; gap: 48px; }
     .ritual-title { font-size: 2rem; }
-    .ingredients-grid { grid-template-columns: 1fr; gap: 16px; }
-    .ingredients-heading { font-size: 1.5rem; }
-    .mechanism-svg-wrap { margin-top: 24px; }
+    .mechanism-process-grid { grid-template-columns: 1fr; gap: 48px; margin-top: 48px; }
+    .mechanism-photo img { border-radius: 8px; }
+    .mech-beat-num { font-size: 3rem; }
+    .mechanism-ingredients { margin-top: 80px; }
+    .mech-ing-grid { grid-template-columns: 1fr; gap: 16px; }
+    .mech-ing-heading { font-size: 1.5rem; }
+    .mech-ing-card { padding: 32px 24px; }
     .howit-cta-section { padding: 80px 24px; }
   }
   @media (max-width: 600px) {
@@ -1983,146 +2038,74 @@
     </div>
   </section>
 
-  <!-- Section 2: The Mechanism (Forest Green full-bleed) -->
+  <!-- Section 2: The Mechanism (Forest Green full-bleed; Two Ingredients trio nested inside) -->
   <section class="howit-section section-forest">
     <div class="howit-inner">
       <p class="howit-section-eyebrow">THE MECHANISM</p>
       <h2 class="howit-section-headline">What actually happens in your tank.</h2>
       <p class="howit-section-sub">Two ingredients. Six bacterial strains. Twelve billion live cultures.</p>
-      <div class="mechanism-svg-wrap">
-        <svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mech-title" role="img">
-        <title id="mech-title">Cross-section diagram showing scoop into toilet, bacteria activating in septic tank, and clean water returning through drain field</title>
-        <defs>
-          <marker id="arr-cream" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-            <path d="M2 1L10 6L2 11" fill="none" stroke="#FAF6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </marker>
-        </defs>
 
-        <!-- GROUND line (dashed, runs full width) -->
-        <line x1="20" y1="320" x2="1180" y2="320" stroke="#FAF6F0" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.3"/>
-        <text x="60" y="312" font-family="'DM Sans',system-ui,sans-serif" font-size="11" letter-spacing="2" fill="#FAF6F0" opacity="0.55">GROUND</text>
-
-        <!-- ════════ COLUMN 1: TOILET + SCOOP ════════ -->
-        <!-- Scoop / "M" jar (above ground, on top of toilet tank) -->
-        <rect x="160" y="40" width="44" height="56" rx="6" fill="none" stroke="#FAF6F0" stroke-width="2.5"/>
-        <text x="182" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#FAF6F0">M</text>
-        <text x="182" y="115" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="11" fill="#FAF6F0" opacity="0.85">scoop</text>
-        <!-- Dashed scoop → bowl arrow (Botanical Tan) -->
-        <path d="M204 96 Q230 130 250 168" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
-        <polygon points="252,168 246,160 256,158" fill="#C4A882"/>
-
-        <!-- Toilet tank (rectangle) -->
-        <rect x="120" y="135" width="170" height="60" rx="8" fill="none" stroke="#FAF6F0" stroke-width="2.5"/>
-        <!-- Toilet bowl (trapezoidal silhouette) -->
-        <path d="M124 195 L286 195 L268 282 Q268 298 250 298 L160 298 Q142 298 142 282 Z" fill="none" stroke="#FAF6F0" stroke-width="2.5"/>
-        <!-- Bowl water -->
-        <ellipse cx="205" cy="252" rx="58" ry="14" fill="none" stroke="#C4A882" stroke-width="1.5" opacity="0.7"/>
-
-        <!-- Toilet → Tank arrow (curving down through ground) -->
-        <path d="M290 290 Q380 300 470 320 Q510 332 530 348" fill="none" stroke="#FAF6F0" stroke-width="2" marker-end="url(#arr-cream)"/>
-
-        <!-- Step label -->
-        <text x="205" y="450" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="11" letter-spacing="2.5" font-weight="700" fill="#C4A882">SCOOP INTO TOILET</text>
-
-        <!-- ════════ COLUMN 2: SEPTIC TANK CROSS-SECTION ════════ -->
-        <!-- Tank outline (rounded rectangle, below ground) -->
-        <rect x="460" y="345" width="280" height="140" rx="10" fill="none" stroke="#FAF6F0" stroke-width="2.5"/>
-        <!-- Internal layer dividers (subtle horizontal lines) -->
-        <line x1="465" y1="370" x2="735" y2="370" stroke="#FAF6F0" stroke-width="1" opacity="0.45"/>
-        <line x1="465" y1="450" x2="735" y2="450" stroke="#FAF6F0" stroke-width="1" opacity="0.45"/>
-
-        <!-- Layer labels -->
-        <text x="475" y="364" font-family="'DM Sans',system-ui,sans-serif" font-size="11" fill="#FAF6F0" opacity="0.75">scum</text>
-        <text x="475" y="467" font-family="'DM Sans',system-ui,sans-serif" font-size="11" fill="#FAF6F0" opacity="0.75">sludge</text>
-
-        <!-- Bacteria cluster (Botanical Tan dots in middle zone) -->
-        <g fill="#C4A882">
-          <circle cx="510" cy="395" r="3.5"/>
-          <circle cx="540" cy="412" r="3.5"/>
-          <circle cx="570" cy="398" r="3.5"/>
-          <circle cx="600" cy="422" r="3.5"/>
-          <circle cx="630" cy="404" r="3.5"/>
-          <circle cx="660" cy="418" r="3.5"/>
-          <circle cx="690" cy="402" r="3.5"/>
-          <circle cx="585" cy="438" r="3.5"/>
-        </g>
-        <!-- Curved dashed bacterial activity line -->
-        <path d="M495 425 Q570 405 640 430 Q695 445 715 420" fill="none" stroke="#C4A882" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.7"/>
-
-        <!-- Tank → Drain field arrow -->
-        <path d="M740 415 L840 415" fill="none" stroke="#FAF6F0" stroke-width="2" marker-end="url(#arr-cream)"/>
-
-        <!-- Step label -->
-        <text x="600" y="468" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="11" letter-spacing="2.5" font-weight="700" fill="#C4A882">BACTERIA ACTIVATE</text>
-        <text x="600" y="488" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="10" font-style="italic" fill="#FAF6F0" opacity="0.7">digesting waste continuously, every day</text>
-
-        <!-- ════════ COLUMN 3: DRAIN FIELD ════════ -->
-        <!-- 4 horizontal pipes -->
-        <g stroke="#FAF6F0" stroke-width="2.5" fill="none">
-          <line x1="850" y1="370" x2="1130" y2="370"/>
-          <line x1="850" y1="395" x2="1130" y2="395"/>
-          <line x1="850" y1="420" x2="1130" y2="420"/>
-          <line x1="850" y1="445" x2="1130" y2="445"/>
-        </g>
-        <!-- Perforation dashes on each pipe (small inline) -->
-        <g stroke="#FAF6F0" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.5">
-          <line x1="855" y1="378" x2="1125" y2="378"/>
-          <line x1="855" y1="403" x2="1125" y2="403"/>
-          <line x1="855" y1="428" x2="1125" y2="428"/>
-          <line x1="855" y1="453" x2="1125" y2="453"/>
-        </g>
-        <!-- Tan dots beneath each pipe (clean water → soil) -->
-        <g fill="#C4A882" opacity="0.85">
-          <circle cx="880" cy="385" r="2"/><circle cx="920" cy="385" r="2"/><circle cx="960" cy="385" r="2"/><circle cx="1000" cy="385" r="2"/><circle cx="1040" cy="385" r="2"/><circle cx="1080" cy="385" r="2"/>
-          <circle cx="880" cy="410" r="2"/><circle cx="920" cy="410" r="2"/><circle cx="960" cy="410" r="2"/><circle cx="1000" cy="410" r="2"/><circle cx="1040" cy="410" r="2"/><circle cx="1080" cy="410" r="2"/>
-          <circle cx="880" cy="435" r="2"/><circle cx="920" cy="435" r="2"/><circle cx="960" cy="435" r="2"/><circle cx="1000" cy="435" r="2"/><circle cx="1040" cy="435" r="2"/><circle cx="1080" cy="435" r="2"/>
-          <circle cx="880" cy="460" r="2"/><circle cx="920" cy="460" r="2"/><circle cx="960" cy="460" r="2"/><circle cx="1000" cy="460" r="2"/><circle cx="1040" cy="460" r="2"/><circle cx="1080" cy="460" r="2"/>
-        </g>
-
-        <!-- Step label -->
-        <text x="990" y="488" text-anchor="middle" font-family="'DM Sans',system-ui,sans-serif" font-size="11" letter-spacing="2.5" font-weight="700" fill="#C4A882">SYSTEM PROTECTED</text>
-      </svg>
+      <!-- Process beats (left) + science photo (right) -->
+      <div class="mechanism-process-grid">
+        <div class="mechanism-beats">
+          <div class="mechanism-beat" data-mech-reveal style="transition-delay: 0.15s;">
+            <div class="mech-beat-num">01</div>
+            <h3 class="mech-beat-title">Flush</h3>
+            <p class="mech-beat-body">Maintane dissolves instantly in water. Twelve billion live bacterial cultures travel through your pipes and enter the tank within seconds.</p>
+          </div>
+          <div class="mechanism-beat" data-mech-reveal style="transition-delay: 0.3s;">
+            <div class="mech-beat-num">02</div>
+            <h3 class="mech-beat-title">Activate</h3>
+            <p class="mech-beat-body">Six bacterial strains colonize the tank’s ecosystem. Each strain targets a specific organic waste type — proteins, fats, carbs, cellulose, waste.</p>
+          </div>
+          <div class="mechanism-beat" data-mech-reveal style="transition-delay: 0.45s;">
+            <div class="mech-beat-num">03</div>
+            <h3 class="mech-beat-title">Protect</h3>
+            <p class="mech-beat-body">Bacteria work continuously to break down waste and prevent sludge buildup. Your drain field stays clear, your system runs quieter, your home stays protected.</p>
+          </div>
+        </div>
+        <div class="mechanism-photo" data-mech-reveal>
+          <img src="/mechanism-science.png" alt="Maintane powder cascading into a glass beaker of water, dissolving to activate live bacterial cultures." loading="lazy">
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Section 2b: Two Ingredients (cream, sub-section) -->
-  <section class="howit-section section-cream">
-    <div class="howit-inner">
-      <h3 class="ingredients-heading">Two ingredients. That’s it.</h3>
-      <div class="ingredients-grid">
-        <div class="ingredient-card">
-          <div class="ingredient-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- Two Ingredients trio (nested inside Mechanism, dark-canvas treatment) -->
+      <div class="mechanism-ingredients">
+        <h3 class="mech-ing-heading">Two ingredients. That’s it.</h3>
+        <div class="mech-ing-grid">
+          <div class="mech-ing-card" data-mech-reveal style="transition-delay: 0s;">
+            <div class="mech-ing-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <ellipse cx="14" cy="18" rx="6" ry="4"/>
               <ellipse cx="32" cy="18" rx="6" ry="4"/>
               <ellipse cx="22" cy="32" rx="6" ry="4" class="accent"/>
               <ellipse cx="36" cy="34" rx="5" ry="3.5"/>
               <ellipse cx="12" cy="34" rx="5" ry="3.5"/>
             </svg></div>
-          <h4 class="ingredient-title">Biosafety Level 1 Bacteria</h4>
-          <p class="ingredient-body">Six named bacterial strains. 12 billion live cultures per dose. Each strain targets a specific organic waste type.</p>
-        </div>
-        <div class="ingredient-card">
-          <div class="ingredient-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <h4 class="mech-ing-title">Biosafety Level 1 Bacteria</h4>
+            <p class="mech-ing-body">Six named bacterial strains. 12 billion live cultures per dose. Each strain targets a specific organic waste type.</p>
+          </div>
+          <div class="mech-ing-card" data-mech-reveal style="transition-delay: 0.1s;">
+            <div class="mech-ing-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polygon points="24,8 27.5,18 38,18 29.5,24 33,34 24,28 15,34 18.5,24 10,18 20.5,18"/>
               <circle cx="24" cy="40" r="2" class="accent"/>
             </svg></div>
-          <h4 class="ingredient-title">Mineral Salt</h4>
-          <p class="ingredient-body">A natural carrier that protects the cultures during shipping and dissolves cleanly in your system. No synthetic binders, no preservatives.</p>
-        </div>
-        <div class="ingredient-card">
-          <div class="ingredient-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <h4 class="mech-ing-title">Mineral Salt</h4>
+            <p class="mech-ing-body">A natural carrier that protects the cultures during shipping and dissolves cleanly in your system. No synthetic binders, no preservatives.</p>
+          </div>
+          <div class="mech-ing-card" data-mech-reveal style="transition-delay: 0.2s;">
+            <div class="mech-ing-icon"><svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="6" y="12" width="36" height="28" rx="3"/>
               <line x1="6" y1="22" x2="42" y2="22"/>
               <line x1="18" y1="12" x2="18" y2="22"/>
               <line x1="30" y1="12" x2="30" y2="22"/>
               <path d="M14 30 L20 30 L20 36 L14 36 Z" class="accent"/>
             </svg></div>
-          <h4 class="ingredient-title">Made in USA</h4>
-          <p class="ingredient-body">Formulated and packaged in a U.S. biosafety-certified lab. Same safety tier as yogurt cultures.</p>
+            <h4 class="mech-ing-title">Made in USA</h4>
+            <p class="mech-ing-body">Formulated and packaged in a U.S. biosafety-certified lab. Same safety tier as yogurt cultures.</p>
+          </div>
         </div>
+        <p class="mech-ing-closer">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures.</p>
       </div>
-      <p class="ingredients-closer">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures.</p>
     </div>
   </section>
 
@@ -2573,7 +2556,7 @@ function closeMobileMenu() {
 
 <script>
 (function() {
-  var rows = document.querySelectorAll('[data-step-reveal]');
+  var rows = document.querySelectorAll('[data-step-reveal], [data-mech-reveal]');
   if (!rows.length) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     rows.forEach(function(r) { r.classList.add('is-visible'); });
