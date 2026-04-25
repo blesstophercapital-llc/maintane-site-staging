@@ -2349,19 +2349,6 @@
 
 
 <script>
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-(function() {
-  var hash = location.hash.replace('#', '');
-  if (hash && document.getElementById('page-' + hash)) showPage(hash);
-})();
-window.addEventListener('hashchange', function() {
-  var hash = location.hash.replace('#', '');
-  if (hash && document.getElementById('page-' + hash)) showPage(hash);
-});
 function toggleMobileMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
   document.querySelector('.hamburger').classList.toggle('active');
