@@ -2010,6 +2010,46 @@
   .article-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 2rem 0; }
   .article-body hr { border: none; border-top: 1px solid rgba(59, 92, 58, 0.2); margin: 3rem 0; }
 
+  /* Editorial tables (Phase 9.4.1) */
+  .article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .article-body table th {
+    text-align: left;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #C4A882;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 16px 20px;
+    border-bottom: 2px solid rgba(59, 92, 58, 0.3);
+  }
+  .article-body table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(59, 92, 58, 0.15);
+    color: #2C2417;
+    vertical-align: top;
+  }
+  .article-body table td:first-child {
+    font-weight: 600;
+    padding-right: 32px;
+  }
+  .article-body table tr:last-child td {
+    border-bottom: none;
+  }
+  @media (max-width: 600px) {
+    .article-body table { font-size: 0.95rem; }
+    .article-body table th,
+    .article-body table td { padding: 14px 12px; }
+    .article-body table td:first-child { padding-right: 16px; }
+  }
+
   /* Body legacy class shims for cream context */
   .article-body .snippet-answer {
     background: rgba(59, 92, 58, 0.06) !important;
