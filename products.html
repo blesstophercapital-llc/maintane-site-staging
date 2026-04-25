@@ -1908,9 +1908,13 @@
   /* ── PHASE 8.2 PRODUCTS PAGE ────────────────────────────────── */
   .prod-hero {
     background: #3B5C3A;
-    padding: 240px 3rem 120px;
+    padding: 140px 3rem 48px;
     text-align: center;
     box-sizing: border-box;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .prod-hero-inner {
     max-width: 1200px;
@@ -1932,17 +1936,15 @@
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
     color: #FAF6F0;
-    font-size: 4.5rem;
+    font-size: 3rem;
     line-height: 1.1;
     margin: 0;
-    max-width: 900px;
   }
   .prod-hero-sub {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: rgba(250, 246, 240, 0.75);
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
-    max-width: 700px;
     margin: 16px auto 0;
   }
 
@@ -2477,9 +2479,8 @@
     .prod-quotes-grid { grid-template-columns: 1fr; gap: 24px; }
   }
   @media (max-width: 768px) {
-    .prod-hero { padding: 188px 1.5rem 80px; }
-    .prod-hero-headline { font-size: 3rem; }
-    .prod-hero-sub { font-size: 1rem; }
+    .prod-hero { padding: 124px 1.5rem 40px; min-height: 25vh; }
+    .prod-hero-headline { font-size: 2.25rem; }
     .prod-card-section { padding: 80px 1.5rem; }
     .prod-trust { padding: 56px 1.5rem; }
     .prod-ingredients { padding: 80px 1.5rem; }
@@ -2558,8 +2559,8 @@
 <section class="prod-hero">
   <div class="prod-hero-inner">
     <p class="prod-hero-eyebrow">THE PRODUCT</p>
-    <h1 class="prod-hero-headline">Septic care, redefined.</h1>
-    <p class="prod-hero-sub">Two ingredients. Six bacterial strains. Twelve billion live cultures. One scoop a month.</p>
+    <h1 class="prod-hero-headline">Maintane.</h1>
+    <p class="prod-hero-sub">Natural septic treatment. Made in the USA.</p>
   </div>
 </section>
 
