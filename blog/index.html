@@ -2097,6 +2097,21 @@
     font-weight: 700;
   }
 
+
+  @media (max-width: 700px) {
+    .blog-pills-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 0 1rem 8px;
+      margin: 0 -1rem 56px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .blog-pills-row::-webkit-scrollbar { display: none; }
+    .blog-pill { flex-shrink: 0; }
+  }
+
   /* Responsive */
   @media (max-width: 1000px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
@@ -2197,77 +2212,103 @@
         <button type="button" class="blog-pill" data-filter="warning-signs">Warning Signs</button>
         <button type="button" class="blog-pill" data-filter="the-science">The Science</button>
         <button type="button" class="blog-pill" data-filter="treatment">Treatment</button>
+        <button type="button" class="blog-pill" data-filter="kid-pet-safe">Kid &amp; Pet Safe</button>
         <button type="button" class="blog-pill" data-filter="best-practices">Best Practices</button>
       </div>
 
       <div class="blog-grid">
         <a class="blog-card" href="/blog/septic-maintenance-new-homeowners.html" data-category="getting-started" data-blog-reveal style="transition-delay: 0.00s;">
-          <p class="blog-card-eyebrow">Getting Started</p>
+          <p class="blog-card-eyebrow">GETTING STARTED</p>
           <h2 class="blog-card-title">Septic System Maintenance Guide</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/septic-tank-vs-sewer.html" data-category="getting-started" data-blog-reveal style="transition-delay: 0.06s;">
-          <p class="blog-card-eyebrow">Getting Started</p>
+          <p class="blog-card-eyebrow">GETTING STARTED</p>
           <h2 class="blog-card-title">Septic Tank vs Sewer: How to Tell Which You Have</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/how-to-maintain-septic-tank.html" data-category="getting-started" data-blog-reveal style="transition-delay: 0.12s;">
-          <p class="blog-card-eyebrow">Getting Started</p>
+          <p class="blog-card-eyebrow">GETTING STARTED</p>
           <h2 class="blog-card-title">How to Maintain a Septic Tank: Complete Homeowner’s Guide</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/how-bacteria-keep-septic-healthy.html" data-category="the-science" data-blog-reveal style="transition-delay: 0.00s;">
-          <p class="blog-card-eyebrow">The Science</p>
+          <p class="blog-card-eyebrow">THE SCIENCE</p>
           <h2 class="blog-card-title">Septic Tank Bacteria: How It Works</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/what-kills-septic-tank-bacteria.html" data-category="the-science" data-blog-reveal style="transition-delay: 0.06s;">
-          <p class="blog-card-eyebrow">The Science</p>
+          <p class="blog-card-eyebrow">THE SCIENCE</p>
           <h2 class="blog-card-title">What Kills Septic Tank Bacteria?</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/natural-vs-chemical-septic-treatment.html" data-category="the-science" data-blog-reveal style="transition-delay: 0.12s;">
-          <p class="blog-card-eyebrow">The Science</p>
+          <p class="blog-card-eyebrow">THE SCIENCE</p>
           <h2 class="blog-card-title">Natural Septic Tank Treatment vs Chemical</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
         <a class="blog-card" href="/blog/septic-tank-warning-signs.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.00s;">
-          <p class="blog-card-eyebrow">Warning Signs</p>
+          <p class="blog-card-eyebrow">WARNING SIGNS</p>
           <h2 class="blog-card-title">7 Septic Tank Warning Signs You Shouldn’t Ignore</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/how-to-know-septic-tank-full.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.06s;">
-          <p class="blog-card-eyebrow">Warning Signs</p>
+        <a class="blog-card" href="/blog/septic-backup-first-24-hours.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.06s;">
+          <p class="blog-card-eyebrow">WARNING SIGNS</p>
+          <h2 class="blog-card-title">Septic Backup: What to Do in the First 24 Hours</h2>
+          <p class="blog-card-meta">5 min read · April 2026</p>
+        </a>
+        <a class="blog-card" href="/blog/how-to-know-septic-tank-full.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.12s;">
+          <p class="blog-card-eyebrow">WARNING SIGNS</p>
           <h2 class="blog-card-title">How to Know If Your Septic Tank Is Full</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/why-septic-system-smells.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.12s;">
-          <p class="blog-card-eyebrow">Warning Signs</p>
+        <a class="blog-card" href="/blog/why-septic-system-smells.html" data-category="warning-signs" data-blog-reveal style="transition-delay: 0.00s;">
+          <p class="blog-card-eyebrow">WARNING SIGNS</p>
           <h2 class="blog-card-title">Septic System Smell Fix: Causes & Solutions</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/truth-about-septic-tank-additives.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.00s;">
-          <p class="blog-card-eyebrow">Treatment</p>
+        <a class="blog-card" href="/blog/truth-about-septic-tank-additives.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.06s;">
+          <p class="blog-card-eyebrow">TREATMENT</p>
           <h2 class="blog-card-title">Do Septic Tank Additives Work?</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/how-often-septic-treatment.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.06s;">
-          <p class="blog-card-eyebrow">Treatment</p>
+        <a class="blog-card" href="/blog/maintane-vs-ridx.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.12s;">
+          <p class="blog-card-eyebrow">TREATMENT</p>
+          <h2 class="blog-card-title">Maintane vs. Rid-X: An Honest Comparison</h2>
+          <p class="blog-card-meta">5 min read · April 2026</p>
+        </a>
+        <a class="blog-card" href="/blog/how-often-septic-treatment.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.00s;">
+          <p class="blog-card-eyebrow">TREATMENT</p>
           <h2 class="blog-card-title">How Often to Treat Your Septic Tank</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/is-septic-treatment-safe-for-pets.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.12s;">
-          <p class="blog-card-eyebrow">Treatment</p>
+        <a class="blog-card" href="/blog/is-septic-treatment-safe-for-pets.html" data-category="treatment" data-blog-reveal style="transition-delay: 0.06s;">
+          <p class="blog-card-eyebrow">TREATMENT</p>
           <h2 class="blog-card-title">Pet Safe Septic Tank Treatment</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
+        <a class="blog-card" href="/blog/septic-treatments-safe-for-pets.html" data-category="kid-pet-safe" data-blog-reveal style="transition-delay: 0.12s;">
+          <p class="blog-card-eyebrow">KID & PET SAFE</p>
+          <h2 class="blog-card-title">Are Septic Tank Treatments Safe for Pets?</h2>
+          <p class="blog-card-meta">5 min read · April 2026</p>
+        </a>
         <a class="blog-card" href="/blog/what-not-to-flush-septic.html" data-category="best-practices" data-blog-reveal style="transition-delay: 0.00s;">
-          <p class="blog-card-eyebrow">Best Practices</p>
+          <p class="blog-card-eyebrow">BEST PRACTICES</p>
           <h2 class="blog-card-title">What Not to Flush in a Septic System: Complete List</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
-        <a class="blog-card" href="/blog/septic-tank-cleaning-cost.html" data-category="best-practices" data-blog-reveal style="transition-delay: 0.06s;">
-          <p class="blog-card-eyebrow">Best Practices</p>
+        <a class="blog-card" href="/blog/septic-safe-cleaning-products.html" data-category="best-practices" data-blog-reveal style="transition-delay: 0.06s;">
+          <p class="blog-card-eyebrow">BEST PRACTICES</p>
+          <h2 class="blog-card-title">Septic-Safe Cleaning Products: What’s Actually OK to Use</h2>
+          <p class="blog-card-meta">5 min read · April 2026</p>
+        </a>
+        <a class="blog-card" href="/blog/how-to-find-septic-tank.html" data-category="best-practices" data-blog-reveal style="transition-delay: 0.12s;">
+          <p class="blog-card-eyebrow">BEST PRACTICES</p>
+          <h2 class="blog-card-title">How to Find Your Septic Tank: A Step-by-Step Guide</h2>
+          <p class="blog-card-meta">5 min read · April 2026</p>
+        </a>
+        <a class="blog-card" href="/blog/septic-tank-cleaning-cost.html" data-category="best-practices" data-blog-reveal style="transition-delay: 0.00s;">
+          <p class="blog-card-eyebrow">BEST PRACTICES</p>
           <h2 class="blog-card-title">Septic Tank Cleaning Cost: 2026 Pricing Guide</h2>
           <p class="blog-card-meta">5 min read · April 2026</p>
         </a>
