@@ -92,12 +92,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://getmaintane.com/products.html</loc>
-    <lastmod>2026-04-25</lastmod>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://getmaintane.com/how-it-works.html</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.8</priority>
