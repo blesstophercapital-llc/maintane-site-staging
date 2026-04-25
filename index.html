@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Maintane" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#3B5C3A" />
 <title>Maintane — Natural Septic Care</title>
+<link rel="canonical" href="https://getmaintane.com/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,53 +19,104 @@
   gtag('js', new Date());
   gtag('config', 'G-D8DRYD8BHZ');
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=DM+Serif+Display:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&family=DM+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage: #7a9a7e;
-    --sage-light: #a8c4a2;
-    --sage-dark: #4a6b4e;
-    --cream: #f5f0e8;
-    --dark: #1a1f1b;
-    --dark-mid: #2c342d;
-    --text-muted: #8a9a8b;
-    --accent: #c8b87a;
-    --font-display: 'DM Serif Display', serif;
+    /* Phase 1 inversion brand tokens */
+    --warm-cream: #FAF6F0;
+    --off-cream: #F4EDE2;
+    --dark-bark: #2C2417;
+    --forest-green: #3B5C3A;
+    --botanical-tan: #C4A882;
+    --font-display: 'Playfair Display', serif;
     --font-body: 'DM Sans', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { padding-top: 0; font-family: var(--font-body); background: var(--dark); color: var(--cream); overflow-x: hidden; }
+  body { padding-top: 0; font-family: var(--font-body); background: var(--warm-cream); color: var(--dark-bark); overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(26,31,27,0.92); backdrop-filter: blur(12px);
-    border-bottom: none;
-  flex-wrap: wrap;
+  /* ── ANNOUNCEMENT BAR (Row 1) ── */
+  .announcement-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+    background: #C4A882; color: #2C2417;
+    padding: 0 24px; min-height: 44px;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em; box-sizing: border-box;
   }
-  .trust-bar { width: 100%; display: flex; justify-content: center; gap: 2rem; padding: 0.4rem 0 0; border-top: 1px solid rgba(122,154,126,0.15); margin-top: 0.2rem; }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--cream);
-    text-decoration: none; cursor: pointer;
+  .announcement-text {
+    flex: 1; max-width: 900px; margin: 0 auto;
+    text-align: center; line-height: 1.4;
+    transition: opacity 0.2s ease;
+    padding: 0.4rem 0;
+  }
+  .announce-arrow {
+    background: none; border: none; cursor: pointer;
+    color: inherit; font-size: 1.2rem; line-height: 1;
+    min-width: 44px; min-height: 44px; padding: 0; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.2s; font-family: inherit;
+  }
+  .announce-arrow:hover { opacity: 0.7; }
+  .announce-arrow:focus-visible { outline: 1px solid currentColor; outline-offset: 2px; }
+  .announce-link {
+    color: inherit; text-decoration: underline;
+    text-underline-offset: 3px; font-weight: 700;
+    transition: text-decoration-thickness 0.2s;
+  }
+  .announce-link:hover { text-decoration-thickness: 2px; }
+  .announce-sep, .announce-tail { display: inline; }
+  #countdown { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ── MAIN NAV (Row 2) ── */
+  .main-nav {
+    position: fixed; top: 44px; left: 0; right: 0; z-index: 100;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; gap: 1rem;
+    padding: 1rem 3rem; min-height: 72px; box-sizing: border-box;
+    background: var(--warm-cream); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59,92,58,0.15);
+  }
+  .nav-left, .nav-right {
+    display: flex; align-items: center;
+    list-style: none; padding: 0; margin: 0; gap: 2rem;
+  }
+  .nav-left { justify-self: center; }
+  .nav-right { justify-self: center; }
+  .nav-left a, .nav-right a {
+    font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.95rem; font-weight: 600;
+    color: #2C2417; text-decoration: none; letter-spacing: 0.02em;
+    transition: color 0.2s; cursor: pointer;
+  }
+  .nav-left a:hover, .nav-right a:hover { color: #3B5C3A; }
+  .nav-center {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700;
+    font-size: 2.2rem; color: #3B5C3A;
+    text-decoration: none; cursor: pointer; line-height: 1;
+    transform: translateX(-24px);
   }
   .nav-logo-mark {
-    width: 32px; height: 32px;
-    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    display: inline-flex; align-items: center; justify-content: center;
   }
-  .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    color: var(--text-muted); text-decoration: none; font-size: 0.875rem;
-    font-weight: 400; letter-spacing: 0.02em; transition: color 0.2s; cursor: pointer;
-  }
-  .nav-links a:hover { color: var(--cream); }
   .nav-cta {
-    background: var(--sage) !important; color: white !important;
-    padding: 0.6rem 1.4rem; border-radius: 100px; font-weight: 500 !important;
+    background: #3B5C3A !important; color: #FAF6F0 !important;
+    padding: 0.75rem 1.75rem; border-radius: 100px;
+    font-weight: 600 !important; font-size: 0.9rem;
+    margin-left: 1rem; transition: background 0.2s;
   }
-  .nav-cta:hover { background: var(--sage-dark) !important; }
+  .nav-cta:hover { background: #2d4a2c !important; }
+
+  /* Hamburger (mobile only) */
+  .hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: 0.5rem; z-index: 201; justify-self: start;
+  }
+
+  /* Legacy trust-bar element no longer rendered */
+  .trust-bar { display: none; }
 
   /* PAGES */
   .page { display: none; }
@@ -65,52 +124,66 @@
 
   /* HERO */
   .hero {
-    min-height: auto; display: flex; flex-direction: column;
-    justify-content: flex-start; padding: 7rem 3rem 2rem; position: relative; overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    background: var(--forest-green);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   @media (max-width: 768px) {
-    .hero { min-height: auto; padding: 8rem 1.5rem 2rem; }
+    .hero { min-height: 100vh !important; height: 100vh !important; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; }
-    .hero h1 { font-size: 2rem !important; }
+    .hero h1 { font-size: 3rem !important; }
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(122,154,126,0.12) 0%, transparent 70%),
+    background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(59, 92, 58,0.12) 0%, transparent 70%),
                 radial-gradient(ellipse 40% 60% at 20% 80%, rgba(168,196,162,0.08) 0%, transparent 60%);
   }
-  .hero-tag { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 1.5rem; }
+  .hero-tag { font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase; color: #C4A882; font-weight: 800; text-align: center; margin: 60px 0 12px 0; }
   .hero h1 {
-    font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 400; line-height: 1.05; color: var(--cream); max-width: 700px; margin-bottom: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 4.8rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--warm-cream);
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
   }
-  .hero h1 em { font-style: italic; color: var(--sage-light); }
-  .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero h1 em { font-style: italic; color: var(--botanical-tan); }
+  .hero-sub { font-family: 'DM Sans', system-ui, sans-serif; font-size: 1.5rem; color: rgba(250, 246, 240, 0.92); max-width: 600px; line-height: 1.5; margin: 32px auto 44px; font-weight: 300; text-align: center; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-  .hero-badges { display: flex; gap: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
-  .badge { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); }
-  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+  .hero-badges { display: flex; justify-content: center; gap: 10px 12px; margin: 0 0 48px 0; flex-wrap: wrap; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid #C4A882; border-radius: 999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #FAF6F0; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #C4A882; flex-shrink: 0; }
 
   /* BUTTONS */
   .btn-primary {
-    background: var(--sage); color: white; padding: 0.85rem 2rem; border-radius: 100px;
+    background: #3B5C3A; color: white; padding: 0.85rem 2rem; border-radius: 100px;
     font-size: 0.9rem; font-weight: 500; cursor: pointer; border: none;
     transition: background 0.2s, transform 0.15s; text-decoration: none; display: inline-block;
   }
-  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+  .btn-primary:hover { background: #2d4a2c; transform: translateY(-1px); }
   .btn-ghost {
-    background: transparent; color: var(--cream); padding: 0.85rem 2rem; border-radius: 100px;
+    background: transparent; color: var(--dark-bark); padding: 0.85rem 2rem; border-radius: 100px;
     font-size: 0.9rem; font-weight: 400; cursor: pointer;
-    border: 1px solid rgba(245,240,232,0.2); transition: border-color 0.2s, transform 0.15s;
+    border: 1px solid rgba(44,36,23,0.25); transition: border-color 0.2s, transform 0.15s;
     text-decoration: none; display: inline-block;
   }
   .btn-ghost:hover { border-color: rgba(245,240,232,0.5); transform: translateY(-1px); }
 
   /* SECTIONS */
   section { padding: 6rem 3rem; }
-  .section-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
-  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; color: var(--cream); line-height: 1.15; margin-bottom: 1.25rem; }
-  .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 520px; line-height: 1.7; font-weight: 300; }
+  .section-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--botanical-tan); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; color: var(--dark-bark); line-height: 1.15; margin-bottom: 1.25rem; }
+  .section-sub { font-size: 1rem; color: rgba(44, 36, 23, 0.75); max-width: 520px; line-height: 1.7; font-weight: 300; }
   .max-w { max-width: 1200px; margin: 0 auto; }
   .text-center { text-align: center; }
 
@@ -119,74 +192,74 @@
   .bullets { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.75rem; }
   .bullet-item { display: flex; gap: 1.25rem; align-items: flex-start; }
   .bullet-emoji { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
-  .bullet-title { font-size: 0.95rem; font-weight: 500; color: var(--cream); margin-bottom: 0.3rem; }
-  .bullet-body { padding-top: 0; font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+  .bullet-title { font-size: 0.95rem; font-weight: 500; color: var(--dark-bark); margin-bottom: 0.3rem; }
+  .bullet-body { padding-top: 0; font-size: 0.875rem; color: rgba(44, 36, 23, 0.6); line-height: 1.65; font-weight: 300; }
   .product-visual {
-    background: var(--dark-mid); border: 1px solid rgba(122,154,126,0.15);
+    background: var(--warm-cream); border: 1px solid rgba(59,92,58,0.15);
     border-radius: 24px; padding: 3rem 2rem; text-align: center; position: sticky; top: 6rem;
   }
   .product-icon { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
-  .product-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--cream); margin-bottom: 0.5rem; }
-  .product-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem; font-weight: 300; }
-  .product-price { font-size: 2.5rem; font-weight: 500; color: var(--cream); margin-bottom: 0.25rem; }
-  .product-price-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+  .product-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--dark-bark); margin-bottom: 0.5rem; }
+  .product-desc { font-size: 0.875rem; color: rgba(44, 36, 23, 0.7); line-height: 1.6; margin-bottom: 2rem; font-weight: 300; }
+  .product-price { font-size: 2.5rem; font-weight: 500; color: var(--dark-bark); margin-bottom: 0.25rem; }
+  .product-price-sub { font-size: 0.85rem; color: rgba(44, 36, 23, 0.6); margin-bottom: 1.75rem; }
   .product-tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
   .product-tag {
     font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.75rem;
-    border-radius: 100px; border: 1px solid rgba(122,154,126,0.3); color: var(--sage-light);
+    border-radius: 100px; border: 1px solid rgba(59, 92, 58,0.3); color: #7BA078;
     letter-spacing: 0.04em; text-transform: uppercase;
   }
   .buy-btn { width: 100%; padding: 1rem; font-size: 1rem; border-radius: 12px; }
 
   /* HOW IT WORKS */
   .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; max-width: 1000px; }
-  .step-card { padding: 2rem; border: 1px solid rgba(122,154,126,0.15); border-radius: 20px; background: rgba(122,154,126,0.03); }
-  .step-num { font-family: var(--font-display); font-size: 3rem; color: rgba(122,154,126,0.2); line-height: 1; margin-bottom: 1rem; }
-  .step-title { font-size: 1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
-  .step-body { padding-top: 0; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+  .step-card { padding: 2rem; border: 1px solid rgba(59, 92, 58,0.15); border-radius: 20px; background: rgba(59, 92, 58,0.03); }
+  .step-num { font-family: var(--font-display); font-size: 3rem; color: rgba(59, 92, 58,0.2); line-height: 1; margin-bottom: 1rem; }
+  .step-title { font-size: 1rem; font-weight: 500; color: var(--dark-bark); margin-bottom: 0.5rem; }
+  .step-body { padding-top: 0; font-size: 0.875rem; color: rgba(44, 36, 23, 0.6); line-height: 1.6; font-weight: 300; }
 
   /* SCIENCE */
   .science-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto; }
   .science-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
   .science-item { display: flex; gap: 1rem; }
-  .science-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); flex-shrink: 0; margin-top: 6px; }
-  .science-item-title { font-size: 0.9rem; font-weight: 500; color: var(--cream); margin-bottom: 0.25rem; }
-  .science-item-body { padding-top: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
-  .science-visual { background: var(--dark-mid); border: 1px solid rgba(122,154,126,0.15); border-radius: 24px; padding: 3rem 2rem; text-align: center; }
+  .science-dot { width: 8px; height: 8px; border-radius: 50%; background: #3B5C3A; flex-shrink: 0; margin-top: 6px; }
+  .science-item-title { font-size: 0.9rem; font-weight: 500; color: var(--dark-bark); margin-bottom: 0.25rem; }
+  .science-item-body { padding-top: 0; font-size: 0.85rem; color: rgba(44, 36, 23, 0.6); line-height: 1.6; font-weight: 300; }
+  .science-visual { background: var(--warm-cream); border: 1px solid rgba(59,92,58,0.15); border-radius: 24px; padding: 3rem 2rem; text-align: center; }
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-  .stat-box { background: rgba(122,154,126,0.08); border-radius: 12px; padding: 1.25rem; text-align: center; }
-  .stat-num { font-family: var(--font-display); font-size: 1.8rem; color: var(--sage-light); display: block; }
-  .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; }
+  .stat-box { background: rgba(59, 92, 58,0.08); border-radius: 12px; padding: 1.25rem; text-align: center; }
+  .stat-num { font-family: var(--font-display); font-size: 1.8rem; color: var(--forest-green); display: block; }
+  .stat-label { font-size: 0.75rem; color: rgba(44, 36, 23, 0.6); margin-top: 0.25rem; }
 
   /* REVIEWS */
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; max-width: 1100px; }
-  .review-card { background: var(--dark-mid); border: 1px solid rgba(122,154,126,0.12); border-radius: 16px; padding: 1.75rem; }
-  .review-stars { color: var(--accent); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
-  .review-text { font-size: 0.9rem; color: var(--cream); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; font-style: italic; font-family: var(--font-display); }
-  .review-author { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+  .review-card { background: var(--warm-cream); border: 1px solid rgba(59,92,58,0.15); border-radius: 16px; padding: 1.75rem; }
+  .review-stars { color: #C4A882; font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .review-text { font-size: 0.9rem; color: var(--dark-bark); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; font-style: italic; font-family: var(--font-display); }
+  .review-author { font-size: 0.8rem; color: rgba(44, 36, 23, 0.6); font-weight: 500; }
 
   /* HOW IT WORKS PAGE */
-  .hiw-hero { min-height: auto; display: flex; flex-direction: column; justify-content: center; padding: 7rem 3rem 3rem; text-align: center; position: relative; }
+  .hiw-hero { min-height: auto; display: flex; flex-direction: column; justify-content: center; padding: 9rem 3rem 3rem; text-align: center; position: relative; }
   .hiw-steps { max-width: 800px; margin: 0 auto; margin-top: -3rem; }
-  .hiw-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(122,154,126,0.1); align-items: start; }
+  .hiw-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(59, 92, 58,0.1); align-items: start; }
   .hiw-step:last-child { border-bottom: none; }
-  .hiw-step-num { width: 64px; height: 64px; border-radius: 50%; background: rgba(122,154,126,0.1); border: 1px solid rgba(122,154,126,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.4rem; color: var(--sage-light); flex-shrink: 0; }
-  .hiw-step-title { font-size: 1.1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
-  .hiw-step-body { padding-top: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
-  .hiw-science-strip { background: var(--dark-mid); border-radius: 24px; padding: 3rem; margin: 4rem auto; max-width: 800px; border: 1px solid rgba(122,154,126,0.15); }
+  .hiw-step-num { width: 64px; height: 64px; border-radius: 50%; background: rgba(59, 92, 58,0.1); border: 1px solid rgba(59, 92, 58,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.4rem; color: #7BA078; flex-shrink: 0; }
+  .hiw-step-title { font-size: 1.1rem; font-weight: 500; color: var(--dark-bark); margin-bottom: 0.5rem; }
+  .hiw-step-body { padding-top: 0; font-size: 0.9rem; color: rgba(44, 36, 23, 0.6); line-height: 1.7; font-weight: 300; }
+  .hiw-science-strip { background: var(--warm-cream); border-radius: 24px; padding: 3rem; margin: 4rem auto; max-width: 800px; border: 1px solid rgba(59,92,58,0.15); }
   .ingredient-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-  .ingredient-box { background: rgba(122,154,126,0.06); border-radius: 12px; padding: 1.25rem; text-align: center; border: 1px solid rgba(122,154,126,0.12); }
+  .ingredient-box { background: rgba(59, 92, 58,0.06); border-radius: 12px; padding: 1.25rem; text-align: center; border: 1px solid rgba(59, 92, 58,0.12); }
   .ingredient-icon { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
-  .ingredient-name { font-size: 0.85rem; font-weight: 500; color: var(--cream); }
-  .ingredient-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
+  .ingredient-name { font-size: 0.85rem; font-weight: 500; color: var(--dark-bark); }
+  .ingredient-desc { font-size: 0.75rem; color: rgba(44, 36, 23, 0.6); margin-top: 0.25rem; line-height: 1.5; }
 
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1000px; margin: 0 auto; padding: 9rem 3rem 6rem; align-items: start; }
   .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
   .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 500; }
-  .form-input { background: var(--dark-mid); border: 1px solid rgba(122,154,126,0.2); border-radius: 10px; padding: 0.85rem 1rem; color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; transition: border-color 0.2s; outline: none; width: 100%; font-weight: 300; }
-  .form-input:focus { border-color: var(--sage); }
+  .form-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(44, 36, 23, 0.6); font-weight: 500; }
+  .form-input { background: var(--warm-cream); border: 1px solid rgba(59,92,58,0.25); border-radius: 10px; padding: 0.85rem 1rem; color: var(--dark-bark); font-family: var(--font-body); font-size: 0.9rem; transition: border-color 0.2s; outline: none; width: 100%; font-weight: 300; }
+  .form-input:focus { border-color: #3B5C3A; }
   textarea.form-input { min-height: 140px; resize: vertical; }
   .h-captcha { margin: 1rem 0; display: flex; justify-content: flex-start; }
   .h-captcha iframe { border-radius: 8px; }
@@ -194,46 +267,42 @@
     .h-captcha { transform: scale(0.95); transform-origin: left top; }
   }
   .contact-info-item { display: flex; gap: 1rem; margin-bottom: 1.75rem; align-items: flex-start; }
-  .contact-info-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(122,154,126,0.1); border: 1px solid rgba(122,154,126,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
-  .contact-info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.25rem; }
-  .contact-info-val { font-size: 0.9rem; color: var(--cream); font-weight: 300; }
+  .contact-info-icon { width: 36px; height: 36px; border-radius: 50%; background: rgba(59, 92, 58,0.1); border: 1px solid rgba(59, 92, 58,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .contact-info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(44, 36, 23, 0.6); margin-bottom: 0.25rem; }
+  .contact-info-val { font-size: 0.9rem; color: var(--dark-bark); font-weight: 300; }
 
   /* POLICY */
   .policy-content { max-width: 720px; margin: 0 auto; padding: 9rem 3rem 6rem; }
-  .policy-content h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem; }
-  .policy-date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 3rem; }
+  .policy-content h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; color: var(--dark-bark); margin-bottom: 0.5rem; }
+  .policy-date { font-size: 0.8rem; color: rgba(44, 36, 23, 0.6); margin-bottom: 3rem; }
   .policy-section { margin-bottom: 2.5rem; }
-  .policy-section h2 { font-size: 0.8rem; font-weight: 500; color: var(--sage-light); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
-  .policy-section p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+  .policy-section h2 { font-size: 0.8rem; font-weight: 500; color: #7BA078; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .policy-section p { font-size: 0.9rem; color: rgba(44, 36, 23, 0.6); line-height: 1.75; font-weight: 300; }
 
   /* FOOTER */
-  footer { border-top: 1px solid rgba(122,154,126,0.1); padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-  .footer-logo { font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--cream); }
-  .footer-links { display: flex; gap: 2rem; list-style: none; }
-  .footer-links a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; cursor: pointer; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--cream); }
-  .footer-copy { font-size: 0.78rem; color: var(--text-muted); width: 100%; }
+  footer { border-top: 1px solid rgba(59, 92, 58,0.1); padding: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+
 
   /* HAMBURGER MENU */
   .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 201; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); margin: 5px 0; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: #2C2417; margin: 5px 0; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
   .mobile-menu {
     display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(26,31,27,0.98); backdrop-filter: blur(16px);
+    background: rgba(250,246,240,0.98); backdrop-filter: blur(16px);
     flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
   }
   .mobile-menu.open { display: flex; }
   .mobile-menu a {
-    font-family: 'DM Sans', sans-serif; font-size: 1.2rem; color: var(--cream);
+    font-family: 'DM Sans', sans-serif; font-size: 1.2rem; color: #2C2417;
     text-decoration: none; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em;
   }
-  .mobile-menu a:hover { color: var(--sage-light); }
+  .mobile-menu a:hover { color: #7BA078; }
   .mobile-menu .mobile-cta {
-    background: var(--sage); color: white; padding: 0.85rem 2rem; border-radius: 100px;
+    background: #3B5C3A; color: #FAF6F0; padding: 0.85rem 2rem; border-radius: 100px;
     font-weight: 600; font-size: 1rem; margin-top: 1rem;
   }
 
@@ -243,67 +312,52 @@
     max-width: 1100px; margin: 2.5rem auto 0; padding: 0 1.5rem;
   }
   .hiw-card {
-    background: rgba(122,154,126,0.04); border: 1px solid rgba(122,154,126,0.15);
+    background: rgba(59, 92, 58,0.04); border: 1px solid rgba(59, 92, 58,0.15);
     border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
     transition: border-color 0.2s, transform 0.2s;
   }
-  .hiw-card:hover { border-color: var(--sage); transform: translateY(-2px); }
+  .hiw-card:hover { border-color: #3B5C3A; transform: translateY(-2px); }
   .hiw-card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
   .hiw-card-num {
     font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--sage); font-weight: 600; margin-bottom: 0.75rem;
+    color: #3B5C3A; font-weight: 600; margin-bottom: 0.75rem;
     font-family: 'DM Sans', sans-serif;
   }
   .hiw-card-title {
-    font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 0.5rem;
+    font-size: 1.05rem; font-weight: 700; color: var(--dark-bark); margin-bottom: 0.5rem;
     font-family: 'DM Sans', sans-serif;
   }
-  .hiw-card-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+  .hiw-card-body { font-size: 0.85rem; color: rgba(44, 36, 23, 0.6); line-height: 1.65; font-weight: 300; }
 
   /* ECONOMICS SECTION */
-  .econ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1100px; margin: 2.5rem auto 0; }
-  .econ-card {
-    border: 1px solid rgba(122,154,126,0.15); border-radius: 20px; padding: 2rem 1.5rem;
-    background: rgba(122,154,126,0.03);
-  }
-  .econ-card.highlight {
-    background: rgba(59,92,58,0.25); border-color: var(--sage);
-  }
-  .econ-card-label {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1rem; padding: 0.25rem 0.6rem; border-radius: 100px; display: inline-block;
-  }
-  .econ-card-label.risk { background: rgba(200,100,80,0.15); color: #d4806a; }
-  .econ-card-label.smart { background: rgba(122,154,126,0.2); color: var(--sage-light); }
-  .econ-card-label.complex { background: rgba(200,180,120,0.15); color: #c8b87a; }
-  .econ-card-name { font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); margin-bottom: 0.5rem; }
-  .econ-card-cost { font-size: 0.85rem; color: var(--sage-light); font-weight: 500; margin-bottom: 1rem; }
-  .econ-card-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
-  .econ-bottom { text-align: center; margin-top: 2.5rem; }
-  .econ-bottom-note { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; margin-bottom: 1.5rem; }
 
   @media (max-width: 768px) {
-    nav { padding: 0.8rem 1.2rem; }
-    .nav-links { display: none; }
-    .nav-links .nav-cta { display: none; }
-    .hamburger { display: block; }
-    .trust-bar { font-size: 0.65rem; gap: 0.5rem; padding: 0.3rem 0.5rem; }
-    .trust-bar span { letter-spacing: 0.02em; font-size: 0.68rem !important; }
+    .announcement-bar { font-size: 0.85rem; padding: 0 12px; letter-spacing: 0.03em; }
+    .announcement-text { font-size: 0.85rem; line-height: 1.3; }
+    .announce-sep { display: none; }
+    .announce-tail { display: block; }
+    .main-nav { top: 44px; grid-template-columns: auto 1fr auto; padding: 0.6rem 1rem; min-height: 64px; }
+    .nav-left { display: none; }
+    .nav-right { gap: 0; }
+    .nav-right li:not(:last-child) { display: none; }
+    .nav-center { font-size: 1.6rem; gap: 8px; transform: translateX(-18px); }
+    .nav-center .nav-logo-mark { width: 28px; height: 28px; }
+    .hamburger { display: block !important; }
+    .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { padding: 8rem 1rem 2rem; min-height: auto; }
+    .hero { min-height: 100vh !important; height: 100vh !important; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
-    .hero h1 { font-size: 2rem !important; }
-    .hero-sub { font-size: 0.95rem !important; }
+    .hero h1 { font-size: 3rem !important; }
+    .hero-sub { font-size: 1.2rem !important; max-width: 340px !important; }
     .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .steps-grid, .reviews-grid, .econ-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .ingredient-grid { grid-template-columns: 1fr; }
     .stat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .product-visual { position: static; width: 100%; }
-    .econ-card { padding: 1.5rem 1rem; }
     .review-card { padding: 1.25rem; }
     .step-card { padding: 1.5rem; }
     [id^="product-component-"] { width: 100% !important; }
@@ -321,8 +375,1032 @@
     .max-w { padding: 0 0.5rem; }
     .science-visual { padding: 2rem 1rem; }
     .bullets { gap: 1.25rem; }
-    .hero-badges { gap: 0.75rem; }
-    .badge { font-size: 0.72rem; }
+    .hero-badges { gap: 10px 12px; }
+    .badge { font-size: 0.82rem; padding: 8px 14px; }
+  }
+
+  /* ── Phase 1.5o: Hero carousel ── */
+  .hero-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .hero-slide.active { opacity: 1; }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(59,92,58,0.78) 100%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 880px;
+    padding: 9rem 24px 6rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: none;
+    border: none;
+    color: rgba(250, 246, 240, 0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 12px 16px;
+    transition: color 0.2s;
+    font-family: inherit;
+    line-height: 1;
+  }
+  .hero-arrow:hover { color: rgba(250, 246, 240, 1); }
+  .hero-arrow-prev { left: 32px; }
+  .hero-arrow-next { right: 32px; }
+  .hero-dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FAF6F0;
+    opacity: 0.4;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .hero-dot.active,
+  .hero-dot:hover { opacity: 1; }
+  .hero-credit {
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    z-index: 3;
+    color: rgba(250, 246, 240, 0.4);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    transition: opacity 0.2s;
+  }
+  .hero-cta-tan {
+    display: inline-block;
+    background: #C4A882;
+    color: #2C2417;
+    padding: 16px 40px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid #C4A882;
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .hero-cta-tan:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #3B5C3A;
+  }
+  @media (max-width: 768px) {
+    .hero-content { padding: 7rem 24px 6rem; }
+    .hero-arrow { display: none; }
+    .hero-credit { font-size: 0.65rem; left: 16px; bottom: 12px; }
+    .hero-dots { bottom: 24px; }
+    .hero-cta-tan {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+
+  /* ── Phase 2.1: Why Maintane comparison grid ── */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .why-maintane {
+    background: #FAF6F0;
+    padding: 100px 0;
+    box-sizing: border-box;
+  }
+  .why-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .why-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 0.75rem 0;
+  }
+  .why-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+  }
+  .why-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    font-weight: 300;
+    text-align: center;
+    max-width: 640px;
+    margin: 16px auto 64px;
+  }
+  .why-comparison {
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .why-comparison thead,
+  .why-comparison tbody,
+  .why-comparison tr { display: contents; }
+  .why-comparison th,
+  .why-comparison td {
+    padding: 20px 16px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    text-align: center;
+    border-bottom: 1px solid rgba(250, 246, 240, 0.15);
+    box-sizing: border-box;
+  }
+  .why-comparison thead th {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .why-comparison thead th.col-features {
+    color: rgba(250, 246, 240, 0.6);
+    font-weight: 500;
+    text-align: left;
+  }
+  .why-comparison thead th.col-other {
+    color: rgba(250, 246, 240, 0.6);
+    font-weight: 500;
+  }
+  .why-comparison thead th.col-maintane {
+    color: #FAF6F0;
+    font-weight: 600;
+  }
+  .why-comparison tbody th {
+    text-align: left;
+    color: #FAF6F0;
+    font-size: 1.05rem;
+    font-weight: 400;
+  }
+  /* Maintane column tint + 2px Forest Green frame */
+  .why-comparison .col-maintane {
+    background: #4A6B48;
+    border-left: 2px solid #C4A882;
+    border-right: 2px solid #C4A882;
+  }
+  .why-comparison thead .col-maintane {
+    border-top: 2px solid #C4A882;
+  }
+  .why-comparison tbody tr:last-child th,
+  .why-comparison tbody tr:last-child td { border-bottom: none; }
+  .why-comparison tbody tr:last-child .col-maintane {
+    border-bottom: 2px solid #C4A882;
+  }
+  .why-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  /* CTA */
+  .why-cta {
+    text-align: center;
+    margin-top: 48px;
+  }
+  .why-cta-label {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.7);
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0 0 1rem 0;
+  }
+  .why-cta-btn {
+    display: inline-block;
+    background: #C4A882;
+    color: #2C2417;
+    padding: 14px 32px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid #C4A882;
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .why-cta-btn:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #3B5C3A;
+  }
+  /* Mobile */
+  /* Phase 2.4b: Why card (full-bleed forest band) */
+  .why-card {
+    background: #3B5C3A;
+    width: 100%;
+    padding: 100px 80px;
+    box-sizing: border-box;
+  }
+
+  /* ── Phase 2.8: Start Your Journey CTA ── */
+  .journey-cta {
+    background: #FAF6F0;
+    padding: 140px 24px;
+    box-sizing: border-box;
+  }
+  .journey-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .journey-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #3B5C3A;
+    font-size: 4rem;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0;
+  }
+  .journey-btn {
+    display: inline-block;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    padding: 18px 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid #3B5C3A;
+    margin-top: 48px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .journey-btn:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #3B5C3A;
+  }
+  @media (max-width: 768px) {
+    .journey-cta { padding: 96px 24px; }
+    .journey-headline { font-size: 2.4rem; }
+  }
+
+  /* ── Phase 2.5c: Solution bottom bun ── */
+  .solution-bottom {
+    margin: 64px auto 0;
+    max-width: 900px;
+    text-align: center;
+  }
+  .solution-bottom-rule {
+    width: 120px;
+    height: 1px;
+    border: none;
+    background: rgba(196, 168, 130, 0.25);
+    margin: 0 auto 48px;
+    display: block;
+  }
+  .solution-bottom-primary {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    text-align: center;
+    margin: 0;
+  }
+  .solution-bottom-cite {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-style: italic;
+    color: #C4A882;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    text-align: center;
+    margin: 28px 0 0 0;
+  }
+  @media (max-width: 768px) {
+    .solution-bottom { margin-top: 64px; }
+    .solution-bottom-primary { font-size: 1.6rem; }
+    .solution-bottom-cite { font-size: 1.15rem; }
+  }
+
+  /* ── Phase 2.5: Solution section ── */
+  .solution-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .solution-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    margin: 0 0 0.75rem 0;
+  }
+  .solution-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .solution-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 16px auto 56px;
+  }
+  /* Block-level header (THE SCIENCE / THE COMPARISON) */
+  .block-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+  .block-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+  .block-intro {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 780px;
+    text-align: center;
+    margin: 0 auto 56px;
+  }
+  /* Strain grid */
+  .strain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .strain-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(196, 168, 130, 0.2);
+    border-radius: 0;
+    padding: 32px 28px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+  .strain-num {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .strain-name {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    color: #FAF6F0;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .strain-name em { font-style: italic; }
+  .strain-target {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .strain-role {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  /* Science supporting claim block */
+  .science-claim {
+    text-align: center;
+    max-width: 780px;
+    margin: 48px auto 0;
+  }
+  .claim-primary {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #FAF6F0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    margin: 0 0 20px 0;
+  }
+  .claim-cite {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: #C4A882;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  /* Divider between blocks */
+  .solution-divider {
+    width: 80px;
+    height: 1px;
+    border: none;
+    background: rgba(196, 168, 130, 0.3);
+    margin: 96px auto;
+    display: block;
+  }
+  /* CTA below comparison */
+  .solution-cta {
+    text-align: center;
+    margin-top: 72px;
+  }
+  .cta-label {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: rgba(250, 246, 240, 0.7);
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+  }
+  /* Scroll-triggered animation */
+  [data-solution-anim] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+  [data-solution-anim].in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-solution-anim] { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── Phase 2.5a: Solution full-width card + 2-col grid ── */
+  .solution-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: left;  /* override 2.5's center default — only header centers */
+  }
+  .solution-header { text-align: center; }
+  .solution-sub { max-width: 640px !important; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    margin-top: 0;
+  }
+  /* Subtle vertical hairline between columns + interior padding for breathing room */
+  .science-block {
+    padding-right: 60px;
+    border-right: 1px solid rgba(196, 168, 130, 0.18);
+  }
+  .comparison-block {
+    padding-left: 60px;
+  }
+  /* Tighter strain card padding + child sizes for narrower column */
+  .strain-grid { gap: 16px; margin: 0; }
+  .strain-card { padding: 24px 18px; }
+  .strain-num { margin-bottom: 12px; }
+  .strain-name { font-size: 1rem; margin-bottom: 8px; hyphens: auto; }
+  .strain-target { font-size: 0.75rem; margin-bottom: 14px; }
+  .strain-role { font-size: 0.88rem; line-height: 1.55; }
+  /* Science claim block — left-aligned in narrower column */
+  .science-claim {
+    text-align: left !important;
+    max-width: none !important;
+    margin: 40px 0 0 !important;
+  }
+  .claim-primary { font-size: 1rem !important; margin-bottom: 16px !important; }
+  .claim-cite { font-size: 0.85rem !important; }
+  /* Comparison CTA tightening (within right column) */
+  .solution-cta { margin-top: 48px; text-align: center; }
+
+    @media (max-width: 768px) {
+    .why-maintane { padding: 64px 0; }
+    .why-card { padding: 64px 32px; }
+    .why-headline { font-size: 1.8rem; }
+    .solution-headline { font-size: 2rem; }
+    .solution-sub { font-size: 1rem; margin-bottom: 56px; }
+    .block-headline { font-size: 1.6rem; }
+    .block-intro { font-size: 1rem; margin-bottom: 40px; }
+    .strain-grid { grid-template-columns: 1fr; }
+    .strain-card { padding: 28px 24px; }
+    .strain-name { font-size: 1.15rem; }
+    .solution-divider { margin: 64px auto; }
+    .solution-cta { margin-top: 56px; }
+    /* Phase 2.5a mobile: stack 2-col grid + flip vertical divider to horizontal */
+    .solution-inner { max-width: 100%; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .science-block {
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(196, 168, 130, 0.18);
+    }
+    .comparison-block {
+      padding-left: 0;
+      padding-top: 64px;
+    }
+    .strain-card { padding: 24px 20px; }
+    .why-sub { font-size: 1rem; margin-bottom: 40px; }
+    .why-comparison { display: block; }
+    .why-comparison thead { display: none; }
+    .why-comparison tbody { display: block; }
+    .why-comparison tbody tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(250, 246, 240, 0.15);
+    }
+    .why-comparison tbody tr:last-child { border-bottom: none; }
+    .why-comparison tbody th {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 0 0 12px 0;
+      font-size: 1rem;
+      border: none;
+    }
+    .why-comparison tbody td {
+      padding: 12px 0;
+      border: none;
+      font-size: 0.8rem;
+    }
+    .why-comparison tbody td.col-other { background: transparent; }
+    .why-comparison tbody td.col-maintane {
+      background: #4A6B48;
+      border: none;
+    }
+    .why-icon { width: 20px; height: 20px; }
+    .why-cta-btn {
+      display: block;
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+
+  /* ── Phase 2.2: Cold Hard Facts ── */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .facts {
+    background: #FAF6F0;
+    padding: 60px 40px;
+    box-sizing: border-box;
+  }
+  .facts-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .facts-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 0.75rem 0;
+  }
+  .facts-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  .facts-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.7);
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 16px auto 72px;
+  }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .fact-card {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    padding: 40px 28px;
+    box-shadow: 0 4px 24px rgba(44, 36, 23, 0.06);
+    text-align: center;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .fact-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #3B5C3A;
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 900;
+    margin: 0 0 16px 0;
+  }
+  .fact-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #2C2417;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .fact-mid {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.65);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 16px 0 0 0;
+  }
+  .fact-list-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    margin: 0 0 24px 0;
+  }
+  .fact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    color: #2C2417;
+    font-size: 1.15rem;
+    line-height: 1.9;
+  }
+  .fact-cite {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.45);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    margin: auto 0 0 0;
+    padding-top: 24px;
+  }
+  .fact-health-block {
+    margin: 32px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .fact-health {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+  .fact-health-dot {
+    color: #C4A882;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 6px 0;
+    display: block;
+  }
+  .facts-closer {
+    font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+    font-style: italic;
+    color: rgba(44, 36, 23, 0.85);
+    font-size: 1.35rem;
+    line-height: 1.45;
+    text-align: center;
+    max-width: 720px;
+    margin: 48px auto 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fact-card { opacity: 1; transform: none; transition: none; }
+  }
+
+  @media (max-width: 768px) {
+    .facts { padding: 40px 24px; }
+    .facts-headline { font-size: 2rem; }
+    .facts-sub { font-size: 1rem; margin-bottom: 48px; }
+    .facts-grid { grid-template-columns: 1fr; gap: 20px; }
+    .fact-card { min-height: 0; padding: 32px 24px; }
+    .fact-num { font-size: 4rem; }
+    .fact-health { font-size: 0.95rem; }
+    .facts-closer { font-size: 1.1rem; margin-top: 40px; }
+  }
+
+
+  /* ── Phase 2.9: Footer rebuild ── */
+  .site-footer {
+    background: #3B5C3A;
+    margin-top: 0;
+    padding: 72px 40px 48px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  /* 4-column grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 35fr 21.6fr 21.6fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-signup-col { grid-column: 1 / -1; }
+  }
+
+  /* Column 1: signup */
+  .footer-signup-col { display: flex; flex-direction: column; }
+  .footer-signup-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+  }
+  .footer-signup-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    max-width: 420px;
+    margin: 0 0 32px 0;
+  }
+  .footer-form {
+    margin: 0 0 24px 0;
+    max-width: 420px;
+  }
+  .footer-form-label {
+    display: block;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .footer-form-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .footer-form-row input[type="email"] {
+    flex: 1 1 200px;
+    min-width: 0;
+    padding: 14px 18px;
+    background: #FAF6F0;
+    color: #2C2417;
+    border: 1px solid #C4A882;
+    border-radius: 0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .footer-form-row input[type="email"]:focus { border-color: #FAF6F0; }
+  .footer-form-btn {
+    padding: 14px 24px;
+    border: 1px solid #C4A882;
+    border-radius: 0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .footer-form-btn-tan {
+    background: #C4A882;
+    color: #2C2417;
+  }
+  .footer-form-btn-tan:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #FAF6F0;
+  }
+  .footer-form-btn-cream {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #FAF6F0;
+  }
+  .footer-form-btn-cream:hover {
+    background: #C4A882;
+    color: #2C2417;
+    border-color: #C4A882;
+  }
+  .footer-form-msg {
+    margin-top: 10px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+  }
+  .footer-form-msg-success { color: #C4A882; }
+  .footer-form-msg-error { color: #e8b4a8; }
+  .footer-fineprint {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.55);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin: 20px 0 0 0;
+  }
+  .footer-fineprint a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .footer-fineprint a:hover { color: #FAF6F0; }
+
+  /* Link columns */
+  .footer-col-header {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin: 0 0 24px 0;
+  }
+  .footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-link-list a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #FAF6F0;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-link-list a:hover {
+    color: #C4A882;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Badges */
+  .footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    margin-top: 56px;
+  }
+  .footer-badge {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #C4A882;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .footer-badge span {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #FAF6F0;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Social */
+  .footer-social {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .footer-social a {
+    color: rgba(250, 246, 240, 0.7);
+    transition: color 0.2s;
+    display: inline-flex;
+  }
+  .footer-social a:hover { color: #FAF6F0; }
+
+  /* Legal bar */
+  .footer-legal {
+    border-top: 1px solid rgba(250, 246, 240, 0.15);
+    margin-top: 40px;
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: rgba(250, 246, 240, 0.55);
+  }
+  .footer-legal a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-legal a:hover { color: #FAF6F0; }
+  .footer-legal-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-legal-right span { opacity: 0.5; }
+
+  @media (max-width: 768px) {
+    .site-footer { padding: 56px 24px 40px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-link-col { transform: none; }
+    .footer-signup-headline { font-size: 1.5rem; }
+    .footer-badges { gap: 32px; margin-top: 40px; }
+    .footer-badge { width: 64px; height: 64px; }
+    .footer-badge span { font-size: 0.6rem; }
+    .footer-legal {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+    .footer-legal-right { gap: 10px; flex-wrap: wrap; justify-content: center; }
   }
 
     </style>
@@ -353,40 +1431,46 @@
 }
 </script>
 <script src="https://hcaptcha.com/1/api.js" async defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/icons.css">
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" onclick="showPage('home')">
-    <div class="nav-logo-mark"><svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35 70 C35 70 20 55 25 35 C30 15 50 10 60 20 C70 30 65 55 50 65 Z" fill="#4a8c3f"/><path d="M50 65 C50 65 55 45 70 38 C85 31 95 40 90 55 C85 70 65 75 50 65 Z" fill="#6aaf3d"/><path d="M35 70 Q42 60 50 65" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M50 65 Q60 55 70 38" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
-    Maintane
-  </a>
-  <ul class="nav-links">
-        <li><a onclick="showPage('home')">Home</a></li>
-        <li><a onclick="showPage('how')">How it works</a></li>
-        <li><a href="https://getmaintane.com/blog/dosing-guide.html">Dosing Guide</a></li>
-        <li><a href="https://getmaintane.com/blog/">Blog</a></li>
-        <li><a onclick="showPage('contact')">Contact</a></li>
-        <li><a onclick="showPage('policy')">Policy</a></li>
-        <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></li>
-</ul>
+<div class="announcement-bar" aria-live="polite">
+  <button class="announce-arrow" id="announce-prev" aria-label="Previous announcement">&#8249;</button>
+  <div class="announcement-text" id="announcement-text">🌱 Launching May 15, 2026 — Save 10% as a waitlist member</div>
+  <button class="announce-arrow" id="announce-next" aria-label="Next announcement">&#8250;</button>
+</div>
+<nav class="main-nav">
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="trust-bar">
-    <span style="font-size: 0.85rem; font-weight: 500; color: #a8c4a2; letter-spacing: 0.05em;">🐾 Kid & Pet Friendly — Guaranteed</span>
-    <span style="font-size: 0.72rem; color: rgba(122,154,126,0.4);">|</span>
-    <span style="font-size: 0.85rem; font-weight: 500; color: #a8c4a2; letter-spacing: 0.05em;">🇺🇸 Made in the USA</span>
-  </div>
+  <ul class="nav-left">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a href="/products.html">Products</a></li>
+    <li><a href="/how-it-works.html">How it works</a></li>
+    <li><a href="/dosing-guide.html">Dosing Guide</a></li>
+  </ul>
+  <a class="nav-center" onclick="showPage('home')" aria-label="Maintane home">
+    <span class="nav-logo-mark"><svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35 70 C35 70 20 55 25 35 C30 15 50 10 60 20 C70 30 65 55 50 65 Z" fill="#4a8c3f"/><path d="M50 65 C50 65 55 45 70 38 C85 31 95 40 90 55 C85 70 65 75 50 65 Z" fill="#6aaf3d"/><path d="M35 70 Q42 60 50 65" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M50 65 Q60 55 70 38" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span>
+    Maintane
+  </a>
+  <ul class="nav-right">
+    <li><a href="/blog/">Blog</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a href="/policy.html">Policy</a></li>
+    <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></li>
+  </ul>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#" onclick="showPage('home');closeMobileMenu();">Home</a>
-  <a href="#" onclick="showPage('how');closeMobileMenu();">How It Works</a>
-  <a href="https://getmaintane.com/blog/dosing-guide.html">Dosing Guide</a>
-  <a href="https://getmaintane.com/blog/">Blog</a>
+  <a href="/products.html">Products</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/dosing-guide.html">Dosing Guide</a>
+  <a href="/blog/">Blog</a>
   <a href="#" onclick="showPage('contact');closeMobileMenu();">Contact</a>
-  <a href="#" onclick="showPage('policy');closeMobileMenu();">Policy</a>
+  <a href="/policy.html">Policy</a>
   <a class="mobile-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a>
 </div>
 
@@ -395,224 +1479,203 @@
   
 
   <div class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner" style="position:relative; z-index:1; display:grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; width: 100%;">
-      <div>
-        <p class="hero-tag">Natural Septic Care, Redefined</p>
-        <h1>Your system.<br><em>Maintained.</em><br>Every month.</h1>
-        <p class="hero-sub">One scoop. Per toilet. Once a month. Never think about your septic again.</p>
-        <div class="hero-actions">
-
-        </div>
-        <div class="hero-badges">
-          <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
-          <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
-          <div class="badge"><div class="badge-dot"></div> Made in USA</div>
-        </div>
-      </div>
-      <div style="background: rgba(44,52,45,0.8); border: 1px solid rgba(122,154,126,0.25); border-radius: 24px; padding: 2.5rem; backdrop-filter: blur(12px);">
-        <div style="text-align:center; margin-bottom: 1.5rem;">
-          <span style="font-size: 4rem; display:block; margin-bottom: 0.75rem;">🧪</span>
-          <div style="font-family: var(--font-display); font-size: 1.4rem; color: var(--cream); margin-bottom: 0.25rem;">Maintane</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 300;">3-Month Supply — $39.99<br></div>
-        </div>
-        <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid rgba(122,154,126,0.3); color: var(--sage-light); text-transform: uppercase; letter-spacing: 0.04em;">Made in USA</span>
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid rgba(122,154,126,0.3); color: var(--sage-light); text-transform: uppercase; letter-spacing: 0.04em;">Pet & Kid Safe</span>
-          <span style="font-size: 0.7rem; font-weight: 500; padding: 0.3rem 0.75rem; border-radius: 100px; border: 1px solid rgba(122,154,126,0.3); color: var(--sage-light); text-transform: uppercase; letter-spacing: 0.04em;">12B CFU</span>
-        </div>
-        <div style="border-top: 1px solid rgba(122,154,126,0.1); border-bottom: 1px solid rgba(122,154,126,0.1); padding: 1.25rem 0; margin-bottom: 1.5rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Price</span>
-            <span style="font-size: 1.5rem; font-weight: 500; color: var(--cream);">$39.99</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Shipping</span>
-            <span style="font-size: 0.85rem; color: var(--cream);">Free shipping</span>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Guarantee</span>
-            <span style="font-size: 0.85rem; color: var(--sage-light);">30-day full refund</span>
-          </div>
-        </div>
-        <style>
-        .shopify-buy__product__title { display: none !important; }
-        .shopify-buy__product__price { display: none !important; }
-        .shopify-buy__product__compare-at-price { display: none !important; }
-        .shopify-buy__product { padding: 0 !important; margin: 0 !important; }
-        .shopify-buy-frame--product { max-width: 100% !important; }
-        </style>
-        <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
-      </div>
+    <div class="hero-carousel" id="hero-carousel">
+      <div class="hero-slide active" style="background-image: url('/hero-family-field.jpg');" data-credit="Photo: Jessica Rockowitz / Unsplash"></div>
+      <div class="hero-slide" role="img" aria-label="A mother and daughter drawing with sidewalk chalk on a backyard path" style="background-image: url('/hero-mom-daughter-chalk.jpg');" data-credit="Photo: Nappy / Unsplash"></div>
+      <div class="hero-slide" style="background-image: url('/emotional-trigger-baby-grass.jpg');" data-credit="Photo: Alexander Mass / Unsplash"></div>
+      <div class="hero-slide" role="img" aria-label="A family gathered together on grass on a summer day" style="background-image: url('/hero-family-under-trees.jpg');" data-credit="Photo: Tales / Unsplash"></div>
+      <div class="hero-slide" style="background-image: url('/emotional-trigger-kid-shepherd.jpg');" data-credit="Photo: Holly Landkammer / Unsplash"></div>
     </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">SEPTIC CARE, REDEFINED</p>
+      <h1>Your system. <em>Maintained.</em> Naturally.</h1>
+      <p class="hero-sub">One scoop. Once a month. That’s it.</p>
+      <div class="hero-badges">
+        <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
+        <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
+        <div class="badge"><div class="badge-dot"></div> Made in USA</div>
+      </div>
+      <a class="hero-cta-tan" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+    </div>
+    <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide">‹</button>
+    <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide">›</button>
+    <div class="hero-dots" role="tablist" aria-label="Hero slides">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+      <button class="hero-dot" data-slide="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="hero-credit" id="hero-credit">Photo: Jessica Rockowitz / Unsplash</div>
   </div>
 
-  <!-- The Economics -->
-  <section style="background: var(--dark-mid); border-top: 1px solid rgba(122,154,126,0.1); border-bottom: 1px solid rgba(122,154,126,0.1);">
-    <div class="max-w">
-      <p class="section-tag">The economics</p>
-      <h2 class="section-title">Septic repairs are expensive.<br>Prevention isn't.</h2>
-      <p class="section-sub">Most homeowners spend more on coffee each month than on the system that keeps their home functioning.</p>
-      <div class="econ-grid">
-        <div class="econ-card">
-          <span class="econ-card-label risk">High Risk</span>
-          <div class="econ-card-name">Do nothing</div>
-          <div class="econ-card-cost">$0/month</div>
-          <div class="econ-card-body">Pump-out every 2–3 years ($400). Repairs when bacteria die off ($1,500–5,000). Full replacement if neglected ($10,000–30,000).</div>
-        </div>
-        <div class="econ-card highlight">
-          <span class="econ-card-label smart">Smart Maintenance</span>
-          <div class="econ-card-name">Maintane</div>
-          <div class="econ-card-cost">$13.33/month</div>
-          <div class="econ-card-body">12B CFU restore your bacterial ecosystem monthly. No pump-out surprises. No odors. No panic calls to a plumber.</div>
-        </div>
-        <div class="econ-card">
-          <span class="econ-card-label complex">Complicated</span>
-          <div class="econ-card-name">Traditional treatments</div>
-          <div class="econ-card-cost">Varies</div>
-          <div class="econ-card-body">Vague "billions" of CFU, no strain transparency, shock protocols that require daily dosing for a week. Complex and inconsistent.</div>
-        </div>
-      </div>
-      <div class="econ-bottom">
-        <p class="econ-bottom-note">One tub = 3 months of protection. $39.99. Free shipping.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Maintane™ -->
-  <section style="background: var(--dark-mid); border-top: 1px solid rgba(122,154,126,0.1); border-bottom: 1px solid rgba(122,154,126,0.1);">
-    <div class="why-grid">
-      <div>
-        <p class="section-tag">Why Maintane™</p>
-        <h2 class="section-title">The only septic treatment your family can trust.</h2>
-        <p class="section-sub">Made in the USA. Safe for kids and pets. Two ingredients. Zero compromise.</p>
-        <div class="bullets">
-          <div class="bullet-item">
-            <span class="bullet-emoji">🌿</span>
-            <div>
-              <div class="bullet-title">Safe for kids, pets & your entire home</div>
-              <div class="bullet-body">Made in the USA with biosafety level 1 bacteria and table salt. No harsh chemicals. No toxins. Flush with confidence knowing your family and septic system are protected.</div>
-            </div>
-          </div>
-          <div class="bullet-item">
-            <span class="bullet-emoji">💰</span>
-            <div>
-              <div class="bullet-title">Prevents on average $3,000–$25,000 in potential septic repairs</div>
-              <div class="bullet-body">One treatment per month keeps waste breaking down and your system flowing. Cheaper than one service call.</div>
-            </div>
-          </div>
-          <div class="bullet-item">
-            <span class="bullet-emoji">🔬</span>
-            <div>
-              <div class="bullet-title">12 billion CFU, 6 bacterial strains</div>
-              <div class="bullet-body">Scientifically formulated to break down waste, grease, paper, and organic matter in your tank and drain field. More diversity than most leading brands.</div>
-            </div>
-          </div>
-          <div class="bullet-item">
-            <span class="bullet-emoji">✅</span>
-            <div>
-              <div class="bullet-title">One scoop per toilet. One flush. Done.</div>
-              <div class="bullet-body">One scoop per toilet, once a month. No mess, no guessing. Your system is maintained.</div>
-            </div>
-          </div>
-          <div class="bullet-item">
-            <span class="bullet-emoji">🏠</span>
-            <div>
-              <div class="bullet-title">Works everywhere</div>
-              <div class="bullet-body">Septic tanks, RVs, grease traps, garbage disposals, drains, and marine holding tanks. One product handles it all.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="product-visual">
-          <span class="product-icon">🧪</span>
-          <div class="product-name">Maintane™</div>
-          <div class="product-desc">Natural Septic Treatment Powder<br></div>
-          <div class="product-tags">
-            <span class="product-tag">Made in USA</span>
-            <span class="product-tag">Pet & Kid Safe</span>
-            <span class="product-tag">12B CFU</span>
-          </div>
-          <div class="product-price">$39.99</div>
-          <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
-        </div>
+  <!-- Cold Hard Facts (Phase 2.2) -->
+  <section class="facts" aria-labelledby="facts-heading">
+    <div class="facts-inner">
+      <p class="facts-eyebrow">THE PROBLEM</p>
+      <h2 class="facts-headline" id="facts-heading">Conventional septic products were built around chemicals, not biology.</h2>
+      <p class="facts-sub">Not a marketing opinion. A documented industry reality.</p>
+      <div class="facts-grid">
+        <article class="fact-card" data-fact-card data-stagger="0">
+          <div class="fact-num" aria-hidden="true">27</div>
+          <span class="sr-only">Twenty-seven U.S. states restrict or ban chemical septic additives.</span>
+          <p class="fact-body">U.S. states restrict or ban chemical septic additives because of documented groundwater contamination.</p>
+          <p class="fact-cite">Source: Multistate.us (2026)</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="1">
+          <div class="fact-num" aria-hidden="true">1 in 5</div>
+          <span class="sr-only">One in five U.S. households depend on a septic system.</span>
+          <p class="fact-body">U.S. households depend on a septic system. That’s over 60 million Americans managing wastewater on their own property.</p>
+          <p class="fact-cite">Source: U.S. EPA · U.S. Census Bureau (2024)</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="2">
+          <div class="fact-num" aria-hidden="true">3</div>
+          <span class="sr-only">Three EPA-classified human carcinogens are found in common septic products.</span>
+          <p class="fact-body">EPA-classified human carcinogens found in common septic products.</p>
+          <p class="fact-health" style="margin-top: 20px;">Another has been linked to Parkinson’s disease.</p>
+          <p class="fact-cite">Source: U.S. EPA · WSU Extension (2024)</p>
+        </article>
+        <article class="fact-card" data-fact-card data-stagger="3">
+          <div class="fact-num" aria-hidden="true">$25,000</div>
+          <span class="sr-only">Twenty-five thousand dollars is the average cost to fully replace a failed septic system.</span>
+          <p class="fact-body">The average cost to fully replace a failed septic system. Drain field damage alone can run $20,000.</p>
+          <p class="fact-cite">Source: Angi · HomeGuide (2026)</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- How It Works Strip -->
-  <section>
-    <div class="max-w">
-      <p class="section-tag">Simple by design</p>
-      <h2 class="section-title">Three steps.<br>Every month.</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <div class="step-title">Open your tub</div>
-          <div class="step-body">One tub of Maintane™ sits in your bathroom cabinet. That's your entire septic maintenance system for the month.</div>
+  <!-- Solution Section (Phase 2.5a) -->
+  <section class="why-maintane" aria-labelledby="solution-heading">
+    <div class="why-card">
+      <div class="solution-inner">
+        <div class="solution-header" data-solution-anim data-stagger-ms="0">
+          <p class="solution-eyebrow">THE SOLUTION</p>
+          <h2 class="solution-headline" id="solution-heading">Built with nature. Backed by science.</h2>
+          <p class="solution-sub">Two ingredients. Six strains. One monthly scoop.</p>
         </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <div class="step-title">One scoop per toilet</div>
-          <div class="step-body">Measure one scoop into each toilet in your home. The included scoop makes it foolproof; no measuring cups, no guessing.</div>
+
+        <div class="solution-grid">
+          <!-- LEFT: Science -->
+          <div class="science-block">
+            <div class="strain-grid">
+            <article class="strain-card" data-solution-anim data-stagger-ms="0">
+              <div class="strain-num">01</div>
+              <div class="strain-name"><em>Bacillus subtilis</em></div>
+              <div class="strain-target">PROTEINS & STARCHES</div>
+              <p class="strain-role">The generalist. Tolerates variable tank conditions and produces enzymes that start waste breakdown within hours of entering your system.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="80">
+              <div class="strain-num">02</div>
+              <div class="strain-name"><em>Bacillus licheniformis</em></div>
+              <div class="strain-target">FATS, OILS & GREASE</div>
+              <p class="strain-role">The grease specialist. Targets FOG buildup before it reaches your drain field, where it causes the most expensive damage.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="160">
+              <div class="strain-num">03</div>
+              <div class="strain-name"><em>Bacillus amyloliquefaciens</em></div>
+              <div class="strain-target">CARBOHYDRATES & SUGARS</div>
+              <p class="strain-role">Handles food waste and household sugars that would otherwise accelerate solid accumulation in your tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="240">
+              <div class="strain-num">04</div>
+              <div class="strain-name"><em>Bacillus megaterium</em></div>
+              <div class="strain-target">CELLULOSE & PAPER</div>
+              <p class="strain-role">Breaks down toilet paper and plant fibers that form the sludge layer at the bottom of your tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="320">
+              <div class="strain-num">05</div>
+              <div class="strain-name"><em>Bacillus pumilus</em></div>
+              <div class="strain-target">PROTEINS & ORGANIC BUILDUP</div>
+              <p class="strain-role">Reinforces primary digestion and thrives in the low-oxygen conditions deep within a working septic tank.</p>
+            </article>
+            <article class="strain-card" data-solution-anim data-stagger-ms="400">
+              <div class="strain-num">06</div>
+              <div class="strain-name"><em>Pseudomonas putida</em></div>
+              <div class="strain-target">COMPLEX ORGANICS</div>
+              <p class="strain-role">Tackles what other strains leave behind — soaps, detergents, and residual organic compounds from household wastewater.</p>
+            </article>
+            </div>
+          </div>
+
+          <!-- RIGHT: Side by side -->
+          <div class="comparison-block">
+            <table class="why-comparison" role="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="col-features">PRODUCT FEATURES</th>
+                  <th scope="col" class="col-other">Other Brands</th>
+                  <th scope="col" class="col-maintane">Maintane</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="0">Two-ingredient formula</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="0"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="0"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="60">12B CFU, 6 named bacterial strains</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="60"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="60"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="120">Kid & pet safe from day one</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="120"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="120"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="180">Made in a U.S. biosafety-certified lab</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="180"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="180"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" data-solution-anim data-stagger-ms="240">No sulfuric acid, solvents, or surfactants</th>
+                <td class="col-other" aria-label="No" data-solution-anim data-stagger-ms="240"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,240,0.5)" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></td>
+                <td class="col-maintane" aria-label="Yes" data-solution-anim data-stagger-ms="240"><svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C4A882" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="solution-cta" data-solution-anim data-stagger-ms="360">
+              <p class="cta-label">Ready to make the switch?</p>
+              <a class="why-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Shop Maintane — $39.99</a>
+            </div>
+          </div>
         </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <div class="step-title">Flush. Done.</div>
-          <div class="step-body">The living bacteria go to work immediately, colonizing your tank and breaking down waste. Your septic is protected for another month.</div>
+
+        <!-- Bottom bun: full-width closing statement -->
+        <div class="solution-bottom" data-solution-anim data-stagger-ms="540">
+          <p class="solution-bottom-primary">Each dose delivers 12 billion live cultures to help maintain your tank’s natural balance.</p>
+          <p class="solution-bottom-cite">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures and probiotic supplements.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Science -->
-  <section style="background: var(--dark-mid); border-top: 1px solid rgba(122,154,126,0.1); border-bottom: 1px solid rgba(122,154,126,0.1);">
-    <div class="science-grid">
-      <div>
-        <p class="section-tag">The science</p>
-        <h2 class="section-title">Not chemicals.<br>Living bacteria.</h2>
-        <p class="section-sub">Chemical treatments mask the problem. Maintane solves it — by restoring the living bacterial ecosystem your septic system depends on. 12 billion colony-forming units. 6 bacterial strains. 2 ingredients. No fillers, no synthetic binders, no harsh chemicals. Just the biology your system needs to do its job.</p>
-        <div class="science-items">
-          <div class="science-item">
-            <div class="science-dot"></div>
-            <div>
-              <div class="science-item-title">12 billion CFU per dose</div>
-              <div class="science-item-body">We publish the number because we stand behind it.</div>
-            </div>
-          </div>
-          <div class="science-item">
-            <div class="science-dot"></div>
-            <div>
-              <div class="science-item-title">2 ingredients only</div>
-              <div class="science-item-body">Live bacteria and table salt. Nothing you can't pronounce.</div>
-            </div>
-          </div>
-          <div class="science-item">
-            <div class="science-dot"></div>
-            <div>
-              <div class="science-item-title">Works in 24–72 hours</div>
-              <div class="science-item-body">Bacteria colonize and begin breaking down waste within 24–72 hours of first treatment.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="science-visual">
-        <span style="font-size:4rem; display:block; margin-bottom:1.5rem;">🧬</span>
-        <p class="section-tag text-center">By the numbers</p>
-        <div class="stat-grid">
-          <div class="stat-box"><span class="stat-num">12B</span><div class="stat-label">CFU per dose</div></div>
-          <div class="stat-box"><span class="stat-num">6</span><div class="stat-label">Bacterial strains</div></div>
-          <div class="stat-box"><span class="stat-num">2</span><div class="stat-label">Ingredients only</div></div>
-          <div class="stat-box"><span class="stat-num">USA</span><div class="stat-label">Made in America</div></div>
-        </div>
-      </div>
+  <!-- Founder Quote (Phase 2.6) -->
+  <section class="founder-quote-section" style="background: #FAF6F0; padding: 60px 40px 120px 40px;">
+    <div style="max-width: 820px; margin: 0 auto; text-align: center;">
+      <div class="founder-quote-mark" aria-hidden="true" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: rgba(196, 168, 130, 0.5); font-size: 7rem; line-height: 0.5; margin-bottom: 24px;">“</div>
+      <div class="founder-kicker" style="font-family: 'DM Sans', system-ui, sans-serif; color: #C4A882; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 40px;">FROM THE FOUNDER</div>
+      <blockquote class="founder-quote" style="font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: #2C2417; font-size: 1.5rem; line-height: 1.5; margin: 0; padding: 0; quotes: none;">
+        <p style="margin: 0;">Most septic products were built around chemicals and shortcuts. Maintane was built around biology, safety, and science.</p>
+      </blockquote>
+      <div class="founder-signature" style="font-family: 'Homemade Apple', cursive; font-size: 2rem; color: #3B5C3A; margin-top: 56px; line-height: 1;">Chris Bless</div>
+      <div class="founder-credit" style="font-family: 'DM Sans', system-ui, sans-serif; color: rgba(44, 36, 23, 0.65); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; margin-top: 12px;">Christopher Bless · Founder</div>
     </div>
   </section>
+  <style>
+  @media (max-width: 768px) {
+    .founder-quote-section { padding: 40px 24px 80px 24px !important; }
+    .founder-quote-mark { font-size: 4.5rem !important; }
+    .founder-quote { font-size: 1.2rem !important; }
+    .founder-signature { font-size: 1.75rem !important; }
+  }
+  </style>
 
   <!-- Reviews -->
-  <section>
+  <section style="background: var(--off-cream);">
     <div class="max-w">
       <p class="section-tag">What customers say</p>
       <h2 class="section-title">Real homes.<br>Real results.</h2>
@@ -636,175 +1699,33 @@
     </div>
   </section>
 
-  <!-- Bottom CTA -->
-  <section style="text-align: center; background: var(--dark-mid); border-top: 1px solid rgba(122,154,126,0.1);">
-    <p class="section-tag" style="justify-content: center; display: flex;">Risk-free guarantee</p>
-    <h2 class="section-title" style="max-width: 500px; margin: 0 auto 1rem;">Not satisfied? Full refund. No questions asked.</h2>
-    <p class="section-sub" style="margin: 0 auto 2.5rem;">We stand behind our product. If Maintane™ doesn't work for your system, we'll refund you completely.</p>
-    <div style="display:flex;justify-content:center;width:100%;">
-      <a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;max-width:280px;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a>
+  <!-- Start Your Journey CTA (Phase 2.8) -->
+  <section class="journey-cta">
+    <div class="journey-inner">
+      <h2 class="journey-headline">Start Your Journey.</h2>
+      <a class="journey-btn" href="/products.html">SHOP ALL PRODUCTS</a>
     </div>
   </section>
 
 </div>
 
 <!-- ========== HOW IT WORKS ========== -->
-<div class="page" id="page-how">
-    <div class="hiw-hero">
-      <p class="section-tag">The method</p>
-      <h1 class="section-title">How Maintane Works</h1>
-      <p class="section-sub" style="margin: 0 auto;">A simple monthly ritual. Once it starts, it keeps itself going.</p>
-    </div>
-
-    <div style="width:100%;max-width:1100px;margin:20px auto 60px auto;">
-    <svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </marker>
-      <clipPath id="tc"><rect x="240" y="210" width="220" height="150" rx="8"/></clipPath>
-      <clipPath id="dc"><rect x="490" y="220" width="140" height="130" rx="8"/></clipPath>
-    </defs>
-    <rect width="680" height="420" fill="#1a2218"/>
-    <rect x="0" y="195" width="680" height="8" fill="#3B5C3A" opacity="0.5"/>
-    <rect x="0" y="203" width="680" height="217" fill="#2a1f14" opacity="0.6"/>
-    <rect x="44" y="80" width="70" height="48" rx="6" fill="#FAF6F0" stroke="#C4A882" stroke-width="1.5"/>
-    <rect x="44" y="88" width="70" height="3" fill="#C4A882" opacity="0.4"/>
-    <path d="M40 128 Q40 170 79 170 Q118 170 118 128 Z" fill="#FAF6F0" stroke="#C4A882" stroke-width="1.5"/>
-    <ellipse cx="79" cy="138" rx="22" ry="16" fill="#3B5C3A" opacity="0.35"/>
-    <path d="M44 128 Q44 134 79 134 Q114 134 114 128" fill="none" stroke="#C4A882" stroke-width="2"/>
-    <rect x="22" y="62" width="24" height="34" rx="4" fill="#3B5C3A" stroke="#C4A882" stroke-width="1"/>
-    <rect x="26" y="62" width="16" height="6" rx="2" fill="#FAF6F0" opacity="0.6"/>
-    <text font-family="Georgia,serif" font-size="7" font-weight="bold" fill="#FAF6F0" x="27" y="80" opacity="0.9">M</text>
-    <path d="M38 82 Q52 100 60 120" fill="none" stroke="#3B5C3A" stroke-width="2" stroke-dasharray="3 2" opacity="0.8" marker-end="url(#arr2)"/>
-    <path d="M79 170 L79 200 Q79 210 89 210 L240 210" fill="none" stroke="#C4A882" stroke-width="10" stroke-linecap="round"/>
-    <path d="M79 170 L79 200 Q79 210 89 210 L240 210" fill="none" stroke="#FAF6F0" stroke-width="4" stroke-linecap="round" opacity="0.15"/>
-    <path d="M85 205 L230 205" fill="none" stroke="#3B5C3A" stroke-width="1.5" opacity="0.9" marker-end="url(#arr2)"/>
-    <rect x="240" y="210" width="220" height="150" rx="8" fill="#1e2b1d" stroke="#3B5C3A" stroke-width="2"/>
-    <rect x="240" y="210" width="220" height="22" clip-path="url(#tc)" fill="#3B5C3A" opacity="0.55"/>
-    <rect x="240" y="232" width="220" height="88" clip-path="url(#tc)" fill="#3B5C3A" opacity="0.22"/>
-    <rect x="240" y="320" width="220" height="40" clip-path="url(#tc)" fill="#2C2417" opacity="0.9"/>
-    <rect x="248" y="216" width="7" height="55" rx="2" fill="#C4A882" opacity="0.7"/>
-    <rect x="456" y="216" width="7" height="55" rx="2" fill="#C4A882" opacity="0.7"/>
-    <path d="M290 310 Q310 270 350 275 Q390 280 400 310" fill="none" stroke="#3B5C3A" stroke-width="2" stroke-dasharray="5 3" opacity="0.8" marker-end="url(#arr2)"/>
-    <path d="M400 318 Q370 335 340 332 Q300 328 285 318" fill="none" stroke="#3B5C3A" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.5" marker-end="url(#arr2)"/>
-    <text font-family="Georgia,serif" font-size="10" fill="#FAF6F0" opacity="0.55" x="350" y="226" text-anchor="middle">scum</text>
-    <text font-family="Georgia,serif" font-size="11" fill="#FAF6F0" opacity="0.85" x="350" y="278" text-anchor="middle">bacteria activate here</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" opacity="0.8" x="350" y="298" text-anchor="middle">digesting waste, solids &amp; odor-causing gas</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" opacity="0.6" x="350" y="315" text-anchor="middle">continuously, every day</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" opacity="0.7" x="350" y="348" text-anchor="middle">sludge</text>
-    <path d="M460 248 L490 248" fill="none" stroke="#C4A882" stroke-width="10" stroke-linecap="round"/>
-    <path d="M460 248 L490 248" fill="none" stroke="#FAF6F0" stroke-width="4" stroke-linecap="round" opacity="0.15"/>
-    <path d="M462 248 L486 248" fill="none" stroke="#3B5C3A" stroke-width="1.5" opacity="0.9" marker-end="url(#arr2)"/>
-    <rect x="490" y="220" width="140" height="130" rx="8" fill="#1e2b1d" stroke="#3B5C3A" stroke-width="1.5" stroke-dasharray="7 4"/>
-    <rect x="498" y="244" width="124" height="9" rx="4" fill="#C4A882" opacity="0.55"/>
-    <circle cx="520" cy="248" r="2.5" fill="#1e2b1d"/>
-    <circle cx="545" cy="248" r="2.5" fill="#1e2b1d"/>
-    <circle cx="570" cy="248" r="2.5" fill="#1e2b1d"/>
-    <circle cx="595" cy="248" r="2.5" fill="#1e2b1d"/>
-    <line x1="515" y1="253" x2="515" y2="330" stroke="#3B5C3A" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.6" marker-end="url(#arr2)"/>
-    <line x1="540" y1="253" x2="540" y2="335" stroke="#3B5C3A" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.6" marker-end="url(#arr2)"/>
-    <line x1="565" y1="253" x2="565" y2="332" stroke="#3B5C3A" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.6" marker-end="url(#arr2)"/>
-    <line x1="590" y1="253" x2="590" y2="328" stroke="#3B5C3A" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.6" marker-end="url(#arr2)"/>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" x="79" y="40" text-anchor="middle" letter-spacing="2">STEP 1</text>
-    <text font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#FAF6F0" x="79" y="56" text-anchor="middle">Flush Monthly</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" x="350" y="40" text-anchor="middle" letter-spacing="2">STEP 2</text>
-    <text font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#FAF6F0" x="350" y="56" text-anchor="middle">Bacteria Reach Tank</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" x="560" y="40" text-anchor="middle" letter-spacing="2">STEP 3</text>
-    <text font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#FAF6F0" x="560" y="56" text-anchor="middle">System Protected</text>
-    <line x1="79" y1="60" x2="79" y2="72" stroke="#C4A882" stroke-width="0.5" opacity="0.4"/>
-    <line x1="350" y1="60" x2="350" y2="200" stroke="#C4A882" stroke-width="0.5" opacity="0.4" stroke-dasharray="4 3"/>
-    <line x1="560" y1="60" x2="560" y2="210" stroke="#C4A882" stroke-width="0.5" opacity="0.4" stroke-dasharray="4 3"/>
-    <text font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#FAF6F0" x="350" y="385" text-anchor="middle">Septic Tank</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" x="350" y="400" text-anchor="middle">12B CFU · 6 strains · biosafety level 1 · made in USA</text>
-    <text font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#FAF6F0" x="560" y="385" text-anchor="middle">Drain Field</text>
-    <text font-family="Georgia,serif" font-size="10" fill="#C4A882" x="560" y="400" text-anchor="middle">Treated effluent safely disperses</text>
-    <text font-family="Georgia,serif" font-size="9" fill="#C4A882" x="14" y="200" opacity="0.5">ground</text>
-    </svg>
-    </div>
-
-    <div class="hiw-cards">
-      <div class="hiw-card">
-        <span class="hiw-card-icon">📦</span>
-        <div class="hiw-card-num">Step 1</div>
-        <div class="hiw-card-title">Tub Arrives</div>
-        <div class="hiw-card-body">Order once and your tub ships within 1–2 business days. Each tub contains enough treatments to keep your system protected for months.</div>
-      </div>
-      <div class="hiw-card">
-        <span class="hiw-card-icon">📅</span>
-        <div class="hiw-card-num">Step 2</div>
-        <div class="hiw-card-title">Set Monthly Reminder</div>
-        <div class="hiw-card-body">Pick any day of the month. Set a recurring reminder on your phone. That's your Maintane day — the whole routine takes under 5 minutes.</div>
-      </div>
-      <div class="hiw-card">
-        <span class="hiw-card-icon">🚽</span>
-        <div class="hiw-card-num">Step 3</div>
-        <div class="hiw-card-title">Scoop + Flush</div>
-        <div class="hiw-card-body">Use the included scoop. One level scoop per toilet. Drop it in, flush. The powder dissolves instantly and the living bacteria travel through your pipes.</div>
-      </div>
-      <div class="hiw-card">
-        <span class="hiw-card-icon">🦠</span>
-        <div class="hiw-card-num">Step 4</div>
-        <div class="hiw-card-title">Bacteria Go to Work</div>
-        <div class="hiw-card-body">Within 24–72 hours, 12 billion CFU across 6 bacterial strains colonize your tank — breaking down waste, grease, and buildup. Results build over time.</div>
-      </div>
-      <div class="hiw-card">
-        <span class="hiw-card-icon">✨</span>
-        <div class="hiw-card-num">Step 5</div>
-        <div class="hiw-card-title">Results You Can Feel</div>
-        <div class="hiw-card-body">Fewer odors, better flow, no backups. Your system runs cleaner and you'll notice the difference.</div>
-      </div>
-      <div class="hiw-card">
-        <span class="hiw-card-icon">🔄</span>
-        <div class="hiw-card-num">Step 6</div>
-        <div class="hiw-card-title">Reorder & Repeat</div>
-        <div class="hiw-card-body">When your tub runs low, reorder in one click. Keep the cycle going and your system stays protected year-round.</div>
-      </div>
-    </div>
-
-    <div class="hiw-science-strip">
-      <p class="section-tag">What's inside</p>
-      <h3 class="section-title" style="font-size: 1.6rem;">Two ingredients. That's it.</h3>
-      <div class="ingredient-grid">
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🦠</span>
-          <div class="ingredient-name">Biosafety Level 1 Bacteria</div>
-          <div class="ingredient-desc">Non-pathogenic, lab-verified strains that target organic waste breakdown</div>
-        </div>
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🧂</span>
-          <div class="ingredient-name">Table Salt</div>
-          <div class="ingredient-desc">Natural saline carrier — no synthetic binders or preservatives</div>
-        </div>
-        <div class="ingredient-box">
-          <span class="ingredient-icon">🇺🇸</span>
-          <div class="ingredient-name">Made in USA</div>
-          <div class="ingredient-desc">Manufactured in Lawrenceville, GA under strict quality controls</div>
-        </div>
-      </div>
-    </div>
-    <div style="max-width:400px;margin:2rem auto 0;">
-      <div style="display:flex;justify-content:center;width:100%;"><a href="https://aykixg-rn.myshopify.com/cart/53069455917419:1" style="display:block;width:100%;box-sizing:border-box;text-align:center;font-family:'Droid Sans',sans-serif;font-weight:bold;font-size:14px;background-color:#3b5c3a;color:#fff;text-decoration:none;border-radius:15px;padding:13px 40px;cursor:pointer;transition:background-color 0.2s;" onmouseover="this.style.backgroundColor='#355334'" onmouseout="this.style.backgroundColor='#3b5c3a'">Buy Now</a></div>
-    </div>
-</div>
-
-<!-- ========== CONTACT ========== -->
 <div class="page" id="page-contact">
   <div class="contact-grid">
     <div>
       <p class="section-tag">Get in touch</p>
-      <h1 class="section-title" style="font-size: 2.2rem;">We're here<br>to help.</h1>
+      <h2 class="section-title" style="font-size: 2.2rem;">We're here<br>to help.</h2>
       <p class="section-sub" style="margin-bottom: 2.5rem;">Questions about your order or how the product works? A real person responds within 24 hours.</p>
       <div class="contact-info-item">
-        <div class="contact-info-icon">✉</div>
+        <div class="contact-info-icon"><span class="maintane-icon" style="width:24px;height:24px;"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1"/><path d="M3 7l9 7 9-7"/></svg></span></div>
         <div><div class="contact-info-label">Email</div><div class="contact-info-val">hello@getmaintane.com</div></div>
       </div>
       <div class="contact-info-item">
-        <div class="contact-info-icon">⏱</div>
+        <div class="contact-info-icon"><span class="maintane-icon" style="width:24px;height:24px;"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13v-4"/><path d="M12 13l3 2"/><path d="M10 2h4"/><path d="M12 2v3"/></svg></span></div>
         <div><div class="contact-info-label">Response time</div><div class="contact-info-val">Within 24 hours, Mon–Fri</div></div>
       </div>
       <div class="contact-info-item">
-        <div class="contact-info-icon">📦</div>
+        <div class="contact-info-icon"><span class="maintane-icon" style="width:24px;height:24px;"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="1"/><path d="M4 11h16"/><path d="M9 7v-2h6v2"/></svg></span></div>
         <div><div class="contact-info-label">Order questions</div><div class="contact-info-val">Include your order number for fastest resolution</div></div>
       </div>
     </div>
@@ -812,13 +1733,13 @@
       <form class="contact-form" action="https://formsubmit.co/el/receru" method="POST" id="contact-form" target="_top">
         <input type="hidden" name="_subject" value="New Maintane Contact Form Submission">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://getmaintane.com/thank-you.html">
+        <input type="hidden" name="_next" value="/thank-you.html">
         <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Maintane! We received your message and will respond within 24 hours (Monday-Friday). — Chris">
         <input type="hidden" name="_honey" value="">
-        <div class="form-field"><label class="form-label">Your name</label><input class="form-input" type="text" name="name" placeholder="First and last name" required></div>
-        <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" name="email" placeholder="you@example.com" required></div>
-        <div class="form-field"><label class="form-label">Subject</label><input class="form-input" type="text" name="subject" placeholder="What can we help with?"></div>
-        <div class="form-field"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="Tell us what's going on..." required></textarea></div>
+        <div class="form-field"><label class="form-label">Your name</label><input class="form-input" type="text" name="name" placeholder="First and last name" required aria-label="Your name"></div>
+        <div class="form-field"><label class="form-label">Email address</label><input class="form-input" type="email" name="email" placeholder="you@example.com" required aria-label="Email address"></div>
+        <div class="form-field"><label class="form-label">Subject</label><input class="form-input" type="text" name="subject" placeholder="What can we help with?" aria-label="Subject"></div>
+        <div class="form-field"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="Tell us what's going on..." required aria-label="Message"></textarea></div>
         <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
         <button type="submit" class="btn-primary" style="align-self: flex-start; padding: 0.85rem 2rem;">Send message</button>
       </form>
@@ -826,45 +1747,84 @@
   </div>
 </div>
 
-<!-- ========== POLICY ========== -->
-<div class="page" id="page-policy">
-  <div class="policy-content">
-    <h1>Policies</h1>
-    <p class="policy-date">Last updated April 2026</p>
-    <div class="policy-section">
-      <h2>Shipping</h2>
-      <p>Orders ship within 1-2 business days. Free standard shipping on all orders. Expedited options available at checkout.</p>
-    </div>
-    <div class="policy-section">
-      <h2>Returns & Refunds</h2>
-      <p>If you are not satisfied with your purchase for any reason, contact us within 30 days and we will issue a full refund. No return required on your first order. We stand behind our product unconditionally.</p>
-    </div>
-    <div class="policy-section">
-      <h2>Privacy</h2>
-      <p>We collect only the information necessary to respond to your inquiries, your name, and email address. Orders are processed entirely through Amazon and subject to Amazon's privacy policy. We do not sell or share your data with third parties.</p>
-    </div>
-    <div class="policy-section">
-      <h2>Product Safety</h2>
-      <p>Maintane™ contains biosafety-level-1 bacteria and table salt. It is non-toxic and safe for use in homes with children and pets. It is not intended for human consumption. For safety, keep out of reach of young children. In the event of eye contact, rinse with water. The product is not a substitute for routine septic system pumping and inspection.</p>
-    </div>
-    <div class="policy-section">
-      <h2>Contact</h2>
-      <p>For policy questions or any concerns, contact us at hello@getmaintane.com. We respond to all inquiries within 24 business hours.</p>
-    </div>
-  </div>
-</div>
 
-<footer>
-  <div class="footer-logo">Maintane</div>
-  <ul class="footer-links">
-    <li><a onclick="showPage('home')">Home</a></li>
-    <li><a onclick="showPage('how')">How it works</a></li>
-    <li><a href="/blog/dosing-guide.html">Dosing Guide</a></li>
-    <li><a onclick="showPage('contact')">Contact</a></li>
-    <li><a onclick="showPage('policy')">Policy</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Maintane™. Natural septic care. Made in USA.</p>
-</footer>
+<footer class="site-footer">
+    <div class="footer-inner">
+      <!-- 3-column main grid (signup + 2 link cols) -->
+      <div class="footer-grid">
+        <!-- Column 1: Email signup (untouched per Phase 9.2a) -->
+        <div class="footer-signup-col">
+          <h3 class="footer-signup-headline">Even our emails are different.</h3>
+          <p class="footer-signup-sub">No spam. Just launch updates, dosing tips, and the occasional honest note from the founder.</p>
+
+          <form class="footer-form" id="footer-newsletter-form" action="#" novalidate>
+            <span class="footer-form-label">NEWSLETTER</span>
+            <div class="footer-form-row">
+              <input type="email" id="footer-newsletter-email" placeholder="Email address" required aria-label="Email for newsletter">
+              <button type="submit" class="footer-form-btn footer-form-btn-tan">SUBSCRIBE</button>
+            </div>
+          </form>
+
+          <form class="footer-form" id="footer-waitlist-form" novalidate>
+            <span class="footer-form-label">PRE-LAUNCH WAITLIST — SAVE 10%</span>
+            <div class="footer-form-row">
+              <input type="email" id="footer-waitlist-email" placeholder="Email address" required aria-label="Email for pre-launch waitlist">
+              <button type="submit" class="footer-form-btn footer-form-btn-cream">JOIN WAITLIST</button>
+            </div>
+            <div id="footer-waitlist-success" class="footer-form-msg footer-form-msg-success" style="display:none;">✓ You’re in. Check your email for confirmation.</div>
+            <div id="footer-waitlist-error" class="footer-form-msg footer-form-msg-error" style="display:none;">Something went wrong. Try again.</div>
+          </form>
+
+                    <p class="footer-fineprint">By signing up, you consent to our <a href="/policy.html">Privacy Policy</a>. You may unsubscribe at any time.</p>
+
+          <div class="footer-social">
+            <a href="https://www.instagram.com/getmaintane" target="_blank" rel="noopener" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+            <a href="https://www.tiktok.com/@maintane" target="_blank" rel="noopener" aria-label="TikTok"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3v12.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M16 3c0 2.5 2 4.5 4.5 4.5"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Column 2: SHOP -->
+        <div class="footer-link-col">
+          <h4 class="footer-col-header">SHOP</h4>
+          <ul class="footer-link-list">
+            <li><a href="/products.html">All Products</a></li>
+            <li><a href="/how-it-works.html">How it works</a></li>
+            <li><a href="/dosing-guide.html">Dosing Guide</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: SUPPORT -->
+        <div class="footer-link-col">
+          <h4 class="footer-col-header">SUPPORT</h4>
+          <ul class="footer-link-list">
+            <li><a href="mailto:hello@getmaintane.com">Contact</a></li>
+            <li><a href="/policy.html">Shipping &amp; Returns</a></li>
+            <li><a href="/policy.html">Privacy &amp; Terms</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Certification badges -->
+      <div class="footer-badges">
+        <div class="footer-badge"><span>BIOSAFETY<br>LEVEL 1</span></div>
+        <div class="footer-badge"><span>KID &amp; PET<br>SAFE</span></div>
+        <div class="footer-badge"><span>MADE IN<br>THE USA</span></div>
+      </div>
+
+      <!-- Legal bar -->
+      <div class="footer-legal">
+        <div class="footer-legal-left">© 2026 Maintane. All rights reserved.</div>
+        <div class="footer-legal-center"><a href="mailto:hello@getmaintane.com">hello@getmaintane.com</a></div>
+        <div class="footer-legal-right">
+          <a href="/policy.html">Privacy Policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/policy.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 
 <script>
 function showPage(name) {
@@ -918,6 +1878,261 @@ function closeMobileMenu() {
   </div>
 </div>
 <script src="/js/popup.js" defer></script>
+<script src="/js/footer-waitlist.js" defer></script>
+<script>
+(function() {
+  var TARGET = new Date('2026-05-15T00:00:00-04:00').getTime();
+  var SHOPIFY = 'https://aykixg-rn.myshopify.com/cart/53069455917419:1';
+  var AUTO_MS = 6000;
+  var FADE_MS = 200;
+
+  function slide1Html() {
+    var diff = TARGET - Date.now();
+    if (diff <= 0) {
+      return '\ud83c\udf89 Maintane is live \u2014 <a href="' + SHOPIFY + '" class="announce-link">Shop now \u2192</a>';
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    return '\ud83c\udf31 Launching May 15, 2026 \u2014 ' +
+           '<span id="countdown">' + d + ' DAYS ' + h + ' HRS ' + m + ' MIN ' + s + ' SEC</span>' +
+           '<span class="announce-sep"> | </span>' +
+           '<span class="announce-tail">Save 10% as a <a href="#footer-waitlist-form" class="announce-link">waitlist member</a></span>';
+  }
+  var slides = [
+    slide1Html,
+    function() { return '\ud83d\udc3e Kid & Pet Friendly \u2014 Guaranteed  |  \ud83c\uddfa\ud83c\uddf8 Made in the USA'; },
+    function() { return '\ud83d\udcd6 Read the Maintane <a href="/blog/" class="announce-link">blog \u2192</a>'; }
+  ];
+
+  var container = document.getElementById('announcement-text');
+  var prevBtn = document.getElementById('announce-prev');
+  var nextBtn = document.getElementById('announce-next');
+  if (!container || !prevBtn || !nextBtn) return;
+
+  var idx = 0;
+  var autoTimer = null;
+  var countdownTimer = null;
+  var fading = false;
+
+  function render(animate) {
+    if (animate === false) {
+      container.innerHTML = slides[idx]();
+      container.style.opacity = '1';
+      manageCountdown();
+      return;
+    }
+    fading = true;
+    container.style.opacity = '0';
+    setTimeout(function() {
+      container.innerHTML = slides[idx]();
+      container.style.opacity = '1';
+      fading = false;
+      manageCountdown();
+    }, FADE_MS);
+  }
+
+  function updateCountdownText() {
+    if (idx !== 0 || fading) return;
+    var diff = TARGET - Date.now();
+    if (diff <= 0) {
+      // Swap to "live" message permanently
+      container.innerHTML = slides[0]();
+      stopCountdown();
+      return;
+    }
+    var el = document.getElementById('countdown');
+    if (!el) return;
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    el.textContent = d + ' DAYS ' + h + ' HRS ' + m + ' MIN ' + s + ' SEC';
+  }
+
+  function startCountdown() {
+    stopCountdown();
+    countdownTimer = setInterval(updateCountdownText, 1000);
+  }
+  function stopCountdown() {
+    if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+  }
+  function manageCountdown() {
+    if (idx === 0 && (TARGET - Date.now()) > 0) startCountdown();
+    else stopCountdown();
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(function() {
+      idx = (idx + 1) % slides.length;
+      render(true);
+    }, AUTO_MS);
+  }
+  function stopAuto() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  function go(delta) {
+    idx = (idx + delta + slides.length) % slides.length;
+    render(true);
+    startAuto(); // reset timer on manual nav
+  }
+
+  prevBtn.addEventListener('click', function() { go(-1); });
+  nextBtn.addEventListener('click', function() { go(1); });
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+      stopAuto(); stopCountdown();
+    } else {
+      startAuto(); manageCountdown();
+    }
+  });
+
+  // Initial paint (no fade)
+  render(false);
+  startAuto();
+})();
+</script>
+<script>
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var prevBtn = document.getElementById('hero-prev');
+  var nextBtn = document.getElementById('hero-next');
+  var credit = document.getElementById('hero-credit');
+  var carousel = document.getElementById('hero-carousel');
+  if (!slides.length || !carousel) return;
+
+  var INTERVAL = 7000;
+  var idx = 0;
+  var timer = null;
+
+  function showSlide(i) {
+    slides.forEach(function(s, j) { s.classList.toggle('active', j === i); });
+    dots.forEach(function(d, j) { d.classList.toggle('active', j === i); });
+    if (credit && slides[i].dataset.credit) credit.textContent = slides[i].dataset.credit;
+    idx = i;
+  }
+  function goto(i) {
+    showSlide((i + slides.length) % slides.length);
+    restart();
+  }
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(function() { goto(idx + 1); }, INTERVAL);
+  }
+  function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stopAuto(); startAuto(); }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { goto(idx - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goto(idx + 1); });
+  dots.forEach(function(d, i) { d.addEventListener('click', function() { goto(i); }); });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') stopAuto();
+    else startAuto();
+  });
+
+  showSlide(0);
+  startAuto();
+})();
+</script>
+<script>
+(function() {
+  var cards = document.querySelectorAll('[data-fact-card]');
+  var section = document.querySelector('.facts');
+  if (!cards.length || !section) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cards.forEach(function(c) { c.style.opacity = '1'; c.style.transform = 'none'; });
+    return;
+  }
+  // Each card has IN window then HOLD then OUT window, staggered by index.
+  // sectionProgress: 0 = section top at viewport bottom; 1 = section bottom at viewport top.
+  var STEP = 0.06;          // stagger step per card
+  var FADE_LEN = 0.18;      // length of fade in/out phase
+  function cardOpacity(p, idx) {
+    var inStart  = 0.20 + idx * STEP;
+    var inEnd    = inStart + FADE_LEN;
+    var outStart = 0.55 + idx * STEP;
+    var outEnd   = outStart + FADE_LEN;
+    if (p <= inStart) return 0;
+    if (p < inEnd)    return (p - inStart) / FADE_LEN;
+    if (p < outStart) return 1;
+    if (p < outEnd)   return 1 - (p - outStart) / FADE_LEN;
+    return 0;
+  }
+  var ticking = false;
+  function update() {
+    var vh = window.innerHeight;
+    var rect = section.getBoundingClientRect();
+    var sectionProgress = (vh - rect.top) / (vh + rect.height);
+    if (sectionProgress < 0) sectionProgress = 0;
+    else if (sectionProgress > 1) sectionProgress = 1;
+    cards.forEach(function(card, idx) {
+      var op = cardOpacity(sectionProgress, idx);
+      card.style.opacity = op;
+      card.style.transform = 'translateY(' + ((1 - op) * 24) + 'px)';
+    });
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+</script>
+<script>
+(function() {
+  var elems = document.querySelectorAll('[data-solution-anim]');
+  if (!elems.length) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    elems.forEach(function(e) { e.style.opacity = '1'; e.style.transform = 'none'; });
+    return;
+  }
+  // Per-element scroll-linked: opacity peaks when element center is at viewport center,
+  // fades to 0 as element moves toward viewport edges.
+  var FULL_ZONE = 0.25;     // within ±25% of vh from viewport center → fully visible
+  var FADE_ZONE = 0.60;     // beyond ±60% → fully invisible
+  var ticking = false;
+  function update() {
+    var vh = window.innerHeight;
+    var viewCenter = vh / 2;
+    elems.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      var elemCenter = rect.top + rect.height / 2;
+      var distance = Math.abs(elemCenter - viewCenter) / vh;
+      var op;
+      if (distance < FULL_ZONE) op = 1;
+      else if (distance > FADE_ZONE) op = 0;
+      else op = 1 - (distance - FULL_ZONE) / (FADE_ZONE - FULL_ZONE);
+      el.style.opacity = op;
+      el.style.transform = 'translateY(' + ((1 - op) * 16) + 'px)';
+      el.style.transition = 'none';
+    });
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>
  
