@@ -2247,11 +2247,55 @@
     .related-posts-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 
+
+  /* Phase 10.2: Back-to-blog navigation */
+  .back-to-blog-top {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 1.5rem 0;
+  }
+  .back-to-blog-top a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(59, 92, 58, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-top a:hover {
+    color: #3B5C3A;
+  }
+  .back-to-blog-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(59, 92, 58, 0.15);
+  }
+  .back-to-blog-bottom a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #3B5C3A;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-bottom a:hover {
+    color: #C4A882;
+  }
+  @media (max-width: 600px) {
+    .back-to-blog-bottom {
+      padding: 48px 1rem;
+    }
+  }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
+  "wordCount": 990,
   "headline": "Septic Tank vs Sewer: How to Tell Which You Have",
   "description": "Five quick ways to tell whether you're on city sewer or a private septic system, and what each means for your maintenance responsibilities.",
   "datePublished": "2026-04-19",
@@ -2359,6 +2403,10 @@
   </div>
 </section>
 
+<div class="back-to-blog-top">
+  <a href="/blog/">← All Articles</a>
+</div>
+
 <section class="post-article-section">
   <div class="article-body">
 <div class="snippet-answer" style="background:rgba(59, 92, 58,0.08);border-left:3px solid #3B5C3A;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:0 0 2rem;">
@@ -2447,6 +2495,10 @@
     </section>
   </div>
 </section>
+
+<div class="back-to-blog-bottom">
+  <a href="/blog/">← Back to All Articles</a>
+</div>
 
 <section class="related-posts-section">
   <div class="related-posts-inner">

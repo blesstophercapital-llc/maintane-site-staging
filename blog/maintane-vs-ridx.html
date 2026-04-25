@@ -2247,6 +2247,49 @@
     .related-posts-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 
+
+  /* Phase 10.2: Back-to-blog navigation */
+  .back-to-blog-top {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 1.5rem 0;
+  }
+  .back-to-blog-top a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(59, 92, 58, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-top a:hover {
+    color: #3B5C3A;
+  }
+  .back-to-blog-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(59, 92, 58, 0.15);
+  }
+  .back-to-blog-bottom a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #3B5C3A;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-bottom a:hover {
+    color: #C4A882;
+  }
+  @media (max-width: 600px) {
+    .back-to-blog-bottom {
+      padding: 48px 1rem;
+    }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -2290,6 +2333,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
+  "wordCount": 2428,
   "headline": "Maintane vs. Rid-X: An Honest Comparison",
   "description": "A factual side-by-side comparison of Maintane and Rid-X. Ingredient breakdowns, EPA classifications, kid and pet safety, performance data, and cost over time.",
   "author": { "@type": "Organization", "name": "Maintane" },
@@ -2351,6 +2395,10 @@
     <p class="post-hero-meta">12 min read · April 2026</p>
   </div>
 </section>
+
+<div class="back-to-blog-top">
+  <a href="/blog/">← All Articles</a>
+</div>
 
 <section class="post-article-section">
   <div class="article-body">
@@ -2501,6 +2549,10 @@
     <p>If you’re not yet ready to switch but want to learn more, the better question to start with isn’t “which product?” but “which approach?” Once you’ve thought through enzymes vs. bacteria as a philosophy, the product choice within either approach becomes much easier. Either way, monthly treatment in some form is a meaningful upgrade over no treatment, and both products will outperform doing nothing.</p>
   </div>
 </section>
+
+<div class="back-to-blog-bottom">
+  <a href="/blog/">← Back to All Articles</a>
+</div>
 
 <section class="related-posts-section">
   <div class="related-posts-inner">

@@ -2247,11 +2247,55 @@
     .related-posts-grid { grid-template-columns: 1fr; gap: 40px; }
   }
 
+
+  /* Phase 10.2: Back-to-blog navigation */
+  .back-to-blog-top {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 1.5rem 0;
+  }
+  .back-to-blog-top a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(59, 92, 58, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-top a:hover {
+    color: #3B5C3A;
+  }
+  .back-to-blog-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(59, 92, 58, 0.15);
+  }
+  .back-to-blog-bottom a {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #3B5C3A;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-to-blog-bottom a:hover {
+    color: #C4A882;
+  }
+  @media (max-width: 600px) {
+    .back-to-blog-bottom {
+      padding: 48px 1rem;
+    }
+  }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
+  "wordCount": 2068,
   "headline": "Septic Backup: What to Do in the First 24 Hours",
   "description": "A homeowner’s emergency guide to handling a septic backup. Hour-by-hour action steps, when to call a professional, prevention strategies, and recovery timeline.",
   "author": { "@type": "Organization", "name": "Maintane" },
@@ -2310,9 +2354,13 @@
   <div class="post-hero-inner">
     <a class="post-hero-eyebrow" href="/blog/?category=warning-signs">WARNING SIGNS</a>
     <h1 class="post-hero-headline">Septic Backup: What to Do in the First 24 Hours</h1>
-    <p class="post-hero-meta">12 min read · April 2026</p>
+    <p class="post-hero-meta">10 min read · April 2026</p>
   </div>
 </section>
+
+<div class="back-to-blog-top">
+  <a href="/blog/">← All Articles</a>
+</div>
 
 <section class="post-article-section">
   <div class="article-body">
@@ -2434,6 +2482,10 @@
     <p>If you’d like a deeper read on the long view, our overview of <a href="/how-it-works.html">how Maintane works</a> covers the underlying biology, and the <a href="/products.html">4oz Maintane tub</a> is a 3-month supply of the monthly treatment. Backups are stressful, but they’re also a useful forcing function: most homeowners who go through one make the small upstream changes that prevent the next, and those changes pay for themselves many times over.</p>
   </div>
 </section>
+
+<div class="back-to-blog-bottom">
+  <a href="/blog/">← Back to All Articles</a>
+</div>
 
 <section class="related-posts-section">
   <div class="related-posts-inner">
