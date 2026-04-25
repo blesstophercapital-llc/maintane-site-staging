@@ -1,5 +1,5 @@
 /* Pre-launch waitlist popup — getmaintane.com
- * Shows 4s after page load (once per 30 days, never after conversion).
+ * Shows 4s after page load (re-shows after 5 minutes if dismissed, never after conversion).
  * Submits to Klaviyo's client subscriptions API; adds profile to list Ue3eN8.
  * Staging guard: listeners render the popup but never POST to Klaviyo.
  */
@@ -18,7 +18,7 @@
   var KLAVIYO_REVISION    = '2024-10-15';
 
   var SHOW_DELAY_MS           = 4000;
-  var DISMISS_COOKIE_DAYS     = 30;
+  var DISMISS_COOKIE_DAYS     = 5 / (24 * 60); // 5 minutes — re-prompt undecided visitors on next visit
   var CONVERTED_COOKIE_DAYS   = 365;
   var ANIM_DURATION_MS        = 250;
   var SUCCESS_AUTOCLOSE_MS    = 3000;
