@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Policies — Maintane</title>
-<meta name="description" content="Maintane shipping, returns, privacy, product safety, and contact policies. Last updated April 2026.">
-<link rel="canonical" href="https://getmaintane.com/policy.html">
+<title>Shop Maintane — Natural Septic Treatment | Maintane</title>
+<meta name="description" content="Shop Maintane — natural septic system treatment. 12 billion live cultures per dose. Kid &amp; pet safe. Made in USA. Free shipping on all orders.">
+<link rel="canonical" href="https://getmaintane.com/products.html">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D8DRYD8BHZ');</script>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&family=DM+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -1905,141 +1905,624 @@
   }
 
     
-  /* ── PHASE 8.1 POLICY PAGE ──────────────────────────────────── */
-  .policy-hero {
+  /* ── PHASE 8.2 PRODUCTS PAGE ────────────────────────────────── */
+  .prod-hero {
     background: #3B5C3A;
     padding: 240px 3rem 120px;
     text-align: center;
     box-sizing: border-box;
   }
-  .policy-hero-inner {
+  .prod-hero-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .policy-hero-headline {
+  .prod-hero-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 1rem 0;
+  }
+  .prod-hero-headline {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
     color: #FAF6F0;
     font-size: 4.5rem;
     line-height: 1.1;
     margin: 0;
+    max-width: 900px;
   }
-  .policy-hero-sub {
+  .prod-hero-sub {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: rgba(250, 246, 240, 0.75);
     font-size: 1.25rem;
     line-height: 1.5;
-    max-width: 600px;
+    max-width: 700px;
     margin: 16px auto 0;
   }
-  .policy-content-section {
+
+  /* Section 1: Product card */
+  .prod-card-section {
     background: #FAF6F0;
     padding: 120px 3rem;
     box-sizing: border-box;
   }
-  .policy-inner {
-    max-width: 720px;
+  .prod-card-grid {
+    max-width: 1280px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 80px;
+    align-items: start;
   }
-  .policy-block + .policy-block {
-    margin-top: 64px;
-    padding-top: 64px;
-    border-top: 1px solid rgba(59, 92, 58, 0.15);
+  .prod-photo-col { display: flex; flex-direction: column; gap: 16px; }
+  .prod-photo-main {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 12px;
   }
-  .policy-block-eyebrow {
+  .prod-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .prod-thumb {
+    background: none;
+    border: 1px solid rgba(59, 92, 58, 0.15);
+    border-radius: 8px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: border-color 0.2s ease;
+  }
+  .prod-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .prod-thumb.active { border: 2px solid #3B5C3A; }
+  .prod-thumb:hover { border-color: rgba(59, 92, 58, 0.5); }
+
+  .prod-info-col {
+    position: sticky;
+    top: 140px;
+    align-self: start;
+  }
+  .prod-info-eyebrow {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin: 0 0 24px 0;
+    letter-spacing: 0.14em;
+    margin: 0 0 12px 0;
   }
-  .policy-block-body {
-    font-family: 'DM Sans', system-ui, sans-serif;
+  .prod-info-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
     color: #2C2417;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+  }
+  .prod-info-tagline {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.75);
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.5;
+    margin: 0 0 32px 0;
+  }
+  .prod-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .prod-price {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .prod-price-tag {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .prod-subprice {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.6);
+    font-size: 0.9rem;
+    margin: 0 0 32px 0;
+  }
+  .prod-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .prod-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid rgba(59, 92, 58, 0.3);
+    border-radius: 100px;
+    padding: 8px 14px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3B5C3A;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .prod-badge svg { display: block; }
+  .prod-cta-primary {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 18px 32px;
+    border-radius: 100px;
+    transition: background 0.2s ease;
+  }
+  .prod-cta-primary:hover { background: #2d4a2c; }
+  .prod-subcta {
+    text-align: center;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.55);
+    font-size: 0.85rem;
+    margin: 16px 0 0 0;
+  }
+
+  /* Section 2: Trust strip */
+  .prod-trust {
+    background: #FAF6F0;
+    padding: 80px 3rem;
+    box-sizing: border-box;
+  }
+  .prod-trust-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+    text-align: center;
+  }
+  .prod-trust-icon {
+    display: flex;
+    justify-content: center;
+    color: #3B5C3A;
+    margin-bottom: 16px;
+  }
+  .prod-trust-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+  }
+  .prod-trust-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
     margin: 0;
   }
-  .policy-block-body a {
-    color: #3B5C3A;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 1.5px;
-    transition: opacity 0.2s ease;
-  }
-  .policy-block-body a:hover { opacity: 0.7; }
 
-  /* Closing CTA — shared pattern */
-  .policy-cta-section {
+  /* Section 3: Two Ingredients (Forest Green) */
+  .prod-ingredients {
+    background: #3B5C3A;
+    padding: 120px 3rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .prod-ingredients-inner { max-width: 1100px; margin: 0 auto; }
+  .prod-ingredients-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 16px 0;
+  }
+  .prod-ingredients-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 48px 0;
+  }
+  .prod-ing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  .prod-ing-card {
+    background: rgba(250, 246, 240, 0.12);
+    border: 1px solid rgba(250, 246, 240, 0.25);
+    border-radius: 12px;
+    padding: 40px 32px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .prod-ing-card:hover {
+    border-color: rgba(250, 246, 240, 0.4);
+    transform: translateY(-2px);
+  }
+  .prod-ing-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+  }
+  .prod-ing-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .prod-ingredients-closing {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.7);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 40px auto 0;
+    max-width: 720px;
+  }
+
+  /* Section 4: Routine */
+  .prod-routine {
     background: #FAF6F0;
     padding: 120px 3rem;
     text-align: center;
     box-sizing: border-box;
   }
-  .policy-cta-eyebrow {
+  .prod-routine-inner { max-width: 1100px; margin: 0 auto; }
+  .prod-routine-eyebrow {
     font-family: 'DM Sans', system-ui, sans-serif;
     color: #C4A882;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    font-weight: 800;
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 16px 0;
   }
-  .policy-cta-headline {
+  .prod-routine-headline {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
     color: #2C2417;
     font-size: 2.5rem;
     line-height: 1.2;
-    margin: 0 auto 40px;
-    max-width: 720px;
+    margin: 0 0 16px 0;
   }
-  .policy-cta-btn {
+  .prod-routine-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.65);
+    font-size: 1.125rem;
+    margin: 0 0 64px 0;
+  }
+  .prod-routine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+  }
+  .prod-step { display: flex; flex-direction: column; align-items: center; }
+  .prod-step-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #C4A882;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 0 0 12px 0;
+  }
+  .prod-step-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+  }
+  .prod-step-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0;
+  }
+  .prod-ghost-btn {
     display: inline-block;
-    background: #3B5C3A;
-    color: #FAF6F0;
+    margin-top: 48px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #3B5C3A;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-weight: 600;
-    font-size: 0.95rem;
-    font-family: 'DM Sans', system-ui, sans-serif;
-    padding: 16px 40px;
-    border-radius: 100px;
     text-decoration: none;
-    transition: background 0.2s ease;
+    padding: 12px 24px;
+    border: 1px solid #3B5C3A;
+    border-radius: 100px;
+    transition: background 0.2s ease, color 0.2s ease;
   }
-  .policy-cta-btn:hover { background: #2d4a2c; }
+  .prod-ghost-btn:hover { background: #3B5C3A; color: #FAF6F0; }
+
+  /* Section 5: Quotes */
+  .prod-quotes {
+    background: #FAF6F0;
+    padding: 120px 3rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .prod-quotes-inner { max-width: 1100px; margin: 0 auto; }
+  .prod-quotes-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 16px 0;
+  }
+  .prod-quotes-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+  }
+  .prod-quotes-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.65);
+    font-size: 1.125rem;
+    margin: 0 auto 64px;
+    max-width: 600px;
+  }
+  .prod-quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: left;
+  }
+  .prod-quote-card {
+    border-bottom: 1px solid rgba(59, 92, 58, 0.2);
+    padding: 32px 24px;
+  }
+  .prod-quote-glyph {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #C4A882;
+    font-size: 3rem;
+    line-height: 0.5;
+    margin: 0 0 16px 0;
+  }
+  .prod-quote-body {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-style: italic;
+    margin: 0 0 24px 0;
+  }
+  .prod-quote-cite {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Section 6: FAQ */
+  .prod-faq {
+    background: #FAF6F0;
+    padding: 120px 3rem;
+    box-sizing: border-box;
+  }
+  .prod-faq-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+  .prod-faq-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 16px 0;
+  }
+  .prod-faq-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0 0 64px 0;
+  }
+  .prod-faq-list { text-align: left; }
+  .prod-faq-item {
+    border-bottom: 1px solid rgba(59, 92, 58, 0.15);
+    padding: 32px 0;
+  }
+  .prod-faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #2C2417;
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+  .prod-faq-item summary::-webkit-details-marker { display: none; }
+  .prod-faq-item summary::after {
+    content: '+';
+    flex-shrink: 0;
+    color: #C4A882;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .prod-faq-item[open] summary::after { content: '–'; }
+  .prod-faq-item .prod-faq-answer {
+    margin-top: 16px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #2C2417;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Section 7: Final CTA (Forest Green) */
+  .prod-cta-final {
+    background: #3B5C3A;
+    padding: 120px 3rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .prod-cta-final-eyebrow {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #C4A882;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 16px 0;
+  }
+  .prod-cta-final-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    color: #FAF6F0;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto 16px;
+  }
+  .prod-cta-final-sub {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.75);
+    font-size: 1.125rem;
+    margin: 0 auto 40px;
+  }
+  .prod-cta-final-btn {
+    display: inline-block;
+    background: #FAF6F0;
+    color: #3B5C3A;
+    text-decoration: none;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 20px 48px;
+    border-radius: 100px;
+    transition: transform 0.2s ease;
+  }
+  .prod-cta-final-btn:hover { transform: scale(1.02); }
+  .prod-cta-final-tail {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.7);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .prod-cta-final-tail:hover { color: #C4A882; }
 
   /* Scroll-reveal */
-  [data-policy-reveal] {
+  [data-prod-reveal] {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.75s ease-out, transform 0.75s ease-out;
   }
-  [data-policy-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  [data-prod-reveal].is-visible { opacity: 1; transform: translateY(0); }
   @media (prefers-reduced-motion: reduce) {
-    [data-policy-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    [data-prod-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 
   /* Active-state nav */
   .nav-left a.is-active, .nav-right a.is-active { color: #3B5C3A; font-weight: 700; }
 
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .prod-card-grid { grid-template-columns: 1fr; gap: 48px; }
+    .prod-info-col { position: static; }
+    .prod-trust-grid { grid-template-columns: 1fr; gap: 32px; }
+    .prod-ing-grid { grid-template-columns: 1fr; gap: 16px; }
+    .prod-routine-grid { grid-template-columns: 1fr; gap: 48px; }
+    .prod-quotes-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
   @media (max-width: 768px) {
-    .policy-hero { padding: 188px 1.5rem 80px; }
-    .policy-hero-headline { font-size: 3rem; }
-    .policy-hero-sub { font-size: 1rem; }
-    .policy-content-section { padding: 80px 1.5rem; }
-    .policy-block + .policy-block { margin-top: 48px; padding-top: 48px; }
-    .policy-cta-section { padding: 80px 24px; }
-    .policy-cta-headline { font-size: 1.75rem; }
+    .prod-hero { padding: 188px 1.5rem 80px; }
+    .prod-hero-headline { font-size: 3rem; }
+    .prod-hero-sub { font-size: 1rem; }
+    .prod-card-section { padding: 80px 1.5rem; }
+    .prod-trust { padding: 56px 1.5rem; }
+    .prod-ingredients { padding: 80px 1.5rem; }
+    .prod-ingredients-headline { font-size: 1.875rem; }
+    .prod-ing-card { padding: 32px 24px; }
+    .prod-routine { padding: 80px 1.5rem; }
+    .prod-routine-headline { font-size: 1.875rem; }
+    .prod-quotes { padding: 80px 1.5rem; }
+    .prod-quotes-headline { font-size: 1.875rem; }
+    .prod-faq { padding: 80px 1.5rem; }
+    .prod-faq-headline { font-size: 1.875rem; }
+    .prod-cta-final { padding: 80px 1.5rem; }
+    .prod-cta-final-headline { font-size: 1.875rem; }
   }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Maintane Natural Septic Treatment",
+  "description": "Natural septic system treatment with 12 billion live bacterial cultures per dose. Two ingredients. Kid and pet safe. Made in USA.",
+  "brand": { "@type": "Brand", "name": "Maintane" },
+  "image": "https://getmaintane.com/scoop-step.jpeg",
+  "sku": "MAINTANE-4OZ",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://aykixg-rn.myshopify.com/cart/53069455917419:1",
+    "priceCurrency": "USD",
+    "price": "39.99",
+    "availability": "https://schema.org/PreOrder",
+    "priceValidUntil": "2026-12-31"
+  }
+}
+</script>
 <meta name="robots" content="index, follow">
 </head>
 <body>
@@ -2054,7 +2537,7 @@
   </button>
   <ul class="nav-left">
     <li><a href="/">Home</a></li>
-    <li><a href="/products.html">Products</a></li>
+    <li><a href="/products.html" class="is-active">Products</a></li>
     <li><a href="/how-it-works.html">How it works</a></li>
     <li><a href="/dosing-guide.html">Dosing Guide</a></li>
   </ul>
@@ -2065,57 +2548,202 @@
   <ul class="nav-right">
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/#contact">Contact</a></li>
-    <li><a href="/policy.html" class="is-active">Policy</a></li>
+    <li><a href="/policy.html">Policy</a></li>
     <li><a class="nav-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></li>
   </ul>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="/">Home</a>
-  <a href="/products.html">Products</a>
+  <a href="/products.html" class="is-active">Products</a>
   <a href="/how-it-works.html">How It Works</a>
   <a href="/dosing-guide.html">Dosing Guide</a>
   <a href="/blog/">Blog</a>
   <a href="/#contact">Contact</a>
-  <a href="/policy.html" class="is-active">Policy</a>
+  <a href="/policy.html">Policy</a>
   <a class="mobile-cta" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">Buy Now</a></div>
 
-<section class="policy-hero">
-  <div class="policy-hero-inner">
-    <h1 class="policy-hero-headline">Policies</h1>
-    <p class="policy-hero-sub">Last updated April 2026.</p>
+<section class="prod-hero">
+  <div class="prod-hero-inner">
+    <p class="prod-hero-eyebrow">THE PRODUCT</p>
+    <h1 class="prod-hero-headline">Septic care, redefined.</h1>
+    <p class="prod-hero-sub">Two ingredients. Six bacterial strains. Twelve billion live cultures. One scoop a month.</p>
   </div>
 </section>
 
-<section class="policy-content-section">
-  <div class="policy-inner">
-        <div class="policy-block" data-policy-reveal style="transition-delay: 0.00s;">
-          <p class="policy-block-eyebrow">SHIPPING</p>
-          <p class="policy-block-body">Orders ship within 1–2 business days. Free standard shipping on all orders. Expedited options available at checkout.</p>
-        </div>
-        <div class="policy-block" data-policy-reveal style="transition-delay: 0.08s;">
-          <p class="policy-block-eyebrow">RETURNS &amp; REFUNDS</p>
-          <p class="policy-block-body">If you are not satisfied with your purchase for any reason, contact us within 30 days and we will issue a full refund. No return required on your first order. We stand behind our product unconditionally.</p>
-        </div>
-        <div class="policy-block" data-policy-reveal style="transition-delay: 0.16s;">
-          <p class="policy-block-eyebrow">PRIVACY</p>
-          <p class="policy-block-body">We collect only the information necessary to respond to your inquiries, your name, and email address. Orders are processed entirely through Amazon and subject to Amazon’s privacy policy. We do not sell or share your data with third parties.</p>
-        </div>
-        <div class="policy-block" data-policy-reveal style="transition-delay: 0.24s;">
-          <p class="policy-block-eyebrow">PRODUCT SAFETY</p>
-          <p class="policy-block-body">Maintane™ contains biosafety-level-1 bacteria and table salt. It is non-toxic and safe for use in homes with children and pets. It is not intended for human consumption. For safety, keep out of reach of young children. In the event of eye contact, rinse with water. The product is not a substitute for routine septic system pumping and inspection.</p>
-        </div>
-        <div class="policy-block" data-policy-reveal style="transition-delay: 0.32s;">
-          <p class="policy-block-eyebrow">CONTACT</p>
-          <p class="policy-block-body">Questions, support requests, partnership inquiries — email us at <a href="mailto:hello@getmaintane.com">hello@getmaintane.com</a>. We respond within 1 business day.</p>
-        </div>
+<section class="prod-card-section">
+  <div class="prod-card-grid">
+    <div class="prod-photo-col" data-prod-reveal>
+      <img class="prod-photo-main" src="/scoop-step.jpeg" alt="Maintane natural septic treatment — a scoop of live-culture powder in a sunlit kitchen.">
+      <div class="prod-thumbs">
+        <button type="button" class="prod-thumb" data-full="/flush-step.png" aria-label="View flush step">
+          <img src="/flush-step.png" alt="Maintane jar on a bathroom shelf, ready for monthly use.">
+        </button>
+        <button type="button" class="prod-thumb" data-full="/set-reminder-step.jpeg" aria-label="View reminder step">
+          <img src="/set-reminder-step.jpeg" alt="Maintane jar beside a calendar showing next dose date.">
+        </button>
+        <button type="button" class="prod-thumb" data-full="/mechanism-science.png" aria-label="View science detail">
+          <img src="/mechanism-science.png" alt="Maintane powder dissolving in a glass of water, activating live cultures.">
+        </button>
+      </div>
+    </div>
+    <div class="prod-info-col" data-prod-reveal style="transition-delay: 0.15s;">
+      <p class="prod-info-eyebrow">MAINTANE</p>
+      <h2 class="prod-info-name">Natural Septic Treatment</h2>
+      <p class="prod-info-tagline">One scoop. Once a month. That’s the whole routine.</p>
+      <div class="prod-price-row">
+        <span class="prod-price">$39.99</span>
+        <span class="prod-price-tag">Launch price</span>
+      </div>
+      <p class="prod-subprice">Free shipping. 3-month supply per tub.</p>
+      <div class="prod-badges">
+        <span class="prod-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/></svg>KID &amp; PET SAFE</span>
+        <span class="prod-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="2"/><circle cx="16" cy="9" r="2"/><circle cx="12" cy="15" r="2"/></svg>12B CFU / 6 STRAINS</span>
+        <span class="prod-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4 V20"/><path d="M4 4 H18 L15 8 L18 12 H4"/></svg>MADE IN USA</span>
+      </div>
+      <a class="prod-cta-primary" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">ADD TO CART — $39.99</a>
+      <p class="prod-subcta">Ships within 1–2 business days. 30-day full refund.</p>
+    </div>
   </div>
 </section>
 
-<section class="policy-cta-section" data-policy-reveal>
-  <p class="policy-cta-eyebrow">READY WHEN YOU ARE</p>
-  <h2 class="policy-cta-headline">One scoop. Once a month. That’s the whole routine.</h2>
-  <a class="policy-cta-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">SHOP MAINTANE — $39.99</a>
+<section class="prod-trust">
+  <div class="prod-trust-grid">
+    <div class="prod-trust-col" data-prod-reveal>
+      <div class="prod-trust-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/><path d="M9 12 L11 14 L15 10"/></svg></div>
+      <h3 class="prod-trust-label">Kid &amp; Pet Safe</h3>
+      <p class="prod-trust-body">Biosafety Level 1 bacteria. Same safety tier as yogurt cultures.</p>
+    </div>
+    <div class="prod-trust-col" data-prod-reveal style="transition-delay: 0.10s;">
+      <div class="prod-trust-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="2.5"/><circle cx="16" cy="9" r="2"/><circle cx="9" cy="16" r="2"/><circle cx="16" cy="16" r="2.5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+      <h3 class="prod-trust-label">12 Billion CFU</h3>
+      <p class="prod-trust-body">Six bacterial strains targeting proteins, fats, carbs, cellulose, organic waste.</p>
+    </div>
+    <div class="prod-trust-col" data-prod-reveal style="transition-delay: 0.20s;">
+      <div class="prod-trust-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4 V20"/><path d="M4 4 H18 L15 8 L18 12 H4"/></svg></div>
+      <h3 class="prod-trust-label">Made in USA</h3>
+      <p class="prod-trust-body">Formulated and packaged in a U.S. biosafety-certified lab.</p>
+    </div>
+  </div>
+</section>
+
+<section class="prod-ingredients">
+  <div class="prod-ingredients-inner">
+    <p class="prod-ingredients-eyebrow">WHAT’S IN THE BOTTLE</p>
+    <h2 class="prod-ingredients-headline">Two ingredients. That’s it.</h2>
+    <div class="prod-ing-grid">
+      <div class="prod-ing-card" data-prod-reveal>
+        <h3 class="prod-ing-name">Biosafety Level 1 Bacteria</h3>
+        <p class="prod-ing-body">Six named bacterial strains. 12 billion live cultures per dose. Each strain targets a specific organic waste type.</p>
+      </div>
+      <div class="prod-ing-card" data-prod-reveal style="transition-delay: 0.10s;">
+        <h3 class="prod-ing-name">Mineral Salt</h3>
+        <p class="prod-ing-body">A natural carrier that protects the cultures during shipping and dissolves cleanly in your system. No synthetic binders, no preservatives.</p>
+      </div>
+      <div class="prod-ing-card" data-prod-reveal style="transition-delay: 0.20s;">
+        <h3 class="prod-ing-name">Made in USA</h3>
+        <p class="prod-ing-body">Formulated and packaged in a U.S. biosafety-certified lab. Same safety tier as yogurt cultures.</p>
+      </div>
+    </div>
+    <p class="prod-ingredients-closing">Formulated at Biosafety Level 1 — the same safety tier as yogurt cultures.</p>
+  </div>
+</section>
+
+<section class="prod-routine">
+  <div class="prod-routine-inner">
+    <p class="prod-routine-eyebrow">THE ROUTINE</p>
+    <h2 class="prod-routine-headline">Three steps. Once a month.</h2>
+    <p class="prod-routine-sub">Under five minutes, start to finish.</p>
+    <div class="prod-routine-grid">
+      <div class="prod-step" data-prod-reveal>
+        <p class="prod-step-num">01</p>
+        <h3 class="prod-step-title">SCOOP</h3>
+        <p class="prod-step-body">One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing.</p>
+      </div>
+      <div class="prod-step" data-prod-reveal style="transition-delay: 0.10s;">
+        <p class="prod-step-num">02</p>
+        <h3 class="prod-step-title">FLUSH</h3>
+        <p class="prod-step-body">Drop it in any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank.</p>
+      </div>
+      <div class="prod-step" data-prod-reveal style="transition-delay: 0.20s;">
+        <p class="prod-step-num">03</p>
+        <h3 class="prod-step-title">SET REMINDER</h3>
+        <p class="prod-step-body">Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 01 and 02. That’s the entire routine.</p>
+      </div>
+    </div>
+    <a class="prod-ghost-btn" href="/how-it-works.html">READ THE FULL GUIDE →</a>
+  </div>
+</section>
+
+<section class="prod-quotes">
+  <div class="prod-quotes-inner">
+    <p class="prod-quotes-eyebrow">WHAT WE’VE HEARD SO FAR</p>
+    <h2 class="prod-quotes-headline">Real homes. Real results.</h2>
+    <p class="prod-quotes-sub">Notes from early Maintane users.</p>
+    <div class="prod-quotes-grid">
+        <div class="prod-quote-card" data-prod-reveal style="transition-delay: 0.00s;">
+          <p class="prod-quote-glyph">“</p>
+          <p class="prod-quote-body">Used it for two months. The smell from the laundry room drain is gone. That alone was worth it.</p>
+          <p class="prod-quote-cite">— Sarah, North Carolina</p>
+        </div>
+        <div class="prod-quote-card" data-prod-reveal style="transition-delay: 0.10s;">
+          <p class="prod-quote-glyph">“</p>
+          <p class="prod-quote-body">I’m not a chemistry person. I just wanted something that didn’t make me nervous to pour into the ground. This works.</p>
+          <p class="prod-quote-cite">— Mike, Vermont</p>
+        </div>
+        <div class="prod-quote-card" data-prod-reveal style="transition-delay: 0.20s;">
+          <p class="prod-quote-glyph">“</p>
+          <p class="prod-quote-body">We’ve got two kids and three dogs. The “kid and pet safe” thing isn’t optional in our house. Glad something finally exists.</p>
+          <p class="prod-quote-cite">— Jen, Texas</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="prod-faq">
+  <div class="prod-faq-inner">
+    <p class="prod-faq-eyebrow">BEFORE YOU BUY</p>
+    <h2 class="prod-faq-headline">Common questions.</h2>
+    <div class="prod-faq-list">
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.00s;">
+        <summary>When does it ship?</summary>
+        <p class="prod-faq-answer">Orders ship within 1–2 business days from our U.S. fulfillment center. You’ll get tracking by email as soon as it’s on its way.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.06s;">
+        <summary>How long does one tub last?</summary>
+        <p class="prod-faq-answer">One tub is a 3-month supply for a 1–2 bathroom home. 3–4 bathroom homes use 2 tubs over 3 months. Larger sizes for bigger homes coming soon.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.12s;">
+        <summary>What’s your return policy?</summary>
+        <p class="prod-faq-answer">30-day full refund, no questions asked. We don’t require a return on your first order — if it’s not right for you, we make it right.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.18s;">
+        <summary>Is this safe with my septic system?</summary>
+        <p class="prod-faq-answer">Maintane is designed for septic systems. The bacteria are at Biosafety Level 1 — the same regulatory safety tier as yogurt cultures and probiotic supplements. Non-toxic and non-pathogenic.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.24s;">
+        <summary>Will I see results immediately?</summary>
+        <p class="prod-faq-answer">Most customers notice reduced odors within 24–72 hours. Full ecosystem balance takes 30–90 days of consistent monthly use.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.30s;">
+        <summary>Do you offer subscriptions?</summary>
+        <p class="prod-faq-answer">Subscription pricing launches shortly after our May 15 release. For now, single tubs ship as one-time orders.</p>
+      </details>
+      <details class="prod-faq-item" data-prod-reveal style="transition-delay: 0.36s;">
+        <summary>How is this different from Rid-X or other chemical additives?</summary>
+        <p class="prod-faq-answer">Maintane has two ingredients: live bacteria and mineral salt. Most chemical additives contain enzymes, surfactants, and fillers — some EPA-classified as carcinogens. We built Maintane because nothing on the shelf met our standards for kid and pet safety.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="prod-cta-final" data-prod-reveal>
+  <p class="prod-cta-final-eyebrow">READY TO START</p>
+  <h2 class="prod-cta-final-headline">Maintane. One scoop. Once a month.</h2>
+  <p class="prod-cta-final-sub">Free shipping. 30-day full refund. Made in the USA.</p>
+  <a class="prod-cta-final-btn" href="https://aykixg-rn.myshopify.com/cart/53069455917419:1">ADD TO CART — $39.99</a>
+  <br>
+  <a class="prod-cta-final-tail" href="#footer-waitlist-form">Launching May 15. Save 10% as a waitlist member →</a>
 </section>
 
 <footer class="site-footer">
@@ -2366,7 +2994,23 @@ function closeMobileMenu() {
 </script>
 <script>
 (function() {
-  var els = document.querySelectorAll('[data-policy-reveal]');
+  var thumbs = document.querySelectorAll('.prod-thumb');
+  var main = document.querySelector('.prod-photo-main');
+  if (!thumbs.length || !main) return;
+  thumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var src = thumb.dataset.full;
+      if (!src) return;
+      main.src = src;
+      thumbs.forEach(function(t) { t.classList.remove('active'); });
+      thumb.classList.add('active');
+    });
+  });
+})();
+</script>
+<script>
+(function() {
+  var els = document.querySelectorAll('[data-prod-reveal]');
   if (!els.length) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     els.forEach(function(e) { e.classList.add('is-visible'); });
