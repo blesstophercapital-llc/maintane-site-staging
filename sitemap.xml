@@ -230,4 +230,29 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://getmaintane.com/blog/best-laundry-detergent-for-septic-systems.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getmaintane.com/blog/is-garbage-disposal-bad-for-septic-tank.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getmaintane.com/blog/what-happens-after-septic-tank-pumped.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getmaintane.com/blog/septic-inspection-checklist-before-buying-house.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getmaintane.com/blog/how-long-does-septic-system-last.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
