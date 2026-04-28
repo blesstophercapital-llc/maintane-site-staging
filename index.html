@@ -11,18 +11,18 @@
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#3B5C3A" />
 <title>Natural Septic Tank Treatment | Maintane</title>
-<meta name="description" content="Natural septic tank treatment with live bacteria for monthly maintenance. Kid and pet safe. Made in the USA. One scoop, once a month.">
+<meta name="description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
 <link rel="canonical" href="https://getmaintane.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maintane">
 <meta property="og:title" content="Natural Septic Tank Treatment | Maintane">
-<meta property="og:description" content="Natural septic tank treatment with live bacteria for monthly maintenance. Kid and pet safe. Made in the USA. One scoop, once a month.">
+<meta property="og:description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
 <meta property="og:url" content="https://getmaintane.com/">
 <meta property="og:image" content="https://getmaintane.com/product-hero.png">
 <meta property="og:image:alt" content="Maintane natural septic tank treatment product">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Natural Septic Tank Treatment | Maintane">
-<meta name="twitter:description" content="Natural septic tank treatment with live bacteria for monthly maintenance. Kid and pet safe. Made in the USA. One scoop, once a month.">
+<meta name="twitter:description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
 <meta name="twitter:image" content="https://getmaintane.com/product-hero.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ"></script>
 <script>
@@ -495,6 +495,32 @@
     color: #3B5C3A;
     border-color: #3B5C3A;
   }
+  .hero-support-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 18px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .hero-support-links a {
+    color: rgba(250, 246, 240, 0.92);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s, text-decoration-thickness 0.2s;
+  }
+  .hero-support-links a:hover {
+    color: #C4A882;
+    text-decoration-thickness: 2px;
+  }
+  .hero-support-links span {
+    color: rgba(250, 246, 240, 0.42);
+  }
   @media (max-width: 768px) {
     .hero-content { padding: 7rem 24px 6rem; }
     .hero-arrow { display: none; }
@@ -508,6 +534,14 @@
       box-sizing: border-box;
       text-align: center;
     }
+    .hero-support-links {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .hero-support-links span { display: none; }
   }
 
   /* ── Phase 2.1: Why Maintane comparison grid ── */
@@ -1522,13 +1556,20 @@
     <div class="hero-content">
       <p class="hero-tag">SEPTIC CARE, REDEFINED</p>
       <h1>Your system. <em>Maintained.</em> Naturally.</h1>
-      <p class="hero-sub">One scoop. Once a month. That’s it.</p>
+      <p class="hero-sub">A natural septic tank treatment powder with 12B live bacteria per dose. One scoop, once a month.</p>
       <div class="hero-badges">
         <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
         <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
         <div class="badge"><div class="badge-dot"></div> Made in USA</div>
       </div>
       <a class="hero-cta-tan" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+      <div class="hero-support-links" aria-label="Helpful septic treatment guides">
+        <a href="/blog/best-septic-treatment-for-monthly-maintenance.html">Best monthly treatment</a>
+        <span aria-hidden="true">/</span>
+        <a href="/dosing-guide.html">Dosing guide</a>
+        <span aria-hidden="true">/</span>
+        <a href="/blog/what-to-look-for-in-a-septic-tank-treatment.html">What to look for</a>
+      </div>
     </div>
     <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide">‹</button>
     <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide">›</button>
