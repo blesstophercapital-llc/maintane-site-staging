@@ -1,6 +1,6 @@
 /* getmaintane.com — GA4 event tracking
  * Loaded with `defer` at the end of <body> on every HTML file.
- * GA4 measurement ID G-D8DRYD8BHZ is loaded earlier via gtag.js in <head>.
+ * GA4 measurement ID G-D8DRYD8BHZ and Meta Pixel are loaded earlier in <head>.
  *
  * 10 events wired (event 10 `faq_expand` deliberately omitted — dosing-guide
  * FAQs are static content, not accordions; revisit when accordion is built).
@@ -17,7 +17,7 @@
   var DEBUG = false;
   var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
 
-  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart/i;
+  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },
     { match: /(^|\.)instagram\.com/i, name: 'instagram' },
@@ -45,9 +45,37 @@
 
   function fire(name, params) {
     if (DEBUG) console.log('[GA4]', name, params);
-    if (IS_STAGING) return;            // staging never sends to GA4
-    if (typeof gtag !== 'function') return;
-    gtag('event', name, params);
+    if (!IS_STAGING && typeof gtag === 'function') {
+      gtag('event', name, params);
+    }
+    fireMeta(name, params);
+  }
+
+  function fireMeta(name, params) {
+    if (IS_STAGING || typeof fbq !== 'function') return;
+    var metaParams = params || {};
+    try {
+      if (name === 'checkout_click') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Maintane Natural Septic Tank Treatment',
+          content_ids: ['MTN-001'],
+          content_type: 'product',
+          value: 39.99,
+          currency: 'USD',
+          button_location: metaParams.button_location || 'unknown'
+        });
+      } else if (name === 'contact_form_submit') {
+        fbq('track', 'Contact', {
+          source_page: metaParams.source_page || pathname()
+        });
+      } else if (name === 'email_signup') {
+        fbq('track', 'Lead', {
+          content_name: 'Maintane Email Signup',
+          source: metaParams.source || metaParams.form_id || 'email_signup',
+          source_page: metaParams.source_page || pathname()
+        });
+      }
+    } catch (e) {}
   }
 
   // Derive a meaningful label for which CTA the user interacted with.

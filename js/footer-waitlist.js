@@ -27,6 +27,15 @@
     if (typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) {}
     }
+    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Lead', {
+          content_name: 'Maintane Footer Waitlist',
+          source: (params && params.source) || 'footer_waitlist',
+          source_page: window.location.pathname
+        });
+      } catch (e) {}
+    }
   }
 
   function init() {

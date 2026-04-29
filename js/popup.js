@@ -40,6 +40,15 @@
     if (typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) { /* no-op */ }
     }
+    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Lead', {
+          content_name: 'Maintane Popup Waitlist',
+          source: (params && params.source) || 'pre_launch_popup',
+          source_page: window.location.pathname
+        });
+      } catch (e) { /* no-op */ }
+    }
   }
 
   // ── Element refs ─────────────────────────────────────────────────────────
