@@ -1,5 +1,6 @@
 /* Pre-launch waitlist popup — getmaintane.com
- * Shows quickly after page load, scroll intent, or exit intent (never after conversion).
+ * Shows quickly after page load, scroll intent, or exit intent.
+ * Dismissals do not persist, so each new page visit gets a fresh popup.
  * Submits to Klaviyo's client subscriptions API; adds profile to list Ue3eN8.
  * Staging guard: listeners render the popup but never POST to Klaviyo.
  */
@@ -20,7 +21,6 @@
   var SHOW_DELAY_MS           = 1200;
   var SCROLL_TRIGGER_RATIO    = 0.28;
   var EXIT_INTENT_Y           = 18;
-  var DISMISS_COOKIE_DAYS     = 2 / (24 * 60); // 2 minutes — intentionally assertive for undecided visitors
   var CONVERTED_COOKIE_DAYS   = 365;
   var ANIM_DURATION_MS        = 250;
   var SUCCESS_AUTOCLOSE_MS    = 3000;
@@ -35,6 +35,9 @@
   function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]+)'));
     return match ? match[2] : null;
+  }
+  function deleteCookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax';
   }
 
   // ── GA4 ──────────────────────────────────────────────────────────────────
@@ -67,9 +70,11 @@
     // Skip popup on thank-you page (users just converted via contact form)
     if (window.location.pathname === '/thank-you.html') return;
 
-    // Short-circuit if the user already converted or recently dismissed.
+    // Clear legacy dismissal cookies so closed popups reset on every new visit.
+    deleteCookie('maintane_popup_dismissed');
+
+    // Short-circuit only if the user already converted.
     if (getCookie('maintane_popup_converted')) return;
-    if (getCookie('maintane_popup_dismissed')) return;
 
     closeBtn   = popup.querySelector('.maintane-popup__close');
     form       = popup.querySelector('#maintane-popup-form');
@@ -149,7 +154,6 @@
     }
 
     if (!skipDismissCookie) {
-      setCookie('maintane_popup_dismissed', '1', DISMISS_COOKIE_DAYS);
       track('popup_dismissed', { source_page: window.location.pathname });
     }
   }
