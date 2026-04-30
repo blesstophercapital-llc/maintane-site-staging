@@ -1,5 +1,5 @@
 /* Pre-launch waitlist popup — getmaintane.com
- * Shows 4s after page load (re-shows after 5 minutes if dismissed, never after conversion).
+ * Shows quickly after page load, scroll intent, or exit intent (never after conversion).
  * Submits to Klaviyo's client subscriptions API; adds profile to list Ue3eN8.
  * Staging guard: listeners render the popup but never POST to Klaviyo.
  */
@@ -17,8 +17,10 @@
   var KLAVIYO_ENDPOINT    = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION    = '2024-10-15';
 
-  var SHOW_DELAY_MS           = 4000;
-  var DISMISS_COOKIE_DAYS     = 5 / (24 * 60); // 5 minutes — re-prompt undecided visitors on next visit
+  var SHOW_DELAY_MS           = 1200;
+  var SCROLL_TRIGGER_RATIO    = 0.28;
+  var EXIT_INTENT_Y           = 18;
+  var DISMISS_COOKIE_DAYS     = 2 / (24 * 60); // 2 minutes — intentionally assertive for undecided visitors
   var CONVERTED_COOKIE_DAYS   = 365;
   var ANIM_DURATION_MS        = 250;
   var SUCCESS_AUTOCLOSE_MS    = 3000;
@@ -55,6 +57,7 @@
   var popup, closeBtn, form, emailInput, successEl, errorEl, submitBtn;
   var focusableEls = [];
   var lastFocused = null;
+  var hasShown = false;
 
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
@@ -78,6 +81,8 @@
     if (closeBtn) closeBtn.addEventListener('click', function () { closePopup(); });
     if (form)     form.addEventListener('submit', onSubmit);
     document.addEventListener('keydown', onKeydown);
+    document.addEventListener('mouseleave', onExitIntent);
+    window.addEventListener('scroll', onScrollIntent, { passive: true });
 
     setTimeout(showPopup, SHOW_DELAY_MS);
   }
@@ -85,6 +90,11 @@
   // ── Show / close ─────────────────────────────────────────────────────────
   function showPopup() {
     if (!popup) return;
+    if (hasShown) return;
+    hasShown = true;
+
+    document.removeEventListener('mouseleave', onExitIntent);
+    window.removeEventListener('scroll', onScrollIntent);
     lastFocused = document.activeElement;
 
     popup.style.display = 'flex';
@@ -108,6 +118,20 @@
     }, ANIM_DURATION_MS);
 
     track('popup_shown', { source_page: window.location.pathname });
+  }
+
+  function onExitIntent(e) {
+    if (!e) return;
+    if (e.clientY <= EXIT_INTENT_Y) showPopup();
+  }
+
+  function onScrollIntent() {
+    var scrollable = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1
+    );
+    var ratio = (window.scrollY || window.pageYOffset || 0) / scrollable;
+    if (ratio >= SCROLL_TRIGGER_RATIO) showPopup();
   }
 
   function closePopup(opts) {
