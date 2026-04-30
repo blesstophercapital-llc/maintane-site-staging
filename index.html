@@ -495,6 +495,41 @@
     color: #3B5C3A;
     border-color: #3B5C3A;
   }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-cta-secondary {
+    display: inline-block;
+    color: #FAF6F0;
+    padding: 16px 32px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid rgba(250, 246, 240, 0.7);
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .hero-cta-secondary:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #FAF6F0;
+  }
+  .hero-reassurance {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.86);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 18px 0 0;
+    text-align: center;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
   .hero-support-links {
     display: flex;
     align-items: center;
@@ -531,6 +566,17 @@
       width: 100%;
       max-width: 360px;
       margin: 0 auto;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .hero-cta-row {
+      flex-direction: column;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .hero-cta-secondary {
+      display: block;
+      width: 100%;
       box-sizing: border-box;
       text-align: center;
     }
@@ -743,6 +789,20 @@
     margin: 64px auto 0;
     max-width: 900px;
     text-align: center;
+  }
+  .comparison-note,
+  .solution-conversion-note {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.76);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 0 18px;
+  }
+  .solution-conversion-note {
+    color: rgba(250, 246, 240, 0.84);
+    margin: 28px auto 20px;
+    max-width: 560px;
   }
   .solution-bottom-rule {
     width: 120px;
@@ -1190,6 +1250,34 @@
     max-width: 720px;
     margin: 48px auto 0;
   }
+  .facts-transition {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.72);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 680px;
+    margin: 44px auto 24px;
+  }
+  .facts-cta-wrap { text-align: center; }
+  .facts-cta {
+    display: inline-block;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .facts-cta:hover {
+    background: #2d4a2c;
+    transform: translateY(-1px);
+  }
   @media (prefers-reduced-motion: reduce) {
     .fact-card { opacity: 1; transform: none; transition: none; }
   }
@@ -1515,7 +1603,7 @@
   </button>
   <ul class="nav-left">
     <li><a onclick="showPage('home')">Home</a></li>
-    <li><a href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Products</a></li>
+    <li><a href="/products.html">Products</a></li>
     <li><a href="/how-it-works.html">How it works</a></li>
     <li><a href="/dosing-guide.html">Dosing Guide</a></li>
   </ul>
@@ -1527,19 +1615,19 @@
     <li><a href="/blog/">Blog</a></li>
     <li><a onclick="showPage('contact')">Contact</a></li>
     <li><a href="/policy.html">Policy</a></li>
-    <li><a class="nav-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Buy Now</a></li>
+    <li><a class="nav-cta" href="/products.html">Buy Now</a></li>
   </ul>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#" onclick="showPage('home');closeMobileMenu();">Home</a>
-  <a href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Products</a>
+  <a href="/products.html">Products</a>
   <a href="/how-it-works.html">How It Works</a>
   <a href="/dosing-guide.html">Dosing Guide</a>
   <a href="/blog/">Blog</a>
   <a href="#" onclick="showPage('contact');closeMobileMenu();">Contact</a>
   <a href="/policy.html">Policy</a>
-  <a class="mobile-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Buy Now</a>
+  <a class="mobile-cta" href="/products.html">Buy Now</a>
 </div>
 
 <!-- ========== HOME ========== -->
@@ -1564,7 +1652,11 @@
         <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
         <div class="badge"><div class="badge-dot"></div> Made in USA</div>
       </div>
-      <a class="hero-cta-tan" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+      <div class="hero-cta-row">
+        <a class="hero-cta-tan" href="/products.html">Shop Maintane — $39.99</a>
+        <a class="hero-cta-secondary" href="/dosing-guide.html">See how it works</a>
+      </div>
+      <p class="hero-reassurance">Takes 10 seconds a month. Safe for your home.</p>
       <div class="hero-support-links" aria-label="Helpful septic treatment guides">
         <a href="/blog/best-septic-treatment-for-monthly-maintenance.html">Best monthly treatment</a>
         <span aria-hidden="true">/</span>
@@ -1618,11 +1710,15 @@
           <p class="fact-cite">Source: Angi · HomeGuide (2026)</p>
         </article>
       </div>
+      <p class="facts-transition">If you’re using anything today, it likely falls into one of these categories.</p>
+      <div class="facts-cta-wrap">
+        <a class="facts-cta" href="#why-maintane">See what makes Maintane different</a>
+      </div>
     </div>
   </section>
 
   <!-- Solution Section (Phase 2.5a) -->
-  <section class="why-maintane" aria-labelledby="solution-heading">
+  <section class="why-maintane" id="why-maintane" aria-labelledby="solution-heading">
     <div class="why-card">
       <div class="solution-inner">
         <div class="solution-header" data-solution-anim data-stagger-ms="0">
@@ -1676,6 +1772,7 @@
 
           <!-- RIGHT: Side by side -->
           <div class="comparison-block">
+            <p class="comparison-note">Same job. Completely different approach.</p>
             <table class="why-comparison" role="table">
               <thead>
                 <tr>
@@ -1713,8 +1810,8 @@
               </tbody>
             </table>
             <div class="solution-cta" data-solution-anim data-stagger-ms="360">
-              <p class="cta-label">Ready to make the switch?</p>
-              <a class="why-cta-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+              <p class="solution-conversion-note">If you’ve read this far, Maintane is probably a better fit for your system.</p>
+              <a class="why-cta-btn" href="/dosing-guide.html">How to use Maintane</a>
             </div>
           </div>
         </div>
@@ -1778,7 +1875,7 @@
   <section class="journey-cta">
     <div class="journey-inner">
       <h2 class="journey-headline">Start Your Journey.</h2>
-      <a class="journey-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">SHOP ALL PRODUCTS</a>
+      <a class="journey-btn" href="/products.html">SHOP ALL PRODUCTS</a>
     </div>
   </section>
 
@@ -1862,7 +1959,7 @@
         <div class="footer-link-col">
           <h4 class="footer-col-header">SHOP</h4>
           <ul class="footer-link-list">
-            <li><a href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">All Products</a></li>
+            <li><a href="/products.html">All Products</a></li>
             <li><a href="/how-it-works.html">How it works</a></li>
             <li><a href="/dosing-guide.html">Dosing Guide</a></li>
             <li><a href="/blog/">Blog</a></li>
