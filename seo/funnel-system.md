@@ -119,6 +119,17 @@ Future upsell paths should stay simple until the product system supports them:
 - `/septic-safe-home-cleaning-guide.html` is the broad linkable asset for household cleaning habits. Keep cleaner subpages focused on one product category.
 - `/septic-tank-full-signs.html` owns full-tank and pumping-warning intent. Do not make treatment pages imply that Maintane replaces pumping.
 
+## Current Support Blog Posts For New Landing Pages
+
+- `/blog/why-does-my-house-smell-like-septic.html`: support article for `/septic-tank-smell-in-house.html`.
+- `/blog/septic-smell-outside-after-rain.html`: support article for `/septic-smell-outside.html`.
+- `/blog/rotten-egg-smell-in-bathroom-septic.html`: support article for `/rotten-egg-smell-septic.html`.
+- `/blog/toilet-bubbling-on-septic-system.html`: support article for `/toilet-bubbling-septic.html`.
+- `/blog/shower-drain-smells-like-sewer-septic.html`: support article for `/shower-drain-smells-septic.html`.
+- `/blog/septic-tank-full-or-clogged-drain.html`: support article for `/septic-tank-full-signs.html`.
+- `/blog/septic-safe-drain-cleaner-alternatives.html`: support article for `/septic-safe-drain-cleaner.html`.
+- `/blog/septic-safe-cleaning-rules-for-rentals.html`: support article for `/septic-treatment-for-rental-homes.html`.
+
 ## Shared Assets
 
 - `/css/funnel.css`: shared funnel page styling, nav, hero, cards, lead forms, FAQ, CTA bands, and mobile behavior.
