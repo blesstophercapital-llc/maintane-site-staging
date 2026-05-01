@@ -83,6 +83,18 @@ Future upsell paths should stay simple until the product system supports them:
 - `/ridx-alternative.html`: comparison page for high-intent Rid-X alternative searches.
 - `/septic-treatment-for-homes-with-kids-and-pets.html`: audience page for safety-conscious households.
 - `/septic-treatment-after-pumping.html`: audience/timing page for post-pump-out maintenance.
+- `/toilets-gurgling-septic.html`: symptom page for gurgling toilets and early septic warning signs.
+- `/septic-alarm-going-off.html`: symptom page for homeowners researching septic alarm causes.
+- `/septic-backup.html`: urgent problem page that routes crisis traffic toward pro help, checklist capture, and post-issue maintenance.
+- `/standing-water-drain-field.html`: symptom page for standing water, soggy yard, and drain field concern searches.
+- `/septic-treatment-for-new-homeowners.html`: audience page for first-time septic owners.
+- `/septic-treatment-for-vacation-homes.html`: audience page for cabins, rentals, and seasonal homes.
+- `/septic-treatment-for-older-homes.html`: audience page for older septic systems and older homes.
+- `/septic-treatment-for-garbage-disposals.html`: audience/usage page for homes with garbage disposals.
+- `/monthly-septic-treatment.html`: routine page for monthly septic treatment and maintenance searches.
+- `/septic-treatment-powder.html`: product-format page for powder septic treatment searches.
+- `/chemical-free-septic-treatment.html`: product-choice page for chemical-free septic treatment searches.
+- `/best-septic-treatment.html`: high-intent evaluation page for best septic treatment searches.
 
 ## Shared Assets
 
@@ -99,8 +111,6 @@ Future upsell paths should stay simple until the product system supports them:
 ## Future Pages To Add
 
 - `/septic-maintenance-calendar.html`: second lead magnet for monthly reminder signups.
-- `/septic-treatment-for-new-homeowners.html`: audience page for first-time septic owners.
-- `/septic-treatment-for-vacation-homes.html`: audience page for cabins and seasonal homes.
 
 ## Future Funnel Assets
 

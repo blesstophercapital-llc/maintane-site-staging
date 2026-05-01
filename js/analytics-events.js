@@ -27,7 +27,19 @@
     '/natural-septic-treatment.html',
     '/ridx-alternative.html',
     '/septic-treatment-for-homes-with-kids-and-pets.html',
-    '/septic-treatment-after-pumping.html'
+    '/septic-treatment-after-pumping.html',
+    '/toilets-gurgling-septic.html',
+    '/septic-alarm-going-off.html',
+    '/septic-backup.html',
+    '/standing-water-drain-field.html',
+    '/septic-treatment-for-new-homeowners.html',
+    '/septic-treatment-for-vacation-homes.html',
+    '/septic-treatment-for-older-homes.html',
+    '/septic-treatment-for-garbage-disposals.html',
+    '/monthly-septic-treatment.html',
+    '/septic-treatment-powder.html',
+    '/chemical-free-septic-treatment.html',
+    '/best-septic-treatment.html'
   ];
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },
