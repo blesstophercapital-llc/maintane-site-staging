@@ -102,10 +102,20 @@
 
     function onSuccess() {
       setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
+      var eventParams = {
+        source: 'footer_waitlist',
+        source_page: window.location.pathname,
+        form_id: 'footer_waitlist',
+        list_id: KLAVIYO_LIST_ID
+      };
       track('email_signup', {
         source: 'footer_waitlist',
-        source_page: window.location.pathname
+        source_page: window.location.pathname,
+        form_id: 'footer_waitlist',
+        list_id: KLAVIYO_LIST_ID
       });
+      track('generate_lead', eventParams);
+      track('footer_waitlist_submit', eventParams);
       form.style.display = 'none';
       if (error) error.style.display = 'none';
       if (success) success.style.display = 'block';

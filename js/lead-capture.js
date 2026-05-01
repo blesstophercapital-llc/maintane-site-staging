@@ -107,10 +107,20 @@
 
     function onSuccess() {
       setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
+      var eventParams = {
+        source: source,
+        source_page: window.location.pathname,
+        form_id: source,
+        list_id: listId
+      };
       track('email_signup', {
         source: source,
-        source_page: window.location.pathname
+        source_page: window.location.pathname,
+        form_id: source,
+        list_id: listId
       });
+      track('generate_lead', eventParams);
+      track('checklist_lead_submit', eventParams);
       form.classList.add('lead-form--submitted');
       if (error) error.style.display = 'none';
       if (success) success.style.display = 'block';

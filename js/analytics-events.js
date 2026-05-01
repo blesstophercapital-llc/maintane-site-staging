@@ -101,11 +101,26 @@
     } catch (e) {}
   }
 
+  function cleanText(value, limit) {
+    return (value || '').replace(/\s+/g, ' ').trim().toLowerCase().substring(0, limit || 100);
+  }
+
   // Derive a meaningful label for which CTA the user interacted with.
   function buttonLocation(el) {
     if (!el) return 'unknown';
     if (el.classList && el.classList.contains('nav-cta')) return 'nav';
+    if (el.classList && el.classList.contains('funnel-nav-cta')) return 'nav';
     if (el.classList && el.classList.contains('mobile-cta')) return 'mobile-menu';
+    if (el.closest && el.closest('.funnel-mobile-menu')) return 'mobile-menu';
+    if (el.closest && el.closest('footer')) return 'footer';
+    if (el.closest && el.closest('.maintane-popup')) return 'popup';
+    if (el.closest && el.closest('.funnel-resource-links')) return 'related-guides';
+    if (el.closest && el.closest('.funnel-next-offer')) return 'lead-next-offer';
+    if (el.closest && el.closest('.funnel-lead-card')) return 'lead-card';
+    if (el.closest && el.closest('.funnel-hero')) return 'hero';
+    if (el.closest && el.closest('.funnel-cta-band')) return 'cta-band';
+    if (el.closest && el.closest('.funnel-actions')) return 'funnel-actions';
+    if (el.closest && el.closest('.post-cta')) return 'blog-cta';
     if (el.closest('#hero')) return 'hero';
     if (el.closest('.cta-block')) return 'cta-block';
     if (el.closest('.guide-cta')) return 'guide-cta';
@@ -145,9 +160,30 @@
     catch (e) { return ''; }
   }
 
+  function urlHash(href) {
+    try { return new URL(href, window.location.origin).hash; }
+    catch (e) { return ''; }
+  }
+
   function isFunnelDestination(href) {
     var p = urlPath(href);
     return FUNNEL_DESTINATIONS.indexOf(p) !== -1;
+  }
+
+  function linkParams(link, extra) {
+    var href = link.getAttribute('href') || '';
+    var params = baseParams({
+      destination: href,
+      destination_path: urlPath(link.href),
+      cta_text: cleanText(link.textContent, 100),
+      button_location: buttonLocation(link)
+    });
+    if (extra) {
+      for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) params[k] = extra[k];
+      }
+    }
+    return params;
   }
 
   function scrollFraction() {
@@ -167,7 +203,9 @@
         n++;
         link.addEventListener('click', function () {
           fire('checkout_click', baseParams({
-            button_location: buttonLocation(link)
+            button_location: buttonLocation(link),
+            cta_text: cleanText(link.textContent, 100),
+            destination: link.getAttribute('href') || ''
           }));
         });
       })(links[i]);
@@ -313,9 +351,48 @@
       if (!link || !isFunnelDestination(link.href)) return;
       fire('funnel_cta_click', baseParams({
         funnel_destination: urlPath(link.href),
-        cta_text: (link.textContent || '').trim().toLowerCase().substring(0, 80),
+        cta_text: cleanText(link.textContent, 80),
         button_location: buttonLocation(link)
       }));
+    });
+  }
+
+  // ── Event 12: named funnel path clicks ──────────────────────────────────
+  function setupKeyFunnelClicks() {
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest && e.target.closest('a[href]');
+      if (!link) return;
+
+      var href = link.href || '';
+      var path = urlPath(href);
+      var hash = urlHash(href);
+      var text = cleanText(link.textContent, 100);
+
+      if (CHECKOUT_HREF_PATTERN.test(href)) {
+        fire('product_cta_click', linkParams(link, {
+          value: 39.99,
+          currency: 'USD',
+          product_name: 'Maintane Natural Septic Tank Treatment'
+        }));
+      }
+
+      if (path === '/septic-care-checklist.html' || hash === '#checklist-form') {
+        fire('checklist_cta_click', linkParams(link));
+      }
+
+      if (path === '/dosing-guide.html' || path === '/blog/dosing-guide.html') {
+        fire('dosing_guide_click', linkParams(link));
+      }
+
+      if (link.closest('.funnel-resource-links')) {
+        fire('related_guide_click', linkParams(link, {
+          related_group: link.closest('.funnel-resource-links').getAttribute('aria-label') || 'related septic guides'
+        }));
+      }
+
+      if (link.closest('footer') && path === '/septic-treatment.html' && text === 'septic guides') {
+        fire('footer_septic_guides_click', linkParams(link));
+      }
     });
   }
 
@@ -357,6 +434,7 @@
     setupHomepageScroll();
     setupNavClick();
     setupFunnelCtaClick();
+    setupKeyFunnelClicks();
     setupMobileMenu();
     setupContactForm();
     if (DEBUG) console.log('[GA4] analytics-events.js initialized', { staging: IS_STAGING });

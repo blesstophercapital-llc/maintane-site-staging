@@ -245,10 +245,20 @@
 
   function onSuccess(email) {
     setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
+    var eventParams = {
+      source: 'pre_launch_popup',
+      source_page: window.location.pathname,
+      form_id: 'pre_launch_popup',
+      list_id: KLAVIYO_LIST_ID
+    };
     track('email_signup', {
       source: 'pre_launch_popup',
-      source_page: window.location.pathname
+      source_page: window.location.pathname,
+      form_id: 'pre_launch_popup',
+      list_id: KLAVIYO_LIST_ID
     });
+    track('generate_lead', eventParams);
+    track('popup_lead_submit', eventParams);
 
     if (form)      form.style.display = 'none';
     if (errorEl)   errorEl.style.display = 'none';
