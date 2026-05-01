@@ -202,6 +202,7 @@ They want a simple owner's manual without being talked down to.
 
 - `/septic-treatment-for-new-homeowners.html`
 - `/septic-care-checklist.html`
+- `/septic-maintenance-calendar.html`
 - `/septic-treatment.html`
 - `/dosing-guide.html`
 - `/blog/septic-inspection-checklist-before-buying-house.html`
@@ -225,6 +226,7 @@ They want a simple owner's manual without being talked down to.
 ### Internal Link Pattern
 
 - New homeowner page -> septic checklist.
+- New homeowner page -> septic maintenance calendar.
 - New homeowner page -> broad septic treatment guide.
 - New homeowner page -> dosing guide.
 - Blog posts for buyers -> new homeowner page.
@@ -472,13 +474,16 @@ Examples:
 
 ## Next Page Priorities
 
+The practical target is 8-12 total linkable assets. That is enough to cover each avatar and outreach angle without watering down quality. Prioritize assets that are useful enough for a homeowner, inspector, realtor, septic pro, rural-living blogger, or Pinterest user to reference.
+
 Build these only if they have a clear avatar and internal-link role:
 
-1. `/septic-maintenance-calendar.html`: unaware/new homeowner lead magnet and reminder asset.
-2. `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
-3. `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
-4. `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
-5. `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
+1. `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
+2. `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
+3. `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
+4. `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
+5. `/septic-smell-checklist.html`: worried symptom searcher triage and lead asset.
+6. `/septic-safe-cleaning-products.html`: safety-conscious household supporting asset if search data justifies it.
 
 ## Copy Rules By Avatar
 
