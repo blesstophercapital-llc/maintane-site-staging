@@ -2,8 +2,9 @@
  * Loaded with `defer` at the end of <body> on every HTML file.
  * GA4 measurement ID G-D8DRYD8BHZ and Meta Pixel are loaded earlier in <head>.
  *
- * 10 events wired (event 10 `faq_expand` deliberately omitted — dosing-guide
- * FAQs are static content, not accordions; revisit when accordion is built).
+ * Funnel and commerce events are wired with lightweight delegated listeners.
+ * `faq_expand` is deliberately omitted — dosing-guide FAQs are static content,
+ * not accordions; revisit when accordion is built.
  *
  * Staging guard: when hostname includes "staging", listeners install but
  * `gtag('event', ...)` is never called — so staging traffic doesn't pollute
@@ -115,6 +116,16 @@
 
   function isDosingGuide() {
     return pathname().indexOf('dosing-guide') !== -1;
+  }
+
+  function urlPath(href) {
+    try { return new URL(href, window.location.origin).pathname; }
+    catch (e) { return ''; }
+  }
+
+  function isFunnelDestination(href) {
+    var p = urlPath(href);
+    return p === '/septic-treatment.html' || p === '/septic-care-checklist.html';
   }
 
   function scrollFraction() {
@@ -273,6 +284,19 @@
     if (DEBUG) console.log('[GA4] nav_click wired:', n, 'links');
   }
 
+  // ── Event 10: funnel_cta_click (treatment/checklist funnel links) ────────
+  function setupFunnelCtaClick() {
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest && e.target.closest('a[href]');
+      if (!link || !isFunnelDestination(link.href)) return;
+      fire('funnel_cta_click', baseParams({
+        funnel_destination: urlPath(link.href),
+        cta_text: (link.textContent || '').trim().toLowerCase().substring(0, 80),
+        button_location: buttonLocation(link)
+      }));
+    });
+  }
+
   // ── Event 9: mobile_menu_open (.hamburger; only on open) ─────────────────
   function setupMobileMenu() {
     var hamburger = document.querySelector('.hamburger');
@@ -310,6 +334,7 @@
     setupCheckoutImpressions();
     setupHomepageScroll();
     setupNavClick();
+    setupFunnelCtaClick();
     setupMobileMenu();
     setupContactForm();
     if (DEBUG) console.log('[GA4] analytics-events.js initialized', { staging: IS_STAGING });

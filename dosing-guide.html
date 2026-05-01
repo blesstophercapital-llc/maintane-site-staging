@@ -2037,8 +2037,17 @@
     font-weight: 500;
     margin: 18px auto 0;
   }
+  .dose-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 34px;
+  }
   .dose-hero-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #C4A882;
     color: #2C2417;
     font-family: 'DM Sans', system-ui, sans-serif;
@@ -2049,11 +2058,20 @@
     text-decoration: none;
     padding: 16px 38px;
     border-radius: 999px;
-    margin-top: 34px;
     transition: background 0.2s, color 0.2s;
   }
   .dose-hero-btn:hover {
     background: #FAF6F0;
+    color: #3B5C3A;
+  }
+  .dose-hero-btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(250, 246, 240, 0.56);
+    color: #FAF6F0;
+  }
+  .dose-hero-btn-secondary:hover {
+    background: #FAF6F0;
+    border-color: #FAF6F0;
     color: #3B5C3A;
   }
 
@@ -2290,6 +2308,15 @@
     transition: background 0.2s ease;
   }
   .dose-cta-btn:hover { background: #2d4a2c; }
+  .dose-cta-secondary {
+    background: transparent;
+    border: 1px solid rgba(59, 92, 58, 0.28);
+    color: #3B5C3A;
+    margin-left: 12px;
+  }
+  .dose-cta-secondary:hover {
+    background: #FAF6F0;
+  }
 
   /* Scroll-reveal hooks (matches Phase 5.5/5.6 pattern) */
   [data-dose-reveal] {
@@ -2310,7 +2337,9 @@
     .dose-hero { padding: 188px 1.5rem 80px; }
     .dose-hero-headline { font-size: 3rem; }
     .dose-hero-sub { font-size: 1rem; }
+    .dose-hero-actions { flex-direction: column; align-items: center; }
     .dose-hero-btn { width: 100%; max-width: 340px; box-sizing: border-box; }
+    .dose-cta-secondary { margin-left: 0; }
     .dose-section { padding: 80px 1.5rem; }
     .dose-section-headline { font-size: 2.25rem; }
     .dose-section-sub { font-size: 1rem; margin-bottom: 48px; }
@@ -2434,7 +2463,10 @@
     <h1 class="dose-hero-headline">The Dosing Guide</h1>
     <p class="dose-hero-sub">Everything you need to get the most out of every tub.</p>
     <p class="dose-hero-note">Takes less than 10 seconds. No measuring. No guesswork.</p>
-    <a class="dose-hero-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Get your first jar — $39.99</a>
+    <div class="dose-hero-actions">
+      <a class="dose-hero-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Get your first jar — $39.99</a>
+      <a class="dose-hero-btn dose-hero-btn-secondary" href="/septic-care-checklist.html">Get the free septic checklist</a>
+    </div>
   </section>
 
   <!-- Section 1: Bathroom calculator (cream) -->
@@ -2482,6 +2514,7 @@
         <p class="dose-trust-bridge">If this feels simple, that’s the point. Your system already knows what to do — Maintane just supports it.</p>
         <div class="dose-inline-cta">
           <a class="dose-cta-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+          <a class="dose-cta-btn dose-cta-secondary" href="/septic-treatment.html">Still researching septic treatment?</a>
         </div>
       </div>
     </div>

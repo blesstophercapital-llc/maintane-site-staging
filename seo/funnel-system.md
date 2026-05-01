@@ -88,6 +88,7 @@ Future upsell paths should stay simple until the product system supports them:
 
 - `septic_treatment_landing`: embedded checklist form on the broad treatment page. Sends to Klaviyo list `XKHBEk`.
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
+- `funnel_cta_click`: GA4 event fired when visitors click links to `/septic-treatment.html` or `/septic-care-checklist.html`.
 
 ## Future Pages To Add
 
