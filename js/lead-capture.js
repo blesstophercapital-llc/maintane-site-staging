@@ -10,7 +10,7 @@
   })();
 
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
-  var KLAVIYO_LIST_ID    = 'Ue3eN8';
+  var DEFAULT_KLAVIYO_LIST_ID = 'Ue3eN8';
   var KLAVIYO_ENDPOINT   = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION   = '2024-10-15';
   var EMAIL_REGEX        = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,6 +44,7 @@
     var next = form.querySelector('[data-lead-next]');
     var submit = form.querySelector('button[type="submit"]');
     var source = form.getAttribute('data-lead-source') || 'landing_page';
+    var listId = form.getAttribute('data-lead-list-id') || DEFAULT_KLAVIYO_LIST_ID;
 
     if (!input) return;
 
@@ -62,7 +63,7 @@
 
       if (IS_STAGING) {
         console.log('[lead-capture] STAGING — would POST to Klaviyo', {
-          email: email, list: KLAVIYO_LIST_ID, source: source
+          email: email, list: listId, source: source
         });
         onSuccess();
         return;
@@ -85,6 +86,7 @@
                     email: email,
                     properties: {
                       signup_source: source,
+                      signup_list_id: listId,
                       source_page: window.location.pathname
                     }
                   }
@@ -93,7 +95,7 @@
               custom_source: source
             },
             relationships: {
-              list: { data: { type: 'list', id: KLAVIYO_LIST_ID } }
+              list: { data: { type: 'list', id: listId } }
             }
           }
         })

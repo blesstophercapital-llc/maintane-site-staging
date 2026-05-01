@@ -86,8 +86,8 @@ Future upsell paths should stay simple until the product system supports them:
 
 ## Tracking Sources
 
-- `septic_treatment_landing`: embedded lead form on the broad treatment page.
-- `septic_checklist_landing`: dedicated checklist squeeze page.
+- `septic_treatment_landing`: embedded checklist form on the broad treatment page. Sends to Klaviyo list `XKHBEk`.
+- `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
 
 ## Future Pages To Add
 
@@ -108,7 +108,7 @@ Future upsell paths should stay simple until the product system supports them:
 ## Build Rules
 
 - Use `/css/funnel.css` instead of inline page-specific CSS unless a section is truly unique.
-- Use `data-lead-form` and `data-lead-source` for every lead form.
+- Use `data-lead-form`, `data-lead-source`, and `data-lead-list-id` for every list-specific lead form.
 - Use `data-lead-next` for the immediate second-step offer after successful signup.
 - Purchase CTAs should go directly to `https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment`.
 - Research CTAs should point to `/septic-care-checklist.html` or a relevant educational page.
