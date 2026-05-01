@@ -130,6 +130,12 @@ Future upsell paths should stay simple until the product system supports them:
 - `/blog/septic-safe-drain-cleaner-alternatives.html`: support article for `/septic-safe-drain-cleaner.html`.
 - `/blog/septic-safe-cleaning-rules-for-rentals.html`: support article for `/septic-treatment-for-rental-homes.html`.
 
+## Blog Internal Linking Standard
+
+- Older authority posts should include contextual links to relevant landing pages when the symptom or use case naturally appears.
+- New support posts should link sideways to older authority articles as well as upward to the matching landing page.
+- Keep guide blocks concise. Prefer 3-4 highly relevant links over broad link stuffing.
+
 ## Shared Assets
 
 - `/css/funnel.css`: shared funnel page styling, nav, hero, cards, lead forms, FAQ, CTA bands, and mobile behavior.
