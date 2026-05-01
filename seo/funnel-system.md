@@ -77,6 +77,12 @@ Future upsell paths should stay simple until the product system supports them:
 
 - `/septic-treatment.html`: broad SEO landing page for septic treatment, smell, slow drains, and monthly maintenance.
 - `/septic-care-checklist.html`: focused lead magnet page for checklist signups.
+- `/septic-smell.html`: symptom page for homeowners researching septic odor.
+- `/slow-drains.html`: symptom page for slow drains, clogs, and septic stress.
+- `/natural-septic-treatment.html`: product-choice page for natural septic treatment searches.
+- `/ridx-alternative.html`: comparison page for high-intent Rid-X alternative searches.
+- `/septic-treatment-for-homes-with-kids-and-pets.html`: audience page for safety-conscious households.
+- `/septic-treatment-after-pumping.html`: audience/timing page for post-pump-out maintenance.
 
 ## Shared Assets
 
@@ -88,15 +94,13 @@ Future upsell paths should stay simple until the product system supports them:
 
 - `septic_treatment_landing`: embedded checklist form on the broad treatment page. Sends to Klaviyo list `XKHBEk`.
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
-- `funnel_cta_click`: GA4 event fired when visitors click links to `/septic-treatment.html` or `/septic-care-checklist.html`.
+- `funnel_cta_click`: GA4 event fired when visitors click links to the hub, checklist, or intent-specific landing pages.
 
 ## Future Pages To Add
 
-- `/septic-smell.html`: smell-specific landing page.
-- `/slow-drains.html`: slow drain and clog uncertainty landing page.
-- `/natural-septic-treatment.html`: natural/chemical alternative landing page.
-- `/ridx-alternative.html`: comparison page for high-intent switchers.
 - `/septic-maintenance-calendar.html`: second lead magnet for monthly reminder signups.
+- `/septic-treatment-for-new-homeowners.html`: audience page for first-time septic owners.
+- `/septic-treatment-for-vacation-homes.html`: audience page for cabins and seasonal homes.
 
 ## Future Funnel Assets
 

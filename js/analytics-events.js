@@ -19,6 +19,16 @@
   var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
 
   var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
+  var FUNNEL_DESTINATIONS = [
+    '/septic-treatment.html',
+    '/septic-care-checklist.html',
+    '/septic-smell.html',
+    '/slow-drains.html',
+    '/natural-septic-treatment.html',
+    '/ridx-alternative.html',
+    '/septic-treatment-for-homes-with-kids-and-pets.html',
+    '/septic-treatment-after-pumping.html'
+  ];
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },
     { match: /(^|\.)instagram\.com/i, name: 'instagram' },
@@ -125,7 +135,7 @@
 
   function isFunnelDestination(href) {
     var p = urlPath(href);
-    return p === '/septic-treatment.html' || p === '/septic-care-checklist.html';
+    return FUNNEL_DESTINATIONS.indexOf(p) !== -1;
   }
 
   function scrollFraction() {
