@@ -95,6 +95,17 @@ Future upsell paths should stay simple until the product system supports them:
 - `/septic-treatment-powder.html`: product-format page for powder septic treatment searches.
 - `/chemical-free-septic-treatment.html`: product-choice page for chemical-free septic treatment searches.
 - `/best-septic-treatment.html`: high-intent evaluation page for best septic treatment searches.
+- `/septic-tank-smell-in-house.html`: symptom page for indoor septic odor searches.
+- `/septic-smell-outside.html`: symptom page for yard, tank, and drain-field odor searches.
+- `/rotten-egg-smell-septic.html`: symptom/source-triage page for sulfur or rotten egg odor searches.
+- `/toilet-bubbling-septic.html`: symptom page for bubbling toilets and air-movement warning signs.
+- `/shower-drain-smells-septic.html`: symptom page for bathroom drain odor in septic homes.
+- `/septic-tank-full-signs.html`: symptom page for full tank warning signs and pumping intent.
+- `/septic-safe-drain-cleaner.html`: product-choice page for septic-safe drain cleaner searches.
+- `/septic-safe-toilet-cleaner.html`: product-choice page for septic-safe toilet cleaner searches.
+- `/septic-safe-laundry-detergent.html`: product-choice page for septic-safe laundry detergent and water-load searches.
+- `/septic-treatment-for-rental-homes.html`: audience page for rental homes, cabins, and Airbnb septic care.
+- `/septic-safe-home-cleaning-guide.html`: backlink/referral asset for whole-home septic-safe cleaning guidance.
 
 ## Cannibalization Guardrails
 
@@ -104,6 +115,9 @@ Future upsell paths should stay simple until the product system supports them:
 - `/monthly-septic-treatment.html` owns schedule, cadence, reminders, and dosing routine searches. Avoid buyer-guide language here.
 - `/best-septic-treatment.html` owns buyer evaluation searches. Keep it focused on comparison criteria, honest limits, and product fit.
 - `/septic-treatment-for-new-homeowners.html` owns first-time septic ownership education. Keep it focused on first rules, what not to flush, tank location, pump schedule, and warning signs.
+- `/septic-smell.html` owns broad septic odor intent. Keep smell subpages focused by location or odor type instead of repeating the broad page.
+- `/septic-safe-home-cleaning-guide.html` is the broad linkable asset for household cleaning habits. Keep cleaner subpages focused on one product category.
+- `/septic-tank-full-signs.html` owns full-tank and pumping-warning intent. Do not make treatment pages imply that Maintane replaces pumping.
 
 ## Shared Assets
 
@@ -120,6 +134,7 @@ Future upsell paths should stay simple until the product system supports them:
 ## Future Pages To Add
 
 - `/septic-maintenance-calendar.html`: second lead magnet for monthly reminder signups.
+- State/use-case pages where search intent is specific enough, such as rain-heavy septic maintenance, cabin septic care, and older-home septic routines by region.
 
 ## Future Funnel Assets
 

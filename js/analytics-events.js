@@ -39,7 +39,18 @@
     '/monthly-septic-treatment.html',
     '/septic-treatment-powder.html',
     '/chemical-free-septic-treatment.html',
-    '/best-septic-treatment.html'
+    '/best-septic-treatment.html',
+    '/septic-tank-smell-in-house.html',
+    '/septic-smell-outside.html',
+    '/rotten-egg-smell-septic.html',
+    '/toilet-bubbling-septic.html',
+    '/shower-drain-smells-septic.html',
+    '/septic-tank-full-signs.html',
+    '/septic-safe-drain-cleaner.html',
+    '/septic-safe-toilet-cleaner.html',
+    '/septic-safe-laundry-detergent.html',
+    '/septic-treatment-for-rental-homes.html',
+    '/septic-safe-home-cleaning-guide.html'
   ];
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },
