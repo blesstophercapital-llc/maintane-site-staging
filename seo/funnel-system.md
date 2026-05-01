@@ -96,6 +96,15 @@ Future upsell paths should stay simple until the product system supports them:
 - `/chemical-free-septic-treatment.html`: product-choice page for chemical-free septic treatment searches.
 - `/best-septic-treatment.html`: high-intent evaluation page for best septic treatment searches.
 
+## Cannibalization Guardrails
+
+- `/septic-treatment.html` is the broad parent guide for problem-aware visitors. Keep it broad and use it to route into symptom, audience, and product-choice pages.
+- `/natural-septic-treatment.html` owns natural septic treatment and bacteria-first language. Avoid making it primarily about chemical avoidance.
+- `/chemical-free-septic-treatment.html` owns no-harsh-chemical and chemical-conscious searches. Avoid making it a generic natural treatment page.
+- `/monthly-septic-treatment.html` owns schedule, cadence, reminders, and dosing routine searches. Avoid buyer-guide language here.
+- `/best-septic-treatment.html` owns buyer evaluation searches. Keep it focused on comparison criteria, honest limits, and product fit.
+- `/septic-treatment-for-new-homeowners.html` owns first-time septic ownership education. Keep it focused on first rules, what not to flush, tank location, pump schedule, and warning signs.
+
 ## Shared Assets
 
 - `/css/funnel.css`: shared funnel page styling, nav, hero, cards, lead forms, FAQ, CTA bands, and mobile behavior.
