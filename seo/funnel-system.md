@@ -136,6 +136,13 @@ Future upsell paths should stay simple until the product system supports them:
 - New support posts should link sideways to older authority articles as well as upward to the matching landing page.
 - Keep guide blocks concise. Prefer 3-4 highly relevant links over broad link stuffing.
 
+## Proof And Clarity Standard
+
+- High-intent SEO landing pages should answer the plain user question immediately after the hero.
+- Use simple language before clever phrasing: what is happening, what to do first, and what Maintane can honestly do.
+- Pair every answer with product facts: $39.99, one level scoop per toilet once a month, kid and pet safe, Made in USA, no harsh chemicals, and a clear limit.
+- For symptom pages, the limit should state that Maintane does not replace pumping, plumbing repairs, or professional diagnosis.
+
 ## Shared Assets
 
 - `/css/funnel.css`: shared funnel page styling, nav, hero, cards, lead forms, FAQ, CTA bands, and mobile behavior.
