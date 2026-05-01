@@ -1,0 +1,752 @@
+/* Maintane funnel pages
+ * Shared visual system for organic landing pages and lead magnets.
+ */
+:root {
+  --warm-cream: #FAF6F0;
+  --off-cream: #F4EDE2;
+  --dark-bark: #2C2417;
+  --forest-green: #3B5C3A;
+  --botanical-tan: #C4A882;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--warm-cream);
+  color: var(--dark-bark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+a { color: inherit; }
+
+.funnel-announcement {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--botanical-tan);
+  color: var(--dark-bark);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.funnel-nav {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  min-height: 72px;
+  padding: 1rem 3rem;
+  background: var(--warm-cream);
+  border-bottom: 1px solid rgba(59, 92, 58, 0.15);
+}
+.funnel-nav-left,
+.funnel-nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+}
+.funnel-nav a {
+  color: var(--dark-bark);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.funnel-nav a:hover { color: var(--forest-green); }
+.funnel-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--forest-green) !important;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1;
+  transform: translateX(-24px);
+}
+.funnel-logo-mark {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.funnel-nav-cta {
+  background: var(--forest-green);
+  color: var(--warm-cream) !important;
+  border-radius: 100px;
+  padding: 0.75rem 1.75rem;
+}
+.funnel-menu-toggle,
+.funnel-mobile-menu { display: none; }
+
+.funnel-hero {
+  min-height: 92vh;
+  display: grid;
+  align-items: center;
+  padding: 150px clamp(1.5rem, 5vw, 5rem) 72px;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(196, 168, 130, 0.22), transparent 28%),
+    linear-gradient(135deg, rgba(59, 92, 58, 0.96), rgba(44, 36, 23, 0.92));
+  color: var(--warm-cream);
+}
+.funnel-hero-inner {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+.funnel-hero-inner > * { min-width: 0; }
+.funnel-eyebrow {
+  color: var(--botanical-tan);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.funnel-hero-title,
+.funnel-section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+.funnel-hero-title {
+  max-width: 760px;
+  color: var(--warm-cream);
+  font-size: clamp(3.4rem, 6.55vw, 6.15rem);
+}
+.funnel-hero-title em {
+  color: var(--botanical-tan);
+  font-style: italic;
+}
+.funnel-mobile-break { display: inline; }
+.funnel-hero-sub {
+  max-width: 620px;
+  color: rgba(250, 246, 240, 0.88);
+  font-size: 1.22rem;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+.funnel-actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 2.25rem;
+}
+.funnel-btn-primary,
+.funnel-btn-secondary,
+.funnel-btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 1rem 1.75rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.18s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.funnel-btn-primary {
+  background: var(--botanical-tan);
+  color: var(--dark-bark);
+  border: 1px solid var(--botanical-tan);
+}
+.funnel-btn-primary:hover {
+  background: var(--warm-cream);
+  border-color: var(--warm-cream);
+  transform: translateY(-1px);
+}
+.funnel-btn-secondary {
+  color: var(--warm-cream);
+  border: 1px solid rgba(250, 246, 240, 0.56);
+}
+.funnel-btn-secondary:hover {
+  background: var(--warm-cream);
+  color: var(--forest-green);
+  transform: translateY(-1px);
+}
+.funnel-btn-dark {
+  background: var(--forest-green);
+  color: var(--warm-cream);
+  border: 1px solid var(--forest-green);
+}
+.funnel-btn-dark:hover {
+  background: #2d4a2c;
+  transform: translateY(-1px);
+}
+.funnel-reassurance {
+  color: rgba(250, 246, 240, 0.78);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-top: 1.2rem;
+}
+.funnel-product-card {
+  position: relative;
+  border: 1px solid rgba(196, 168, 130, 0.42);
+  border-radius: 28px;
+  background: rgba(250, 246, 240, 0.09);
+  padding: 2.2rem;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.funnel-product-card::before {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -120px;
+  top: -120px;
+  border-radius: 50%;
+  background: rgba(196, 168, 130, 0.2);
+}
+.funnel-product-card img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  display: block;
+  margin: 0 auto 2rem;
+  filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.26));
+}
+.funnel-points {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.8rem;
+  list-style: none;
+}
+.funnel-points li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(250, 246, 240, 0.9);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.funnel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--botanical-tan);
+  flex: 0 0 auto;
+}
+
+.funnel-section {
+  padding: clamp(5rem, 9vw, 8rem) clamp(1.5rem, 5vw, 5rem);
+}
+.funnel-section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.funnel-section-title {
+  max-width: 820px;
+  color: var(--dark-bark);
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  margin-bottom: 1rem;
+}
+.funnel-section-sub {
+  max-width: 700px;
+  color: rgba(44, 36, 23, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+.funnel-grid-4,
+.funnel-grid-3 {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.funnel-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.funnel-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.funnel-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(59, 92, 58, 0.12);
+  border-radius: 22px;
+  padding: 1.6rem;
+  box-shadow: 0 10px 34px rgba(44, 36, 23, 0.05);
+}
+.funnel-card-number {
+  color: var(--botanical-tan);
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.funnel-card h3 {
+  color: var(--dark-bark);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+.funnel-card p,
+.funnel-card li {
+  color: rgba(44, 36, 23, 0.66);
+  font-size: 0.96rem;
+  line-height: 1.68;
+}
+.funnel-card ul {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.1rem;
+}
+
+.funnel-split {
+  background: var(--forest-green);
+  color: var(--warm-cream);
+}
+.funnel-split .funnel-section-title { color: var(--warm-cream); }
+.funnel-split .funnel-section-sub { color: rgba(250, 246, 240, 0.74); }
+.funnel-split-grid,
+.funnel-lead-box {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+.funnel-comparison {
+  display: grid;
+  gap: 0.8rem;
+}
+.funnel-comparison-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 0.85rem;
+}
+.funnel-comparison-cell {
+  border: 1px solid rgba(196, 168, 130, 0.26);
+  border-radius: 16px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.funnel-comparison-cell.old {
+  color: rgba(250, 246, 240, 0.6);
+  background: rgba(44, 36, 23, 0.18);
+}
+.funnel-comparison-cell.new {
+  color: var(--warm-cream);
+  background: rgba(196, 168, 130, 0.14);
+  border-color: rgba(196, 168, 130, 0.44);
+  font-weight: 800;
+}
+
+.funnel-lead-panel {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(196, 168, 130, 0.22), transparent 30%),
+    var(--off-cream);
+}
+.funnel-lead-box {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  background: var(--warm-cream);
+  border: 1px solid rgba(59, 92, 58, 0.12);
+  border-radius: 30px;
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: 0 24px 70px rgba(44, 36, 23, 0.08);
+}
+.funnel-list {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+  margin-top: 1.8rem;
+}
+.funnel-list li {
+  color: rgba(44, 36, 23, 0.72);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.funnel-lead-card {
+  background: var(--forest-green);
+  border-radius: 24px;
+  color: var(--warm-cream);
+  padding: 2rem;
+}
+.funnel-lead-card h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 0.7rem;
+}
+.funnel-lead-card p {
+  color: rgba(250, 246, 240, 0.74);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+.funnel-lead-form {
+  display: grid;
+  gap: 0.8rem;
+}
+.funnel-lead-form input {
+  width: 100%;
+  border: 2px solid rgba(196, 168, 130, 0.35);
+  border-radius: 999px;
+  background: var(--warm-cream);
+  color: var(--dark-bark);
+  font: inherit;
+  padding: 1rem 1.1rem;
+}
+.funnel-lead-form input:focus {
+  border-color: var(--botanical-tan);
+  outline: none;
+}
+.funnel-lead-form input.is-invalid { border-color: #c44; }
+.funnel-lead-form button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--botanical-tan);
+  color: var(--dark-bark);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 1rem 1.1rem;
+  text-transform: uppercase;
+}
+.funnel-lead-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.funnel-lead-form.lead-form--submitted input,
+.funnel-lead-form.lead-form--submitted button {
+  display: none;
+}
+.funnel-lead-msg {
+  display: none;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0.4rem;
+}
+.funnel-lead-msg.success { color: var(--warm-cream); }
+.funnel-lead-msg.error { color: #ffd4d4; }
+.funnel-fineprint {
+  color: rgba(250, 246, 240, 0.58) !important;
+  font-size: 0.78rem !important;
+  margin: 0.5rem 0 0 !important;
+}
+.funnel-fineprint a { color: var(--warm-cream); }
+.funnel-next-offer {
+  display: none;
+  background: rgba(250, 246, 240, 0.1);
+  border: 1px solid rgba(250, 246, 240, 0.18);
+  border-radius: 20px;
+  margin-top: 0.4rem;
+  padding: 1rem;
+}
+.funnel-next-offer p {
+  color: rgba(250, 246, 240, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+}
+.funnel-next-offer a {
+  align-items: center;
+  background: var(--warm-cream);
+  border-radius: 999px;
+  color: var(--forest-green);
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.funnel-cta-band {
+  background: var(--dark-bark);
+  color: var(--warm-cream);
+  text-align: center;
+}
+.funnel-cta-band .funnel-section-title {
+  color: var(--warm-cream);
+  margin-left: auto;
+  margin-right: auto;
+}
+.funnel-cta-band .funnel-section-sub {
+  color: rgba(250, 246, 240, 0.74);
+  margin-left: auto;
+  margin-right: auto;
+}
+.funnel-cta-band .funnel-actions { justify-content: center; }
+
+.funnel-faq-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.funnel-faq-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(59, 92, 58, 0.12);
+  border-radius: 18px;
+  padding: 1.35rem 1.5rem;
+}
+.funnel-faq-item summary {
+  color: var(--dark-bark);
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 900;
+  list-style: none;
+}
+.funnel-faq-item summary::-webkit-details-marker { display: none; }
+.funnel-faq-item p {
+  color: rgba(44, 36, 23, 0.68);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin-top: 0.8rem;
+}
+.funnel-resource-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.funnel-resource-card {
+  background: var(--off-cream);
+  border-radius: 18px;
+  color: var(--dark-bark);
+  padding: 1.35rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.2s ease;
+}
+.funnel-resource-card:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+}
+.funnel-resource-card span {
+  color: var(--forest-green);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.funnel-resource-card strong {
+  display: block;
+  font-size: 1.06rem;
+  line-height: 1.35;
+}
+
+.funnel-footer {
+  background: var(--forest-green);
+  color: var(--warm-cream);
+  padding: 70px clamp(1.5rem, 5vw, 5rem) 36px;
+}
+.funnel-footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.funnel-footer-brand {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.funnel-footer-copy {
+  max-width: 420px;
+  color: rgba(250, 246, 240, 0.72);
+  line-height: 1.7;
+  margin-top: 0.8rem;
+}
+.funnel-footer-links {
+  display: flex;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.funnel-footer-links a {
+  color: rgba(250, 246, 240, 0.78);
+  font-weight: 800;
+  text-decoration: none;
+}
+.funnel-footer-links a:hover { color: var(--botanical-tan); }
+
+.funnel-checklist .funnel-hero {
+  min-height: auto;
+  padding-bottom: 120px;
+}
+.funnel-checklist .funnel-hero-inner {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
+}
+.funnel-checklist-card {
+  background: var(--warm-cream);
+  border: 1px solid rgba(196, 168, 130, 0.38);
+  border-radius: 28px;
+  color: var(--dark-bark);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  scroll-margin-top: 110px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.2);
+}
+.funnel-checklist-card .funnel-lead-card {
+  border-radius: 20px;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 980px) {
+  .funnel-nav {
+    grid-template-columns: auto 1fr;
+    padding: 0.85rem 1.25rem;
+  }
+  .funnel-nav-left,
+  .funnel-nav-right { display: none; }
+  .funnel-brand {
+    justify-self: center;
+    transform: none;
+    font-size: 1.7rem !important;
+  }
+  .funnel-menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+  }
+  .funnel-menu-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--dark-bark);
+  }
+  .funnel-mobile-menu {
+    position: fixed;
+    top: 116px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: none;
+    flex-direction: column;
+    background: var(--warm-cream);
+    border-bottom: 1px solid rgba(59, 92, 58, 0.14);
+    padding: 1rem 1.5rem 1.5rem;
+  }
+  .funnel-mobile-menu.active { display: flex; }
+  .funnel-mobile-menu a {
+    color: var(--dark-bark);
+    font-weight: 800;
+    padding: 0.9rem 0;
+    text-decoration: none;
+  }
+  .funnel-mobile-menu .funnel-nav-cta {
+    color: var(--warm-cream);
+    margin-top: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .funnel-hero-inner,
+  .funnel-split-grid,
+  .funnel-lead-box,
+  .funnel-checklist .funnel-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .funnel-grid-4,
+  .funnel-grid-3,
+  .funnel-resource-links {
+    grid-template-columns: 1fr;
+  }
+  .funnel-comparison-row {
+    grid-template-columns: 1fr;
+  }
+  .funnel-footer-inner {
+    flex-direction: column;
+  }
+  .funnel-footer-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .funnel-announcement {
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+  .funnel-hero {
+    padding: 155px 1.5rem 72px;
+  }
+  .funnel-hero-title {
+    max-width: 100%;
+    font-size: clamp(2.35rem, 11.8vw, 2.9rem);
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .funnel-eyebrow {
+    max-width: 320px;
+    font-size: 0.76rem;
+  }
+  .funnel-mobile-break { display: block; }
+  .funnel-hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .funnel-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .funnel-btn-primary,
+  .funnel-btn-secondary,
+  .funnel-btn-dark {
+    width: 100%;
+    min-width: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: normal;
+  }
+  .funnel-product-card,
+  .funnel-lead-card,
+  .funnel-card,
+  .funnel-checklist-card {
+    border-radius: 18px;
+  }
+  .funnel-product-card {
+    min-width: 0;
+    padding: 1.35rem;
+  }
+  .funnel-product-card img {
+    width: 100%;
+    margin-bottom: 1.35rem;
+  }
+  .funnel-section-title {
+    font-size: clamp(2.25rem, 12vw, 3rem);
+  }
+}
