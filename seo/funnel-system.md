@@ -180,6 +180,11 @@ These assets are built as top-of-funnel and mid-funnel pages with canonical tags
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
 - Linkable asset pages use the page slug plus `_landing` as the lead source, for example `septic_smell_checklist_landing`.
 - `funnel_cta_click`: GA4 event fired when visitors click links to the hub, checklist, or intent-specific landing pages.
+- `product_cta_click`: GA4 event fired when visitors click a Maintane product CTA that leaves for Shopify.
+- `lead_form_submit`: GA4 event fired after any onsite email form successfully submits to Klaviyo.
+- `checklist_lead_submit`: source-specific GA4 event for checklist/landing-page forms.
+- `popup_lead_submit`: source-specific GA4 event for the popup form.
+- `footer_waitlist_submit`: source-specific GA4 event for footer waitlist forms.
 
 ## Future Pages To Add
 

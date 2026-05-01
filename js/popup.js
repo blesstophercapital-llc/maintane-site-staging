@@ -257,6 +257,7 @@
       form_id: 'pre_launch_popup',
       list_id: KLAVIYO_LIST_ID
     });
+    track('lead_form_submit', eventParams);
     track('generate_lead', eventParams);
     track('popup_lead_submit', eventParams);
 

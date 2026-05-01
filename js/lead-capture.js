@@ -119,6 +119,7 @@
         form_id: source,
         list_id: listId
       });
+      track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
       track('checklist_lead_submit', eventParams);
       form.classList.add('lead-form--submitted');

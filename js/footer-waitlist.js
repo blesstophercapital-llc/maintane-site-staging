@@ -114,6 +114,7 @@
         form_id: 'footer_waitlist',
         list_id: KLAVIYO_LIST_ID
       });
+      track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
       track('footer_waitlist_submit', eventParams);
       form.style.display = 'none';
