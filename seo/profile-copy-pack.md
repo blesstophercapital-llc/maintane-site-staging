@@ -51,11 +51,14 @@ Use varied, natural anchor text. Do not force the same keyword everywhere.
 
 - Brand/entity profiles: `https://getmaintane.com/`
 - Product-intent profiles: `https://getmaintane.com/`
-- Buying guide references: `https://getmaintane.com/blog/what-to-look-for-in-a-septic-tank-treatment.html`
-- Monthly maintenance references: `https://getmaintane.com/blog/best-septic-treatment-for-monthly-maintenance.html`
-- Kid/pet safe references: `https://getmaintane.com/blog/pet-safe-septic-maintenance-checklist.html`
-- Cleaning/safety references: `https://getmaintane.com/blog/septic-safe-cleaning-products.html`
-- Septic buyer/homeowner references: `https://getmaintane.com/blog/septic-inspection-checklist-before-buying-house.html`
+- Buying guide references: `https://getmaintane.com/best-septic-treatment.html`
+- Monthly maintenance references: `https://getmaintane.com/septic-maintenance-calendar.html`
+- Kid/pet safe references: `https://getmaintane.com/septic-treatment-for-homes-with-kids-and-pets.html`
+- Cleaning/safety references: `https://getmaintane.com/septic-safe-cleaning-products.html`
+- Septic buyer/homeowner references: `https://getmaintane.com/septic-inspection-checklist.html`
+- Guest/rental references: `https://getmaintane.com/printable-septic-rules-for-guests.html`
+- Symptom triage references: `https://getmaintane.com/septic-smell-checklist.html`
+- Product-format references: `https://getmaintane.com/septic-treatment-powder-vs-liquid.html`
 
 ## UTM Format
 
@@ -70,6 +73,8 @@ Examples:
 ```text
 https://getmaintane.com/?utm_source=crunchbase&utm_medium=referral&utm_campaign=seo_citations
 https://getmaintane.com/blog/monthly-septic-maintenance-checklist.html?utm_source=pinterest&utm_medium=referral&utm_campaign=seo_citations
+https://getmaintane.com/printable-septic-rules-for-guests.html?utm_source=airbnb_host_resource&utm_medium=referral&utm_campaign=guest_rules_asset
+https://getmaintane.com/septic-inspection-checklist.html?utm_source=home_inspector&utm_medium=referral&utm_campaign=inspection_checklist_asset
 ```
 
 ## Submission Notes
@@ -162,4 +167,3 @@ Chris
 - Bing Places: `https://www.bingplaces.com/`
 - Apple Business Connect: `https://www.apple.com/business/connect/`
 - LinkedIn company pages: `https://www.linkedin.com/help/linkedin/answer/a543852`
-

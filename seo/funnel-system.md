@@ -44,6 +44,8 @@ Future content, outreach, and paid tests should be organized around the places t
 
 The future "Dream 100" list should be built from creators, publications, and communities already trusted by septic homeowners. Work into those audiences through useful content and relationships, then buy into them with targeted ads once the hooks are proven.
 
+Use `/seo/footprint-growth-system.md`, `/seo/footprint-tracker.csv`, and `/seo/outreach-and-repurpose-bank.md` to run this as a weekly distribution system instead of a one-off outreach sprint.
+
 ## Hook, Story, Offer
 
 Every funnel page should map to this sequence before copy is written:
@@ -197,6 +199,14 @@ The current linkable asset layer now covers the main avatar and outreach angles.
 - Short product bridge page or VSL: explain the biological routine in under two minutes.
 - Retargeting hooks: smell, slow drains, kid and pet safe, no harsh chemicals, one scoop per toilet.
 - Creator outreach list: septic pros, home inspectors, rural living creators, and DIY maintenance educators.
+
+## Distribution Files
+
+- `/seo/footprint-growth-system.md`: weekly operating cadence, scorecard, asset lanes, UTM standards, and outreach rules.
+- `/seo/footprint-tracker.csv`: working tracker for asset distribution, outreach, social repurposing, and next actions.
+- `/seo/outreach-and-repurpose-bank.md`: reusable pitches, creator hooks, carousel outlines, short-form scripts, and UTM examples.
+- `/seo/referral-site-targets.csv`: directory, citation, review, editorial, and profile targets for building entity footprint.
+- `/seo/profile-copy-pack.md`: profile descriptions, anchor text rotation, and submission copy.
 
 ## Build Rules
 
