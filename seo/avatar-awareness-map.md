@@ -474,16 +474,28 @@ Examples:
 
 ## Next Page Priorities
 
-The practical target is 8-12 total linkable assets. That is enough to cover each avatar and outreach angle without watering down quality. Prioritize assets that are useful enough for a homeowner, inspector, realtor, septic pro, rural-living blogger, or Pinterest user to reference.
+The practical target is now met for this phase. Do not add more broad linkable assets until we see which clusters get impressions, links, email signups, or product clicks. The next expansion should come from data: Search Console queries, outreach conversations, or proven paid/organic hooks.
 
-Build these only if they have a clear avatar and internal-link role:
+## Built Linkable Asset Library
 
-1. `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
-2. `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
-3. `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
-4. `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
-5. `/septic-smell-checklist.html`: worried symptom searcher triage and lead asset.
-6. `/septic-safe-cleaning-products.html`: safety-conscious household supporting asset if search data justifies it.
+Use these pages as the current backlink and top-of-funnel asset layer. They intentionally cover separate intents so the site can cast a wider net without making every page fight for the same keyword.
+
+- `/printable-septic-rules-for-guests.html`: rental/vacation guest behavior.
+- `/septic-treatment-powder-vs-liquid.html`: product-format comparison.
+- `/first-30-days-with-a-septic-system.html`: new septic homeowner onboarding.
+- `/septic-maintenance-record-template.html`: record keeping and service planning.
+- `/septic-smell-checklist.html`: odor triage.
+- `/septic-safe-cleaning-products.html`: household cleaning product safety.
+- `/septic-drain-field-care-checklist.html`: drain-field protection.
+- `/septic-pumping-schedule-guide.html`: pumping schedule education.
+- `/septic-safe-kitchen-guide.html`: kitchen and grease habits.
+- `/septic-safe-bathroom-guide.html`: bathroom and toilet habits.
+- `/septic-emergency-plan.html`: serious symptom response.
+- `/septic-safe-laundry-schedule.html`: laundry and water-load habits.
+- `/septic-homeowner-glossary.html`: definitions and internal-link support.
+- `/septic-inspection-checklist.html`: homebuyer inspection prep.
+- `/septic-care-for-airbnb-hosts.html`: short-term rental host education.
+- `/seasonal-septic-maintenance-checklist.html`: seasonal maintenance rhythm.
 
 ## Copy Rules By Avatar
 
@@ -502,7 +514,7 @@ Track by avatar where possible:
 - Symptom pages: scroll depth, checklist signup, dosing guide click, product click.
 - Safety pages: product click, checklist signup, cleaning-guide cross-links.
 - New homeowner pages: checklist signup and guide-to-guide movement.
-- Rental/vacation pages: printable asset signup once built.
+- Rental/vacation pages: printable guest rules, Airbnb host page, checklist signup, and product click.
 - Comparison pages: product click and dosing-guide click.
 
 Pages that get traffic but low product clicks may not be failing. They may be working as first-yes pages if they move visitors into checklist, guide, or retargeting audiences.

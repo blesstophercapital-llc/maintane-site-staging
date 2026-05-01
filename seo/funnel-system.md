@@ -134,6 +134,27 @@ Future upsell paths should stay simple until the product system supports them:
 - `/blog/septic-safe-drain-cleaner-alternatives.html`: support article for `/septic-safe-drain-cleaner.html`.
 - `/blog/septic-safe-cleaning-rules-for-rentals.html`: support article for `/septic-treatment-for-rental-homes.html`.
 
+## Linkable Asset Library Built May 1, 2026
+
+These assets are built as top-of-funnel and mid-funnel pages with canonical tags, schema, sitemap entries, checklist capture, product CTAs, and related internal links.
+
+- `/printable-septic-rules-for-guests.html`: rental, vacation-home, and guest-rule backlink asset.
+- `/septic-treatment-powder-vs-liquid.html`: product-aware comparison asset for powder versus liquid routines.
+- `/first-30-days-with-a-septic-system.html`: new septic homeowner onboarding asset.
+- `/septic-maintenance-record-template.html`: record-keeping asset for older homes, homebuyers, and service planning.
+- `/septic-smell-checklist.html`: symptom triage checklist for odor searchers.
+- `/septic-safe-cleaning-products.html`: household product safety support asset.
+- `/septic-drain-field-care-checklist.html`: drain-field protection and warning-sign asset.
+- `/septic-pumping-schedule-guide.html`: pumping schedule education asset with maintenance boundaries.
+- `/septic-safe-kitchen-guide.html`: kitchen habits asset for grease, disposals, and sink behavior.
+- `/septic-safe-bathroom-guide.html`: bathroom habits asset for toilets, drains, guests, and cleaners.
+- `/septic-emergency-plan.html`: pro-first emergency triage asset.
+- `/septic-safe-laundry-schedule.html`: laundry and water-load planning asset.
+- `/septic-homeowner-glossary.html`: plain-English glossary for broad internal linking and backlink outreach.
+- `/septic-inspection-checklist.html`: homebuyer and inspection prep asset.
+- `/septic-care-for-airbnb-hosts.html`: short-term-rental host asset.
+- `/seasonal-septic-maintenance-checklist.html`: seasonal maintenance and calendar support asset.
+
 ## Blog Internal Linking Standard
 
 - Older authority posts should include contextual links to relevant landing pages when the symptom or use case naturally appears.
@@ -157,15 +178,12 @@ Future upsell paths should stay simple until the product system supports them:
 
 - `septic_treatment_landing`: embedded checklist form on the broad treatment page. Sends to Klaviyo list `XKHBEk`.
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
+- Linkable asset pages use the page slug plus `_landing` as the lead source, for example `septic_smell_checklist_landing`.
 - `funnel_cta_click`: GA4 event fired when visitors click links to the hub, checklist, or intent-specific landing pages.
 
 ## Future Pages To Add
 
-- `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
-- `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
-- `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
-- `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
-- State/use-case pages where search intent is specific enough, such as rain-heavy septic maintenance, cabin septic care, and older-home septic routines by region.
+The current linkable asset layer now covers the main avatar and outreach angles. Add new pages only when search data, Search Console impressions, or outreach opportunities show a distinct need. Good future candidates are narrow regional or seasonal variations, but they should not duplicate the asset library above.
 
 ## Future Funnel Assets
 
