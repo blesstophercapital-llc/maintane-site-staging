@@ -19,6 +19,23 @@ It is written as a practical guide first, not a hard product pitch.
 Thanks,
 Chris
 
+## Free Resource Hub Pitch
+
+Subject: Free septic resources for homeowners
+
+Hi,
+
+I found your homeowner resources while looking for practical septic maintenance guidance.
+
+Maintane put together a free septic resource hub with printable checklists, guest rules, dosing guidance, smell/slow-drain guides, and homeowner maintenance templates:
+
+`https://getmaintane.com/free-septic-resources.html`
+
+It is designed to be useful first, not a hard product pitch. If it helps your readers, feel free to reference it.
+
+Best,
+Chris
+
 ## Home Inspector Pitch
 
 Subject: Septic checklist for homebuyers

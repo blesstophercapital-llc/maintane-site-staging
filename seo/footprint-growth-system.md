@@ -72,6 +72,14 @@ Look at GA4 and Search Console:
 
 ## Current Asset Lanes
 
+### Broad Resource Hub
+
+- `/free-septic-resources.html`
+
+Best targets: homeowner resource pages, rural living sites, realtor buyer guides, home inspector resources, short-term rental host resources, social bios, community answers.
+
+Use this when the audience is broad or cold. It should be the default link when a single asset feels too narrow.
+
 ### Guest And Rental Lane
 
 - `/printable-septic-rules-for-guests.html`
