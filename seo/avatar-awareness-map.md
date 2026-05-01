@@ -150,6 +150,7 @@ They want a home-safe routine that feels responsible, simple, and not scary.
 - `/septic-safe-toilet-cleaner.html`
 - `/septic-safe-laundry-detergent.html`
 - `/septic-safe-drain-cleaner.html`
+- `/septic-safe-home-products.html`
 
 ### Hook Bank
 
@@ -179,7 +180,6 @@ They want a home-safe routine that feels responsible, simple, and not scary.
 
 ### Missing Assets
 
-- Linkable asset: "Septic-Safe Home Products List."
 - Blog: "What not to flush in a home with kids."
 - Blog: "Pet-safe septic maintenance routine for rural homes."
 
@@ -474,12 +474,11 @@ Examples:
 
 Build these only if they have a clear avatar and internal-link role:
 
-1. `/septic-safe-home-products.html`: safety-conscious parent/pet owner and backlink asset.
-2. `/septic-maintenance-calendar.html`: unaware/new homeowner lead magnet and reminder asset.
-3. `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
-4. `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
-5. `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
-6. `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
+1. `/septic-maintenance-calendar.html`: unaware/new homeowner lead magnet and reminder asset.
+2. `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
+3. `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
+4. `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
+5. `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
 
 ## Copy Rules By Avatar
 

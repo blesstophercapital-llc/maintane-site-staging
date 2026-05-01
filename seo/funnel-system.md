@@ -108,6 +108,7 @@ Future upsell paths should stay simple until the product system supports them:
 - `/septic-safe-laundry-detergent.html`: product-choice page for septic-safe laundry detergent and water-load searches.
 - `/septic-treatment-for-rental-homes.html`: audience page for rental homes, cabins, and Airbnb septic care.
 - `/septic-safe-home-cleaning-guide.html`: backlink/referral asset for whole-home septic-safe cleaning guidance.
+- `/septic-safe-home-products.html`: backlink/referral asset for septic-safe household product categories and buying habits.
 
 ## Cannibalization Guardrails
 
@@ -159,7 +160,6 @@ Future upsell paths should stay simple until the product system supports them:
 
 ## Future Pages To Add
 
-- `/septic-safe-home-products.html`: safety-conscious parent/pet owner and backlink asset.
 - `/septic-maintenance-calendar.html`: unaware/new homeowner lead magnet and reminder asset.
 - `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
 - `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
