@@ -30,6 +30,8 @@ The primary customer is a homeowner with a septic system who is problem-aware bu
 
 Maintane should speak to the homeowner before they know the answer. They are not looking for a science lecture first. They are looking for reassurance, clarity, and the next safe step.
 
+Use `/seo/avatar-awareness-map.md` before creating new SEO pages, blogs, lead magnets, or outreach assets. That map breaks the broad homeowner audience into buyer avatars, awareness stages, hooks, proof needs, and internal-link paths.
+
 ## Where They Congregate
 
 Future content, outreach, and paid tests should be organized around the places this customer already goes:
@@ -157,7 +159,12 @@ Future upsell paths should stay simple until the product system supports them:
 
 ## Future Pages To Add
 
-- `/septic-maintenance-calendar.html`: second lead magnet for monthly reminder signups.
+- `/septic-safe-home-products.html`: safety-conscious parent/pet owner and backlink asset.
+- `/septic-maintenance-calendar.html`: unaware/new homeowner lead magnet and reminder asset.
+- `/printable-septic-rules-for-guests.html`: rental/vacation owner backlink and lead asset.
+- `/septic-treatment-powder-vs-liquid.html`: natural/product-aware comparison page.
+- `/first-30-days-with-a-septic-system.html`: new homeowner education asset.
+- `/septic-maintenance-record-template.html`: older-home owner and backlink asset.
 - State/use-case pages where search intent is specific enough, such as rain-heavy septic maintenance, cabin septic care, and older-home septic routines by region.
 
 ## Future Funnel Assets
