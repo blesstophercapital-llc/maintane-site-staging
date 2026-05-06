@@ -47,6 +47,7 @@
     var listId = form.getAttribute('data-lead-list-id') || DEFAULT_KLAVIYO_LIST_ID;
     var explicitEvent = form.getAttribute('data-event') || '';
     var explicitEventLabel = form.getAttribute('data-event-label') || source;
+    var successRedirect = form.getAttribute('data-success-redirect') || '';
 
     if (!input) return;
 
@@ -138,6 +139,11 @@
       if (success) success.style.display = 'block';
       if (next) next.style.display = 'block';
       if (submit) submit.disabled = false;
+      if (successRedirect) {
+        window.setTimeout(function () {
+          window.location.href = successRedirect;
+        }, 450);
+      }
     }
 
     function onError(err) {
