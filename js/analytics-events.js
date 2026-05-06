@@ -434,6 +434,20 @@
     });
   }
 
+  // ── Event 13: explicit data-event hooks for focused landing pages ───────
+  function setupDataEventHooks() {
+    document.addEventListener('click', function (e) {
+      var target = e.target && e.target.closest && e.target.closest('[data-event]');
+      if (!target || target.tagName === 'FORM') return;
+      fire(target.getAttribute('data-event'), baseParams({
+        event_label: target.getAttribute('data-event-label') || cleanText(target.textContent, 80),
+        destination: target.getAttribute('href') || '',
+        button_location: buttonLocation(target)
+      }));
+    });
+
+  }
+
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
     setupCheckoutClick();
@@ -448,6 +462,7 @@
     setupKeyFunnelClicks();
     setupMobileMenu();
     setupContactForm();
+    setupDataEventHooks();
     if (DEBUG) console.log('[GA4] analytics-events.js initialized', { staging: IS_STAGING });
   }
 

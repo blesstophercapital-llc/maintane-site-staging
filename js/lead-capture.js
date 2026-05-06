@@ -45,6 +45,8 @@
     var submit = form.querySelector('button[type="submit"]');
     var source = form.getAttribute('data-lead-source') || 'landing_page';
     var listId = form.getAttribute('data-lead-list-id') || DEFAULT_KLAVIYO_LIST_ID;
+    var explicitEvent = form.getAttribute('data-event') || '';
+    var explicitEventLabel = form.getAttribute('data-event-label') || source;
 
     if (!input) return;
 
@@ -122,6 +124,15 @@
       track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
       track('checklist_lead_submit', eventParams);
+      if (explicitEvent) {
+        track(explicitEvent, {
+          source: source,
+          source_page: window.location.pathname,
+          form_id: source,
+          list_id: listId,
+          event_label: explicitEventLabel
+        });
+      }
       form.classList.add('lead-form--submitted');
       if (error) error.style.display = 'none';
       if (success) success.style.display = 'block';
