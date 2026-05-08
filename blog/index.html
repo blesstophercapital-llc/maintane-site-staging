@@ -10,19 +10,19 @@
 <meta name="apple-mobile-web-app-title" content="Maintane" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#3B5C3A" />
-<title>Blog — Maintane | Natural Septic Care</title>
-  <meta name="description" content="Expert guides on septic system care, maintenance, and natural treatment options for homeowners. Written by the team at Maintane.">
+<title>Septic Tank Maintenance Guides for Homeowners | Maintane</title>
+  <meta name="description" content="Clear septic tank maintenance guides for homeowners: bacteria, pumping, smells, slow drains, septic-safe products, treatment routines, and monthly care.">
   <link rel="canonical" href="https://getmaintane.com/blog/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maintane">
-<meta property="og:title" content="Blog — Maintane | Natural Septic Care">
-<meta property="og:description" content="Expert guides on septic system care, maintenance, and natural treatment options for homeowners. Written by the team at Maintane.">
+<meta property="og:title" content="Septic Tank Maintenance Guides for Homeowners | Maintane">
+<meta property="og:description" content="Clear septic tank maintenance guides for homeowners: bacteria, pumping, smells, slow drains, septic-safe products, treatment routines, and monthly care.">
 <meta property="og:url" content="https://getmaintane.com/blog/">
 <meta property="og:image" content="https://getmaintane.com/product-hero.png">
 <meta property="og:image:alt" content="Maintane septic care blog">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog — Maintane | Natural Septic Care">
-<meta name="twitter:description" content="Expert guides on septic system care, maintenance, and natural treatment options for homeowners. Written by the team at Maintane.">
+<meta name="twitter:title" content="Septic Tank Maintenance Guides for Homeowners | Maintane">
+<meta name="twitter:description" content="Clear septic tank maintenance guides for homeowners: bacteria, pumping, smells, slow drains, septic-safe products, treatment routines, and monthly care.">
 <meta name="twitter:image" content="https://getmaintane.com/product-hero.png">
   <script type="application/ld+json">
 {
@@ -2007,6 +2007,75 @@
     color: #FAF6F0;
   }
 
+  .blog-pathways {
+    background: var(--warm-cream);
+    padding: 52px 3rem 10px;
+  }
+  .blog-pathways-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .blog-pathways-eyebrow {
+    color: #8f7654;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .blog-pathways-title {
+    color: var(--dark-bark);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0 auto 2rem;
+    max-width: 780px;
+    text-align: center;
+  }
+  .blog-pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .blog-pathway-card {
+    border: 1px solid rgba(59, 92, 58, 0.14);
+    border-radius: 22px;
+    background: #fff;
+    color: var(--dark-bark);
+    min-height: 150px;
+    padding: 1.25rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .blog-pathway-card:hover {
+    box-shadow: 0 18px 42px rgba(44, 36, 23, 0.08);
+    transform: translateY(-2px);
+  }
+  .blog-pathway-card span {
+    color: #8f7654;
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.7rem;
+    text-transform: uppercase;
+  }
+  .blog-pathway-card strong {
+    color: var(--forest-green);
+    display: block;
+    font-size: 1.05rem;
+    line-height: 1.28;
+    margin-bottom: 0.5rem;
+  }
+  .blog-pathway-card p {
+    color: rgba(44, 36, 23, 0.62);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
   /* Posts section wrapper */
   .blog-posts-section {
     background: var(--warm-cream);
@@ -2180,6 +2249,7 @@
   /* Responsive */
   @media (max-width: 1000px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
+    .blog-pathways-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
     .blog-hero { padding: 164px 1.5rem 64px; }
@@ -2187,6 +2257,7 @@
     .blog-hero-sub { font-size: 1rem; }
     .blog-hero-actions { flex-direction: column; align-items: center; }
     .blog-hero-btn { width: 100%; max-width: 340px; box-sizing: border-box; }
+    .blog-pathways { padding: 42px 1.5rem 0; }
     .blog-posts-section { padding: 32px 1.5rem 80px; }
     .blog-pills-row { margin-bottom: 56px; }
     .blog-cta-section { padding: 80px 24px; }
@@ -2195,6 +2266,7 @@
   }
   @media (max-width: 600px) {
     .blog-grid { grid-template-columns: 1fr; gap: 40px; }
+    .blog-pathways-grid { grid-template-columns: 1fr; }
   }
 
     </style>
@@ -2268,11 +2340,40 @@
 
   <!-- Hero (Forest Green) -->
   <section class="blog-hero">
-    <h1 class="blog-hero-headline">Septic, explained.</h1>
-    <p class="blog-hero-sub">Research, answers, and field notes on keeping a septic system healthy.</p>
+    <h1 class="blog-hero-headline">Septic tank maintenance guides for homeowners.</h1>
+    <p class="blog-hero-sub">Clear answers on septic bacteria, smells, slow drains, pumping, safe products, and monthly treatment routines.</p>
     <div class="blog-hero-actions">
-      <a class="blog-hero-btn" href="/septic-treatment.html">Start with the septic treatment guide</a>
-      <a class="blog-hero-btn blog-hero-btn-secondary" href="/septic-care-checklist.html">Get the checklist</a>
+      <a class="blog-hero-btn" href="/waitlist/" data-event="blog_index_waitlist_cta" data-event-label="blog_hero_primary">Join the Maintane waitlist</a>
+      <a class="blog-hero-btn blog-hero-btn-secondary" href="/septic-treatment.html">Start with the septic treatment guide</a>
+    </div>
+  </section>
+
+  <section class="blog-pathways" aria-labelledby="blog-pathways-title">
+    <div class="blog-pathways-inner">
+      <p class="blog-pathways-eyebrow">Find the right starting point</p>
+      <h2 class="blog-pathways-title" id="blog-pathways-title">Most septic questions fall into one of these paths.</h2>
+      <div class="blog-pathways-grid">
+        <a class="blog-pathway-card" href="/blog/how-to-maintain-septic-tank.html">
+          <span>Maintenance basics</span>
+          <strong>How to maintain a septic tank</strong>
+          <p>Start here for pumping, habits, drain field care, and monthly routines.</p>
+        </a>
+        <a class="blog-pathway-card" href="/blog/why-does-my-house-smell-like-septic.html">
+          <span>Problems</span>
+          <strong>Septic smells and warning signs</strong>
+          <p>Work through odors, slow drains, alarms, bubbling toilets, and backups.</p>
+        </a>
+        <a class="blog-pathway-card" href="/blog/how-bacteria-keep-septic-healthy.html">
+          <span>Bacteria</span>
+          <strong>How septic bacteria work</strong>
+          <p>Understand the biology your system depends on and what harms it.</p>
+        </a>
+        <a class="blog-pathway-card" href="/blog/best-septic-treatment-for-monthly-maintenance.html">
+          <span>Treatment</span>
+          <strong>Monthly septic treatment guide</strong>
+          <p>Learn what a simple maintenance treatment should and should not do.</p>
+        </a>
+      </div>
     </div>
   </section>
 
