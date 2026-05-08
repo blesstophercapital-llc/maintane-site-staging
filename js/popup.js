@@ -1,5 +1,6 @@
 /* Pre-launch waitlist popup — getmaintane.com
- * Shows 4s after page load (re-shows after 5 minutes if dismissed, never after conversion).
+ * Shows quickly after page load, scroll intent, or exit intent.
+ * Dismissals do not persist, so each new page visit gets a fresh popup.
  * Submits to Klaviyo's client subscriptions API; adds profile to list Ue3eN8.
  * Staging guard: listeners render the popup but never POST to Klaviyo.
  */
@@ -17,8 +18,9 @@
   var KLAVIYO_ENDPOINT    = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION    = '2024-10-15';
 
-  var SHOW_DELAY_MS           = 4000;
-  var DISMISS_COOKIE_DAYS     = 5 / (24 * 60); // 5 minutes — re-prompt undecided visitors on next visit
+  var SHOW_DELAY_MS           = 1200;
+  var SCROLL_TRIGGER_RATIO    = 0.28;
+  var EXIT_INTENT_Y           = 18;
   var CONVERTED_COOKIE_DAYS   = 365;
   var ANIM_DURATION_MS        = 250;
   var SUCCESS_AUTOCLOSE_MS    = 3000;
@@ -34,11 +36,23 @@
     var match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]+)'));
     return match ? match[2] : null;
   }
+  function deleteCookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax';
+  }
 
   // ── GA4 ──────────────────────────────────────────────────────────────────
   function track(event, params) {
     if (typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) { /* no-op */ }
+    }
+    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Lead', {
+          content_name: 'Maintane Popup Waitlist',
+          source: (params && params.source) || 'pre_launch_popup',
+          source_page: window.location.pathname
+        });
+      } catch (e) { /* no-op */ }
     }
   }
 
@@ -46,6 +60,7 @@
   var popup, closeBtn, form, emailInput, successEl, errorEl, submitBtn;
   var focusableEls = [];
   var lastFocused = null;
+  var hasShown = false;
 
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
@@ -55,9 +70,11 @@
     // Skip popup on thank-you page (users just converted via contact form)
     if (window.location.pathname === '/thank-you.html') return;
 
-    // Short-circuit if the user already converted or recently dismissed.
+    // Clear legacy dismissal cookies so closed popups reset on every new visit.
+    deleteCookie('maintane_popup_dismissed');
+
+    // Short-circuit only if the user already converted.
     if (getCookie('maintane_popup_converted')) return;
-    if (getCookie('maintane_popup_dismissed')) return;
 
     closeBtn   = popup.querySelector('.maintane-popup__close');
     form       = popup.querySelector('#maintane-popup-form');
@@ -69,6 +86,8 @@
     if (closeBtn) closeBtn.addEventListener('click', function () { closePopup(); });
     if (form)     form.addEventListener('submit', onSubmit);
     document.addEventListener('keydown', onKeydown);
+    document.addEventListener('mouseleave', onExitIntent);
+    window.addEventListener('scroll', onScrollIntent, { passive: true });
 
     setTimeout(showPopup, SHOW_DELAY_MS);
   }
@@ -76,6 +95,11 @@
   // ── Show / close ─────────────────────────────────────────────────────────
   function showPopup() {
     if (!popup) return;
+    if (hasShown) return;
+    hasShown = true;
+
+    document.removeEventListener('mouseleave', onExitIntent);
+    window.removeEventListener('scroll', onScrollIntent);
     lastFocused = document.activeElement;
 
     popup.style.display = 'flex';
@@ -101,6 +125,20 @@
     track('popup_shown', { source_page: window.location.pathname });
   }
 
+  function onExitIntent(e) {
+    if (!e) return;
+    if (e.clientY <= EXIT_INTENT_Y) showPopup();
+  }
+
+  function onScrollIntent() {
+    var scrollable = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1
+    );
+    var ratio = (window.scrollY || window.pageYOffset || 0) / scrollable;
+    if (ratio >= SCROLL_TRIGGER_RATIO) showPopup();
+  }
+
   function closePopup(opts) {
     if (!popup) return;
     var skipDismissCookie = opts && opts.skipDismissCookie === true;
@@ -116,7 +154,6 @@
     }
 
     if (!skipDismissCookie) {
-      setCookie('maintane_popup_dismissed', '1', DISMISS_COOKIE_DAYS);
       track('popup_dismissed', { source_page: window.location.pathname });
     }
   }
@@ -208,10 +245,21 @@
 
   function onSuccess(email) {
     setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
+    var eventParams = {
+      source: 'pre_launch_popup',
+      source_page: window.location.pathname,
+      form_id: 'pre_launch_popup',
+      list_id: KLAVIYO_LIST_ID
+    };
     track('email_signup', {
       source: 'pre_launch_popup',
-      source_page: window.location.pathname
+      source_page: window.location.pathname,
+      form_id: 'pre_launch_popup',
+      list_id: KLAVIYO_LIST_ID
     });
+    track('lead_form_submit', eventParams);
+    track('generate_lead', eventParams);
+    track('popup_lead_submit', eventParams);
 
     if (form)      form.style.display = 'none';
     if (errorEl)   errorEl.style.display = 'none';

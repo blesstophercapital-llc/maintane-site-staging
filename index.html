@@ -10,8 +10,20 @@
 <meta name="apple-mobile-web-app-title" content="Maintane" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#3B5C3A" />
-<title>Maintane — Natural Septic Care</title>
+<title>Natural Septic Tank Treatment | Maintane</title>
+<meta name="description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
 <link rel="canonical" href="https://getmaintane.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maintane">
+<meta property="og:title" content="Natural Septic Tank Treatment | Maintane">
+<meta property="og:description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
+<meta property="og:url" content="https://getmaintane.com/">
+<meta property="og:image" content="https://getmaintane.com/product-hero.png">
+<meta property="og:image:alt" content="Maintane natural septic tank treatment product">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Natural Septic Tank Treatment | Maintane">
+<meta name="twitter:description" content="Maintane is a natural septic tank treatment powder with 12B live bacteria per dose. Kid and pet safe, made in the USA, and used once a month.">
+<meta name="twitter:image" content="https://getmaintane.com/product-hero.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -332,25 +344,27 @@
   /* ECONOMICS SECTION */
 
   @media (max-width: 768px) {
-    .announcement-bar { font-size: 0.85rem; padding: 0 12px; letter-spacing: 0.03em; }
-    .announcement-text { font-size: 0.85rem; line-height: 1.3; }
+    :root { --mobile-header-height: 92px; }
+    .announcement-bar { min-height: 36px; font-size: 0.78rem; padding: 0 10px; letter-spacing: 0.02em; }
+    .announcement-text { font-size: 0.78rem; line-height: 1.25; padding: 0.25rem 0; }
+    .announce-arrow { min-width: 34px; min-height: 36px; font-size: 1rem; }
     .announce-sep { display: none; }
     .announce-tail { display: block; }
-    .main-nav { top: 44px; grid-template-columns: auto 1fr auto; padding: 0.6rem 1rem; min-height: 64px; }
+    .main-nav { top: 36px; grid-template-columns: auto 1fr auto; padding: 0.5rem 0.85rem; min-height: 56px; }
     .nav-left { display: none; }
     .nav-right { gap: 0; }
     .nav-right li:not(:last-child) { display: none; }
-    .nav-center { font-size: 1.6rem; gap: 8px; transform: translateX(-18px); }
-    .nav-center .nav-logo-mark { width: 28px; height: 28px; }
+    .nav-center { font-size: 1.45rem; gap: 7px; transform: translateX(-12px); }
+    .nav-center .nav-logo-mark { width: 26px; height: 26px; }
     .hamburger { display: block !important; }
-    .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
+    .nav-cta { padding: 0.48rem 0.9rem !important; font-size: 0.78rem !important; margin-left: 0 !important; }
 
     section { padding: 3rem 1rem; }
-    .hero { min-height: 100vh !important; height: 100vh !important; padding: 0; }
+    .hero { min-height: calc(100svh - var(--mobile-header-height, 92px)) !important; height: auto !important; padding: 0; }
     .hero-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; max-width: 100% !important; width: 100% !important; padding: 0 !important; }
     .hero-inner > div:last-child { display: block !important; width: 100% !important; box-sizing: border-box !important; border-radius: 16px !important; padding: 1.5rem !important; }
-    .hero h1 { font-size: 3rem !important; }
-    .hero-sub { font-size: 1.2rem !important; max-width: 340px !important; }
+    .hero h1 { font-size: clamp(3rem, 13vw, 4.8rem) !important; line-height: 0.98 !important; }
+    .hero-sub { font-size: clamp(1.15rem, 4.5vw, 1.45rem) !important; line-height: 1.45 !important; max-width: 340px !important; }
     .section-title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
     .why-grid, .science-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -375,8 +389,8 @@
     .max-w { padding: 0 0.5rem; }
     .science-visual { padding: 2rem 1rem; }
     .bullets { gap: 1.25rem; }
-    .hero-badges { gap: 10px 12px; }
-    .badge { font-size: 0.82rem; padding: 8px 14px; }
+    .hero-badges { gap: 8px 10px; }
+    .badge { font-size: 0.74rem; padding: 7px 11px; }
   }
 
   /* ── Phase 1.5o: Hero carousel ── */
@@ -483,18 +497,155 @@
     color: #3B5C3A;
     border-color: #3B5C3A;
   }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-cta-secondary {
+    display: inline-block;
+    color: #FAF6F0;
+    padding: 16px 32px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid rgba(250, 246, 240, 0.7);
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .hero-cta-secondary:hover {
+    background: #FAF6F0;
+    color: #3B5C3A;
+    border-color: #FAF6F0;
+  }
+  .hero-reassurance {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.86);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 18px 0 0;
+    text-align: center;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
+  .hero-support-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px 18px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .hero-support-links a {
+    color: rgba(250, 246, 240, 0.92);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s, text-decoration-thickness 0.2s;
+  }
+  .hero-support-links a:hover {
+    color: #C4A882;
+    text-decoration-thickness: 2px;
+  }
+  .hero-support-links span {
+    color: rgba(250, 246, 240, 0.42);
+  }
+  .mobile-hero-resource-links { display: none; }
   @media (max-width: 768px) {
-    .hero-content { padding: 7rem 24px 6rem; }
+    .hero {
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100svh - var(--mobile-header-height, 92px));
+      padding: calc(var(--mobile-header-height, 92px) + 18px) 22px 74px;
+    }
+    .hero-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      margin: 0 0 10px;
+    }
+    .hero h1 {
+      max-width: min(700px, calc(100vw - 44px));
+      margin: 0 auto;
+    }
+    .hero-sub {
+      max-width: min(600px, calc(100vw - 44px)) !important;
+      margin: 16px auto 20px;
+    }
+    .hero-badges {
+      max-width: 360px;
+      margin: 0 auto 20px;
+    }
     .hero-arrow { display: none; }
-    .hero-credit { font-size: 0.65rem; left: 16px; bottom: 12px; }
-    .hero-dots { bottom: 24px; }
+    .hero-credit { display: none; }
+    .hero-dots { bottom: 22px; }
     .hero-cta-tan {
       display: block;
       width: 100%;
-      max-width: 360px;
+      max-width: 340px;
       margin: 0 auto;
+      padding: 14px 24px;
       box-sizing: border-box;
       text-align: center;
+      font-size: 1rem;
+    }
+    .hero-cta-row {
+      flex-direction: column;
+      gap: 12px;
+      max-width: 340px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-cta-secondary {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .hero-support-links {
+      display: none;
+    }
+    .mobile-hero-resource-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 18px 18px 34px;
+      background: #2C2417;
+      border-top: 1px solid rgba(196, 168, 130, 0.25);
+    }
+    .mobile-hero-resource-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 10px;
+      border: 1px solid rgba(196, 168, 130, 0.36);
+      color: #FAF6F0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .facts {
+      padding-top: 56px !important;
     }
   }
 
@@ -697,6 +848,20 @@
     margin: 64px auto 0;
     max-width: 900px;
     text-align: center;
+  }
+  .comparison-note,
+  .solution-conversion-note {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(250, 246, 240, 0.76);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 0 18px;
+  }
+  .solution-conversion-note {
+    color: rgba(250, 246, 240, 0.84);
+    margin: 28px auto 20px;
+    max-width: 560px;
   }
   .solution-bottom-rule {
     width: 120px;
@@ -1144,6 +1309,34 @@
     max-width: 720px;
     margin: 48px auto 0;
   }
+  .facts-transition {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.72);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 680px;
+    margin: 44px auto 24px;
+  }
+  .facts-cta-wrap { text-align: center; }
+  .facts-cta {
+    display: inline-block;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .facts-cta:hover {
+    background: #2d4a2c;
+    transform: translateY(-1px);
+  }
   @media (prefers-reduced-motion: reduce) {
     .fact-card { opacity: 1; transform: none; transition: none; }
   }
@@ -1451,11 +1644,12 @@
   }
 }
 </script>
-<meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/icons.css">
+<script src="/js/meta-pixel.js"></script>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=35305867532391902&ev=PageView&noscript=1" /></noscript>
 
 <div class="announcement-bar" aria-live="polite">
   <button class="announce-arrow" id="announce-prev" aria-label="Previous announcement">&#8249;</button>
@@ -1511,13 +1705,25 @@
     <div class="hero-content">
       <p class="hero-tag">SEPTIC CARE, REDEFINED</p>
       <h1>Your system. <em>Maintained.</em> Naturally.</h1>
-      <p class="hero-sub">One scoop. Once a month. That’s it.</p>
+      <p class="hero-sub">A natural septic tank treatment powder with 12B live bacteria per dose. One scoop, once a month.</p>
       <div class="hero-badges">
         <div class="badge"><div class="badge-dot"></div> Kid & Pet Safe</div>
         <div class="badge"><div class="badge-dot"></div> 12B CFU Per Dose</div>
         <div class="badge"><div class="badge-dot"></div> Made in USA</div>
       </div>
-      <a class="hero-cta-tan" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+      <div class="hero-cta-row">
+        <a class="hero-cta-tan" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+        <a class="hero-cta-secondary" href="/dosing-guide.html">See how it works</a>
+      </div>
+      <div class="hero-support-links" aria-label="Helpful septic treatment guides">
+        <a href="/septic-treatment.html">Septic treatment guide</a>
+        <span aria-hidden="true">/</span>
+        <a href="/dosing-guide.html">Dosing guide</a>
+        <span aria-hidden="true">/</span>
+        <a href="/septic-care-checklist.html">Septic checklist</a>
+        <span aria-hidden="true">/</span>
+        <a href="/free-septic-resources.html">Septic resources</a>
+      </div>
     </div>
     <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide">‹</button>
     <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide">›</button>
@@ -1529,6 +1735,12 @@
       <button class="hero-dot" data-slide="4" aria-label="Slide 5"></button>
     </div>
     <div class="hero-credit" id="hero-credit">Photo: Jessica Rockowitz / Unsplash</div>
+  </div>
+  <div class="mobile-hero-resource-links" aria-label="Helpful septic treatment guides">
+    <a href="/septic-treatment.html">Septic treatment guide</a>
+    <a href="/dosing-guide.html">Dosing guide</a>
+    <a href="/septic-care-checklist.html">Septic checklist</a>
+    <a href="/free-septic-resources.html">Septic resources</a>
   </div>
 
   <!-- Cold Hard Facts (Phase 2.2) -->
@@ -1564,11 +1776,15 @@
           <p class="fact-cite">Source: Angi · HomeGuide (2026)</p>
         </article>
       </div>
+      <p class="facts-transition">If you’re using anything today, it likely falls into one of these categories.</p>
+      <div class="facts-cta-wrap">
+        <a class="facts-cta" href="#why-maintane">See what makes Maintane different</a>
+      </div>
     </div>
   </section>
 
   <!-- Solution Section (Phase 2.5a) -->
-  <section class="why-maintane" aria-labelledby="solution-heading">
+  <section class="why-maintane" id="why-maintane" aria-labelledby="solution-heading">
     <div class="why-card">
       <div class="solution-inner">
         <div class="solution-header" data-solution-anim data-stagger-ms="0">
@@ -1622,6 +1838,7 @@
 
           <!-- RIGHT: Side by side -->
           <div class="comparison-block">
+            <p class="comparison-note">Same job. Completely different approach.</p>
             <table class="why-comparison" role="table">
               <thead>
                 <tr>
@@ -1659,8 +1876,8 @@
               </tbody>
             </table>
             <div class="solution-cta" data-solution-anim data-stagger-ms="360">
-              <p class="cta-label">Ready to make the switch?</p>
-              <a class="why-cta-btn" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Shop Maintane — $39.99</a>
+              <p class="solution-conversion-note">If you’ve read this far, Maintane is probably a better fit for your system.</p>
+              <a class="why-cta-btn" href="/dosing-guide.html">How to use Maintane</a>
             </div>
           </div>
         </div>
@@ -1811,7 +2028,8 @@
             <li><a href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">All Products</a></li>
             <li><a href="/how-it-works.html">How it works</a></li>
             <li><a href="/dosing-guide.html">Dosing Guide</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/septic-treatment.html">Septic Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
             <li><a href="/states/">By State</a></li>
           </ul>
         </div>

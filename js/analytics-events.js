@@ -1,9 +1,10 @@
 /* getmaintane.com — GA4 event tracking
  * Loaded with `defer` at the end of <body> on every HTML file.
- * GA4 measurement ID G-D8DRYD8BHZ is loaded earlier via gtag.js in <head>.
+ * GA4 measurement ID G-D8DRYD8BHZ and Meta Pixel are loaded earlier in <head>.
  *
- * 10 events wired (event 10 `faq_expand` deliberately omitted — dosing-guide
- * FAQs are static content, not accordions; revisit when accordion is built).
+ * Funnel and commerce events are wired with lightweight delegated listeners.
+ * `faq_expand` is deliberately omitted — dosing-guide FAQs are static content,
+ * not accordions; revisit when accordion is built.
  *
  * Staging guard: when hostname includes "staging", listeners install but
  * `gtag('event', ...)` is never called — so staging traffic doesn't pollute
@@ -17,7 +18,40 @@
   var DEBUG = false;
   var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
 
-  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart/i;
+  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
+  var FUNNEL_DESTINATIONS = [
+    '/septic-treatment.html',
+    '/septic-care-checklist.html',
+    '/septic-smell.html',
+    '/slow-drains.html',
+    '/natural-septic-treatment.html',
+    '/ridx-alternative.html',
+    '/septic-treatment-for-homes-with-kids-and-pets.html',
+    '/septic-treatment-after-pumping.html',
+    '/toilets-gurgling-septic.html',
+    '/septic-alarm-going-off.html',
+    '/septic-backup.html',
+    '/standing-water-drain-field.html',
+    '/septic-treatment-for-new-homeowners.html',
+    '/septic-treatment-for-vacation-homes.html',
+    '/septic-treatment-for-older-homes.html',
+    '/septic-treatment-for-garbage-disposals.html',
+    '/monthly-septic-treatment.html',
+    '/septic-treatment-powder.html',
+    '/chemical-free-septic-treatment.html',
+    '/best-septic-treatment.html',
+    '/septic-tank-smell-in-house.html',
+    '/septic-smell-outside.html',
+    '/rotten-egg-smell-septic.html',
+    '/toilet-bubbling-septic.html',
+    '/shower-drain-smells-septic.html',
+    '/septic-tank-full-signs.html',
+    '/septic-safe-drain-cleaner.html',
+    '/septic-safe-toilet-cleaner.html',
+    '/septic-safe-laundry-detergent.html',
+    '/septic-treatment-for-rental-homes.html',
+    '/septic-safe-home-cleaning-guide.html'
+  ];
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },
     { match: /(^|\.)instagram\.com/i, name: 'instagram' },
@@ -45,16 +79,59 @@
 
   function fire(name, params) {
     if (DEBUG) console.log('[GA4]', name, params);
-    if (IS_STAGING) return;            // staging never sends to GA4
-    if (typeof gtag !== 'function') return;
-    gtag('event', name, params);
+    if (!IS_STAGING && typeof gtag === 'function') {
+      gtag('event', name, params);
+    }
+    fireMeta(name, params);
+  }
+
+  function fireMeta(name, params) {
+    if (IS_STAGING || typeof fbq !== 'function') return;
+    var metaParams = params || {};
+    try {
+      if (name === 'checkout_click') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Maintane Natural Septic Tank Treatment',
+          content_ids: ['MTN-001'],
+          content_type: 'product',
+          value: 39.99,
+          currency: 'USD',
+          button_location: metaParams.button_location || 'unknown'
+        });
+      } else if (name === 'contact_form_submit') {
+        fbq('track', 'Contact', {
+          source_page: metaParams.source_page || pathname()
+        });
+      } else if (name === 'email_signup') {
+        fbq('track', 'Lead', {
+          content_name: 'Maintane Email Signup',
+          source: metaParams.source || metaParams.form_id || 'email_signup',
+          source_page: metaParams.source_page || pathname()
+        });
+      }
+    } catch (e) {}
+  }
+
+  function cleanText(value, limit) {
+    return (value || '').replace(/\s+/g, ' ').trim().toLowerCase().substring(0, limit || 100);
   }
 
   // Derive a meaningful label for which CTA the user interacted with.
   function buttonLocation(el) {
     if (!el) return 'unknown';
     if (el.classList && el.classList.contains('nav-cta')) return 'nav';
+    if (el.classList && el.classList.contains('funnel-nav-cta')) return 'nav';
     if (el.classList && el.classList.contains('mobile-cta')) return 'mobile-menu';
+    if (el.closest && el.closest('.funnel-mobile-menu')) return 'mobile-menu';
+    if (el.closest && el.closest('footer')) return 'footer';
+    if (el.closest && el.closest('.maintane-popup')) return 'popup';
+    if (el.closest && el.closest('.funnel-resource-links')) return 'related-guides';
+    if (el.closest && el.closest('.funnel-next-offer')) return 'lead-next-offer';
+    if (el.closest && el.closest('.funnel-lead-card')) return 'lead-card';
+    if (el.closest && el.closest('.funnel-hero')) return 'hero';
+    if (el.closest && el.closest('.funnel-cta-band')) return 'cta-band';
+    if (el.closest && el.closest('.funnel-actions')) return 'funnel-actions';
+    if (el.closest && el.closest('.post-cta')) return 'blog-cta';
     if (el.closest('#hero')) return 'hero';
     if (el.closest('.cta-block')) return 'cta-block';
     if (el.closest('.guide-cta')) return 'guide-cta';
@@ -89,6 +166,37 @@
     return pathname().indexOf('dosing-guide') !== -1;
   }
 
+  function urlPath(href) {
+    try { return new URL(href, window.location.origin).pathname; }
+    catch (e) { return ''; }
+  }
+
+  function urlHash(href) {
+    try { return new URL(href, window.location.origin).hash; }
+    catch (e) { return ''; }
+  }
+
+  function isFunnelDestination(href) {
+    var p = urlPath(href);
+    return FUNNEL_DESTINATIONS.indexOf(p) !== -1;
+  }
+
+  function linkParams(link, extra) {
+    var href = link.getAttribute('href') || '';
+    var params = baseParams({
+      destination: href,
+      destination_path: urlPath(link.href),
+      cta_text: cleanText(link.textContent, 100),
+      button_location: buttonLocation(link)
+    });
+    if (extra) {
+      for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) params[k] = extra[k];
+      }
+    }
+    return params;
+  }
+
   function scrollFraction() {
     var doc = document.documentElement;
     var height = Math.max(doc.scrollHeight, document.body.scrollHeight);
@@ -106,7 +214,9 @@
         n++;
         link.addEventListener('click', function () {
           fire('checkout_click', baseParams({
-            button_location: buttonLocation(link)
+            button_location: buttonLocation(link),
+            cta_text: cleanText(link.textContent, 100),
+            destination: link.getAttribute('href') || ''
           }));
         });
       })(links[i]);
@@ -245,6 +355,58 @@
     if (DEBUG) console.log('[GA4] nav_click wired:', n, 'links');
   }
 
+  // ── Event 10: funnel_cta_click (treatment/checklist funnel links) ────────
+  function setupFunnelCtaClick() {
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest && e.target.closest('a[href]');
+      if (!link || !isFunnelDestination(link.href)) return;
+      fire('funnel_cta_click', baseParams({
+        funnel_destination: urlPath(link.href),
+        cta_text: cleanText(link.textContent, 80),
+        button_location: buttonLocation(link)
+      }));
+    });
+  }
+
+  // ── Event 12: named funnel path clicks ──────────────────────────────────
+  function setupKeyFunnelClicks() {
+    document.addEventListener('click', function (e) {
+      var link = e.target && e.target.closest && e.target.closest('a[href]');
+      if (!link) return;
+
+      var href = link.href || '';
+      var path = urlPath(href);
+      var hash = urlHash(href);
+      var text = cleanText(link.textContent, 100);
+
+      if (CHECKOUT_HREF_PATTERN.test(href)) {
+        fire('product_cta_click', linkParams(link, {
+          value: 39.99,
+          currency: 'USD',
+          product_name: 'Maintane Natural Septic Tank Treatment'
+        }));
+      }
+
+      if (path === '/septic-care-checklist.html' || hash === '#checklist-form') {
+        fire('checklist_cta_click', linkParams(link));
+      }
+
+      if (path === '/dosing-guide.html' || path === '/blog/dosing-guide.html') {
+        fire('dosing_guide_click', linkParams(link));
+      }
+
+      if (link.closest('.funnel-resource-links')) {
+        fire('related_guide_click', linkParams(link, {
+          related_group: link.closest('.funnel-resource-links').getAttribute('aria-label') || 'related septic guides'
+        }));
+      }
+
+      if (link.closest('footer') && path === '/septic-treatment.html' && text === 'septic guides') {
+        fire('footer_septic_guides_click', linkParams(link));
+      }
+    });
+  }
+
   // ── Event 9: mobile_menu_open (.hamburger; only on open) ─────────────────
   function setupMobileMenu() {
     var hamburger = document.querySelector('.hamburger');
@@ -272,6 +434,20 @@
     });
   }
 
+  // ── Event 13: explicit data-event hooks for focused landing pages ───────
+  function setupDataEventHooks() {
+    document.addEventListener('click', function (e) {
+      var target = e.target && e.target.closest && e.target.closest('[data-event]');
+      if (!target || target.tagName === 'FORM') return;
+      fire(target.getAttribute('data-event'), baseParams({
+        event_label: target.getAttribute('data-event-label') || cleanText(target.textContent, 80),
+        destination: target.getAttribute('href') || '',
+        button_location: buttonLocation(target)
+      }));
+    });
+
+  }
+
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
     setupCheckoutClick();
@@ -282,8 +458,11 @@
     setupCheckoutImpressions();
     setupHomepageScroll();
     setupNavClick();
+    setupFunnelCtaClick();
+    setupKeyFunnelClicks();
     setupMobileMenu();
     setupContactForm();
+    setupDataEventHooks();
     if (DEBUG) console.log('[GA4] analytics-events.js initialized', { staging: IS_STAGING });
   }
 

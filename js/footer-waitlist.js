@@ -27,6 +27,15 @@
     if (typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) {}
     }
+    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'Lead', {
+          content_name: 'Maintane Footer Waitlist',
+          source: (params && params.source) || 'footer_waitlist',
+          source_page: window.location.pathname
+        });
+      } catch (e) {}
+    }
   }
 
   function init() {
@@ -93,10 +102,21 @@
 
     function onSuccess() {
       setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
+      var eventParams = {
+        source: 'footer_waitlist',
+        source_page: window.location.pathname,
+        form_id: 'footer_waitlist',
+        list_id: KLAVIYO_LIST_ID
+      };
       track('email_signup', {
         source: 'footer_waitlist',
-        source_page: window.location.pathname
+        source_page: window.location.pathname,
+        form_id: 'footer_waitlist',
+        list_id: KLAVIYO_LIST_ID
       });
+      track('lead_form_submit', eventParams);
+      track('generate_lead', eventParams);
+      track('footer_waitlist_submit', eventParams);
       form.style.display = 'none';
       if (error) error.style.display = 'none';
       if (success) success.style.display = 'block';
