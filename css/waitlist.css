@@ -74,10 +74,10 @@
   max-width: 780px;
   color: var(--warm-cream);
   font-family: var(--font-display);
-  font-size: 5rem;
+  font-size: clamp(5rem, 8vw, 7.2rem);
   font-weight: 900;
-  letter-spacing: 0;
-  line-height: 0.98;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
 }
 
 .waitlist-subtitle {
@@ -91,11 +91,13 @@
 
 .waitlist-problem-line {
   max-width: 610px;
-  color: var(--warm-cream);
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1.5;
+  color: var(--botanical-tan);
+  font-size: 1.22rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
   margin-top: 1rem;
+  text-transform: uppercase;
 }
 
 .waitlist-value-grid {
@@ -303,8 +305,8 @@
   }
 
   .waitlist-title {
-    font-size: 3.2rem;
-    line-height: 1;
+    font-size: clamp(3.6rem, 16vw, 5rem);
+    line-height: 0.9;
   }
 
   .waitlist-subtitle {
@@ -314,7 +316,7 @@
   }
 
   .waitlist-problem-line {
-    font-size: 0.96rem;
+    font-size: 1.02rem;
   }
 
   .waitlist-value-grid {
@@ -371,8 +373,8 @@
   }
 
   .waitlist-title {
-    font-size: 2.7rem;
-    letter-spacing: 0;
+    font-size: clamp(3.1rem, 15vw, 4rem);
+    letter-spacing: -0.02em;
   }
 
   .waitlist-kicker {
