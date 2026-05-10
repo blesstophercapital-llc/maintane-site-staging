@@ -31,10 +31,7 @@
   display: grid;
   place-items: center;
   padding: clamp(1.1rem, 3vw, 2.5rem);
-  background:
-    radial-gradient(circle at 12% 14%, rgba(196, 168, 130, 0.28), transparent 28%),
-    radial-gradient(circle at 86% 20%, rgba(106, 175, 61, 0.14), transparent 25%),
-    linear-gradient(135deg, rgba(59, 92, 58, 0.98), rgba(44, 36, 23, 0.96));
+  background: #2c2417;
 }
 
 .waitlist-squeeze {
@@ -51,8 +48,8 @@
 .waitlist-squeeze-card {
   width: min(100%, 1120px);
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr);
-  gap: clamp(1.35rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.68fr);
+  gap: 3rem;
   align-items: center;
   margin: 0 auto;
 }
@@ -77,32 +74,43 @@
   max-width: 780px;
   color: var(--warm-cream);
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.6vw, 6.7rem);
+  font-size: clamp(5rem, 8vw, 7.2rem);
   font-weight: 900;
-  letter-spacing: -0.058em;
-  line-height: 0.94;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
 }
 
 .waitlist-subtitle {
   max-width: 610px;
   color: rgba(250, 246, 240, 0.83);
-  font-size: clamp(1.08rem, 2vw, 1.32rem);
-  font-weight: 300;
+  font-size: 1.24rem;
+  font-weight: 400;
   line-height: 1.58;
   margin-top: 1.35rem;
 }
 
+.waitlist-problem-line {
+  max-width: 610px;
+  color: var(--botanical-tan);
+  font-size: 1.22rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
 .waitlist-value-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
-  margin-top: clamp(1.4rem, 4vw, 2.2rem);
+  margin-top: 1.8rem;
 }
 
 .waitlist-value-grid div {
   border: 1px solid rgba(196, 168, 130, 0.36);
-  border-radius: 20px;
-  background: rgba(250, 246, 240, 0.08);
+  border-radius: 8px;
+  background: rgba(250, 246, 240, 0.06);
   padding: 1rem;
 }
 
@@ -130,19 +138,18 @@
 .waitlist-form-card {
   width: 100%;
   border: 1px solid rgba(196, 168, 130, 0.42);
-  border-radius: 30px;
-  background:
-    linear-gradient(180deg, rgba(250, 246, 240, 0.14), rgba(250, 246, 240, 0.07));
-  padding: clamp(1.35rem, 3vw, 2.25rem);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
+  background: rgba(250, 246, 240, 0.1);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
 }
 
 .waitlist-form-card h2 {
   color: var(--warm-cream);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: 2.65rem;
   font-weight: 900;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   line-height: 1.02;
   margin-bottom: 0.75rem;
 }
@@ -188,9 +195,8 @@
   cursor: pointer;
   font: inherit;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   padding: 1rem 1.15rem;
-  text-transform: uppercase;
 }
 
 .waitlist-form button:disabled {
@@ -299,14 +305,18 @@
   }
 
   .waitlist-title {
-    font-size: clamp(2.55rem, 11vw, 4.5rem);
-    line-height: 0.98;
+    font-size: clamp(3.6rem, 16vw, 5rem);
+    line-height: 0.9;
   }
 
   .waitlist-subtitle {
-    font-size: clamp(1.02rem, 4.5vw, 1.22rem);
+    font-size: 1.08rem;
     line-height: 1.48;
     margin-top: 1rem;
+  }
+
+  .waitlist-problem-line {
+    font-size: 1.02rem;
   }
 
   .waitlist-value-grid {
@@ -316,7 +326,7 @@
   }
 
   .waitlist-value-grid div {
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 0.78rem 0.9rem;
   }
 
@@ -329,7 +339,7 @@
   }
 
   .waitlist-form-card {
-    border-radius: 22px;
+    border-radius: 8px;
     padding: 1.15rem;
   }
 
@@ -363,8 +373,8 @@
   }
 
   .waitlist-title {
-    font-size: clamp(2.35rem, 10.6vw, 3rem);
-    letter-spacing: -0.048em;
+    font-size: clamp(3.1rem, 15vw, 4rem);
+    letter-spacing: -0.02em;
   }
 
   .waitlist-kicker {
