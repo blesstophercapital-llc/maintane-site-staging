@@ -19,6 +19,7 @@
   var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
 
   var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
+  var WAITLIST_HREF_PATTERN = /(?:getmaintane\.com)?\/waitlist\/?(?:$|[?#])/i;
   var FUNNEL_DESTINATIONS = [
     '/septic-treatment.html',
     '/septic-care-checklist.html',
@@ -224,6 +225,24 @@
     if (DEBUG) console.log('[GA4] checkout_click wired:', n, 'buttons');
   }
 
+  // ── Event 1b: waitlist_cta_click ─────────────────────────────────────────
+  function setupWaitlistClick() {
+    var links = document.querySelectorAll('a[href]');
+    var n = 0;
+    for (var i = 0; i < links.length; i++) {
+      (function (link) {
+        if (!WAITLIST_HREF_PATTERN.test(link.href)) return;
+        n++;
+        link.addEventListener('click', function () {
+          fire('waitlist_cta_click', linkParams(link, {
+            destination_type: 'waitlist'
+          }));
+        });
+      })(links[i]);
+    }
+    if (DEBUG) console.log('[GA4] waitlist_cta_click wired:', n, 'buttons');
+  }
+
   // ── Event 2: email_signup (Klaviyo postMessage; dormant until form added) ─
   function setupEmailSignup() {
     window.addEventListener('message', function (e) {
@@ -289,7 +308,7 @@
     });
   }
 
-  // ── Event 6: checkout_cta_impression (50% in viewport, once per element) ──
+  // ── Event 6: product/waitlist CTA impressions (50% in viewport, once) ─────
   function setupCheckoutImpressions() {
     if (typeof IntersectionObserver !== 'function') return;
     var seen = new WeakSet();
@@ -299,15 +318,17 @@
         if (!entry.isIntersecting) continue;
         if (seen.has(entry.target)) continue;
         seen.add(entry.target);
-        fire('checkout_cta_impression', baseParams({
-          button_location: buttonLocation(entry.target)
+        var isWaitlist = WAITLIST_HREF_PATTERN.test(entry.target.href || '');
+        fire(isWaitlist ? 'waitlist_cta_impression' : 'checkout_cta_impression', baseParams({
+          button_location: buttonLocation(entry.target),
+          destination: entry.target.getAttribute('href') || ''
         }));
         observer.unobserve(entry.target);
       }
     }, { threshold: 0.5 });
     var links = document.querySelectorAll('a[href]');
     for (var i = 0; i < links.length; i++) {
-      if (CHECKOUT_HREF_PATTERN.test(links[i].href)) observer.observe(links[i]);
+      if (CHECKOUT_HREF_PATTERN.test(links[i].href) || WAITLIST_HREF_PATTERN.test(links[i].href)) observer.observe(links[i]);
     }
   }
 
@@ -387,6 +408,13 @@
         }));
       }
 
+      if (WAITLIST_HREF_PATTERN.test(href)) {
+        fire('product_waitlist_click', linkParams(link, {
+          product_name: 'Maintane Natural Septic Tank Treatment',
+          destination_type: 'waitlist'
+        }));
+      }
+
       if (path === '/septic-care-checklist.html' || hash === '#checklist-form') {
         fire('checklist_cta_click', linkParams(link));
       }
@@ -451,6 +479,7 @@
   // ── Init ─────────────────────────────────────────────────────────────────
   function init() {
     setupCheckoutClick();
+    setupWaitlistClick();
     setupEmailSignup();
     setupDosingGuideViewed();
     setupBlogRead();

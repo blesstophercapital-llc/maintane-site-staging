@@ -4,14 +4,14 @@ Purpose: own the "natural septic treatment" angle on Meta with simple, trustwort
 
 Core offer: Maintane natural septic treatment powder, $39.99.
 
-Primary product URL: https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment
+Primary product URL: https://getmaintane.com/waitlist/
 
 Campaign naming:
 
 - Campaign: `natural_septic`
 - Objective: start with leads or traffic while learning, then split winners into sales campaigns.
 - Main KPI: landing page view to lead submit rate.
-- Secondary KPI: checkout CTA click rate.
+- Secondary KPI: waitlist CTA click rate until Shopify checkout is verified live.
 - Guardrail: avoid claims that Maintane fixes clogs, backups, failed drain fields, or replaces pumping.
 
 ## Ad Set 1: Smell And Slow Drains
@@ -221,8 +221,8 @@ Audience intent: higher-information buyer wants to know what "natural septic tre
 ## Launch Notes
 
 - Start with the four ad sets above, each with 3-5 variants.
-- Run all variants to the landing page first, not directly to Shopify, so the pixel can learn page engagement and checkout CTA behavior.
-- Watch: landing page view rate, lead submit rate, checkout CTA clicks, product page visits, add-to-cart, and purchase.
+- Run all variants to the landing page first, not directly to Shopify, so the pixel can learn page engagement and waitlist CTA behavior.
+- Watch: landing page view rate, lead submit rate, waitlist CTA clicks, product page visits after Shopify is live, add-to-cart, and purchase.
 - Kill hooks with weak landing page view rate first.
 - Keep hooks with strong landing page view rate but weak lead/CTA rate and test landing page section order or CTA emphasis later.
 - Do not over-optimize before each variant has enough clicks to show a real pattern.

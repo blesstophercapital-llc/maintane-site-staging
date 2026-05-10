@@ -6,7 +6,7 @@ Use this pack when creating citation profiles, product listings, review profiles
 
 - Brand name: Maintane
 - Website: `https://getmaintane.com`
-- Product URL: `https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment`
+- Product URL: `https://getmaintane.com/waitlist/`
 - Contact email: `hello@getmaintane.com`
 - Category: Natural septic tank treatment, septic maintenance, home maintenance
 - Product: Natural septic tank treatment powder

@@ -12,14 +12,11 @@ This file defines the reusable funnel structure so future landing pages stay org
 ## Core Flow
 
 1. Organic blog traffic answers a specific homeowner problem.
-2. Problem-aware visitors go to the matching symptom page or `/septic-treatment.html`.
-3. Research-mode visitors go to `/dosing-guide.html` or `/waitlist/`.
-4. The main first yes is the waitlist/email capture.
-5. Ready-to-buy visitors can still go directly to Shopify.
+2. Problem-aware visitors go to `/septic-treatment.html`.
+3. Research-mode visitors go to `/septic-care-checklist.html`.
+4. Ready-to-buy visitors go to the onsite waitlist until Shopify product availability is verified live.
 5. Email leads enter Klaviyo through `js/lead-capture.js`.
 6. Confirmed leads see an immediate second-step offer to buy the first jar.
-
-Use `/seo/funnel-map.html` when you want to see the page system visually. Use `/seo/utm-campaign-map.md` when setting up paid social, organic social, creator links, or referral links.
 
 ## Dream Customer
 
@@ -61,16 +58,16 @@ The hook earns attention. The story creates trust. The offer gives a clean next 
 
 ## First Yes And Second Yes
 
-The first yes is not always a purchase. For research-mode and paid-social traffic, the first yes is the email signup:
+The first yes is not always a purchase. For research-mode traffic, the first yes is the email signup:
 
-- "Join the Maintane Waitlist"
-- "Get early access and launch pricing"
-- "See the dosing guide"
+- "Get the free septic checklist"
+- "Send me the checklist"
+- "How to use Maintane"
 
 The second yes happens after the visitor has raised their hand:
 
-- Post-opt-in product offer: "Shop Maintane - $39.99"
-- Follow-up email CTA to the Shopify product page.
+- Post-opt-in product offer: "Join the Maintane waitlist" until the product page is live.
+- Follow-up email CTA to the verified purchase page once Shopify is live.
 - Retargeting around the 10-second monthly routine.
 
 Future upsell paths should stay simple until the product system supports them:
@@ -185,7 +182,8 @@ These assets are built as top-of-funnel and mid-funnel pages with canonical tags
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
 - Linkable asset pages use the page slug plus `_landing` as the lead source, for example `septic_smell_checklist_landing`.
 - `funnel_cta_click`: GA4 event fired when visitors click links to the hub, checklist, or intent-specific landing pages.
-- `product_cta_click`: GA4 event fired when visitors click a Maintane product CTA that leaves for Shopify.
+- `product_waitlist_click`: GA4 event fired when visitors click a Maintane product CTA routed to the waitlist.
+- `product_cta_click`: GA4 event fired when visitors click a Maintane product CTA that leaves for Shopify after the product page is verified live.
 - `lead_form_submit`: GA4 event fired after any onsite email form successfully submits to Klaviyo.
 - `checklist_lead_submit`: source-specific GA4 event for checklist/landing-page forms.
 - `popup_lead_submit`: source-specific GA4 event for the popup form.
@@ -210,14 +208,12 @@ The current linkable asset layer now covers the main avatar and outreach angles.
 - `/seo/outreach-and-repurpose-bank.md`: reusable pitches, creator hooks, carousel outlines, short-form scripts, and UTM examples.
 - `/seo/referral-site-targets.csv`: directory, citation, review, editorial, and profile targets for building entity footprint.
 - `/seo/profile-copy-pack.md`: profile descriptions, anchor text rotation, and submission copy.
-- `/seo/funnel-map.html`: visual map of traffic lanes, page bundles, conversion routes, and UTM examples.
-- `/seo/utm-campaign-map.md`: canonical UTM naming system for paid, organic, creator, and referral traffic.
 
 ## Build Rules
 
 - Use `/css/funnel.css` instead of inline page-specific CSS unless a section is truly unique.
 - Use `data-lead-form`, `data-lead-source`, and `data-lead-list-id` for every list-specific lead form.
 - Use `data-lead-next` for the immediate second-step offer after successful signup.
-- Purchase CTAs should go directly to `https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment`.
-- Research CTAs should point to `/waitlist/`, `/dosing-guide.html`, `/septic-care-checklist.html`, or a relevant educational page.
+- Purchase-intent CTAs should go to `https://getmaintane.com/waitlist/` until the Shopify product page is verified live.
+- Research CTAs should point to `/septic-care-checklist.html` or a relevant educational page.
 - Every indexable funnel page needs canonical, SEO title, meta description, OG/Twitter tags, schema, and sitemap entry.
