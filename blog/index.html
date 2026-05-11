@@ -2380,14 +2380,14 @@
   <!-- Posts (cream) -->
   <section class="blog-posts-section">
     <div class="blog-inner">
-      <div class="blog-pills-row" role="tablist" aria-label="Filter posts by category">
-        <button type="button" class="blog-pill is-active" data-filter="all">All posts</button>
-        <button type="button" class="blog-pill" data-filter="getting-started">Getting Started</button>
-        <button type="button" class="blog-pill" data-filter="warning-signs">Warning Signs</button>
-        <button type="button" class="blog-pill" data-filter="the-science">The Science</button>
-        <button type="button" class="blog-pill" data-filter="treatment">Treatment</button>
-        <button type="button" class="blog-pill" data-filter="kid-pet-safe">Kid &amp; Pet Safe</button>
-        <button type="button" class="blog-pill" data-filter="best-practices">Best Practices</button>
+      <div class="blog-pills-row" role="navigation" aria-label="Browse posts by category">
+        <a class="blog-pill is-active" href="/blog/" data-filter="all">All posts</a>
+        <a class="blog-pill" href="/blog/getting-started/" data-filter="getting-started">Getting Started</a>
+        <a class="blog-pill" href="/blog/warning-signs/" data-filter="warning-signs">Warning Signs</a>
+        <a class="blog-pill" href="/blog/the-science/" data-filter="the-science">The Science</a>
+        <a class="blog-pill" href="/blog/treatment/" data-filter="treatment">Treatment</a>
+        <a class="blog-pill" href="/blog/kid-pet-safe/" data-filter="kid-pet-safe">Kid & Pet Safe</a>
+        <a class="blog-pill" href="/blog/best-practices/" data-filter="best-practices">Best Practices</a>
       </div>
 
       <div class="blog-grid">
@@ -3108,32 +3108,6 @@ function closeMobileMenu() {
 })();
 </script>
 
-<script>
-(function() {
-  var pills = document.querySelectorAll('.blog-pill');
-  var cards = document.querySelectorAll('.blog-card[data-category]');
-  if (!pills.length || !cards.length) return;
-  function activate(filter) {
-    pills.forEach(function(p) { p.classList.toggle('is-active', p.dataset.filter === filter); });
-    cards.forEach(function(card) {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-  pills.forEach(function(pill) {
-    pill.addEventListener('click', function() { activate(pill.dataset.filter); });
-  });
-  // Honor ?category=<slug> on load — lets blog post category eyebrows deep-link into the index.
-  var params = new URLSearchParams(window.location.search);
-  var initial = params.get('category');
-  if (initial) {
-    var match = document.querySelector('.blog-pill[data-filter="' + initial + '"]');
-    if (match) activate(initial);
-  }
-})();
-</script>
+<!-- Category browsing uses real indexable pages under /blog/<category>/. -->
 </body>
 </html>
