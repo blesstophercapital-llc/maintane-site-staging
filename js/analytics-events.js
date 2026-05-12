@@ -6,17 +6,16 @@
  * `faq_expand` is deliberately omitted — dosing-guide FAQs are static content,
  * not accordions; revisit when accordion is built.
  *
- * Staging guard: when hostname includes "staging", listeners install but
- * `gtag('event', ...)` is never called — so staging traffic doesn't pollute
- * the production analytics property. Set DEBUG=true to console.log every event
- * (works on staging and prod for verification).
+ * Analytics guard: listeners install everywhere, but events only send when
+ * /js/analytics-loader.js says analytics is enabled for the production domain.
+ * Set DEBUG=true to console.log every event for verification.
  */
 (function () {
   'use strict';
 
   // ── Configuration ────────────────────────────────────────────────────────
   var DEBUG = false;
-  var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
+  var ANALYTICS_DISABLED = !!window.MAINTANE_ANALYTICS_DISABLED;
 
   var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
   var FUNNEL_DESTINATIONS = [
@@ -79,14 +78,14 @@
 
   function fire(name, params) {
     if (DEBUG) console.log('[GA4]', name, params);
-    if (!IS_STAGING && typeof gtag === 'function') {
+    if (!ANALYTICS_DISABLED && typeof gtag === 'function') {
       gtag('event', name, params);
     }
     fireMeta(name, params);
   }
 
   function fireMeta(name, params) {
-    if (IS_STAGING || typeof fbq !== 'function') return;
+    if (ANALYTICS_DISABLED || typeof fbq !== 'function') return;
     var metaParams = params || {};
     try {
       if (name === 'checkout_click') {
@@ -463,7 +462,7 @@
     setupMobileMenu();
     setupContactForm();
     setupDataEventHooks();
-    if (DEBUG) console.log('[GA4] analytics-events.js initialized', { staging: IS_STAGING });
+    if (DEBUG) console.log('[GA4] analytics-events.js initialized', { analyticsDisabled: ANALYTICS_DISABLED });
   }
 
   if (document.readyState === 'loading') {

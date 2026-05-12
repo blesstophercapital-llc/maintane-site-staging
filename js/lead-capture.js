@@ -4,9 +4,9 @@
 (function () {
   'use strict';
 
-  var IS_STAGING = (function () {
+  var IS_TEST_ENV = (function () {
     var h = (window.location.hostname || '').toLowerCase();
-    return h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
+    return !!window.MAINTANE_ANALYTICS_DISABLED || h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
   })();
 
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
@@ -23,10 +23,10 @@
   }
 
   function track(event, params) {
-    if (typeof window.gtag === 'function') {
+    if (!window.MAINTANE_ANALYTICS_DISABLED && typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) {}
     }
-    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+    if (!IS_TEST_ENV && event === 'email_signup' && typeof window.fbq === 'function') {
       try {
         window.fbq('track', 'Lead', {
           content_name: 'Maintane Landing Page Lead',
@@ -64,8 +64,8 @@
       input.classList.remove('is-invalid');
       if (submit) submit.disabled = true;
 
-      if (IS_STAGING) {
-        console.log('[lead-capture] STAGING — would POST to Klaviyo', {
+      if (IS_TEST_ENV) {
+        console.log('[lead-capture] TEST ENV — would POST to Klaviyo', {
           email: email, list: listId, source: source
         });
         onSuccess();

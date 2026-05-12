@@ -1,13 +1,13 @@
 /* Footer waitlist capture — getmaintane.com
  * Submits to Klaviyo Pre-Launch Waitlist (Ue3eN8) with signup_source=footer_waitlist.
- * Self-contained IS_STAGING check so it works whether or not popup.js is loaded.
+ * Self-contained test environment check so staging/build previews never submit.
  */
 (function () {
   'use strict';
 
-  var IS_STAGING = (function () {
+  var IS_TEST_ENV = (function () {
     var h = (window.location.hostname || '').toLowerCase();
-    return h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
+    return !!window.MAINTANE_ANALYTICS_DISABLED || h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
   })();
 
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
@@ -24,10 +24,10 @@
   }
 
   function track(event, params) {
-    if (typeof window.gtag === 'function') {
+    if (!window.MAINTANE_ANALYTICS_DISABLED && typeof window.gtag === 'function') {
       try { window.gtag('event', event, params || {}); } catch (e) {}
     }
-    if (!IS_STAGING && event === 'email_signup' && typeof window.fbq === 'function') {
+    if (!IS_TEST_ENV && event === 'email_signup' && typeof window.fbq === 'function') {
       try {
         window.fbq('track', 'Lead', {
           content_name: 'Maintane Footer Waitlist',
@@ -57,8 +57,8 @@
       input.style.borderColor = '';
       if (submit) submit.disabled = true;
 
-      if (IS_STAGING) {
-        console.log('[footer-waitlist] STAGING — would POST to Klaviyo', {
+      if (IS_TEST_ENV) {
+        console.log('[footer-waitlist] TEST ENV — would POST to Klaviyo', {
           email: email, list: KLAVIYO_LIST_ID, source: 'footer_waitlist'
         });
         onSuccess();
