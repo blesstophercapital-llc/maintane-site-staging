@@ -180,6 +180,6 @@ CTA: "Use the septic smell checklist at getmaintane.com."
 https://getmaintane.com/printable-septic-rules-for-guests.html?utm_source=airbnb_host_resource&utm_medium=referral&utm_campaign=guest_rules_asset
 https://getmaintane.com/septic-inspection-checklist.html?utm_source=home_inspector&utm_medium=referral&utm_campaign=inspection_checklist_asset
 https://getmaintane.com/septic-smell-checklist.html?utm_source=quora&utm_medium=community&utm_campaign=smell_checklist_asset
-https://getmaintane.com/septic-safe-cleaning-products.html?utm_source=pinterest&utm_medium=social&utm_campaign=cleaning_products_asset
+https://getmaintane.com/septic-safe-cleaning-products.html?utm_source=pinterest&utm_medium=organic_social&utm_campaign=cleaning_products_asset&utm_content=pin_resource
 https://getmaintane.com/septic-maintenance-calendar.html?utm_source=septic_resource_page&utm_medium=referral&utm_campaign=maintenance_calendar_asset
 ```

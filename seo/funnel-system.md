@@ -176,11 +176,18 @@ These assets are built as top-of-funnel and mid-funnel pages with canonical tags
 - `/js/funnel.js`: shared mobile menu behavior.
 - `/js/lead-capture.js`: reusable Klaviyo lead capture handler with post-signup second-step offer support.
 
+## Chunk 4 Conversion Architecture
+
+Primary conversion goal right now is **Get 10% Off + Early Access** via `/waitlist/`. Keep product-intent CTAs consistent across homepage, blog posts, product/routine pages, dosing guide, and waitlist surfaces until Shopify checkout is verified live. Research-mode users may still be routed to `/septic-care-checklist.html`, but that should be secondary to waitlist on product-aware pages. Full architecture lives in `/seo/conversion-architecture-and-event-taxonomy.md`.
+
 ## Tracking Sources
+
+See `/seo/utm-campaign-map.md` for external traffic naming and `/seo/ga4-event-taxonomy.md` for GA4 event interpretation.
 
 - `septic_treatment_landing`: embedded checklist form on the broad treatment page. Sends to Klaviyo list `XKHBEk`.
 - `septic_checklist_landing`: dedicated checklist squeeze page. Sends to Klaviyo list `XKHBEk`.
-- Linkable asset pages use the page slug plus `_landing` as the lead source, for example `septic_smell_checklist_landing`.
+- Linkable asset pages use the page slug plus `_landing` as the form/signup source, for example `septic_smell_checklist_landing`.
+- Onsite form source labels should be sent to GA4 as `signup_source`, not `source`, so they do not muddy traffic-source reporting.
 - `funnel_cta_click`: GA4 event fired when visitors click links to the hub, checklist, or intent-specific landing pages.
 - `product_waitlist_click`: GA4 event fired when visitors click a Maintane product CTA routed to the waitlist.
 - `product_cta_click`: GA4 event fired when visitors click a Maintane product CTA that leaves for Shopify after the product page is verified live.

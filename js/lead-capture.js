@@ -30,7 +30,7 @@
       try {
         window.fbq('track', 'Lead', {
           content_name: 'Maintane Landing Page Lead',
-          source: (params && params.source) || 'landing_page',
+          source: (params && (params.signup_source || params.form_id)) || 'landing_page',
           source_page: window.location.pathname
         });
       } catch (e) {}
@@ -50,6 +50,17 @@
     var successRedirect = form.getAttribute('data-success-redirect') || '';
 
     if (!input) return;
+
+    input.addEventListener('focus', function () {
+      var eventParams = {
+        signup_source: source,
+        source_page: window.location.pathname,
+        form_id: source,
+        list_id: listId
+      };
+      track('form_start', eventParams);
+      track('lead_form_start', eventParams);
+    }, { once: true });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -111,23 +122,24 @@
     function onSuccess() {
       setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
       var eventParams = {
-        source: source,
+        signup_source: source,
         source_page: window.location.pathname,
         form_id: source,
         list_id: listId
       };
       track('email_signup', {
-        source: source,
+        signup_source: source,
         source_page: window.location.pathname,
         form_id: source,
         list_id: listId
       });
       track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
-      track('checklist_lead_submit', eventParams);
+      if (source.indexOf('waitlist') !== -1) track('waitlist_complete', eventParams);
+      if (source.indexOf('checklist') !== -1) track('checklist_lead_submit', eventParams);
       if (explicitEvent) {
         track(explicitEvent, {
-          source: source,
+          signup_source: source,
           source_page: window.location.pathname,
           form_id: source,
           list_id: listId,

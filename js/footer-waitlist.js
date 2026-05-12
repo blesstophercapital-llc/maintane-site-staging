@@ -31,7 +31,7 @@
       try {
         window.fbq('track', 'Lead', {
           content_name: 'Maintane Footer Waitlist',
-          source: (params && params.source) || 'footer_waitlist',
+          source: (params && (params.signup_source || params.form_id)) || 'footer_waitlist',
           source_page: window.location.pathname
         });
       } catch (e) {}
@@ -45,6 +45,17 @@
     var success = document.getElementById('footer-waitlist-success');
     var error   = document.getElementById('footer-waitlist-error');
     var submit  = form.querySelector('button[type="submit"]');
+
+    if (input) input.addEventListener('focus', function () {
+      var eventParams = {
+        signup_source: 'footer_waitlist',
+        source_page: window.location.pathname,
+        form_id: 'footer_waitlist',
+        list_id: KLAVIYO_LIST_ID
+      };
+      track('form_start', eventParams);
+      track('lead_form_start', eventParams);
+    }, { once: true });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -103,19 +114,20 @@
     function onSuccess() {
       setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
       var eventParams = {
-        source: 'footer_waitlist',
+        signup_source: 'footer_waitlist',
         source_page: window.location.pathname,
         form_id: 'footer_waitlist',
         list_id: KLAVIYO_LIST_ID
       };
       track('email_signup', {
-        source: 'footer_waitlist',
+        signup_source: 'footer_waitlist',
         source_page: window.location.pathname,
         form_id: 'footer_waitlist',
         list_id: KLAVIYO_LIST_ID
       });
       track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
+      track('waitlist_complete', eventParams);
       track('footer_waitlist_submit', eventParams);
       form.style.display = 'none';
       if (error) error.style.display = 'none';

@@ -1,6 +1,6 @@
 /* Pre-launch waitlist popup — getmaintane.com
- * Shows quickly after page load, scroll intent, or exit intent.
- * Dismissals do not persist, so each new page visit gets a fresh popup.
+ * Shows after content engagement, deeper scroll intent, or exit intent.
+ * Dismissals persist briefly so the popup does not fight every page view.
  * Submits to Klaviyo's client subscriptions API; adds profile to list Ue3eN8.
  * Staging guard: listeners render the popup but never POST to Klaviyo.
  */
@@ -18,9 +18,10 @@
   var KLAVIYO_ENDPOINT    = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION    = '2024-10-15';
 
-  var SHOW_DELAY_MS           = 1200;
-  var SCROLL_TRIGGER_RATIO    = 0.28;
+  var SHOW_DELAY_MS           = 7000;
+  var SCROLL_TRIGGER_RATIO    = 0.55;
   var EXIT_INTENT_Y           = 18;
+  var DISMISSED_COOKIE_DAYS   = 7;
   var CONVERTED_COOKIE_DAYS   = 365;
   var ANIM_DURATION_MS        = 250;
   var SUCCESS_AUTOCLOSE_MS    = 3000;
@@ -49,7 +50,7 @@
       try {
         window.fbq('track', 'Lead', {
           content_name: 'Maintane Popup Waitlist',
-          source: (params && params.source) || 'pre_launch_popup',
+          source: (params && (params.signup_source || params.form_id)) || 'popup_waitlist',
           source_page: window.location.pathname
         });
       } catch (e) { /* no-op */ }
@@ -70,11 +71,9 @@
     // Skip popup on thank-you page (users just converted via contact form)
     if (window.location.pathname === '/thank-you.html') return;
 
-    // Clear legacy dismissal cookies so closed popups reset on every new visit.
-    deleteCookie('maintane_popup_dismissed');
-
-    // Short-circuit only if the user already converted.
+    // Short-circuit if the visitor already converted or dismissed recently.
     if (getCookie('maintane_popup_converted')) return;
+    if (getCookie('maintane_popup_dismissed')) return;
 
     closeBtn   = popup.querySelector('.maintane-popup__close');
     form       = popup.querySelector('#maintane-popup-form');
@@ -84,6 +83,7 @@
     submitBtn  = popup.querySelector('.maintane-popup__submit');
 
     if (closeBtn) closeBtn.addEventListener('click', function () { closePopup(); });
+    if (emailInput) emailInput.addEventListener('focus', trackFormStart, { once: true });
     if (form)     form.addEventListener('submit', onSubmit);
     document.addEventListener('keydown', onKeydown);
     document.addEventListener('mouseleave', onExitIntent);
@@ -154,6 +154,7 @@
     }
 
     if (!skipDismissCookie) {
+      setCookie('maintane_popup_dismissed', '1', DISMISSED_COOKIE_DAYS);
       track('popup_dismissed', { source_page: window.location.pathname });
     }
   }
@@ -180,6 +181,22 @@
     }
   }
 
+
+  function trackFormStart() {
+    track('form_start', {
+      signup_source: 'popup_waitlist',
+      source_page: window.location.pathname,
+      form_id: 'popup_waitlist',
+      list_id: KLAVIYO_LIST_ID
+    });
+    track('lead_form_start', {
+      signup_source: 'popup_waitlist',
+      source_page: window.location.pathname,
+      form_id: 'popup_waitlist',
+      list_id: KLAVIYO_LIST_ID
+    });
+  }
+
   // ── Form submission ──────────────────────────────────────────────────────
   function onSubmit(e) {
     e.preventDefault();
@@ -197,7 +214,7 @@
     // Staging: don't actually hit Klaviyo; still flow through success for testing
     if (IS_STAGING) {
       console.log('[popup] STAGING — would POST to Klaviyo', {
-        email: email, list: KLAVIYO_LIST_ID, source: 'pre_launch_popup'
+        email: email, list: KLAVIYO_LIST_ID, signup_source: 'popup_waitlist'
       });
       onSuccess(email);
       return;
@@ -219,13 +236,13 @@
                 attributes: {
                   email: email,
                   properties: {
-                    signup_source: 'pre_launch_popup',
+                    signup_source: 'popup_waitlist',
                     source_page: window.location.pathname
                   }
                 }
               }
             },
-            custom_source: 'pre_launch_popup'
+            custom_source: 'popup_waitlist'
           },
           relationships: {
             list: {
@@ -246,19 +263,20 @@
   function onSuccess(email) {
     setCookie('maintane_popup_converted', '1', CONVERTED_COOKIE_DAYS);
     var eventParams = {
-      source: 'pre_launch_popup',
+      signup_source: 'popup_waitlist',
       source_page: window.location.pathname,
-      form_id: 'pre_launch_popup',
+      form_id: 'popup_waitlist',
       list_id: KLAVIYO_LIST_ID
     };
     track('email_signup', {
-      source: 'pre_launch_popup',
+      signup_source: 'popup_waitlist',
       source_page: window.location.pathname,
-      form_id: 'pre_launch_popup',
+      form_id: 'popup_waitlist',
       list_id: KLAVIYO_LIST_ID
     });
     track('lead_form_submit', eventParams);
     track('generate_lead', eventParams);
+    track('waitlist_complete', eventParams);
     track('popup_lead_submit', eventParams);
 
     if (form)      form.style.display = 'none';

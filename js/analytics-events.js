@@ -214,11 +214,13 @@
         if (!CHECKOUT_HREF_PATTERN.test(link.href)) return;
         n++;
         link.addEventListener('click', function () {
-          fire('checkout_click', baseParams({
+          var params = baseParams({
             button_location: buttonLocation(link),
             cta_text: cleanText(link.textContent, 100),
             destination: link.getAttribute('href') || ''
-          }));
+          });
+          fire('checkout_click', params);
+          fire('checkout_start', params);
         });
       })(links[i]);
     }

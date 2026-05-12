@@ -52,7 +52,7 @@ Bio link copy:
 
 Default UTM:
 
-`https://getmaintane.com/free-septic-resources.html?utm_source=instagram&utm_medium=social&utm_campaign=free_resource_hub`
+`https://getmaintane.com/free-septic-resources.html?utm_source=instagram&utm_medium=organic_social&utm_campaign=free_resource_hub&utm_content=bio_link`
 
 ### Community Answers
 
