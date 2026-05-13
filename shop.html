@@ -203,15 +203,6 @@
       color: var(--warm-cream);
       background: var(--forest-green);
     }
-    .shop-hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: center;
-      width: min(1180px, calc(100% - 2rem));
-      margin: 0 auto;
-      padding: clamp(3rem, 7vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
-    }
     .eyebrow {
       margin: 0 0 1rem;
       color: var(--forest-green);
@@ -219,34 +210,6 @@
       font-weight: 800;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-    }
-    h1 {
-      margin: 0;
-      font-family: var(--font-display);
-      font-size: clamp(3.2rem, 8vw, 7.2rem);
-      font-weight: 900;
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-      color: var(--dark-bark);
-    }
-    h1 em {
-      display: block;
-      color: var(--forest-green);
-      font-style: italic;
-    }
-    .hero-copy {
-      max-width: 680px;
-      margin: 1.5rem 0 0;
-      color: rgba(44, 36, 23, 0.76);
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      line-height: 1.55;
-    }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
     }
     .btn {
       display: inline-flex;
@@ -268,87 +231,19 @@
       box-shadow: 0 18px 34px rgba(59, 92, 58, 0.22);
     }
     .btn-secondary { color: var(--forest-green); background: rgba(255, 255, 255, 0.44); }
-    .hero-trust {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-top: 2rem;
-      max-width: 650px;
-    }
-    .trust-pill {
-      padding: 0.85rem 0.9rem;
-      border: 1px solid rgba(59, 92, 58, 0.16);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.42);
-      color: rgba(44, 36, 23, 0.78);
-      font-size: 0.86rem;
-      font-weight: 800;
-      text-align: center;
-    }
-    .hero-product-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 36px;
-      padding: clamp(1.25rem, 3vw, 2rem);
-      background: linear-gradient(160deg, #314C30 0%, #3B5C3A 55%, #213521 100%);
-      color: var(--warm-cream);
-      box-shadow: 0 30px 80px rgba(44, 36, 23, 0.22);
-      min-height: 480px;
-    }
-    .hero-product-card::before {
-      content: "";
-      position: absolute;
-      inset: -20% -30% auto auto;
-      width: 24rem;
-      height: 24rem;
-      border-radius: 50%;
-      background: rgba(196, 168, 130, 0.24);
-      filter: blur(2px);
-    }
-    .product-img-wrap {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 320px;
-      border-radius: 28px;
-      background: radial-gradient(circle, rgba(250,246,240,0.28) 0%, rgba(250,246,240,0.04) 62%, transparent 70%);
-    }
-    .product-img-wrap img {
-      width: min(84%, 360px);
-      height: auto;
-      filter: drop-shadow(0 30px 34px rgba(0,0,0,0.32));
-      transform: rotate(-3deg);
-    }
-    .hero-price-row {
-      position: relative;
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-    .hero-price-row strong {
-      display: block;
-      font-size: 2.6rem;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-    .hero-price-row span {
-      display: block;
-      margin-top: 0.35rem;
-      color: rgba(250, 246, 240, 0.74);
-      font-size: 0.88rem;
-      line-height: 1.4;
-    }
     .shop-section {
       width: min(1180px, calc(100% - 2rem));
       margin: 0 auto;
       padding: clamp(2.5rem, 7vw, 5.5rem) 0;
     }
+    .shop-section-first {
+      padding-top: clamp(2.5rem, 6vw, 4.5rem);
+    }
     .section-heading {
       max-width: 760px;
       margin-bottom: 2rem;
     }
+    .section-heading h1,
     .section-heading h2 {
       margin: 0;
       font-family: var(--font-display);
@@ -564,7 +459,6 @@
       font-weight: 800;
     }
     @media (max-width: 920px) {
-      .shop-hero,
       .story-band {
         grid-template-columns: 1fr;
       }
@@ -579,18 +473,14 @@
       .shop-nav { align-items: flex-start; }
       .shop-nav-links a:not(.shop-nav-cta) { display: none; }
       .shop-nav .shop-nav-cta { padding: 0.65rem 0.9rem; font-size: 0.76rem; }
-      .shop-hero { padding-top: 2.25rem; }
-      .hero-trust,
       .offer-grid,
       .faq-grid,
       .proof-grid {
         grid-template-columns: 1fr;
       }
-      .hero-actions .btn { width: 100%; }
-      .hero-product-card { min-height: auto; }
-      .product-img-wrap { min-height: 245px; }
       .offer-media { min-height: 175px; }
       .shop-section { width: min(100% - 1rem, 1180px); }
+      .shop-section-first { padding-top: 2rem; }
       .story-band,
       .final-cta { border-radius: 26px; }
     }
@@ -612,39 +502,10 @@
 </header>
 
 <main>
-  <section class="shop-hero" aria-labelledby="shop-title">
-    <div>
-      <p class="eyebrow">Natural septic care, simplified</p>
-      <h1 id="shop-title">Choose your <em>Maintane.</em></h1>
-      <p class="hero-copy">Simple monthly septic treatment powder for homeowners who want an easier way to stay consistent. One level scoop per toilet, once a month. No harsh chemical approach. No complicated routine.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#bundles" data-event="shop_hero_cta" data-event-label="choose_your_pack">Choose your pack</a>
-        <a class="btn btn-secondary" href="/dosing-guide.html" data-event="shop_secondary_cta" data-event-label="dosing_guide">See dosing guide</a>
-      </div>
-      <div class="hero-trust" aria-label="Maintane product trust points">
-        <div class="trust-pill">Kid &amp; pet safe</div>
-        <div class="trust-pill">12B CFU per dose</div>
-        <div class="trust-pill">Made in USA</div>
-      </div>
-    </div>
-    <aside class="hero-product-card" aria-label="Maintane product">
-      <div class="product-img-wrap">
-        <img src="/product-hero.png" alt="Maintane natural septic treatment powder jar">
-      </div>
-      <div class="hero-price-row">
-        <div>
-          <strong>From $49.99</strong>
-          <span>Single jar, 2-pack, and 3-pack available.</span>
-        </div>
-        <span>Free shipping offer shown at checkout where available.</span>
-      </div>
-    </aside>
-  </section>
-
-  <section class="shop-section" id="bundles" aria-labelledby="bundles-title">
+  <section class="shop-section shop-section-first" id="bundles" aria-labelledby="bundles-title">
     <div class="section-heading">
       <p class="eyebrow">Shop Maintane</p>
-      <h2 id="bundles-title">Pick the rhythm that fits your home.</h2>
+      <h1 id="bundles-title">Pick the rhythm that fits your home.</h1>
       <p>Start with one jar, keep an extra on hand, or stock up for the best per-jar value. Every option uses the same simple monthly routine.</p>
     </div>
 
