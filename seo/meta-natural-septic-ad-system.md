@@ -2,7 +2,7 @@
 
 Purpose: own the "natural septic treatment" angle on Meta with simple, trustworthy homeowner education that routes people into the Maintane funnel.
 
-Core offer: Maintane natural septic treatment powder, $39.99.
+Core offer: Maintane natural septic treatment powder, $49.99.
 
 Primary product URL: https://getmaintane.com/waitlist/
 
@@ -103,7 +103,7 @@ Audience intent: homeowner has kids, pets, guests, laundry, cleaning products, a
 - Hook: One monthly habit for the septic system everyone forgets.
 - Primary text: If septic care only gets attention when something smells wrong, the routine is already too complicated. Build a calmer monthly habit with Maintane.
 - Headline: Monthly Septic Care Made Simple
-- Description: Natural treatment powder, $39.99.
+- Description: Natural treatment powder, $49.99.
 - CTA: Learn More
 - URL: https://getmaintane.com/natural-septic-treatment-for-families.html?utm_source=meta&utm_medium=paid_social&utm_campaign=natural_septic&utm_content=families_hook_04
 
@@ -163,7 +163,7 @@ Audience intent: buyer is comparing septic shock, emergency-sounding treatments,
 - Hook: The calm alternative to septic panic marketing.
 - Primary text: Maintane is for homeowners who want a simple monthly routine: one level scoop per toilet, once a month. No harsh chemicals. No repair-style promises.
 - Headline: Natural Septic Treatment Powder
-- Description: Shop Maintane for $39.99.
+- Description: Shop Maintane for $49.99.
 - CTA: Shop Now
 - URL: https://getmaintane.com/natural-septic-treatment-vs-septic-shock.html?utm_source=meta&utm_medium=paid_social&utm_campaign=natural_septic&utm_content=shock_comparison_hook_05
 
@@ -214,7 +214,7 @@ Audience intent: higher-information buyer wants to know what "natural septic tre
 - Hook: A natural routine should be easy to repeat.
 - Primary text: Maintane keeps the monthly septic routine simple: bacterial support, one level scoop per toilet, once a month, and no harsh chemical habit.
 - Headline: Maintane Natural Septic Treatment
-- Description: Shop Maintane for $39.99.
+- Description: Shop Maintane for $49.99.
 - CTA: Shop Now
 - URL: https://getmaintane.com/natural-septic-treatment-ingredients.html?utm_source=meta&utm_medium=paid_social&utm_campaign=natural_septic&utm_content=ingredients_hook_05
 

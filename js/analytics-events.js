@@ -410,7 +410,7 @@
 
       if (CHECKOUT_HREF_PATTERN.test(href)) {
         fire('product_cta_click', linkParams(link, {
-          value: 39.99,
+          value: 49.99,
           currency: 'USD',
           product_name: 'Maintane Natural Septic Tank Treatment'
         }));

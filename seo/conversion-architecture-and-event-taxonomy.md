@@ -7,7 +7,7 @@ Owner: Mercury + Athena + Atlas
 
 Primary conversion goal right now: **join the Maintane waitlist for 10% off and early access**.
 
-Reason: the live site routes product intent to `/waitlist/`; Shopify checkout should not be treated as the primary path until the product/checkout destination is verified live. The offer can still mention the $39.99 first jar, but the CTA action should stay consistent: get early access / get 10% off.
+Reason: the live site routes product intent to `/waitlist/`; Shopify checkout should not be treated as the primary path until the product/checkout destination is verified live. The offer can still mention the $49.99 first jar, but the CTA action should stay consistent: get early access / get 10% off.
 
 ## CTA hierarchy
 

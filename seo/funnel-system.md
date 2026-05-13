@@ -52,7 +52,7 @@ Every funnel page should map to this sequence before copy is written:
 
 - Hook: "Researching septic treatment because something feels off?" This meets the visitor at the smell, slow drain, or maintenance worry that caused the search.
 - Story: Your septic system is biological. Panic-buying harsh additives is not the only option. A simple monthly routine can support the bacteria the system already depends on.
-- Offer: Get the free septic checklist first, or buy the first jar of Maintane for $39.99 if ready.
+- Offer: Get the free septic checklist first, or buy the first jar of Maintane for $49.99 if ready.
 
 The hook earns attention. The story creates trust. The offer gives a clean next step.
 
@@ -167,7 +167,7 @@ These assets are built as top-of-funnel and mid-funnel pages with canonical tags
 
 - High-intent SEO landing pages should answer the plain user question immediately after the hero.
 - Use simple language before clever phrasing: what is happening, what to do first, and what Maintane can honestly do.
-- Pair every answer with product facts: $39.99, one level scoop per toilet once a month, kid and pet safe, Made in USA, no harsh chemicals, and a clear limit.
+- Pair every answer with product facts: $49.99, one level scoop per toilet once a month, kid and pet safe, Made in USA, no harsh chemicals, and a clear limit.
 - For symptom pages, the limit should state that Maintane does not replace pumping, plumbing repairs, or professional diagnosis.
 
 ## Shared Assets

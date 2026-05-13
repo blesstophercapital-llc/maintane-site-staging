@@ -50,7 +50,7 @@ The visitor is comparing Maintane with alternatives or wants details before buyi
 
 - Primary goal: make the product facts obvious and credible.
 - Best assets: comparison pages, powder vs liquid pages, Rid-X alternative page, how-it-works page, review/proof sections.
-- CTA: shop Maintane - $39.99.
+- CTA: shop Maintane - $49.99.
 - Avoid: hiding price, dose, limits, or product fit.
 
 ### 5. Most Aware
@@ -110,7 +110,7 @@ They need calm triage. They want to know what to check first, what is serious, a
 - Clear lists of serious warning signs.
 - Honest "what Maintane does not do" copy.
 - Links to dosing guide and maintenance checklist.
-- Product facts only after triage: $39.99, one scoop per toilet once a month, no harsh chemicals.
+- Product facts only after triage: $49.99, one scoop per toilet once a month, no harsh chemicals.
 
 ### Internal Link Pattern
 
@@ -469,7 +469,7 @@ Examples:
 
 - "One level scoop per toilet, once a month. A simpler septic routine for homes that want no harsh chemicals. Start with the dosing guide."
 - "A septic smell can come from more than the tank. Check the pattern first, then decide whether it is maintenance or a pro issue."
-- "$39.99 per jar. Kid and pet safe. Built for simple monthly septic maintenance."
+- "$49.99 per jar. Kid and pet safe. Built for simple monthly septic maintenance."
 - "Your septic system is biological. Maintane supports the bacteria your system already depends on with a monthly powder routine."
 
 ## Next Page Priorities
