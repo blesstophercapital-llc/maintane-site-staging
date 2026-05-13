@@ -890,91 +890,6 @@ a { color: inherit; }
   margin-top: 1.5rem;
 }
 
-.funnel-problem-solver .funnel-announcement {
-  background: #E7D6BC;
-}
-.funnel-problem-solver .problem-solver-hero {
-  background:
-    radial-gradient(circle at 14% 16%, rgba(196, 168, 130, 0.32), transparent 25rem),
-    radial-gradient(circle at 92% 18%, rgba(228, 236, 223, 0.18), transparent 26rem),
-    linear-gradient(135deg, rgba(44, 36, 23, 0.96), rgba(59, 92, 58, 0.94));
-}
-.problem-solver-proof {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1.55rem;
-}
-.problem-solver-proof span {
-  border: 1px solid rgba(250, 246, 240, 0.24);
-  border-radius: 999px;
-  color: rgba(250, 246, 240, 0.86);
-  font-size: 0.8rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  padding: 0.58rem 0.82rem;
-  text-transform: uppercase;
-}
-.problem-solver-form-card {
-  position: relative;
-  overflow: hidden;
-}
-.problem-solver-form-card::before {
-  content: "";
-  position: absolute;
-  inset: auto -80px -90px auto;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  background: rgba(196, 168, 130, 0.16);
-  pointer-events: none;
-}
-.problem-solver-form-card > * {
-  position: relative;
-  z-index: 1;
-}
-.problem-solver-strip {
-  background:
-    radial-gradient(circle at 12% 0%, rgba(196, 168, 130, 0.22), transparent 28rem),
-    var(--warm-cream);
-}
-.problem-solver-paths {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2.5rem;
-}
-.problem-solver-decision {
-  background:
-    radial-gradient(circle at 85% 10%, rgba(59, 92, 58, 0.08), transparent 24rem),
-    var(--off-cream);
-}
-.problem-solver-card-actions {
-  display: grid;
-  gap: 0.8rem;
-}
-.funnel-next-offer-link {
-  align-items: center;
-  background: var(--warm-cream);
-  border: 1px solid var(--warm-cream);
-  border-radius: 999px;
-  color: var(--forest-green);
-  display: inline-flex;
-  font-size: 0.82rem;
-  font-weight: 900;
-  justify-content: center;
-  letter-spacing: 0.08em;
-  min-height: 50px;
-  padding: 0.9rem 1rem;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.funnel-next-offer-link.secondary {
-  background: transparent;
-  color: var(--warm-cream);
-  border-color: rgba(250, 246, 240, 0.34);
-}
-
 @media (max-width: 980px) {
   .funnel-nav {
     grid-template-columns: auto 1fr;
@@ -1037,7 +952,6 @@ a { color: inherit; }
   }
   .funnel-grid-4,
   .funnel-grid-3,
-  .problem-solver-paths,
   .funnel-resource-links {
     grid-template-columns: 1fr;
   }
