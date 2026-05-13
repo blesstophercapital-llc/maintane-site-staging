@@ -284,6 +284,7 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
+      z-index: 2;
       padding: 0.45rem 0.7rem;
       border-radius: 999px;
       background: var(--botanical-tan);
@@ -301,13 +302,14 @@
       background: linear-gradient(140deg, rgba(228, 236, 223, 0.7), rgba(250, 246, 240, 0.2));
       overflow: hidden;
     }
+    .offer-card.has-ribbon .offer-media {
+      margin-top: 1.35rem;
+    }
     .offer-media img {
       width: min(72%, 210px);
       height: auto;
       filter: drop-shadow(0 22px 24px rgba(44,36,23,0.18));
     }
-    .offer-card:nth-child(2) .offer-media img { transform: translateX(-12px) rotate(-4deg); }
-    .offer-card:nth-child(3) .offer-media img { transform: translateX(-14px) rotate(-4deg); }
     .offer-card h3 {
       margin: 1.3rem 0 0.3rem;
       font-size: 1.35rem;
@@ -527,7 +529,7 @@
         <p class="mini-note">A clean first order for new Maintane customers.</p>
       </article>
 
-      <article class="offer-card">
+      <article class="offer-card has-ribbon">
         <div class="offer-ribbon">Popular</div>
         <div class="offer-media">
           <img src="/product-hero.png" alt="Maintane 2-pack natural septic treatment">
@@ -545,7 +547,7 @@
         <p class="mini-note">Good balance of value and commitment.</p>
       </article>
 
-      <article class="offer-card featured">
+      <article class="offer-card featured has-ribbon">
         <div class="offer-ribbon">Best value</div>
         <div class="offer-media">
           <img src="/product-hero.png" alt="Maintane 3-pack natural septic treatment">
