@@ -17,7 +17,7 @@
   var DEBUG = false;
   var ANALYTICS_DISABLED = !!window.MAINTANE_ANALYTICS_DISABLED;
 
-  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
+  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\//i;
   var FUNNEL_DESTINATIONS = [
     '/septic-treatment.html',
     '/septic-care-checklist.html',
@@ -90,10 +90,10 @@
     try {
       if (name === 'checkout_click') {
         fbq('track', 'InitiateCheckout', {
-          content_name: 'Maintane Natural Septic Tank Treatment',
-          content_ids: ['MTN-001'],
+          content_name: metaParams.product_name || 'Maintane Natural Septic Tank Treatment',
+          content_ids: [metaParams.product_id || 'MTN-001'],
           content_type: 'product',
-          value: 39.99,
+          value: Number(metaParams.value || 49.99),
           currency: 'USD',
           button_location: metaParams.button_location || 'unknown'
         });
@@ -215,7 +215,10 @@
           fire('checkout_click', baseParams({
             button_location: buttonLocation(link),
             cta_text: cleanText(link.textContent, 100),
-            destination: link.getAttribute('href') || ''
+            destination: link.getAttribute('href') || '',
+            product_name: link.getAttribute('data-product-name') || '',
+            product_id: link.getAttribute('data-product-id') || '',
+            value: link.getAttribute('data-product-price') || ''
           }));
         });
       })(links[i]);
@@ -380,9 +383,9 @@
 
       if (CHECKOUT_HREF_PATTERN.test(href)) {
         fire('product_cta_click', linkParams(link, {
-          value: 39.99,
+          value: Number(link.getAttribute('data-product-price') || 49.99),
           currency: 'USD',
-          product_name: 'Maintane Natural Septic Tank Treatment'
+          product_name: link.getAttribute('data-product-name') || 'Maintane Natural Septic Tank Treatment'
         }));
       }
 
