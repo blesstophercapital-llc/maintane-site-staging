@@ -18,9 +18,10 @@
   var DEBUG = false;
   var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
 
-  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\/maintane-natural-septic-tank-treatment/i;
+  var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\//i;
   var WAITLIST_HREF_PATTERN = /(?:getmaintane\.com)?\/waitlist\/?(?:$|[?#])/i;
   var FUNNEL_DESTINATIONS = [
+    '/shop.html',
     '/septic-treatment.html',
     '/septic-care-checklist.html',
     '/septic-smell.html',
@@ -92,11 +93,11 @@
     try {
       if (name === 'checkout_click') {
         fbq('track', 'InitiateCheckout', {
-          content_name: 'Maintane Natural Septic Tank Treatment',
-          content_ids: ['MTN-001'],
-          content_type: 'product',
-          value: 39.99,
+          value: Number(metaParams.value || metaParams.product_price || 49.99),
           currency: 'USD',
+          content_name: metaParams.product_name || 'Maintane Natural Septic Tank Treatment',
+          content_ids: [metaParams.product_id || 'MTN-001'],
+          content_type: 'product',
           button_location: metaParams.button_location || 'unknown'
         });
       } else if (name === 'contact_form_submit') {
@@ -217,7 +218,12 @@
           var params = baseParams({
             button_location: buttonLocation(link),
             cta_text: cleanText(link.textContent, 100),
-            destination: link.getAttribute('href') || ''
+            destination: link.getAttribute('href') || '',
+            product_name: link.getAttribute('data-product-name') || 'Maintane Natural Septic Tank Treatment',
+            product_id: link.getAttribute('data-product-id') || 'MTN-001',
+            product_price: link.getAttribute('data-product-price') || '49.99',
+            value: Number(link.getAttribute('data-product-price') || 49.99),
+            currency: 'USD'
           });
           fire('checkout_click', params);
           fire('checkout_start', params);
