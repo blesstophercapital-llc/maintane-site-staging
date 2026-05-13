@@ -19,6 +19,7 @@
 
   var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\//i;
   var FUNNEL_DESTINATIONS = [
+    '/shop.html',
     '/septic-treatment.html',
     '/septic-care-checklist.html',
     '/septic-smell.html',
