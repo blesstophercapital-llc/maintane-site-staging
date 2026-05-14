@@ -245,6 +245,12 @@
   .stat-label { font-size: 0.75rem; color: rgba(44, 36, 23, 0.6); margin-top: 0.25rem; }
 
   /* REVIEWS */
+  .customer-proof-eyebrow {
+    font-size: 1.25rem;
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+  }
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; max-width: 1100px; }
   .review-card { background: var(--warm-cream); border: 1px solid rgba(59,92,58,0.15); border-radius: 16px; padding: 1.75rem; }
   .review-stars { color: #C4A882; font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
@@ -374,6 +380,7 @@
     .stat-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     .product-visual { position: static; width: 100%; }
     .review-card { padding: 1.25rem; }
+    .customer-proof-eyebrow { font-size: 0.95rem; letter-spacing: 0.12em; }
     .step-card { padding: 1.5rem; }
     [id^="product-component-"] { width: 100% !important; }
     .shopify-buy-frame--product { width: 100% !important; max-width: 100% !important; }
@@ -1930,7 +1937,7 @@
   <!-- Reviews -->
   <section style="background: var(--off-cream);">
     <div class="max-w">
-      <p class="section-tag">Customer proof</p>
+      <p class="section-tag customer-proof-eyebrow">Customer proof</p>
       <h2 class="section-title">Real septic homes.<br>Real protection.</h2>
       <div class="reviews-grid">
         <div class="review-card">
