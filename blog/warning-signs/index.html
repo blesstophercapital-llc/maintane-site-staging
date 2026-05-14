@@ -2296,7 +2296,7 @@
 
 <div class="announcement-bar" aria-live="polite">
   <button class="announce-arrow" id="announce-prev" aria-label="Previous announcement">&#8249;</button>
-  <div class="announcement-text" id="announcement-text">🌱 Launching May 15, 2026 — Save 10% as a waitlist member</div>
+  <div class="announcement-text" id="announcement-text">🌱 Simple monthly septic care — shop Maintane or get the free checklist</div>
   <button class="announce-arrow" id="announce-next" aria-label="Next announcement">&#8250;</button>
 </div>
 <nav class="main-nav">
@@ -2343,7 +2343,7 @@
     <h1 class="blog-hero-headline">Septic warning signs and problem guides.</h1>
     <p class="blog-hero-sub">Plain-English guides to septic smells, slow drains, bubbling toilets, alarms, backups, standing water, and other warning signs homeowners should not ignore.</p>
     <div class="blog-hero-actions">
-      <a class="blog-hero-btn" href="/waitlist/" data-event="blog_index_waitlist_cta" data-event-label="blog_hero_primary">Join the Maintane waitlist</a>
+      <a class="blog-hero-btn" href="/septic-care-checklist.html" data-event="blog_index_checklist_cta" data-event-label="blog_hero_primary">Get the free checklist</a>
       <a class="blog-hero-btn blog-hero-btn-secondary" href="/septic-treatment.html">Start with the septic treatment guide</a>
     </div>
   </section>
@@ -2473,7 +2473,7 @@
   <section class="blog-cta-section">
     <p class="blog-cta-eyebrow">START THE ROUTINE</p>
     <h2 class="blog-cta-headline">One scoop. Once a month. That’s the whole thing.</h2>
-    <a class="blog-cta-btn" href="https://getmaintane.com/waitlist/">SHOP MAINTANE — $49.99</a>
+    <a class="blog-cta-btn" href="/shop.html">SHOP MAINTANE — $49.99</a>
     <a class="blog-cta-btn blog-cta-btn-secondary" href="/septic-care-checklist.html">GET THE FREE CHECKLIST</a>
   </section>
 
@@ -2484,7 +2484,7 @@
         <!-- Column 1: Email signup (untouched per Phase 9.2a) -->
         <div class="footer-signup-col">
           <h3 class="footer-signup-headline">Even our emails are different.</h3>
-          <p class="footer-signup-sub">No spam. Just launch updates, dosing tips, and the occasional honest note from the founder.</p>
+          <p class="footer-signup-sub">No spam. Just septic tips, dosing reminders, and the occasional honest note from the founder.</p>
 
           <form class="footer-form" id="footer-newsletter-form" action="#" novalidate>
             <span class="footer-form-label">NEWSLETTER</span>
@@ -2495,10 +2495,10 @@
           </form>
 
           <form class="footer-form" id="footer-waitlist-form" novalidate>
-            <span class="footer-form-label">PRE-LAUNCH WAITLIST — SAVE 10%</span>
+            <span class="footer-form-label">SEPTIC CARE CHECKLIST</span>
             <div class="footer-form-row">
-              <input type="email" id="footer-waitlist-email" placeholder="Email address" required aria-label="Email for pre-launch waitlist">
-              <button type="submit" class="footer-form-btn footer-form-btn-cream">JOIN WAITLIST</button>
+              <input type="email" id="footer-waitlist-email" placeholder="Email address" required aria-label="Email for septic care checklist">
+              <button type="submit" class="footer-form-btn footer-form-btn-cream">GET CHECKLIST</button>
             </div>
             <div id="footer-waitlist-success" class="footer-form-msg footer-form-msg-success" style="display:none;">✓ You’re in. Check your email for confirmation.</div>
             <div id="footer-waitlist-error" class="footer-form-msg footer-form-msg-error" style="display:none;">Something went wrong. Try again.</div>
@@ -2516,7 +2516,7 @@
         <div class="footer-link-col">
           <h4 class="footer-col-header">SHOP</h4>
           <ul class="footer-link-list">
-            <li><a href="https://getmaintane.com/waitlist/">All Products</a></li>
+            <li><a href="/shop.html">All Products</a></li>
             <li><a href="/how-it-works.html">How it works</a></li>
             <li><a href="/dosing-guide.html">Dosing Guide</a></li>
             <li><a href="/septic-treatment.html">Septic Guides</a></li>
@@ -2579,12 +2579,12 @@ function closeMobileMenu() {
   <div class="maintane-popup__container" role="dialog" aria-labelledby="maintane-popup-title" aria-describedby="maintane-popup-desc">
     <button class="maintane-popup__close" aria-label="Close popup">×</button>
     <div class="maintane-popup__content">
-      <div class="maintane-popup__kicker">LAUNCHING MAY 15, 2026</div>
-      <h2 id="maintane-popup-title" class="maintane-popup__headline">Be first. Save 10%.</h2>
-      <p id="maintane-popup-desc" class="maintane-popup__subhead">Waitlist members get 10% off launch-day access — before the price goes up.</p>
+      <div class="maintane-popup__kicker">SEPTIC CARE CHECKLIST</div>
+      <h2 id="maintane-popup-title" class="maintane-popup__headline">Get the checklist.</h2>
+      <p id="maintane-popup-desc" class="maintane-popup__subhead">Get the septic care checklist, then choose Maintane when you are ready.</p>
       <form class="maintane-popup__form" id="maintane-popup-form">
         <input type="email" class="maintane-popup__input" id="maintane-popup-email" placeholder="you@example.com" required aria-label="Email address">
-        <button type="submit" class="maintane-popup__submit">Join the waitlist</button>
+        <button type="submit" class="maintane-popup__submit">Get the checklist</button>
       </form>
       <div class="maintane-popup__success" id="maintane-popup-success" style="display: none;">
         <div class="maintane-popup__check">✓</div>
@@ -2602,7 +2602,7 @@ function closeMobileMenu() {
 <script>
 (function() {
   var TARGET = new Date('2026-05-15T00:00:00-04:00').getTime();
-  var SHOPIFY = 'https://getmaintane.com/waitlist/';
+  var SHOPIFY = 'https://getmaintane.com/shop.html';
   var AUTO_MS = 6000;
   var FADE_MS = 200;
 
@@ -2615,10 +2615,8 @@ function closeMobileMenu() {
     var h = Math.floor((diff % 86400000) / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
-    return '\ud83c\udf31 Launching May 15, 2026 \u2014 ' +
-           '<span id="countdown">' + d + ' DAYS ' + h + ' HRS ' + m + ' MIN ' + s + ' SEC</span>' +
-           '<span class="announce-sep"> | </span>' +
-           '<span class="announce-tail">Save 10% as a <a href="#footer-waitlist-form" class="announce-link">waitlist member</a></span>';
+    return '\ud83c\udf31 Simple monthly septic care \u2014 ' +
+           '<span class="announce-tail">Get the <a href="/septic-care-checklist.html" class="announce-link">free septic checklist</a></span>';
   }
   var slides = [
     slide1Html,
