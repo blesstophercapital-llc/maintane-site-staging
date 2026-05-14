@@ -180,6 +180,8 @@
     padding: 0.75rem 1.75rem; border-radius: 100px;
     font-weight: 600 !important; font-size: 0.9rem;
     margin-left: 1rem; transition: background 0.2s;
+    display: inline-flex; align-items: center; justify-content: center;
+    line-height: 1; white-space: nowrap;
   }
   .nav-cta:hover { background: #2d4a2c !important; }
 
@@ -410,14 +412,14 @@
     .announcement-text { font-size: 0.85rem; line-height: 1.3; }
     .announce-sep { display: none; }
     .announce-tail { display: block; }
-    .main-nav { top: 44px; grid-template-columns: auto 1fr auto; padding: 0.6rem 1rem; min-height: 64px; }
+    .main-nav { top: 44px; display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; min-height: 64px; }
     .nav-left { display: none; }
-    .nav-right { gap: 0; }
+    .nav-right { display: flex; gap: 0; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 202; }
     .nav-right li:not(:last-child) { display: none; }
-    .nav-center { font-size: 1.6rem; gap: 8px; transform: translateX(-18px); }
-    .nav-center .nav-logo-mark { width: 28px; height: 28px; }
-    .hamburger { display: block !important; }
-    .nav-cta { padding: 0.5rem 1rem !important; font-size: 0.85rem !important; margin-left: 0 !important; }
+    .nav-center { font-size: 1.35rem; gap: 7px; transform: none; flex: 0 1 auto; min-width: 0; max-width: calc(100% - 160px); overflow: hidden; }
+    .nav-center .nav-logo-mark { width: 28px; height: 28px; flex-shrink: 0; }
+    .hamburger { display: block !important; flex-shrink: 0; margin-right: 0.25rem; }
+    .nav-cta { padding: 0.55rem 0.85rem !important; font-size: 0.8rem !important; margin-left: 0 !important; min-width: 74px; }
 
     section { padding: 3rem 1rem; }
     .hero { min-height: 100vh !important; height: 100vh !important; padding: 0; }
@@ -2437,7 +2439,7 @@
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/#contact">Contact</a></li>
     <li><a href="/policy.html">Policy</a></li>
-    <li><a class="nav-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Get Early Access</a></li>
+    <li><a class="nav-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Buy Now</a></li>
   </ul>
 </nav>
 
@@ -2449,7 +2451,7 @@
   <a href="/blog/">Blog</a>
   <a href="/#contact">Contact</a>
   <a href="/policy.html">Policy</a>
-  <a class="mobile-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Get Early Access</a>
+  <a class="mobile-cta" href="https://shop.getmaintane.com/products/maintane-natural-septic-tank-treatment">Buy Now</a>
 </div>
 
 <!-- ========== HOME ========== -->
