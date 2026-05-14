@@ -229,7 +229,7 @@
     }
     .offer-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.16fr) minmax(0, 0.92fr);
       gap: 1rem;
       align-items: stretch;
     }
@@ -248,7 +248,28 @@
       background: #fffaf2;
       border-color: rgba(196, 168, 130, 0.72);
       box-shadow: 0 24px 68px rgba(59, 92, 58, 0.16);
-      transform: translateY(-0.6rem);
+    }
+    .offer-card.best-seller {
+      z-index: 3;
+      padding: 1.35rem;
+      background: linear-gradient(180deg, #fff8e8 0%, #fffdf8 54%, rgba(232, 240, 224, 0.92) 100%);
+      border: 2px solid rgba(59, 92, 58, 0.72);
+      box-shadow: 0 34px 86px rgba(44, 36, 23, 0.18), 0 0 0 8px rgba(196, 168, 130, 0.18);
+      transform: translateY(-0.8rem) scale(1.035);
+    }
+    .offer-card.best-seller .offer-media {
+      min-height: 236px;
+      background: radial-gradient(circle at 50% 26%, rgba(196, 168, 130, 0.34), transparent 44%), linear-gradient(140deg, rgba(228, 236, 223, 0.95), rgba(250, 246, 240, 0.62));
+    }
+    .offer-card.best-seller h3 {
+      font-size: 1.58rem;
+    }
+    .offer-card.best-seller .price-line strong {
+      font-size: 2.2rem;
+    }
+    .offer-card.best-seller .btn {
+      min-height: 54px;
+      font-size: 1.02rem;
     }
     .offer-ribbon {
       position: absolute;
@@ -263,6 +284,15 @@
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+    }
+    .offer-card.best-seller .offer-ribbon {
+      top: 0.85rem;
+      right: 0.85rem;
+      padding: 0.58rem 0.9rem;
+      background: var(--forest-green);
+      color: #fffdf8;
+      box-shadow: 0 12px 28px rgba(44, 36, 23, 0.18);
+      font-size: 0.8rem;
     }
     .offer-media {
       display: grid;
@@ -570,7 +600,7 @@
         gap: 32px;
       }
       .footer-signup-col { grid-column: 1 / -1; }
-      .offer-card.featured { transform: none; }
+      .offer-card.best-seller { transform: none; }
     }
     @media (max-width: 640px) {
       .shop-nav { align-items: flex-start; }
@@ -634,25 +664,25 @@
         <p class="mini-note">A clean first order for new Maintane customers.</p>
       </article>
 
-      <article class="offer-card has-ribbon">
-        <div class="offer-ribbon">Popular</div>
+      <article class="offer-card best-seller has-ribbon">
+        <div class="offer-ribbon">Best Seller</div>
         <div class="offer-media">
           <img src="/product-hero.png" alt="Maintane 2-pack natural septic treatment">
         </div>
         <h3>2-Pack</h3>
-        <p class="offer-sub">A practical stock-up for most homes.</p>
+        <p class="offer-sub">The obvious move for most homes: one jar working now, one jar ready for next month.</p>
         <div class="price-line"><strong>$89.99</strong><span>$44.99 / jar</span></div>
         <ul class="offer-list">
           <li>Two jars of Maintane</li>
           <li>Save $10 vs buying singles</li>
-          <li>Keep one ready for the next month</li>
-          <li>Good affiliate/ad landing offer</li>
+          <li>Best balance of value and commitment</li>
+          <li>Built for the monthly defense rhythm</li>
         </ul>
-        <a class="btn btn-primary" href="https://shop.getmaintane.com/products/2-pack" data-event="shop_product_cta" data-event-label="two_pack" data-product-name="Maintane 2-Pack" data-product-id="maintane-2-pack" data-product-price="89.99">Choose 2-Pack</a>
-        <p class="mini-note">Good balance of value and commitment.</p>
+        <a class="btn btn-primary" href="https://shop.getmaintane.com/products/2-pack" data-event="shop_product_cta" data-event-label="two_pack" data-product-name="Maintane 2-Pack" data-product-id="maintane-2-pack" data-product-price="89.99">Choose Best Seller</a>
+        <p class="mini-note">Most homeowners should start here.</p>
       </article>
 
-      <article class="offer-card featured has-ribbon">
+      <article class="offer-card has-ribbon">
         <div class="offer-ribbon">Best value</div>
         <div class="offer-media">
           <img src="/product-hero.png" alt="Maintane 3-pack natural septic treatment">
