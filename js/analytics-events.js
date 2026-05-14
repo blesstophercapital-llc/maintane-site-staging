@@ -1,22 +1,22 @@
 /* getmaintane.com — GA4 event tracking
  * Loaded with `defer` at the end of <body> on every HTML file.
- * GA4 measurement ID G-D8DRYD8BHZ and Meta Pixel are loaded earlier in <head>.
+ * GA4 measurement ID G-D8DRYD8BHZ is loaded earlier in <head> on production only.
  *
  * Funnel and commerce events are wired with lightweight delegated listeners.
  * `faq_expand` is deliberately omitted — dosing-guide FAQs are static content,
  * not accordions; revisit when accordion is built.
  *
- * Staging guard: when hostname includes "staging", listeners install but
- * `gtag('event', ...)` is never called — so staging traffic doesn't pollute
- * the production analytics property. Set DEBUG=true to console.log every event
- * (works on staging and prod for verification).
+ * Non-production guard: staging, localhost, file previews, and opt-out sessions
+ * can install listeners for QA, but no GA4 or Meta events are sent.
  */
 (function () {
   'use strict';
 
   // ── Configuration ────────────────────────────────────────────────────────
   var DEBUG = false;
-  var IS_STAGING = (window.location.hostname || '').toLowerCase().indexOf('staging') !== -1;
+  var host = (window.location.hostname || '').toLowerCase();
+  var IS_PRODUCTION = host === 'getmaintane.com' || host === 'www.getmaintane.com';
+  var ANALYTICS_DISABLED = Boolean(window.MAINTANE_ANALYTICS_DISABLED) || !IS_PRODUCTION || window.location.protocol === 'file:';
 
   var CHECKOUT_HREF_PATTERN = /(?:aykixg-rn\.myshopify\.com|shopify\.com)\/cart|shop\.getmaintane\.com\/products\//i;
   var WAITLIST_HREF_PATTERN = /(?:getmaintane\.com)?\/waitlist\/?(?:$|[?#])/i;
@@ -81,14 +81,14 @@
 
   function fire(name, params) {
     if (DEBUG) console.log('[GA4]', name, params);
-    if (!IS_STAGING && typeof gtag === 'function') {
+    if (!ANALYTICS_DISABLED && typeof gtag === 'function') {
       gtag('event', name, params);
     }
     fireMeta(name, params);
   }
 
   function fireMeta(name, params) {
-    if (IS_STAGING || typeof fbq !== 'function') return;
+    if (ANALYTICS_DISABLED || typeof fbq !== 'function') return;
     var metaParams = params || {};
     try {
       if (name === 'checkout_click') {

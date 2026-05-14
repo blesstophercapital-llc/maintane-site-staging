@@ -25,26 +25,7 @@
   <meta name="twitter:title" content="Shop Maintane | Natural Septic Treatment Bundles">
   <meta name="twitter:description" content="Choose a single jar, 2-pack, or 3-pack of Maintane natural septic treatment powder for simple monthly septic care.">
   <meta name="twitter:image" content="https://getmaintane.com/product-hero.png">
-  <script>
-    (function () {
-      var host = (window.location.hostname || '').toLowerCase();
-      var isProduction = host === 'getmaintane.com' || host === 'www.getmaintane.com';
-      var optOut = /(?:[?&](?:debug_no_ga|maintane_no_analytics)=1)(?:&|$)/.test(window.location.search || '');
-      try { optOut = optOut || window.localStorage.getItem('maintane_no_analytics') === 'true'; } catch (e) {}
-      window.MAINTANE_ANALYTICS_DISABLED = !isProduction || optOut || window.location.protocol === 'file:';
-      window['ga-disable-G-D8DRYD8BHZ'] = window.MAINTANE_ANALYTICS_DISABLED;
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
-      if (!window.MAINTANE_ANALYTICS_DISABLED) {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ';
-        document.head.appendChild(s);
-        window.gtag('js', new Date());
-        window.gtag('config', 'G-D8DRYD8BHZ');
-      }
-    })();
-  </script>
+  <script src="/js/production-analytics.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
