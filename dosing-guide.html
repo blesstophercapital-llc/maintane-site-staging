@@ -14,40 +14,34 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to Dose Your Septic Tank with Maintane",
-  "description": "Apply Maintane bacterial treatment to your septic system in three steps, once a month, in under five minutes.",
+  "name": "How to Use Maintane Once a Month",
+  "description": "Use Maintane once a month as directed, then choose a 6-, 12-, or 18-month supply to keep your septic-care routine consistent between pump-outs and inspections.",
   "totalTime": "PT5M",
   "supply": [
     {
       "@type": "HowToSupply",
-      "name": "Maintane natural septic treatment (one tub)"
+      "name": "Maintane natural septic treatment"
     },
     {
       "@type": "HowToSupply",
-      "name": "Included pre-measured scoop"
-    }
-  ],
-  "tool": [
-    {
-      "@type": "HowToTool",
-      "name": "Any toilet connected to your septic system"
+      "name": "6-, 12-, or 18-month supply"
     }
   ],
   "step": [
     {
       "@type": "HowToStep",
-      "name": "Scoop",
-      "text": "One level scoop of Maintane. The included scoop is pre-measured — no guessing, no overdosing."
+      "name": "Choose your supply",
+      "text": "Choose a 6-Month, 12-Month, or 18-Month Supply based on how far ahead you want to stay."
     },
     {
       "@type": "HowToStep",
-      "name": "Flush",
-      "text": "Drop the scoop's contents into any toilet and flush. The powder dissolves instantly and the live cultures travel through your pipes into the tank."
+      "name": "Use monthly as directed",
+      "text": "Use Maintane once a month as directed on the product label."
     },
     {
       "@type": "HowToStep",
-      "name": "Set Reminder",
-      "text": "Set a reminder on your phone for 30 days from now. When it goes off, repeat steps 1 and 2. That is the entire routine."
+      "name": "Stay consistent",
+      "text": "Set a monthly reminder and keep pump-outs, inspections, and professional service on their own schedule."
     }
   ]
 }
@@ -72,19 +66,19 @@
   }
 }
 </script>
-<title>Maintane Dosing Guide | One Scoop Per Toilet, Once a Month</title>
-  <meta name="description" content="Use Maintane once a month with one level scoop per toilet. See the dosing table, timing tips, safety notes, and FAQs for monthly septic maintenance.">
+<title>Maintane Dosing Guide | Once-Monthly Septic Defense</title>
+  <meta name="description" content="Use Maintane once a month as directed. See how 6-, 12-, and 18-month supplies fit a simple septic defense routine between pump-outs and inspections.">
   <link rel="canonical" href="https://getmaintane.com/dosing-guide.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maintane">
-<meta property="og:title" content="Maintane Dosing Guide | One Scoop Per Toilet, Once a Month">
-<meta property="og:description" content="Use Maintane once a month with one level scoop per toilet. See the dosing table, timing tips, safety notes, and FAQs for monthly septic maintenance.">
+<meta property="og:title" content="Maintane Dosing Guide | Once-Monthly Septic Defense">
+<meta property="og:description" content="Use Maintane once a month as directed. See how 6-, 12-, and 18-month supplies fit a simple septic defense routine between pump-outs and inspections.">
 <meta property="og:url" content="https://getmaintane.com/dosing-guide.html">
 <meta property="og:image" content="https://getmaintane.com/flush-step.png">
 <meta property="og:image:alt" content="Maintane dosing guide and monthly use instructions">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Maintane Dosing Guide | One Scoop Per Toilet, Once a Month">
-<meta name="twitter:description" content="Use Maintane once a month with one level scoop per toilet. See the dosing table, timing tips, safety notes, and FAQs for monthly septic maintenance.">
+<meta name="twitter:title" content="Maintane Dosing Guide | Once-Monthly Septic Defense">
+<meta name="twitter:description" content="Use Maintane once a month as directed. See how 6-, 12-, and 18-month supplies fit a simple septic defense routine between pump-outs and inspections.">
 <meta name="twitter:image" content="https://getmaintane.com/flush-step.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8DRYD8BHZ"></script>
 <script>
@@ -2115,51 +2109,94 @@
   .section-forest .dose-section-headline { color: #FAF6F0; }
   .section-forest .dose-section-sub { color: rgba(250, 246, 240, 0.75); }
 
-  /* Section 1: Bathroom calculator table */
-  .dose-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
+  /* Section 1: Supply options */
+  .dose-supply-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto;
   }
-  .dose-table thead th {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    color: #C4A882;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: left;
-    padding: 16px 24px;
-    border-bottom: 2px solid rgba(59, 92, 58, 0.3);
+  .dose-supply-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background: #FFFFFF;
+    border: 1px solid rgba(59, 92, 58, 0.16);
+    border-radius: 28px;
+    padding: 34px 30px;
+    box-shadow: 0 14px 36px rgba(44, 36, 23, 0.07);
   }
-  .dose-table tbody td {
-    font-family: 'DM Sans', system-ui, sans-serif;
+  .dose-supply-card.is-featured {
+    border-color: #C4A882;
+    box-shadow: 0 18px 46px rgba(44, 36, 23, 0.12);
+    transform: translateY(-10px);
+  }
+  .dose-supply-badge {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background: #C4A882;
     color: #2C2417;
-    font-size: 1.0625rem;
-    padding: 24px;
-    border-bottom: 1px solid rgba(59, 92, 58, 0.15);
+    border-radius: 999px;
+    padding: 8px 13px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
-  .dose-table tbody tr:last-child td { border-bottom: none; }
-  .dose-table .dose-bath-cell {
+  .dose-supply-title {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
-    font-size: 1.25rem;
+    color: #2C2417;
+    font-size: 2rem;
+    line-height: 1.05;
+    margin: 0 0 12px;
+    padding-right: 80px;
+  }
+  .dose-supply-meta {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #3B5C3A;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .dose-supply-copy {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.72);
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0 0 28px;
+  }
+  .dose-supply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    background: #3B5C3A;
+    color: #FAF6F0;
+    border-radius: 999px;
+    padding: 14px 22px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .dose-supply-btn:hover {
+    background: #2d4a2c;
+  }
+  .dose-supply-card.is-featured .dose-supply-btn {
+    background: #C4A882;
     color: #2C2417;
   }
-  .dose-table-callout {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    font-style: italic;
-    color: rgba(44, 36, 23, 0.7);
-    font-size: 0.95rem;
-    text-align: center;
-    margin: 32px 0 0 0;
-  }
-  .dose-table-coming {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    color: rgba(44, 36, 23, 0.4);
-    font-size: 0.8rem;
-    text-align: center;
-    margin: 8px 0 0 0;
+  .dose-supply-card.is-featured .dose-supply-btn:hover {
+    background: #b9986a;
   }
   .dose-usage-block {
     max-width: 720px;
@@ -2192,6 +2229,15 @@
     text-align: center;
     max-width: 760px;
     margin: 42px auto 0;
+  }
+  .dose-system-note {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: rgba(44, 36, 23, 0.68);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    text-align: center;
+    max-width: 760px;
+    margin: 18px auto 0;
   }
   .dose-inline-cta {
     text-align: center;
@@ -2345,9 +2391,9 @@
     .dose-section { padding: 80px 1.5rem; }
     .dose-section-headline { font-size: 2.25rem; }
     .dose-section-sub { font-size: 1rem; margin-bottom: 48px; }
-    .dose-table thead th { padding: 12px 14px; font-size: 0.7rem; }
-    .dose-table tbody td { padding: 18px 14px; font-size: 0.95rem; }
-    .dose-table .dose-bath-cell { font-size: 1.1rem; }
+    .dose-supply-grid { grid-template-columns: 1fr; }
+    .dose-supply-card.is-featured { transform: none; }
+    .dose-supply-title { font-size: 1.8rem; }
     .dose-practice-num { font-size: 2rem; }
     .dose-practice-body { font-size: 1rem; }
     .dose-faq-item summary { font-size: 1.15rem; padding-right: 40px; }
@@ -2365,42 +2411,42 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "How often should I use Maintane?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Maintane once a month as directed on the product label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does one jar last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One jar contains 6 monthly doses, which is a 6-month supply when used once monthly as directed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which supply should I choose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose 6-Month Supply if you want to start with the half-year option, 12-Month Supply if you want the full year handled, and 18-Month Supply if you want to stock up and stay ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Maintane replace pumping or septic service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Maintane supports routine monthly maintenance between pump-outs and inspections. It does not replace pumping, inspection, repair, or professional diagnosis."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Can I use Maintane if I'm on city sewer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Maintane is designed for septic systems. It won't harm city sewer lines but it's most effective in septic environments where bacteria need to thrive."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if I miss a month?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Just dose as soon as you remember. Missing one month won't crash your system but consistency is what builds a healthy bacterial ecosystem."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it safe if my kids or pets touch the toilet water?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Maintane contains only biosafety level 1 bacteria and table salt — the same safety classification used in research labs. Non-toxic and non-pathogenic."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use Maintane down sinks or my garbage disposal?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. While we recommend starting with your toilet — the most direct route to your septic tank — Maintane can be added to any drain in your home. Pour a scoop down a sink, shower, or garbage disposal and the live bacteria will travel through your drain lines and get to work on buildup along the way. If you're dealing with a slow drain or odor coming from a specific fixture, that's a great place to treat directly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long until I see results?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most customers notice reduced odors within 24–72 hours. Full ecosystem establishment takes 30–90 days of consistent monthly use."
+        "text": "Maintane is designed for septic systems. It is most relevant for homes that rely on a septic tank rather than city sewer service."
       }
     }
   ]
@@ -2418,7 +2464,7 @@
 
 <div class="announcement-bar" aria-live="polite">
   <button class="announce-arrow" id="announce-prev" aria-label="Previous announcement">&#8249;</button>
-  <div class="announcement-text" id="announcement-text">🌱 Launching May 15, 2026 — Save 10% on natural septic defense</div>
+  <div class="announcement-text" id="announcement-text">One monthly dose. Choose 6, 12, or 18 months of septic defense.</div>
   <button class="announce-arrow" id="announce-next" aria-label="Next announcement">&#8250;</button>
 </div>
 <nav class="main-nav">
@@ -2462,61 +2508,57 @@
 
   <!-- Hero (Forest Green) -->
   <section class="dose-hero">
-    <h1 class="dose-hero-headline">The Dosing Guide</h1>
-    <p class="dose-hero-sub">Everything you need to get the most out of every tub.</p>
-    <p class="dose-hero-note">Takes less than 10 seconds. No measuring. No guesswork.</p>
+    <h1 class="dose-hero-headline">Monthly Septic Defense, Made Simple</h1>
+    <p class="dose-hero-sub">Use Maintane once a month as directed, then choose the supply length that keeps your home covered: 6 months, 12 months, or 18 months.</p>
+    <p class="dose-hero-note">No complicated schedule. No harsh chemical panic cycle. Just a repeatable monthly septic-care habit.</p>
     <div class="dose-hero-actions">
-      <a class="dose-hero-btn" href="https://getmaintane.com/waitlist/">Get 10% Off + Early Access</a>
-      <a class="dose-hero-btn dose-hero-btn-secondary" href="/septic-care-checklist.html">Get the free septic checklist</a>
+      <a class="dose-hero-btn" href="https://getmaintane.com/shop.html">Get 12 Months Covered</a>
+      <a class="dose-hero-btn dose-hero-btn-secondary" href="#supply-options">Compare Supply Options</a>
     </div>
   </section>
 
-  <!-- Section 1: Bathroom calculator (cream) -->
-  <section class="dose-section section-cream">
+  <!-- Section 1: Supply options (cream) -->
+  <section class="dose-section section-cream" id="supply-options">
     <div class="dose-inner-narrow">
-      <p class="dose-section-eyebrow">FIND YOUR DOSE</p>
-      <h2 class="dose-section-headline">How many tubs do you need?</h2>
-      <p class="dose-section-sub">Match your home’s bathroom count to the right supply.</p>
+      <p class="dose-section-eyebrow">CHOOSE YOUR SUPPLY</p>
+      <h2 class="dose-section-headline">Pick the supply length that matches how you maintain your home.</h2>
+      <p class="dose-section-sub">Maintane is built around a simple once-monthly routine. Choose 6, 12, or 18 months of septic defense based on how far ahead you want to stay.</p>
       <div data-dose-reveal>
-        <table class="dose-table">
-          <thead>
-            <tr>
-              <th>BATHROOMS</th>
-              <th>TUBS NEEDED</th>
-              <th>SUPPLY DURATION</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="dose-bath-cell">1–2 bathrooms</td>
-              <td>1 tub</td>
-              <td>3-month supply</td>
-            </tr>
-            <tr>
-              <td class="dose-bath-cell">3–4 bathrooms</td>
-              <td>2 tubs</td>
-              <td>3-month supply</td>
-            </tr>
-            <tr>
-              <td class="dose-bath-cell">5+ bathrooms</td>
-              <td>3 tubs</td>
-              <td>3-month supply</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="dose-table-callout">When in doubt, round up. Extra bacteria never hurt a septic system.</p>
-        <p class="dose-table-coming">Larger sizes for bigger homes coming soon.</p>
+        <div class="dose-supply-grid">
+          <article class="dose-supply-card">
+            <h3 class="dose-supply-title">6-Month Supply</h3>
+            <p class="dose-supply-meta">1 jar / 6 monthly doses</p>
+            <p class="dose-supply-copy">Best for trying Maintane or covering the next half year.</p>
+            <a class="dose-supply-btn" href="https://getmaintane.com/shop.html">Start With 6 Months</a>
+          </article>
+          <article class="dose-supply-card is-featured">
+            <span class="dose-supply-badge">Best Value</span>
+            <h3 class="dose-supply-title">12-Month Supply</h3>
+            <p class="dose-supply-meta">2 jars / 12 monthly doses</p>
+            <p class="dose-supply-copy">The smart default for homeowners who want the full year handled.</p>
+            <a class="dose-supply-btn" href="https://getmaintane.com/shop.html">Get 12 Months Covered</a>
+          </article>
+          <article class="dose-supply-card">
+            <h3 class="dose-supply-title">18-Month Supply</h3>
+            <p class="dose-supply-meta">3 jars / 18 monthly doses</p>
+            <p class="dose-supply-copy">Stock up and stay ahead with a year and a half of monthly defense.</p>
+            <a class="dose-supply-btn" href="https://getmaintane.com/shop.html">Stock Up For 18 Months</a>
+          </article>
+        </div>
         <div class="dose-usage-block">
           <ul class="dose-usage-list">
-            <li>Most homes use 1–3 scoops per month.</li>
-            <li>One jar lasts most homes several months.</li>
-            <li>Use one level scoop per toilet, once a month.</li>
+            <li>Use Maintane once a month as directed.</li>
+            <li>One jar equals 6 monthly doses.</li>
+            <li>Two jars equals 12 monthly doses.</li>
+            <li>Three jars equals 18 monthly doses.</li>
+            <li>Stay consistent between pump-outs and inspections.</li>
           </ul>
         </div>
-        <p class="dose-trust-bridge">If this feels simple, that’s the point. Your system already knows what to do — Maintane just supports it.</p>
+        <p class="dose-trust-bridge">If this feels simple, that’s the point. Monthly septic care works best when it is boring, repeatable, and honest about its limits.</p>
+        <p class="dose-system-note">If your system has an active backup, surfacing sewage, drain-field issue, or unresolved odor, call a septic professional.</p>
         <div class="dose-inline-cta">
-          <a class="dose-cta-btn" href="https://getmaintane.com/waitlist/">Get 10% Off + Early Access</a>
-          <a class="dose-cta-btn dose-cta-secondary" href="/septic-treatment.html">Still researching septic treatment?</a>
+          <a class="dose-cta-btn" href="https://getmaintane.com/shop.html">Get 12 Months Covered</a>
+          <a class="dose-cta-btn dose-cta-secondary" href="https://getmaintane.com/shop.html">Start With 6 Months</a>
         </div>
       </div>
     </div>
@@ -2526,28 +2568,28 @@
   <section class="dose-section section-forest">
     <div class="dose-inner-narrow">
       <p class="dose-section-eyebrow">BEST PRACTICES</p>
-      <h2 class="dose-section-headline">Get the most out of every tub.</h2>
-      <p class="dose-section-sub">Five things every Maintane user should know.</p>
+      <h2 class="dose-section-headline">Make monthly septic care repeatable.</h2>
+      <p class="dose-section-sub">Keep the routine clear, consistent, and honest about what treatment can and cannot do.</p>
       <div class="dose-practices">
         <div class="dose-practice" data-dose-reveal style="transition-delay: 0s;">
           <div class="dose-practice-num">01</div>
-          <p class="dose-practice-body">Dose the same day every month — pick a date and set a reminder.</p>
+          <p class="dose-practice-body">Use Maintane once a month as directed. Pick a date and set a reminder so the habit stays easy.</p>
         </div>
         <div class="dose-practice" data-dose-reveal style="transition-delay: 0.1s;">
           <div class="dose-practice-num">02</div>
-          <p class="dose-practice-body">Avoid antibacterial cleaners, bleach, or drain chemicals on dosing day — they kill the bacteria before they establish.</p>
+          <p class="dose-practice-body">Avoid harsh drain chemicals and heavy antibacterial cleaner habits around your septic routine; they can work against the biology your tank depends on.</p>
         </div>
         <div class="dose-practice" data-dose-reveal style="transition-delay: 0.2s;">
           <div class="dose-practice-num">03</div>
-          <p class="dose-practice-body">If your system has been neglected or has strong odors, dose twice in the first month then return to monthly.</p>
+          <p class="dose-practice-body">Use Maintane between scheduled pump-outs and inspections. Treatment supports routine maintenance; it does not replace service, repairs, or professional diagnosis.</p>
         </div>
         <div class="dose-practice" data-dose-reveal style="transition-delay: 0.3s;">
           <div class="dose-practice-num">04</div>
-          <p class="dose-practice-body">Store your tub in a cool, dry place away from direct sunlight.</p>
+          <p class="dose-practice-body">Store your jar in a cool, dry place away from direct sunlight.</p>
         </div>
         <div class="dose-practice" data-dose-reveal style="transition-delay: 0.4s;">
           <div class="dose-practice-num">05</div>
-          <p class="dose-practice-body">Maintane works in conventional septic systems, aerobic systems, cesspools, and RV holding tanks.</p>
+          <p class="dose-practice-body">Maintane supports septic biology with six bacterial strains as part of a simple monthly maintenance habit.</p>
         </div>
       </div>
     </div>
@@ -2561,24 +2603,24 @@
       <p class="dose-section-sub">The ones that come up most often.</p>
       <div class="dose-faq-list">
         <details class="dose-faq-item" data-dose-reveal style="transition-delay: 0s;">
-          <summary>Can I use Maintane if I’m on city sewer?</summary>
-          <p class="dose-faq-answer">Maintane is designed for septic systems. It won’t harm city sewer lines but it’s most effective in septic environments where bacteria need to thrive.</p>
+          <summary>How often should I use Maintane?</summary>
+          <p class="dose-faq-answer">Use Maintane once a month as directed on the product label.</p>
         </details>
         <details class="dose-faq-item" data-dose-reveal style="transition-delay: 0.08s;">
-          <summary>What if I miss a month?</summary>
-          <p class="dose-faq-answer">Just dose as soon as you remember. Missing one month won’t crash your system but consistency is what builds a healthy bacterial ecosystem.</p>
+          <summary>How long does one jar last?</summary>
+          <p class="dose-faq-answer">One jar contains 6 monthly doses, which is a 6-month supply when used once monthly as directed.</p>
         </details>
         <details class="dose-faq-item" data-dose-reveal style="transition-delay: 0.16s;">
-          <summary>Is it safe if my kids or pets touch the toilet water?</summary>
-          <p class="dose-faq-answer">Yes. Maintane contains only biosafety level 1 bacteria and table salt — the same safety classification used in research labs. Non-toxic and non-pathogenic.</p>
+          <summary>Which supply should I choose?</summary>
+          <p class="dose-faq-answer">Choose 6-Month Supply if you want to start with the half-year option, 12-Month Supply if you want the full year handled, and 18-Month Supply if you want to stock up and stay ahead.</p>
         </details>
         <details class="dose-faq-item" data-dose-reveal style="transition-delay: 0.24s;">
-          <summary>Can I use Maintane down sinks or my garbage disposal?</summary>
-          <p class="dose-faq-answer">Yes. While we recommend starting with your toilet — the most direct route to your septic tank — Maintane can be added to any drain in your home. Pour a scoop down a sink, shower, or garbage disposal and the live bacteria will travel through your drain lines and get to work on buildup along the way. If you’re dealing with a slow drain or odor coming from a specific fixture, that’s a great place to treat directly.</p>
+          <summary>Does Maintane replace pumping or septic service?</summary>
+          <p class="dose-faq-answer">No. Maintane supports routine monthly maintenance between pump-outs and inspections. It does not replace pumping, inspection, repair, or professional diagnosis.</p>
         </details>
         <details class="dose-faq-item" data-dose-reveal style="transition-delay: 0.32s;">
-          <summary>How long until I see results?</summary>
-          <p class="dose-faq-answer">Most customers notice reduced odors within 24–72 hours. Full ecosystem establishment takes 30–90 days of consistent monthly use.</p>
+          <summary>Can I use Maintane if I’m on city sewer?</summary>
+          <p class="dose-faq-answer">Maintane is designed for septic systems. It is most relevant for homes that rely on a septic tank rather than city sewer service.</p>
         </details>
       </div>
     </div>
@@ -2587,8 +2629,9 @@
   <!-- Closing CTA (cream) -->
   <section class="dose-cta-section" data-dose-reveal>
     <p class="dose-cta-eyebrow">READY WHEN YOU ARE</p>
-    <h2 class="dose-cta-headline">One scoop. Once a month. That’s the whole routine.</h2>
-    <a class="dose-cta-btn" href="https://getmaintane.com/waitlist/">GET 10% OFF + EARLY ACCESS</a>
+    <h2 class="dose-cta-headline">Choose your monthly septic defense supply.</h2>
+    <a class="dose-cta-btn" href="https://getmaintane.com/shop.html">Get 12 Months Covered</a>
+    <a class="dose-cta-btn dose-cta-secondary" href="https://getmaintane.com/shop.html">Start With 6 Months</a>
   </section>
 
 <footer class="site-footer">
@@ -2608,15 +2651,12 @@
             </div>
           </form>
 
-          <form class="footer-form" id="footer-waitlist-form" novalidate>
-            <span class="footer-form-label">NATURAL SEPTIC DEFENSE — SAVE 10%</span>
+          <div class="footer-form">
+            <span class="footer-form-label">MONTHLY SEPTIC DEFENSE</span>
             <div class="footer-form-row">
-              <input type="email" id="footer-waitlist-email" placeholder="Email address" required aria-label="Email for Maintane septic defense updates">
-              <button type="submit" class="footer-form-btn footer-form-btn-cream">GET 10% OFF</button>
+              <a href="https://getmaintane.com/shop.html" class="footer-form-btn footer-form-btn-cream">SHOP SUPPLIES</a>
             </div>
-            <div id="footer-waitlist-success" class="footer-form-msg footer-form-msg-success" style="display:none;">✓ You’re in. Check your email for confirmation.</div>
-            <div id="footer-waitlist-error" class="footer-form-msg footer-form-msg-error" style="display:none;">Something went wrong. Try again.</div>
-          </form>
+          </div>
 
                     <p class="footer-fineprint">By signing up, you consent to our <a href="/policy.html">Privacy Policy</a>. You may unsubscribe at any time.</p>
 
@@ -2687,56 +2727,18 @@ function closeMobileMenu() {
 
 </script>
 <script src="/js/analytics-events.js" defer></script>
-<link rel="stylesheet" href="/css/popup.css">
-<div id="maintane-popup" class="maintane-popup" style="display: none;" aria-hidden="true">
-  <div class="maintane-popup__backdrop"></div>
-  <div class="maintane-popup__container" role="dialog" aria-labelledby="maintane-popup-title" aria-describedby="maintane-popup-desc">
-    <button class="maintane-popup__close" aria-label="Close popup">×</button>
-    <div class="maintane-popup__content">
-      <div class="maintane-popup__kicker">LAUNCHING MAY 15, 2026</div>
-      <h2 id="maintane-popup-title" class="maintane-popup__headline">Protect your tank. Save 10%.</h2>
-      <p id="maintane-popup-desc" class="maintane-popup__subhead">Get launch-day access to Maintane’s natural septic defense before the price goes up.</p>
-      <form class="maintane-popup__form" id="maintane-popup-form">
-        <input type="email" class="maintane-popup__input" id="maintane-popup-email" placeholder="you@example.com" required aria-label="Email address">
-        <button type="submit" class="maintane-popup__submit">Get 10% off</button>
-      </form>
-      <div class="maintane-popup__success" id="maintane-popup-success" style="display: none;">
-        <div class="maintane-popup__check">✓</div>
-        <p>You're in. Check your email for confirmation.</p>
-      </div>
-      <div class="maintane-popup__error" id="maintane-popup-error" style="display: none;">
-        <p>Something went wrong. Try again or email hello@getmaintane.com.</p>
-      </div>
-      <p class="maintane-popup__footnote">No spam. Septic defense updates only. Unsubscribe anytime.</p>
-    </div>
-  </div>
-</div>
-<script src="/js/popup.js" defer></script>
-<script src="/js/footer-waitlist.js" defer></script>
 <script>
 (function() {
-  var TARGET = new Date('2026-05-15T00:00:00-04:00').getTime();
   var SHOPIFY = 'https://getmaintane.com/shop.html';
   var AUTO_MS = 6000;
   var FADE_MS = 200;
 
   function slide1Html() {
-    var diff = TARGET - Date.now();
-    if (diff <= 0) {
-      return '\ud83c\udf89 Maintane is live \u2014 <a href="' + SHOPIFY + '" class="announce-link">Shop now \u2192</a>';
-    }
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    return '\ud83c\udf31 Launching May 15, 2026 \u2014 ' +
-           '<span id="countdown">' + d + ' DAYS ' + h + ' HRS ' + m + ' MIN ' + s + ' SEC</span>' +
-           '<span class="announce-sep"> | </span>' +
-           '<span class="announce-tail">Save 10% on <a href="#footer-waitlist-form" class="announce-link">natural septic defense</a></span>';
+    return 'One monthly dose. Choose <a href="' + SHOPIFY + '" class="announce-link">6, 12, or 18 months of septic defense</a>.';
   }
   var slides = [
     slide1Html,
-    function() { return '\ud83d\udc3e Kid & Pet Friendly \u2014 Guaranteed  |  \ud83c\uddfa\ud83c\uddf8 Made in the USA'; },
+    function() { return '\ud83d\udc3e Kid & Pet Friendly  |  \ud83c\uddfa\ud83c\uddf8 Made in the USA'; },
     function() { return '\ud83d\udcd6 Read the Maintane <a href="/blog/" class="announce-link">blog \u2192</a>'; }
   ];
 
@@ -2768,21 +2770,7 @@ function closeMobileMenu() {
   }
 
   function updateCountdownText() {
-    if (idx !== 0 || fading) return;
-    var diff = TARGET - Date.now();
-    if (diff <= 0) {
-      // Swap to "live" message permanently
-      container.innerHTML = slides[0]();
-      stopCountdown();
-      return;
-    }
-    var el = document.getElementById('countdown');
-    if (!el) return;
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    el.textContent = d + ' DAYS ' + h + ' HRS ' + m + ' MIN ' + s + ' SEC';
+    return;
   }
 
   function startCountdown() {
@@ -2793,8 +2781,7 @@ function closeMobileMenu() {
     if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
   }
   function manageCountdown() {
-    if (idx === 0 && (TARGET - Date.now()) > 0) startCountdown();
-    else stopCountdown();
+    stopCountdown();
   }
 
   function startAuto() {
