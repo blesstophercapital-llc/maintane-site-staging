@@ -6,7 +6,7 @@
 
   var IS_STAGING = (function () {
     var h = (window.location.hostname || '').toLowerCase();
-    return h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
+    return h === 'localhost' || h === '127.0.0.1' || h.indexOf('staging') !== -1 || h.indexOf('netlify') !== -1;
   })();
 
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
@@ -35,6 +35,19 @@
         });
       } catch (e) {}
     }
+  }
+
+  function collectFormProperties(form) {
+    var props = {};
+    var fields = form.querySelectorAll('input[name], select[name], textarea[name]');
+    for (var i = 0; i < fields.length; i++) {
+      var field = fields[i];
+      var name = field.getAttribute('name');
+      if (!name || name === 'email') continue;
+      if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) continue;
+      props[name] = (field.value || '').trim();
+    }
+    return props;
   }
 
   function initForm(form) {
@@ -74,10 +87,11 @@
 
       input.classList.remove('is-invalid');
       if (submit) submit.disabled = true;
+      var customProperties = collectFormProperties(form);
 
       if (IS_STAGING) {
         console.log('[lead-capture] STAGING — would POST to Klaviyo', {
-          email: email, list: listId, source: source
+          email: email, list: listId, source: source, properties: customProperties
         });
         onSuccess();
         return;
@@ -98,11 +112,11 @@
                   type: 'profile',
                   attributes: {
                     email: email,
-                    properties: {
+                    properties: Object.assign({
                       signup_source: source,
                       signup_list_id: listId,
                       source_page: window.location.pathname
-                    }
+                    }, customProperties)
                   }
                 }
               },
@@ -127,12 +141,13 @@
         form_id: source,
         list_id: listId
       };
-      track('email_signup', {
+      eventParams = Object.assign(eventParams, customProperties);
+      track('email_signup', Object.assign({
         signup_source: source,
         source_page: window.location.pathname,
         form_id: source,
         list_id: listId
-      });
+      }, customProperties));
       track('lead_form_submit', eventParams);
       track('generate_lead', eventParams);
       if (source.indexOf('waitlist') !== -1) track('waitlist_complete', eventParams);

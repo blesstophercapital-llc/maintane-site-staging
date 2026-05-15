@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Maintane">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#3B5C3A">
+  <title>Free Septic System Health Check | Maintane</title>
+  <meta name="description" content="Take the free Maintane septic system health check to see whether your home looks ready for routine maintenance, closer monitoring, or a septic professional.">
+  <link rel="canonical" href="https://getmaintane.com/septic-health-check.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maintane">
+  <meta property="og:title" content="Free Septic System Health Check | Maintane">
+  <meta property="og:description" content="A simple homeowner quiz for septic smells, slow drains, warning signs, household habits, and monthly maintenance fit.">
+  <meta property="og:url" content="https://getmaintane.com/septic-health-check.html">
+  <meta property="og:image" content="https://getmaintane.com/product-hero.png">
+  <meta property="og:image:alt" content="Maintane natural septic treatment powder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Septic System Health Check | Maintane">
+  <meta name="twitter:description" content="See if your septic system looks routine, watch-worthy, or ready for a septic professional.">
+  <meta name="twitter:image" content="https://getmaintane.com/product-hero.png">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&family=DM+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/icons.css">
+  <link rel="stylesheet" href="/css/funnel.css">
+  <style>
+    .health-check-hero {
+      min-height: auto;
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+    }
+
+    .health-check-hero .funnel-hero-inner {
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.8fr);
+    }
+
+    .health-check-panel {
+      background: var(--warm-cream);
+      border: 1px solid rgba(196, 168, 130, 0.38);
+      border-radius: 30px;
+      color: var(--dark-bark);
+      padding: clamp(1.5rem, 4vw, 2.4rem);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+    }
+
+    .health-check-stat {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+
+    .health-check-stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid rgba(59, 92, 58, 0.12);
+      border-radius: 18px;
+      background: rgba(244, 237, 226, 0.7);
+      padding: 1rem;
+    }
+
+    .health-check-stat-row span {
+      color: rgba(44, 36, 23, 0.66);
+      font-size: 0.9rem;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .health-check-stat-row strong {
+      color: var(--forest-green);
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .health-check-quiz-shell {
+      background:
+        radial-gradient(circle at 95% 8%, rgba(196, 168, 130, 0.24), transparent 30%),
+        var(--off-cream);
+    }
+
+    .health-check-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .health-check-progress {
+      color: var(--forest-green);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .health-check-form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2.75rem;
+    }
+
+    .health-check-question {
+      border: 1px solid rgba(59, 92, 58, 0.13);
+      border-radius: 24px;
+      background: #fff;
+      padding: clamp(1.2rem, 3vw, 1.75rem);
+      box-shadow: 0 14px 40px rgba(44, 36, 23, 0.05);
+    }
+
+    .health-check-question legend {
+      color: var(--dark-bark);
+      font-size: 1.2rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+
+    .health-check-options {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .health-check-option {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: flex-start;
+      border: 1px solid rgba(59, 92, 58, 0.12);
+      border-radius: 18px;
+      color: rgba(44, 36, 23, 0.74);
+      cursor: pointer;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      padding: 1rem;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .health-check-option:hover,
+    .health-check-option:has(input:checked) {
+      background: rgba(244, 237, 226, 0.58);
+      border-color: rgba(59, 92, 58, 0.38);
+      transform: translateY(-1px);
+    }
+
+    .health-check-option input {
+      accent-color: var(--forest-green);
+      margin-top: 0.2rem;
+    }
+
+    .health-check-option strong {
+      color: var(--dark-bark);
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .health-check-submit-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .health-check-submit {
+      border: 0;
+      border-radius: 999px;
+      background: var(--forest-green);
+      color: var(--warm-cream);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      min-height: 56px;
+      padding: 1rem 1.75rem;
+      text-transform: uppercase;
+      transition: transform 0.18s ease, background 0.2s ease;
+    }
+
+    .health-check-submit:hover {
+      background: #2d4a2c;
+      transform: translateY(-1px);
+    }
+
+    .health-check-error {
+      color: #8f2f20;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .health-check-result {
+      scroll-margin-top: 130px;
+    }
+
+    .health-check-result[hidden] {
+      display: none;
+    }
+
+    .health-check-result-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+      border: 1px solid rgba(196, 168, 130, 0.34);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(196, 168, 130, 0.26), transparent 34%),
+        var(--forest-green);
+      color: var(--warm-cream);
+      padding: clamp(1.75rem, 5vw, 3.5rem);
+      box-shadow: 0 26px 70px rgba(44, 36, 23, 0.16);
+    }
+
+    .health-check-result-badge {
+      display: inline-flex;
+      border: 1px solid rgba(250, 246, 240, 0.28);
+      border-radius: 999px;
+      color: var(--warm-cream);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.1rem;
+      padding: 0.55rem 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .health-check-result-title {
+      color: var(--warm-cream);
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 4.8vw, 4.6rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.98;
+      margin-bottom: 1rem;
+    }
+
+    .health-check-result-body {
+      color: rgba(250, 246, 240, 0.78);
+      font-size: 1.04rem;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .health-check-plan {
+      display: grid;
+      gap: 0.8rem;
+      list-style: none;
+      margin: 1.75rem 0 0;
+    }
+
+    .health-check-plan li {
+      border: 1px solid rgba(250, 246, 240, 0.14);
+      border-radius: 16px;
+      background: rgba(250, 246, 240, 0.08);
+      color: rgba(250, 246, 240, 0.84);
+      line-height: 1.55;
+      padding: 0.9rem 1rem;
+    }
+
+    .health-check-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .health-check-result-actions .funnel-btn-secondary {
+      border-color: rgba(250, 246, 240, 0.42);
+    }
+
+    .health-check-email-card {
+      background: rgba(250, 246, 240, 0.1);
+      border: 1px solid rgba(250, 246, 240, 0.18);
+      border-radius: 24px;
+      padding: 1.45rem;
+    }
+
+    .health-check-email-card h3 {
+      color: var(--warm-cream);
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 0.7rem;
+    }
+
+    .health-check-email-card p {
+      color: rgba(250, 246, 240, 0.76);
+      font-size: 0.96rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .health-check-email-card .funnel-lead-card {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .health-check-disclaimer {
+      border: 1px solid rgba(59, 92, 58, 0.14);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.78);
+      color: rgba(44, 36, 23, 0.68);
+      font-size: 0.94rem;
+      line-height: 1.7;
+      margin-top: 2rem;
+      padding: 1.15rem 1.25rem;
+    }
+
+    @media (max-width: 980px) {
+      .health-check-hero .funnel-hero-inner,
+      .health-check-result-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .health-check-topline,
+      .health-check-submit-row,
+      .health-check-result-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .health-check-submit,
+      .health-check-result-actions a {
+        width: 100%;
+      }
+
+      .health-check-stat-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+  <script src="/js/meta-pixel.js"></script>
+</head>
+<body class="funnel-page health-check-page">
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=35305867532391902&ev=PageView&noscript=1"></noscript>
+
+<div class="funnel-announcement">Free septic system health check for smells, slow drains, warning signs, and monthly maintenance fit.</div>
+
+<nav class="funnel-nav" aria-label="Primary navigation">
+  <button class="funnel-menu-toggle" data-funnel-menu-toggle aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="funnel-nav-left">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://getmaintane.com/shop.html">Shop Now</a></li>
+    <li><a href="/how-it-works.html">How it works</a></li>
+    <li><a href="/dosing-guide.html">Dosing Guide</a></li>
+  </ul>
+  <a class="funnel-brand" href="/" aria-label="Maintane home">
+    <span class="funnel-logo-mark"><svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35 70 C35 70 20 55 25 35 C30 15 50 10 60 20 C70 30 65 55 50 65 Z" fill="#4a8c3f"/><path d="M50 65 C50 65 55 45 70 38 C85 31 95 40 90 55 C85 70 65 75 50 65 Z" fill="#6aaf3d"/><path d="M35 70 Q42 60 50 65" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M50 65 Q60 55 70 38" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span>
+    Maintane
+  </a>
+  <ul class="funnel-nav-right">
+    <li><a href="/septic-treatment.html">Septic Treatment</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a class="funnel-nav-cta" href="https://getmaintane.com/shop.html">Buy Now</a></li>
+  </ul>
+</nav>
+
+<div class="funnel-mobile-menu" data-funnel-mobile-menu>
+  <a href="/">Home</a>
+  <a href="/septic-treatment.html">Septic Treatment</a>
+  <a href="https://getmaintane.com/shop.html">Shop Now</a>
+  <a href="/dosing-guide.html">Dosing Guide</a>
+  <a href="/blog/">Blog</a>
+  <a class="funnel-nav-cta" href="https://getmaintane.com/shop.html">Buy Now</a>
+</div>
+
+<main>
+  <section class="funnel-hero health-check-hero">
+    <div class="funnel-hero-inner">
+      <div>
+        <p class="funnel-eyebrow">Free homeowner quiz</p>
+        <h1 class="funnel-hero-title">Check the current state of your septic system.</h1>
+        <p class="funnel-hero-sub">Answer seven simple questions and see whether your home looks ready for routine maintenance, closer monitoring, or a septic professional.</p>
+        <div class="funnel-actions">
+          <a class="funnel-btn-primary" href="#health-check-quiz" data-event="health_check_hero_cta" data-health-check-start>Take the Health Check</a>
+          <a class="funnel-btn-secondary" href="https://getmaintane.com/shop.html" data-event="health_check_shop_cta">Shop Maintane - $49.99</a>
+        </div>
+        <p class="funnel-reassurance">Maintane does not replace pumping, inspection, repair, or professional diagnosis.</p>
+      </div>
+      <aside class="health-check-panel" aria-label="Health check outcomes">
+        <p class="funnel-eyebrow">What you get</p>
+        <h2 class="funnel-section-title" style="font-size:clamp(2.2rem,4.4vw,3.5rem);">A clearer next step before you buy.</h2>
+        <p class="funnel-section-sub">The quiz routes homeowners into one of three modes based on symptoms, household habits, and maintenance readiness.</p>
+        <div class="health-check-stat" aria-label="Result modes">
+          <div class="health-check-stat-row"><span>Stable system, normal routine</span><strong>Routine mode</strong></div>
+          <div class="health-check-stat-row"><span>Some symptoms or risky habits</span><strong>Watch mode</strong></div>
+          <div class="health-check-stat-row"><span>Backup, alarm, sewage, or drain-field red flags</span><strong>Call-a-pro mode</strong></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="funnel-section health-check-quiz-shell" id="health-check-quiz">
+    <div class="funnel-section-inner">
+      <div class="health-check-topline">
+        <p class="funnel-eyebrow" style="margin-bottom:0;">Septic system health check</p>
+        <span class="health-check-progress" data-health-check-progress>0 of 7 answered</span>
+      </div>
+      <h2 class="funnel-section-title">Find your septic mode.</h2>
+      <p class="funnel-section-sub">This is not a diagnosis. It is a practical homeowner filter for deciding whether to maintain, monitor, or call a professional first.</p>
+
+      <form class="health-check-form" data-health-check-form>
+        <fieldset class="health-check-question" data-question>
+          <legend>1. Any major red flags happening right now?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="red_flags" value="none" data-score="0" data-answer-label="No obvious red flags">
+              <span><strong>No obvious red flags.</strong> No backup, alarm, wet drain field, or sewage smell right now.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="red_flags" value="smell" data-score="2" data-answer-label="Strong odor concern">
+              <span><strong>Strong odor concern.</strong> A smell is noticeable enough that I am paying attention.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="red_flags" value="urgent" data-score="10" data-red-flag="true" data-answer-label="Backup, alarm, wet drain field, or surfacing sewage">
+              <span><strong>Backup, alarm, wet drain field, or surfacing sewage.</strong> This feels urgent or outside normal maintenance.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>2. How are your drains and toilets acting?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="drain_behavior" value="normal" data-score="0" data-answer-label="Drains and toilets are normal">
+              <span><strong>Normal.</strong> No repeated slow drains, gurgling, or backup behavior.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="drain_behavior" value="occasional" data-score="1" data-answer-label="Occasional slow drain or gurgle">
+              <span><strong>Occasional slow drain or gurgle.</strong> It happens, but not across the whole house.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="drain_behavior" value="multiple" data-score="2" data-answer-label="Multiple fixtures are slow or gurgling">
+              <span><strong>Multiple fixtures are slow or gurgling.</strong> More than one drain or toilet is involved.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="drain_behavior" value="backup" data-score="10" data-red-flag="true" data-answer-label="Active backup">
+              <span><strong>Active backup.</strong> Wastewater has backed up or looks close to backing up.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>3. What kind of odor are you noticing?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="odor" value="none" data-score="0" data-answer-label="No odor">
+              <span><strong>No odor.</strong> Nothing unusual inside or outside.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="odor" value="occasional" data-score="1" data-answer-label="Occasional bathroom or drain odor">
+              <span><strong>Occasional bathroom or drain odor.</strong> It comes and goes.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="odor" value="persistent" data-score="2" data-answer-label="Persistent rotten egg or sewage odor">
+              <span><strong>Persistent rotten egg or sewage odor.</strong> It is recurring or hard to ignore.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="odor" value="outside" data-score="10" data-red-flag="true" data-answer-label="Outdoor sewage smell near tank or drain field">
+              <span><strong>Outdoor sewage smell near the tank or drain field.</strong> Especially if paired with wet ground.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>4. Do you know your pump-out or inspection history?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="service_history" value="current" data-score="0" data-answer-label="Pump-outs and inspections are on schedule">
+              <span><strong>Yes, it is on schedule.</strong> I have records or a service rhythm.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="service_history" value="unsure" data-score="1" data-answer-label="Pump-out history is unsure">
+              <span><strong>I am not sure.</strong> Records are missing or I recently moved in.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="service_history" value="overdue" data-score="2" data-answer-label="Likely overdue">
+              <span><strong>Likely overdue.</strong> It has been several years, or I do not remember the last service.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>5. How much stress does the system see?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="system_stress" value="normal" data-score="0" data-answer-label="Normal household use">
+              <span><strong>Normal household use.</strong> Laundry and water use are spread out.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="system_stress" value="moderate" data-score="1" data-answer-label="Heavy laundry, guests, disposal, or high water days">
+              <span><strong>Moderate stress.</strong> Heavy laundry days, guests, garbage disposal use, or high water use happen sometimes.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="system_stress" value="heavy" data-score="2" data-answer-label="Heavy use plus symptoms">
+              <span><strong>Heavy use plus symptoms.</strong> The system sees stress and signs like smell, gurgling, or slow drains.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>6. How septic-safe are your household habits?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="habits" value="safe" data-score="0" data-answer-label="Mostly septic-safe habits">
+              <span><strong>Mostly septic-safe.</strong> No wipes, grease, chemical drain cleaners, or heavy harsh chemical habits.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="habits" value="mixed" data-score="1" data-answer-label="Some bleach, cleaners, or disposal use">
+              <span><strong>Mixed habits.</strong> Some bleach, strong cleaners, garbage disposal use, or inconsistent rules.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="habits" value="risky" data-score="2" data-answer-label="Wipes, grease, or chemical drain cleaners">
+              <span><strong>Risky habits.</strong> Wipes, grease, chemical drain cleaners, or frequent harsh inputs may be part of the home.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="health-check-question" data-question>
+          <legend>7. Do you have a monthly septic care routine?</legend>
+          <div class="health-check-options">
+            <label class="health-check-option">
+              <input type="radio" name="routine" value="consistent" data-score="0" data-answer-label="Consistent monthly routine">
+              <span><strong>Yes.</strong> Monthly septic care is already on the calendar.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="routine" value="inconsistent" data-score="1" data-answer-label="Inconsistent routine">
+              <span><strong>Kind of.</strong> I remember sometimes, but not consistently.</span>
+            </label>
+            <label class="health-check-option">
+              <input type="radio" name="routine" value="none" data-score="2" data-answer-label="No monthly routine">
+              <span><strong>No routine yet.</strong> I want a simpler way to stay ahead.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="health-check-submit-row">
+          <button class="health-check-submit" type="submit" data-event="health_check_quiz_submit">See My Result</button>
+          <p class="health-check-error" data-health-check-error hidden>Please answer every question so the Health Check can route you properly.</p>
+        </div>
+      </form>
+
+      <p class="health-check-disclaimer">This quiz is educational only. If you have sewage backup, an alarm, wet or smelly drain-field conditions, surfacing sewage, or persistent unresolved odor, contact a licensed septic professional.</p>
+    </div>
+  </section>
+
+  <section class="funnel-section health-check-result" data-health-check-result hidden>
+    <div class="funnel-section-inner">
+      <div class="health-check-result-card">
+        <div>
+          <span class="health-check-result-badge" data-result-badge>Routine mode</span>
+          <h2 class="health-check-result-title" data-result-title>Your system looks ready for a simple monthly routine.</h2>
+          <p class="health-check-result-body" data-result-body>Based on your answers, you did not flag urgent symptoms.</p>
+          <ul class="health-check-plan" data-result-plan></ul>
+          <div class="health-check-result-actions">
+            <a class="funnel-btn-primary" href="https://getmaintane.com/shop.html" data-result-primary data-event="health_check_result_primary_cta">Shop Maintane</a>
+            <a class="funnel-btn-secondary" href="/dosing-guide.html" data-result-secondary data-event="health_check_result_secondary_cta">See dosing guide</a>
+          </div>
+        </div>
+        <aside class="health-check-email-card">
+          <h3>Send my result.</h3>
+          <p>Get this result, your recommended next step, and the monthly septic care notes by email.</p>
+          <div class="funnel-lead-card">
+            <form class="funnel-lead-form" data-lead-form data-lead-source="septic_health_check_quiz" data-lead-list-id="XKHBEk" data-event="health_check_result_submit" novalidate>
+              <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+              <input type="hidden" name="quiz_result" value="">
+              <input type="hidden" name="quiz_score" value="">
+              <input type="hidden" name="quiz_red_flags" value="">
+              <input type="hidden" name="quiz_recommendation" value="">
+              <input type="hidden" name="quiz_answers" value="">
+              <button type="submit">Send My Result</button>
+              <div class="funnel-lead-msg success" data-lead-success>You're in. Check your email for confirmation.</div>
+              <div class="funnel-lead-msg error" data-lead-error>Something went wrong. Try again or email hello@getmaintane.com.</div>
+              <p class="funnel-fineprint">By signing up, you consent to our <a href="/policy.html">Privacy Policy</a>. Unsubscribe anytime.</p>
+              <div class="funnel-next-offer" data-lead-next>
+                <p>Next step: compare the 6-, 12-, and 18-month Maintane supplies.</p>
+                <a href="https://getmaintane.com/shop.html">Shop Maintane - $49.99</a>
+              </div>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="funnel-section">
+    <div class="funnel-section-inner">
+      <p class="funnel-eyebrow">Why this works</p>
+      <h2 class="funnel-section-title">The quiz keeps the offer honest.</h2>
+      <p class="funnel-section-sub">Not every septic problem should go straight to a product. The Health Check separates routine maintenance from symptoms that deserve closer attention.</p>
+      <div class="funnel-grid-3">
+        <article class="funnel-card">
+          <h3>Routine mode</h3>
+          <p>Your system sounds stable. Build a simple monthly maintenance rhythm and compare supply lengths.</p>
+        </article>
+        <article class="funnel-card">
+          <h3>Watch mode</h3>
+          <p>You have signs worth monitoring. Review household habits, warning signs, and whether monthly maintenance fits.</p>
+        </article>
+        <article class="funnel-card">
+          <h3>Call-a-pro mode</h3>
+          <p>Backup, alarm, surfacing sewage, wet drain-field symptoms, or unresolved odors should go to a septic professional.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="funnel-section funnel-cta-band">
+    <div class="funnel-section-inner">
+      <p class="funnel-eyebrow">Ready to buy?</p>
+      <h2 class="funnel-section-title">Choose your monthly septic defense supply.</h2>
+      <p class="funnel-section-sub">If you already know your system is in routine maintenance mode, go straight to the 6-, 12-, and 18-month supply options.</p>
+      <div class="funnel-actions">
+        <a class="funnel-btn-primary" href="https://getmaintane.com/shop.html" data-event="health_check_final_shop_cta">Shop Maintane - $49.99</a>
+        <a class="funnel-btn-secondary" href="/dosing-guide.html" data-event="health_check_dosing_link">See dosing guide</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="/js/funnel.js"></script>
+<script src="/js/analytics-events.js"></script>
+<script src="/js/lead-capture.js"></script>
+<script src="/js/septic-health-check.js"></script>
+</body>
+</html>

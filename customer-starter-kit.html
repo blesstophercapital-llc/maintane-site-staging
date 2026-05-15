@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Your Maintane Starter Kit | Monthly Septic Care</title>
+  <meta name="description" content="A post-purchase Maintane starter kit with the printable septic defense guide, monthly maintenance calendar, dosing guide, and reorder path.">
+  <link rel="canonical" href="https://getmaintane.com/customer-starter-kit.html">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png">
+  <link rel="stylesheet" href="/css/funnel.css">
+  <style>
+    :root {
+      --kit-green: #3f5f3b;
+      --kit-dark: #263825;
+      --kit-cream: #f8f1e6;
+      --kit-tan: #c8ad83;
+      --kit-ink: #2b251d;
+      --kit-muted: #746d62;
+      --kit-line: rgba(63, 95, 59, 0.18);
+    }
+
+    body.customer-kit-page {
+      background: radial-gradient(circle at 10% 0%, rgba(200, 173, 131, 0.28), transparent 34%), linear-gradient(180deg, #fbf7ef 0%, #f5ead9 100%);
+      color: var(--kit-ink);
+    }
+
+    .kit-nav {
+      align-items: center;
+      background: rgba(255, 251, 244, 0.94);
+      border-bottom: 1px solid rgba(63, 95, 59, 0.14);
+      display: flex;
+      justify-content: space-between;
+      padding: 1.1rem clamp(1rem, 4vw, 4rem);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+    }
+
+    .kit-brand {
+      align-items: center;
+      color: var(--kit-green);
+      display: inline-flex;
+      font-family: var(--font-sans, sans-serif);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      font-weight: 900;
+      gap: 0.55rem;
+      text-decoration: none;
+    }
+
+    .kit-brand img {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .kit-nav-actions,
+    .kit-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .kit-link {
+      color: var(--kit-dark);
+      font-family: var(--font-sans, sans-serif);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .kit-button {
+      align-items: center;
+      background: var(--kit-green);
+      border: 1px solid var(--kit-green);
+      border-radius: 999px;
+      color: #fffdf7;
+      display: inline-flex;
+      font-family: var(--font-sans, sans-serif);
+      font-size: 0.88rem;
+      font-weight: 900;
+      justify-content: center;
+      letter-spacing: 0.07em;
+      min-height: 3.2rem;
+      padding: 0.9rem 1.25rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .kit-button.secondary {
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--kit-green);
+    }
+
+    .kit-container {
+      margin: 0 auto;
+      max-width: 1180px;
+      padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 2rem);
+    }
+
+    .kit-hero {
+      align-items: center;
+      display: grid;
+      gap: clamp(2rem, 5vw, 4rem);
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+      min-height: calc(100svh - 96px);
+    }
+
+    .kit-eyebrow {
+      color: var(--kit-green);
+      font-family: var(--font-sans, sans-serif);
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      margin: 0 0 1rem;
+      text-transform: uppercase;
+    }
+
+    .kit-hero h1,
+    .kit-section h2,
+    .kit-final h2 {
+      font-family: var(--font-display, Georgia, serif);
+      letter-spacing: -0.07em;
+      line-height: 0.9;
+      margin: 0;
+    }
+
+    .kit-hero h1 {
+      font-size: clamp(4.5rem, 10vw, 8.8rem);
+      line-height: 0.86;
+      max-width: 820px;
+    }
+
+    .kit-hero p,
+    .kit-section-lede,
+    .kit-card p,
+    .kit-final p {
+      color: var(--kit-muted);
+      font-family: var(--font-sans, sans-serif);
+      line-height: 1.55;
+    }
+
+    .kit-hero p {
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      max-width: 680px;
+    }
+
+    .kit-card {
+      background: rgba(255, 253, 247, 0.72);
+      border: 1px solid var(--kit-line);
+      border-radius: 2rem;
+      box-shadow: 0 26px 60px rgba(54, 47, 36, 0.08);
+      padding: clamp(1.5rem, 4vw, 2.4rem);
+    }
+
+    .kit-note {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--kit-line);
+      border-radius: 2rem;
+      margin-top: 1.4rem;
+      max-width: 620px;
+      padding: 1.2rem 1.35rem;
+    }
+
+    .kit-note strong,
+    .kit-card h3,
+    .kit-summary b {
+      color: var(--kit-dark);
+      font-family: var(--font-sans, sans-serif);
+      font-weight: 900;
+    }
+
+    .kit-summary {
+      background: linear-gradient(160deg, var(--kit-dark), var(--kit-green));
+      color: #fffdf7;
+    }
+
+    .kit-summary h2 {
+      font-family: var(--font-display, Georgia, serif);
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+      margin: 0 0 1rem;
+    }
+
+    .kit-summary ol {
+      display: grid;
+      gap: 1rem;
+      list-style: none;
+      margin: 2rem 0 0;
+      padding: 0;
+    }
+
+    .kit-summary li {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      display: grid;
+      gap: 0.35rem;
+      padding-top: 1rem;
+    }
+
+    .kit-summary b {
+      color: #fffdf7;
+    }
+
+    .kit-summary span {
+      color: rgba(255, 253, 247, 0.78);
+      font-family: var(--font-sans, sans-serif);
+      line-height: 1.45;
+    }
+
+    .kit-section {
+      padding: clamp(3.5rem, 7vw, 6rem) 0;
+    }
+
+    .kit-section h2 {
+      font-size: clamp(3.2rem, 7vw, 6.3rem);
+      margin-bottom: 1rem;
+    }
+
+    .kit-section-lede {
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      max-width: 720px;
+    }
+
+    .kit-grid,
+    .kit-timeline {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .kit-resource-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
+
+    .kit-card h3 {
+      font-size: 1.25rem;
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+    }
+
+    .kit-resource-card a {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+
+    .kit-timeline-card .day {
+      color: var(--kit-green);
+      display: block;
+      font-family: var(--font-sans, sans-serif);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .kit-alert {
+      background: rgba(63, 95, 59, 0.09);
+      border: 1px solid rgba(63, 95, 59, 0.22);
+      border-radius: 2rem;
+      margin-top: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .kit-alert ul {
+      color: var(--kit-muted);
+      columns: 2;
+      font-family: var(--font-sans, sans-serif);
+      line-height: 1.7;
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .kit-final {
+      align-items: center;
+      background: var(--kit-dark);
+      border-radius: 2.5rem;
+      color: #fffdf7;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr auto;
+      margin-top: clamp(2rem, 5vw, 4rem);
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .kit-final h2 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .kit-final p {
+      color: rgba(255, 253, 247, 0.78);
+      max-width: 640px;
+    }
+
+    .kit-final-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 260px;
+    }
+
+    .kit-footer {
+      color: var(--kit-muted);
+      font-family: var(--font-sans, sans-serif);
+      font-size: 0.9rem;
+      padding: 0 clamp(1rem, 4vw, 4rem) 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .kit-hero,
+      .kit-final {
+        grid-template-columns: 1fr;
+      }
+
+      .kit-grid,
+      .kit-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kit-nav-actions .kit-link {
+        display: none;
+      }
+
+      .kit-container {
+        padding-top: 2.6rem;
+      }
+
+      .kit-hero {
+        min-height: auto;
+      }
+
+      .kit-hero h1 {
+        font-size: clamp(4rem, 16vw, 5.8rem);
+      }
+
+      .kit-actions,
+      .kit-final-actions {
+        flex-direction: column;
+      }
+
+      .kit-button {
+        width: 100%;
+      }
+
+      .kit-grid,
+      .kit-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .kit-alert ul {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body class="customer-kit-page">
+  <nav class="kit-nav" aria-label="Post-purchase starter kit">
+    <a class="kit-brand" href="/" aria-label="Maintane home">
+      <img src="/favicon-96x96.png" alt="">
+      <span>Maintane</span>
+    </a>
+    <div class="kit-nav-actions">
+      <a class="kit-link" href="/dosing-guide.html" data-event="post_purchase_nav_dosing">Dosing Guide</a>
+      <a class="kit-button" href="/shop.html" data-event="post_purchase_nav_reorder">Reorder</a>
+    </div>
+  </nav>
+
+  <main class="kit-container">
+    <section class="kit-hero" aria-labelledby="starter-kit-title">
+      <div>
+        <p class="kit-eyebrow">Buyer Starter Kit</p>
+        <h1 id="starter-kit-title">Your first month, handled.</h1>
+        <p>Everything you need to set up your Maintane routine, keep the habit visible, and know when a septic issue is bigger than monthly maintenance.</p>
+        <div class="kit-actions">
+          <a class="kit-button" href="/printable-septic-maintenance-calendar.html" data-event="post_purchase_print_calendar">Print Monthly Calendar</a>
+          <a class="kit-button secondary" href="/printable-septic-care-checklist.html" data-event="post_purchase_print_checklist">Print Septic Guide</a>
+        </div>
+        <div class="kit-note">
+          <strong>Keep this page in your email.</strong>
+          <p>Your order confirmation and post-purchase emails can point here when you need the calendar, guide, dosing page, or reorder path again.</p>
+        </div>
+      </div>
+
+      <aside class="kit-card kit-summary" aria-label="Quick start steps">
+        <h2>Start clean.</h2>
+        <ol>
+          <li><b>1. Read the label.</b><span>Use Maintane once monthly as directed by the product label.</span></li>
+          <li><b>2. Pick a reminder day.</b><span>Choose the same day every month so septic care becomes automatic.</span></li>
+          <li><b>3. Print the calendar.</b><span>Put it near the laundry room, utility closet, or wherever home maintenance lives.</span></li>
+          <li><b>4. Know the red flags.</b><span>Maintane supports routine care. Active backups, sewage, alarms, wet drain fields, or unresolved odors need a septic professional.</span></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="kit-section" aria-labelledby="kit-assets-title">
+      <p class="kit-eyebrow">What To Save</p>
+      <h2 id="kit-assets-title">Your septic routine assets.</h2>
+      <p class="kit-section-lede">These are the pieces your post-purchase flow should deliver: a simple calendar, a printable guide, clear dosing confidence, and an easy reorder path.</p>
+
+      <div class="kit-grid">
+        <article class="kit-card kit-resource-card">
+          <div>
+            <h3>Monthly Maintenance Calendar</h3>
+            <p>A printable 12-month tracker for Maintane use, quick system checks, and notes between pump-outs.</p>
+          </div>
+          <a class="kit-button" href="/printable-septic-maintenance-calendar.html" data-event="post_purchase_calendar">Open Calendar</a>
+        </article>
+        <article class="kit-card kit-resource-card">
+          <div>
+            <h3>Printable Septic Defense Guide</h3>
+            <p>A homeowner-friendly guide for what not to flush, household inputs, warning signs, and monthly care.</p>
+          </div>
+          <a class="kit-button secondary" href="/printable-septic-care-checklist.html" data-event="post_purchase_checklist">Open Guide</a>
+        </article>
+        <article class="kit-card kit-resource-card">
+          <div>
+            <h3>Dosing Guide</h3>
+            <p>Review the once-monthly routine and compare 6-, 12-, and 18-month supply options.</p>
+          </div>
+          <a class="kit-button secondary" href="/dosing-guide.html" data-event="post_purchase_dosing">Review Dosing</a>
+        </article>
+        <article class="kit-card kit-resource-card">
+          <div>
+            <h3>Reorder Maintane</h3>
+            <p>Need to stock back up? Head to the Maintane shop and choose the supply length that fits your home.</p>
+          </div>
+          <a class="kit-button" href="/shop.html" data-event="post_purchase_reorder">Shop Maintane</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="kit-section" aria-labelledby="flow-title">
+      <p class="kit-eyebrow">Email Flow Map</p>
+      <h2 id="flow-title">What customers should receive next.</h2>
+      <p class="kit-section-lede">This is the practical post-purchase sequence for Klaviyo: confirm the order, help them use the product correctly, reinforce the monthly habit, then ask for proof at the right time.</p>
+      <div class="kit-timeline">
+        <article class="kit-card kit-timeline-card"><span class="day">Day 0</span><h3>Order confirmed</h3><p>Send this starter kit page with the calendar, printable guide, and dosing link.</p></article>
+        <article class="kit-card kit-timeline-card"><span class="day">Delivery window</span><h3>First-use confidence</h3><p>Remind them to read the label, use as directed, and pick a monthly reminder day.</p></article>
+        <article class="kit-card kit-timeline-card"><span class="day">Day 28-35</span><h3>Monthly habit nudge</h3><p>Prompt the next monthly routine and ask if anything about the process was confusing.</p></article>
+        <article class="kit-card kit-timeline-card"><span class="day">Day 45+</span><h3>Review request</h3><p>Ask for a grounded review about simplicity, routine, packaging, and peace of mind.</p></article>
+      </div>
+      <div class="kit-alert">
+        <h3>Keep the trust line bright.</h3>
+        <p>Maintane is for routine monthly septic maintenance. Customers should call a septic professional if they see active signs of a system problem.</p>
+        <ul>
+          <li>Sewage backup or surfacing sewage</li>
+          <li>Septic alarm going off</li>
+          <li>Wet or unusually soft drain field</li>
+          <li>Persistent odor after normal use</li>
+          <li>Slow drains across multiple fixtures</li>
+          <li>Unknown pumping history or overdue service</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="kit-final" aria-labelledby="final-title">
+      <div>
+        <p class="kit-eyebrow">Ready When You Are</p>
+        <h2 id="final-title">Save the routine. Stay ahead.</h2>
+        <p>Use the guide and calendar to make monthly septic care visible, then restock before your current supply runs low.</p>
+      </div>
+      <div class="kit-final-actions">
+        <a class="kit-button" href="/printable-septic-maintenance-calendar.html" data-event="post_purchase_final_calendar">Print Calendar</a>
+        <a class="kit-button secondary" href="/shop.html" data-event="post_purchase_final_reorder">Reorder Maintane</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="kit-footer">
+    Maintane supports routine septic maintenance and does not replace pumping, inspection, repair, or professional diagnosis.
+  </footer>
+  <script src="/js/analytics-events.js" defer></script>
+</body>
+</html>

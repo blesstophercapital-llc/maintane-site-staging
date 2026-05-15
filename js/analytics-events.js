@@ -52,7 +52,8 @@
     '/septic-safe-toilet-cleaner.html',
     '/septic-safe-laundry-detergent.html',
     '/septic-treatment-for-rental-homes.html',
-    '/septic-safe-home-cleaning-guide.html'
+    '/septic-safe-home-cleaning-guide.html',
+    '/septic-health-check.html'
   ];
   var EXTERNAL_DESTINATIONS = [
     { match: /(^|\.)tiktok\.com/i,    name: 'tiktok' },

@@ -469,6 +469,14 @@ a { color: inherit; }
   line-height: 1.65;
   margin-bottom: 1.2rem;
 }
+.funnel-quiz-card .funnel-btn-primary {
+  background: var(--botanical-tan);
+  color: var(--dark-bark);
+  display: inline-flex;
+  margin: 0 0 0.9rem;
+  text-decoration: none;
+  width: 100%;
+}
 .funnel-lead-form {
   display: grid;
   gap: 0.8rem;
