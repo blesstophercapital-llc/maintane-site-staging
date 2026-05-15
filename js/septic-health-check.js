@@ -36,17 +36,17 @@
       badge: 'Just In Time',
       identityKey: 'responsible_septic_owner',
       identity: 'The Responsible Septic Owner',
-      title: 'You are just in time to start maintaining.',
-      body: 'Your system is not screaming for help yet. That is the point. You are just in time to start maintaining it before warning signs become expensive.',
+      title: "GOOD NEWS: YOU'RE A RESPONSIBLE SEPTIC OWNER",
+      body: "BAD NEWS: YOU'RE NOT CURRENTLY PROTECTED",
       recommendation: 'Start monthly septic defense.',
       primaryText: 'Start Monthly Septic Defense',
       primaryHref: 'https://getmaintane.com/shop.html',
       secondaryText: 'See dosing guide',
       secondaryHref: '/dosing-guide.html',
       plan: [
-        'Use Maintane once a month as directed.',
-        'Choose 6, 12, or 18 months of supply based on how far ahead you want to stay.',
-        'Keep normal pump-outs and inspections scheduled.'
+        'Start a monthly septic care routine before warning signs show up.',
+        'Keep pump-outs and inspections on their normal schedule.',
+        'Use Maintane once a month as directed to support the biology your tank depends on.'
       ]
     },
     watch: {
@@ -54,8 +54,8 @@
       badge: 'Almost Too Late',
       identityKey: 'early_warning_catcher',
       identity: 'The Early Warning Catcher',
-      title: 'This is the window responsible people do not waste.',
-      body: 'Your answers show signals worth taking seriously. This may still be a maintenance window, but it is not a window to waste.',
+      title: 'GOOD NEWS: YOU CAUGHT THE WARNING SIGNS EARLY',
+      body: 'BAD NEWS: YOUR SEPTIC SYSTEM IS ALREADY ASKING FOR HELP',
       recommendation: 'Tighten habits and start a monthly routine if there are no active red flags.',
       primaryText: 'Get Ahead With Monthly Septic Defense',
       primaryHref: 'https://getmaintane.com/shop.html',
@@ -72,8 +72,8 @@
       badge: 'Too Late To Maintane',
       identityKey: 'smart_escalator',
       identity: 'The Smart Escalator',
-      title: 'Please come back after pump-out or professional assistance.',
-      body: 'Based on your answers, this may be too late for a maintenance product. Maintane is for maintenance, not emergencies.',
+      title: 'GOOD NEWS: YOU KNOW THIS IS NOT NORMAL',
+      body: 'BAD NEWS: THIS IS TOO LATE TO MAINTANE RIGHT NOW',
       recommendation: 'Call a septic professional or schedule pump-out before treating this like routine maintenance.',
       primaryText: 'Review urgent warning signs',
       primaryHref: '/septic-backup.html',
@@ -197,8 +197,8 @@
     resultPanel.hidden = false;
     resultPanel.setAttribute('data-result-type', currentClassification.type);
     if (resultBadge) resultBadge.textContent = result.badge;
-    if (resultTitle) resultTitle.textContent = result.title;
-    if (resultBody) resultBody.textContent = result.body;
+    renderAnnouncement(resultTitle, result.title, 'good');
+    renderAnnouncement(resultBody, result.body, 'bad');
     if (resultPrimary) {
       resultPrimary.textContent = result.primaryText;
       resultPrimary.href = result.primaryHref;
@@ -227,6 +227,21 @@
       septic_health_red_flags: currentClassification.redFlags.join('; ')
     });
     resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderAnnouncement(element, text, tone) {
+    if (!element) return;
+    element.innerHTML = '';
+    var label = tone === 'good' ? 'GOOD NEWS:' : 'BAD NEWS:';
+    if (text.indexOf(label) !== 0) {
+      element.textContent = text;
+      return;
+    }
+    var labelSpan = document.createElement('span');
+    labelSpan.className = 'health-result-announcement-label health-result-announcement-label-' + tone;
+    labelSpan.textContent = label;
+    element.appendChild(labelSpan);
+    element.appendChild(document.createTextNode(text.slice(label.length)));
   }
 
   function leadValue(name) {

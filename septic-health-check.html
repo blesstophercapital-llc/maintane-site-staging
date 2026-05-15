@@ -431,6 +431,35 @@
       margin-bottom: 12px;
     }
 
+    .health-result[data-result-type="routine"] .health-result-title,
+    .health-result[data-result-type="watch"] .health-result-title,
+    .health-result[data-result-type="pro"] .health-result-title {
+      color: #111827;
+      font-size: clamp(2rem, 4.8vw, 4.25rem);
+      font-weight: 950;
+      line-height: 0.96;
+      text-transform: uppercase;
+    }
+
+    .health-result[data-result-type="routine"] .health-result-body,
+    .health-result[data-result-type="watch"] .health-result-body,
+    .health-result[data-result-type="pro"] .health-result-body {
+      color: #111827;
+      font-size: clamp(1.7rem, 4vw, 3.5rem);
+      font-weight: 950;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .health-result-announcement-label-good {
+      color: var(--forest-green);
+    }
+
+    .health-result-announcement-label-bad {
+      color: #b42318;
+    }
+
     .health-result-plan {
       display: grid;
       gap: 10px;
@@ -833,7 +862,7 @@
           </div>
           <div class="pro-help-panel" data-pro-help-panel hidden>
             <h3>Need help finding a local pump-out or septic pro?</h3>
-            <p>Maintane cannot fix an active septic issue, but we can help point you toward the right local help. Send your ZIP and issue type, and we will use it to research pump-out/pro options and future local partnerships.</p>
+            <p>Maintane cannot fix an active septic issue, but we can help point you toward the right local help. Send your ZIP and issue type, and we will use it to research pump-out/pro options in your area.</p>
             <form class="pro-help-form" data-lead-form data-pro-help-form data-lead-source="septic_pro_help_request" data-lead-list-id="XKHBEk" data-event="septic_pro_help_request" novalidate>
               <input type="email" name="email" hidden required aria-label="Email address">
               <input type="hidden" name="first_name" value="">
