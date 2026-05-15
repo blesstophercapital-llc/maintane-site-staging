@@ -25,6 +25,8 @@
   var resultPlan = document.querySelector('[data-result-plan]');
   var resultPrimary = document.querySelector('[data-result-primary]');
   var resultSecondary = document.querySelector('[data-result-secondary]');
+  var proHelpPanel = document.querySelector('[data-pro-help-panel]');
+  var proHelpForm = document.querySelector('[data-pro-help-form]');
   var currentIndex = 0;
   var currentClassification = null;
 
@@ -139,7 +141,7 @@
     }
     var type = 'routine';
     if (redFlags.length || score >= 10) type = 'pro';
-    else if (score >= 5) type = 'watch';
+    else if (score > 0) type = 'watch';
     return {
       type: type,
       score: score,
@@ -213,6 +215,10 @@
         resultPlan.appendChild(li);
       }
     }
+    if (proHelpPanel) {
+      proHelpPanel.hidden = currentClassification.type !== 'pro';
+    }
+    if (currentClassification.type === 'pro') populateProHelpForm();
     track('health_check_result_view', {
       septic_health_result_key: result.resultKey,
       septic_health_result: result.badge,
@@ -221,6 +227,27 @@
       septic_health_red_flags: currentClassification.redFlags.join('; ')
     });
     resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function leadValue(name) {
+    if (!leadForm) return '';
+    var field = leadForm.querySelector('[name="' + name + '"]');
+    return field ? field.value : '';
+  }
+
+  function setProHelpValue(name, value) {
+    if (!proHelpForm) return;
+    var field = proHelpForm.querySelector('[name="' + name + '"]');
+    if (field) field.value = value;
+  }
+
+  function populateProHelpForm() {
+    setProHelpValue('email', leadValue('email'));
+    setProHelpValue('first_name', leadValue('first_name'));
+    setProHelpValue('last_name', leadValue('last_name'));
+    setProHelpValue('septic_health_result_key', 'too_late_to_maintane');
+    setProHelpValue('septic_health_result', 'Too Late To Maintane');
+    setProHelpValue('pro_help_requested', 'yes');
   }
 
   if (startButton) {

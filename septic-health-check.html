@@ -452,6 +452,44 @@
       margin-top: 22px;
     }
 
+    .pro-help-panel {
+      margin-top: 24px;
+      border: 1px solid rgba(59, 92, 58, 0.18);
+      border-radius: 18px;
+      background: #fff;
+      padding: clamp(18px, 4vw, 26px);
+    }
+
+    .pro-help-panel[hidden] {
+      display: none;
+    }
+
+    .pro-help-panel h3 {
+      color: #111827;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .pro-help-panel p {
+      color: rgba(44, 36, 23, 0.72);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .pro-help-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pro-help-form select {
+      appearance: none;
+    }
+
     .health-result-actions a {
       display: inline-flex;
       align-items: center;
@@ -707,7 +745,7 @@
               <label class="quiz-option"><input type="radio" name="odor" value="none" data-score="0" data-answer-label="No odor"><span><strong>No odor.</strong>Nothing unusual inside or outside.</span></label>
               <label class="quiz-option"><input type="radio" name="odor" value="occasional" data-score="1" data-answer-label="Occasional bathroom or drain odor"><span><strong>Occasional bathroom or drain odor.</strong>It comes and goes.</span></label>
               <label class="quiz-option"><input type="radio" name="odor" value="persistent" data-score="2" data-answer-label="Persistent rotten egg or sewage odor"><span><strong>Persistent rotten egg or sewage odor.</strong>It is recurring or hard to ignore.</span></label>
-              <label class="quiz-option"><input type="radio" name="odor" value="outside" data-score="10" data-red-flag="true" data-answer-label="Outdoor sewage smell near tank or drain field"><span><strong>Outdoor sewage smell near the tank or drain field.</strong>Especially if paired with wet ground.</span></label>
+              <label class="quiz-option"><input type="radio" name="odor" value="outside" data-score="2" data-answer-label="Outdoor sewage smell near tank or drain field"><span><strong>Outdoor sewage smell near the tank or drain field.</strong>Smell by itself can be a watch signal. Wet ground or surfacing sewage is different.</span></label>
             </div>
           </fieldset>
 
@@ -792,6 +830,33 @@
           <div class="health-result-actions">
             <a class="health-result-primary" href="https://getmaintane.com/shop.html" data-result-primary>Shop Maintane</a>
             <a class="health-result-secondary" href="/dosing-guide.html" data-result-secondary>See Dosing Guide</a>
+          </div>
+          <div class="pro-help-panel" data-pro-help-panel hidden>
+            <h3>Need help finding a local pump-out or septic pro?</h3>
+            <p>Maintane cannot fix an active septic issue, but we can help point you toward the right local help. Send your ZIP and issue type, and we will use it to research pump-out/pro options and future local partnerships.</p>
+            <form class="pro-help-form" data-lead-form data-pro-help-form data-lead-source="septic_pro_help_request" data-lead-list-id="XKHBEk" data-event="septic_pro_help_request" novalidate>
+              <input type="email" name="email" hidden required aria-label="Email address">
+              <input type="hidden" name="first_name" value="">
+              <input type="hidden" name="last_name" value="">
+              <input type="hidden" name="septic_health_result_key" value="too_late_to_maintane">
+              <input type="hidden" name="septic_health_result" value="Too Late To Maintane">
+              <input type="hidden" name="pro_help_requested" value="yes">
+              <div class="health-form-row">
+                <input class="health-input" type="text" name="pro_help_zip" placeholder="ZIP code" inputmode="numeric" autocomplete="postal-code" required aria-label="ZIP code">
+                <select class="health-input" name="pro_help_issue" required aria-label="Septic issue type">
+                  <option value="">Issue type</option>
+                  <option value="pump_out_needed">Pump-out needed</option>
+                  <option value="backup">Backup</option>
+                  <option value="alarm">Alarm</option>
+                  <option value="drain_field_concern">Drain field concern</option>
+                  <option value="inspection">Inspection</option>
+                  <option value="not_sure">Not sure</option>
+                </select>
+              </div>
+              <button class="health-submit" type="submit">Help Me Find Local Septic Service</button>
+              <div class="health-msg success" data-lead-success>Got it. We saved your request.</div>
+              <div class="health-msg error" data-lead-error>Something went wrong. Try again or email hello@getmaintane.com.</div>
+            </form>
           </div>
         </section>
       </section>
