@@ -1,6 +1,6 @@
-/* Maintane Septic System Health Check
- * Scores the quiz locally, shows a personalized next step, and stores
- * result metadata in the lead form before Klaviyo capture.
+/* Maintane Septic Health Check
+ * Runs the on-page quiz, gates the result behind lead capture, and then
+ * renders the recommended next step after the lead form succeeds.
  */
 (function () {
   'use strict';
@@ -10,8 +10,14 @@
   var form = document.querySelector('[data-health-check-form]');
   if (!form) return;
 
-  var error = document.querySelector('[data-health-check-error]');
+  var questions = Array.prototype.slice.call(form.querySelectorAll('[data-question]'));
   var progress = document.querySelector('[data-health-check-progress]');
+  var progressBar = document.querySelector('[data-health-check-progress-bar]');
+  var backButton = document.querySelector('[data-health-check-back]');
+  var nextButton = document.querySelector('[data-health-check-next]');
+  var startButton = document.querySelector('[data-health-check-start]');
+  var gate = document.querySelector('[data-health-check-gate]');
+  var leadForm = document.querySelector('[data-health-check-lead]');
   var resultPanel = document.querySelector('[data-health-check-result]');
   var resultBadge = document.querySelector('[data-result-badge]');
   var resultTitle = document.querySelector('[data-result-title]');
@@ -19,17 +25,14 @@
   var resultPlan = document.querySelector('[data-result-plan]');
   var resultPrimary = document.querySelector('[data-result-primary]');
   var resultSecondary = document.querySelector('[data-result-secondary]');
-  var hiddenResult = document.querySelector('[name="quiz_result"]');
-  var hiddenScore = document.querySelector('[name="quiz_score"]');
-  var hiddenRedFlags = document.querySelector('[name="quiz_red_flags"]');
-  var hiddenRecommendation = document.querySelector('[name="quiz_recommendation"]');
-  var hiddenAnswers = document.querySelector('[name="quiz_answers"]');
+  var currentIndex = 0;
+  var currentClassification = null;
 
   var results = {
     routine: {
       badge: 'Routine mode',
       title: 'Your system looks ready for a simple monthly routine.',
-      body: 'Based on your answers, you did not flag urgent symptoms. That is exactly where monthly septic defense makes the most sense: stay consistent, keep harsh inputs low, and keep pump-outs and inspections on the calendar.',
+      body: 'Based on your answers, you did not flag urgent symptoms. This is where monthly septic defense makes the most sense: stay consistent, keep harsh inputs low, and keep pump-outs and inspections on the calendar.',
       recommendation: 'Start monthly septic defense.',
       primaryText: 'Shop Maintane',
       primaryHref: 'https://getmaintane.com/shop.html',
@@ -85,6 +88,10 @@
     }
   }
 
+  function selectedInput(question) {
+    return question.querySelector('input[type="radio"]:checked');
+  }
+
   function selectedFields() {
     var answers = {};
     var selected = form.querySelectorAll('input[type="radio"]:checked');
@@ -94,11 +101,18 @@
     return answers;
   }
 
-  function updateProgress() {
-    var total = form.querySelectorAll('fieldset[data-question]').length;
-    var answered = Object.keys(selectedFields()).length;
-    if (progress) progress.textContent = answered + ' of ' + total + ' answered';
-    if (error && answered === total) error.hidden = true;
+  function showQuestion(index) {
+    currentIndex = Math.max(0, Math.min(index, questions.length - 1));
+    for (var i = 0; i < questions.length; i++) {
+      questions[i].hidden = i !== currentIndex;
+    }
+    if (progress) progress.textContent = 'Question ' + (currentIndex + 1) + ' of ' + questions.length;
+    if (progressBar) progressBar.style.width = (((currentIndex + 1) / questions.length) * 100) + '%';
+    if (backButton) backButton.disabled = currentIndex === 0;
+    if (nextButton) {
+      nextButton.disabled = !selectedInput(questions[currentIndex]);
+      nextButton.textContent = currentIndex === questions.length - 1 ? 'Get My Result' : 'Next';
+    }
   }
 
   function classify(answers) {
@@ -125,24 +139,52 @@
     };
   }
 
-  function renderResult(classification) {
-    var result = results[classification.type];
-    if (!result || !resultPanel) return;
+  function setLeadValue(name, value) {
+    if (!leadForm) return;
+    var field = leadForm.querySelector('[name="' + name + '"]');
+    if (field) field.value = value;
+  }
 
+  function fillLeadFields(classification) {
+    var result = results[classification.type];
+    setLeadValue('quiz_result', result.badge);
+    setLeadValue('quiz_score', String(classification.score));
+    setLeadValue('quiz_red_flags', classification.redFlags.join('; '));
+    setLeadValue('quiz_recommendation', result.recommendation);
+    setLeadValue('quiz_answers', JSON.stringify(classification.answers));
+  }
+
+  function showGate() {
+    var answers = selectedFields();
+    if (Object.keys(answers).length < questions.length) return;
+    currentClassification = classify(answers);
+    fillLeadFields(currentClassification);
+    form.hidden = true;
+    if (gate) gate.hidden = false;
+    if (resultPanel) resultPanel.hidden = true;
+    track('health_check_completed_before_gate', {
+      quiz_result_type: currentClassification.type,
+      quiz_score: currentClassification.score,
+      quiz_red_flags: currentClassification.redFlags.join('; ')
+    });
+    if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderResult() {
+    if (!currentClassification || !resultPanel) return;
+    var result = results[currentClassification.type];
     resultPanel.hidden = false;
-    resultPanel.setAttribute('data-result-type', classification.type);
+    resultPanel.setAttribute('data-result-type', currentClassification.type);
     if (resultBadge) resultBadge.textContent = result.badge;
     if (resultTitle) resultTitle.textContent = result.title;
     if (resultBody) resultBody.textContent = result.body;
     if (resultPrimary) {
       resultPrimary.textContent = result.primaryText;
       resultPrimary.href = result.primaryHref;
-      resultPrimary.setAttribute('data-event-label', classification.type + '_primary');
     }
     if (resultSecondary) {
       resultSecondary.textContent = result.secondaryText;
       resultSecondary.href = result.secondaryHref;
-      resultSecondary.setAttribute('data-event-label', classification.type + '_secondary');
     }
     if (resultPlan) {
       resultPlan.innerHTML = '';
@@ -152,23 +194,23 @@
         resultPlan.appendChild(li);
       }
     }
-    if (hiddenResult) hiddenResult.value = result.badge;
-    if (hiddenScore) hiddenScore.value = String(classification.score);
-    if (hiddenRedFlags) hiddenRedFlags.value = classification.redFlags.join('; ');
-    if (hiddenRecommendation) hiddenRecommendation.value = result.recommendation;
-    if (hiddenAnswers) hiddenAnswers.value = JSON.stringify(classification.answers);
-
     track('health_check_result_view', {
       quiz_result: result.badge,
-      quiz_score: classification.score,
-      quiz_red_flags: classification.redFlags.join('; ')
+      quiz_score: currentClassification.score,
+      quiz_red_flags: currentClassification.redFlags.join('; ')
     });
     resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  if (startButton) {
+    startButton.addEventListener('click', function () {
+      track('health_check_start', { button_location: 'hero' });
+    });
+  }
+
   form.addEventListener('change', function (event) {
     if (!event.target || event.target.type !== 'radio') return;
-    updateProgress();
+    if (nextButton) nextButton.disabled = false;
     track('health_check_answer', {
       question: event.target.name,
       answer: event.target.getAttribute('data-answer-label') || event.target.value,
@@ -177,25 +219,25 @@
     });
   });
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var total = form.querySelectorAll('fieldset[data-question]').length;
-    var answers = selectedFields();
-    if (Object.keys(answers).length < total) {
-      if (error) error.hidden = false;
-      updateProgress();
-      return;
-    }
-    if (error) error.hidden = true;
-    renderResult(classify(answers));
-  });
-
-  var startButtons = document.querySelectorAll('[data-health-check-start]');
-  for (var i = 0; i < startButtons.length; i++) {
-    startButtons[i].addEventListener('click', function () {
-      track('health_check_start', { button_location: 'hero' });
+  if (backButton) {
+    backButton.addEventListener('click', function () {
+      showQuestion(currentIndex - 1);
     });
   }
 
-  updateProgress();
+  if (nextButton) {
+    nextButton.addEventListener('click', function () {
+      if (!selectedInput(questions[currentIndex])) return;
+      if (currentIndex === questions.length - 1) showGate();
+      else showQuestion(currentIndex + 1);
+    });
+  }
+
+  if (leadForm) {
+    leadForm.addEventListener('maintane:lead-success', function () {
+      renderResult();
+    });
+  }
+
+  showQuestion(0);
 })();

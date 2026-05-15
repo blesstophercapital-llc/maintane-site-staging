@@ -106,6 +106,9 @@
     .health-inner {
       width: min(100%, 1040px);
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .health-eyebrow {
@@ -139,6 +142,208 @@
     .health-form-block {
       width: min(100%, 760px);
       margin: clamp(30px, 4vw, 44px) auto 0;
+    }
+
+    .health-start {
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+      margin: clamp(28px, 4vw, 42px) auto 0;
+      order: 1;
+    }
+
+    .health-start-button,
+    .health-submit,
+    .quiz-next {
+      width: min(100%, 520px);
+      min-height: 78px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      background: var(--forest-green);
+      color: var(--warm-cream);
+      cursor: pointer;
+      font: inherit;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .health-start-button:hover,
+    .health-submit:hover,
+    .quiz-next:hover {
+      background: #2d4a2c;
+      transform: translateY(-1px);
+    }
+
+    .health-start-note {
+      color: rgba(44, 36, 23, 0.62);
+      font-size: 0.96rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .health-quiz-shell {
+      width: min(100%, 860px);
+      margin: clamp(36px, 6vw, 72px) auto 0;
+      order: 2;
+      border: 1px solid var(--soft-line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(44, 36, 23, 0.08);
+      padding: clamp(22px, 4vw, 38px);
+      text-align: left;
+    }
+
+    .health-quiz-shell[hidden],
+    .quiz-step[hidden],
+    .health-gate[hidden],
+    .health-result[hidden] {
+      display: none;
+    }
+
+    .quiz-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .quiz-progress {
+      color: var(--forest-green);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .quiz-track {
+      flex: 1;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(59, 92, 58, 0.12);
+    }
+
+    .quiz-track span {
+      display: block;
+      width: 14%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--forest-green);
+      transition: width 0.22s ease;
+    }
+
+    .quiz-step {
+      border: 0;
+    }
+
+    .quiz-step legend,
+    .health-gate-title,
+    .health-result-title {
+      color: #111827;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 22px;
+      padding: 0;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .quiz-option {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 2px solid rgba(59, 92, 58, 0.16);
+      border-radius: 16px;
+      background: var(--warm-cream);
+      color: rgba(44, 36, 23, 0.76);
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      padding: 16px;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .quiz-option:hover,
+    .quiz-option:has(input:checked) {
+      border-color: var(--forest-green);
+      background: rgba(59, 92, 58, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .quiz-option input {
+      accent-color: var(--forest-green);
+      margin-top: 0.22rem;
+    }
+
+    .quiz-option strong {
+      display: block;
+      color: #111827;
+      font-size: 1.04rem;
+      margin-bottom: 2px;
+    }
+
+    .quiz-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .quiz-back {
+      border: 0;
+      background: transparent;
+      color: rgba(44, 36, 23, 0.68);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quiz-back[disabled],
+    .quiz-next[disabled] {
+      cursor: not-allowed;
+      opacity: 0.42;
+      transform: none;
+    }
+
+    .quiz-next {
+      width: auto;
+      min-width: 190px;
+      min-height: 56px;
+      padding: 0 28px;
+      font-size: 0.95rem;
+    }
+
+    .health-gate {
+      display: grid;
+      gap: 16px;
+    }
+
+    .health-gate-copy,
+    .health-result-body,
+    .health-result-plan li {
+      color: rgba(44, 36, 23, 0.72);
+      font-size: 1.04rem;
+      font-weight: 600;
+      line-height: 1.6;
     }
 
     .health-question {
@@ -192,26 +397,8 @@
     }
 
     .health-submit {
-      width: min(100%, 520px);
-      min-height: 78px;
       justify-self: center;
       margin-top: 12px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--forest-green);
-      color: var(--warm-cream);
-      cursor: pointer;
-      font: inherit;
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: transform 0.18s ease, background 0.18s ease;
-    }
-
-    .health-submit:hover {
-      background: #2d4a2c;
-      transform: translateY(-1px);
     }
 
     .health-submit:disabled {
@@ -219,11 +406,81 @@
       opacity: 0.72;
     }
 
+    .health-result {
+      margin-top: 26px;
+      border: 1px solid rgba(59, 92, 58, 0.18);
+      border-radius: 20px;
+      background: var(--off-cream);
+      padding: clamp(20px, 4vw, 30px);
+    }
+
+    .health-result-badge {
+      display: inline-flex;
+      border-radius: 999px;
+      background: var(--forest-green);
+      color: var(--warm-cream);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      text-transform: uppercase;
+    }
+
+    .health-result-title {
+      margin-bottom: 12px;
+    }
+
+    .health-result-plan {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+      margin: 20px 0 0;
+    }
+
+    .health-result-plan li {
+      border: 1px solid rgba(59, 92, 58, 0.14);
+      border-radius: 12px;
+      background: rgba(250, 246, 240, 0.72);
+      padding: 12px 14px;
+    }
+
+    .health-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .health-result-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .health-result-primary {
+      background: var(--forest-green);
+      color: var(--warm-cream);
+    }
+
+    .health-result-secondary {
+      border: 1px solid rgba(59, 92, 58, 0.28);
+      color: var(--forest-green);
+    }
+
     .health-proof {
       display: grid;
       gap: 16px;
       width: min(100%, 620px);
       margin: 34px auto 0;
+      order: 3;
       text-align: left;
     }
 
@@ -290,6 +547,7 @@
     .health-fineprint {
       width: min(100%, 930px);
       margin: 28px auto 0;
+      order: 4;
       color: rgba(44, 36, 23, 0.58);
       font-size: 0.92rem;
       font-weight: 500;
@@ -299,6 +557,7 @@
     .health-quote {
       width: min(100%, 900px);
       margin: 52px auto 0;
+      order: 5;
       border-top: 1px solid var(--soft-line);
       padding-top: 30px;
       color: rgba(44, 36, 23, 0.64);
@@ -357,6 +616,18 @@
         grid-template-columns: 1fr;
       }
 
+      .quiz-topline,
+      .quiz-controls,
+      .health-result-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .quiz-next,
+      .health-result-actions a {
+        width: 100%;
+      }
+
       .health-input,
       .health-submit {
         min-height: 64px;
@@ -387,23 +658,10 @@
       <h1 class="health-title">Get Your Free Septic Health Check in Under 30 Seconds.</h1>
       <p class="health-subtitle">See whether your home looks routine, watch-worthy, or ready for a septic professional before a small warning sign turns into a giant bill.</p>
 
-      <section class="health-form-block" aria-labelledby="health-form-title">
-        <h2 class="health-question" id="health-form-title">What’s your <strong>name?</strong></h2>
-        <form class="health-form" data-lead-form data-lead-source="septic_health_check_landing" data-lead-list-id="XKHBEk" data-event="health_check_landing_submit" novalidate>
-          <div class="health-form-row">
-            <input class="health-input" type="text" name="first_name" placeholder="First name" autocomplete="given-name" aria-label="First name">
-            <input class="health-input" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
-          </div>
-          <input class="health-input" type="email" name="email" placeholder="Email address" autocomplete="email" required aria-label="Email address">
-          <button class="health-submit" type="submit">Let’s Start</button>
-          <div class="health-msg success" data-lead-success>You’re in. Check your email for the health check.</div>
-          <div class="health-msg error" data-lead-error>Something went wrong. Try again or email hello@getmaintane.com.</div>
-          <div class="health-next" data-lead-next>
-            <p>Your health check is on the way. If you already know you want monthly septic defense, compare the supply options now.</p>
-            <a href="https://getmaintane.com/shop.html">Shop Maintane</a>
-          </div>
-        </form>
-      </section>
+      <div class="health-start">
+        <a class="health-start-button" href="#health-check-quiz" data-health-check-start>Let’s Start</a>
+        <p class="health-start-note">Answer the quiz first. Name and email only unlock the final result.</p>
+      </div>
 
       <div class="health-proof" aria-label="Health check details">
         <div class="health-proof-item"><span class="health-spark">✦</span><span>Get your check in less than 30 seconds.</span></div>
@@ -416,6 +674,119 @@
         “Responsible people do not wait for septic problems to get expensive. They check the system, protect the biology, and stay ahead.”
         <strong>Maintane</strong>
       </blockquote>
+
+      <section class="health-quiz-shell" id="health-check-quiz" aria-label="Septic health check quiz">
+        <div class="quiz-topline">
+          <span class="quiz-progress" data-health-check-progress>Question 1 of 7</span>
+          <div class="quiz-track" aria-hidden="true"><span data-health-check-progress-bar></span></div>
+        </div>
+
+        <form data-health-check-form>
+          <fieldset class="quiz-step" data-question>
+            <legend>Any major red flags happening right now?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="red_flags" value="none" data-score="0" data-answer-label="No obvious red flags"><span><strong>No obvious red flags.</strong>No backup, alarm, wet drain field, or sewage smell right now.</span></label>
+              <label class="quiz-option"><input type="radio" name="red_flags" value="smell" data-score="2" data-answer-label="Strong odor concern"><span><strong>Strong odor concern.</strong>A smell is noticeable enough that I am paying attention.</span></label>
+              <label class="quiz-option"><input type="radio" name="red_flags" value="urgent" data-score="10" data-red-flag="true" data-answer-label="Backup, alarm, wet drain field, or surfacing sewage"><span><strong>Backup, alarm, wet drain field, or surfacing sewage.</strong>This feels urgent or outside normal maintenance.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>How are your drains and toilets acting?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="drain_behavior" value="normal" data-score="0" data-answer-label="Drains and toilets are normal"><span><strong>Normal.</strong>No repeated slow drains, gurgling, or backup behavior.</span></label>
+              <label class="quiz-option"><input type="radio" name="drain_behavior" value="occasional" data-score="1" data-answer-label="Occasional slow drain or gurgle"><span><strong>Occasional slow drain or gurgle.</strong>It happens, but not across the whole house.</span></label>
+              <label class="quiz-option"><input type="radio" name="drain_behavior" value="multiple" data-score="2" data-answer-label="Multiple fixtures are slow or gurgling"><span><strong>Multiple fixtures are slow or gurgling.</strong>More than one drain or toilet is involved.</span></label>
+              <label class="quiz-option"><input type="radio" name="drain_behavior" value="backup" data-score="10" data-red-flag="true" data-answer-label="Active backup"><span><strong>Active backup.</strong>Wastewater has backed up or looks close to backing up.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>What kind of odor are you noticing?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="odor" value="none" data-score="0" data-answer-label="No odor"><span><strong>No odor.</strong>Nothing unusual inside or outside.</span></label>
+              <label class="quiz-option"><input type="radio" name="odor" value="occasional" data-score="1" data-answer-label="Occasional bathroom or drain odor"><span><strong>Occasional bathroom or drain odor.</strong>It comes and goes.</span></label>
+              <label class="quiz-option"><input type="radio" name="odor" value="persistent" data-score="2" data-answer-label="Persistent rotten egg or sewage odor"><span><strong>Persistent rotten egg or sewage odor.</strong>It is recurring or hard to ignore.</span></label>
+              <label class="quiz-option"><input type="radio" name="odor" value="outside" data-score="10" data-red-flag="true" data-answer-label="Outdoor sewage smell near tank or drain field"><span><strong>Outdoor sewage smell near the tank or drain field.</strong>Especially if paired with wet ground.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>Do you know your pump-out or inspection history?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="service_history" value="current" data-score="0" data-answer-label="Pump-outs and inspections are on schedule"><span><strong>Yes, it is on schedule.</strong>I have records or a service rhythm.</span></label>
+              <label class="quiz-option"><input type="radio" name="service_history" value="unsure" data-score="1" data-answer-label="Pump-out history is unsure"><span><strong>I am not sure.</strong>Records are missing or I recently moved in.</span></label>
+              <label class="quiz-option"><input type="radio" name="service_history" value="overdue" data-score="2" data-answer-label="Likely overdue"><span><strong>Likely overdue.</strong>It has been several years, or I do not remember the last service.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>How much stress does the system see?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="system_stress" value="normal" data-score="0" data-answer-label="Normal household use"><span><strong>Normal household use.</strong>Laundry and water use are spread out.</span></label>
+              <label class="quiz-option"><input type="radio" name="system_stress" value="moderate" data-score="1" data-answer-label="Heavy laundry, guests, disposal, or high water days"><span><strong>Moderate stress.</strong>Heavy laundry days, guests, garbage disposal use, or high water use happen sometimes.</span></label>
+              <label class="quiz-option"><input type="radio" name="system_stress" value="heavy" data-score="2" data-answer-label="Heavy use plus symptoms"><span><strong>Heavy use plus symptoms.</strong>The system sees stress and signs like smell, gurgling, or slow drains.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>How septic-safe are your household habits?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="habits" value="safe" data-score="0" data-answer-label="Mostly septic-safe habits"><span><strong>Mostly septic-safe.</strong>No wipes, grease, chemical drain cleaners, or heavy harsh chemical habits.</span></label>
+              <label class="quiz-option"><input type="radio" name="habits" value="mixed" data-score="1" data-answer-label="Some bleach, cleaners, or disposal use"><span><strong>Mixed habits.</strong>Some bleach, strong cleaners, garbage disposal use, or inconsistent rules.</span></label>
+              <label class="quiz-option"><input type="radio" name="habits" value="risky" data-score="2" data-answer-label="Wipes, grease, or chemical drain cleaners"><span><strong>Risky habits.</strong>Wipes, grease, chemical drain cleaners, or frequent harsh inputs may be part of the home.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-step" data-question hidden>
+            <legend>Do you have a monthly septic care routine?</legend>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="routine" value="consistent" data-score="0" data-answer-label="Consistent monthly routine"><span><strong>Yes.</strong>Monthly septic care is already on the calendar.</span></label>
+              <label class="quiz-option"><input type="radio" name="routine" value="inconsistent" data-score="1" data-answer-label="Inconsistent routine"><span><strong>Kind of.</strong>I remember sometimes, but not consistently.</span></label>
+              <label class="quiz-option"><input type="radio" name="routine" value="none" data-score="2" data-answer-label="No monthly routine"><span><strong>No routine yet.</strong>I want a simpler way to stay ahead.</span></label>
+            </div>
+          </fieldset>
+
+          <div class="quiz-controls">
+            <button class="quiz-back" type="button" data-health-check-back disabled>Back</button>
+            <button class="quiz-next" type="button" data-health-check-next disabled>Next</button>
+          </div>
+        </form>
+
+        <section class="health-gate" data-health-check-gate hidden>
+          <div>
+            <p class="health-eyebrow">Result ready</p>
+            <h2 class="health-gate-title">Where should we send it?</h2>
+            <p class="health-gate-copy">Your answers are saved. Add your name and email to unlock the result and get the next-step notes.</p>
+          </div>
+          <form class="health-form" data-lead-form data-health-check-lead data-lead-source="septic_health_check_quiz" data-lead-list-id="XKHBEk" data-event="health_check_quiz_lead_submit" novalidate>
+            <div class="health-form-row">
+              <input class="health-input" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required aria-label="First name">
+              <input class="health-input" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required aria-label="Last name">
+            </div>
+            <input class="health-input" type="email" name="email" placeholder="Email address" autocomplete="email" required aria-label="Email address">
+            <input type="hidden" name="quiz_result" value="">
+            <input type="hidden" name="quiz_score" value="">
+            <input type="hidden" name="quiz_red_flags" value="">
+            <input type="hidden" name="quiz_recommendation" value="">
+            <input type="hidden" name="quiz_answers" value="">
+            <button class="health-submit" type="submit">Show My Result</button>
+            <div class="health-msg success" data-lead-success>You're in. Your result is below.</div>
+            <div class="health-msg error" data-lead-error>Something went wrong. Try again or email hello@getmaintane.com.</div>
+          </form>
+        </section>
+
+        <section class="health-result" data-health-check-result hidden>
+          <span class="health-result-badge" data-result-badge>Routine mode</span>
+          <h2 class="health-result-title" data-result-title>Your system looks ready for a simple monthly routine.</h2>
+          <p class="health-result-body" data-result-body></p>
+          <ul class="health-result-plan" data-result-plan></ul>
+          <div class="health-result-actions">
+            <a class="health-result-primary" href="https://getmaintane.com/shop.html" data-result-primary>Shop Maintane</a>
+            <a class="health-result-secondary" href="/dosing-guide.html" data-result-secondary>See Dosing Guide</a>
+          </div>
+        </section>
+      </section>
     </div>
   </main>
 
@@ -433,5 +804,6 @@
 <script src="/js/production-analytics.js" defer></script>
 <script src="/js/analytics-events.js"></script>
 <script src="/js/lead-capture.js"></script>
+<script src="/js/septic-health-check.js"></script>
 </body>
 </html>

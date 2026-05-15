@@ -50,6 +50,21 @@
     return props;
   }
 
+  function validateRequiredFields(form) {
+    var required = form.querySelectorAll('[required]');
+    for (var i = 0; i < required.length; i++) {
+      var field = required[i];
+      if ((field.value || '').trim()) {
+        field.classList.remove('is-invalid');
+        continue;
+      }
+      field.classList.add('is-invalid');
+      field.focus();
+      return false;
+    }
+    return true;
+  }
+
   function initForm(form) {
     var input = form.querySelector('input[type="email"]');
     var success = form.querySelector('[data-lead-success]');
@@ -79,6 +94,8 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var email = (input.value || '').trim();
+
+      if (!validateRequiredFields(form)) return;
 
       if (!EMAIL_REGEX.test(email)) {
         input.classList.add('is-invalid');
@@ -167,6 +184,16 @@
       if (success) success.style.display = 'block';
       if (next) next.style.display = 'block';
       if (submit) submit.disabled = false;
+      form.dispatchEvent(new CustomEvent('maintane:lead-success', {
+        bubbles: true,
+        detail: {
+          signup_source: source,
+          source_page: window.location.pathname,
+          form_id: source,
+          list_id: listId,
+          properties: customProperties
+        }
+      }));
       if (successRedirect) {
         window.setTimeout(function () {
           window.location.href = successRedirect;
