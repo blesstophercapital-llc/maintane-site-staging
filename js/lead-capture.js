@@ -61,6 +61,7 @@
     var explicitEvent = form.getAttribute('data-event') || '';
     var explicitEventLabel = form.getAttribute('data-event-label') || source;
     var successRedirect = form.getAttribute('data-success-redirect') || '';
+    var customProperties = {};
 
     if (!input) return;
 
@@ -87,7 +88,7 @@
 
       input.classList.remove('is-invalid');
       if (submit) submit.disabled = true;
-      var customProperties = collectFormProperties(form);
+      customProperties = collectFormProperties(form);
 
       if (IS_STAGING) {
         console.log('[lead-capture] STAGING — would POST to Klaviyo', {
