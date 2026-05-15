@@ -136,111 +136,9 @@
       line-height: 1.55;
     }
 
-    .health-visual {
-      position: relative;
-      width: min(100%, 720px);
-      min-height: 224px;
-      margin: clamp(20px, 3vw, 32px) auto 24px;
-    }
-
-    .report-card {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      width: min(86vw, 400px);
-      min-height: 210px;
-      transform: translateX(-50%);
-      z-index: 2;
-      overflow: hidden;
-      border: 6px solid #111827;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 28px 60px rgba(44, 36, 23, 0.2);
-    }
-
-    .report-card::before {
-      content: "SEPTIC HEALTH CHECK";
-      display: block;
-      background: #111827;
-      color: #fff;
-      padding: 10px 14px;
-      font-size: 0.76rem;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-align: left;
-    }
-
-    .report-grid {
-      display: grid;
-      gap: 8px;
-      padding: 14px;
-    }
-
-    .report-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      min-height: 30px;
-      border: 1px solid rgba(17, 24, 39, 0.13);
-      background: #f8fafc;
-    }
-
-    .report-row span {
-      display: flex;
-      align-items: center;
-      background: var(--forest-green);
-      color: #fff;
-      padding: 8px;
-      font-size: 0.66rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .report-row strong {
-      display: flex;
-      align-items: center;
-      color: #111827;
-      padding: 8px 10px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-align: left;
-    }
-
-    .report-wing {
-      position: absolute;
-      top: 52px;
-      width: min(38vw, 270px);
-      min-height: 160px;
-      border: 5px solid rgba(17, 24, 39, 0.88);
-      border-radius: 6px;
-      background:
-        repeating-linear-gradient(0deg, #fff 0 18px, #eef2f7 18px 20px),
-        #fff;
-      opacity: 0.72;
-    }
-
-    .report-wing.left {
-      left: 6%;
-      transform: rotate(-8deg);
-    }
-
-    .report-wing.right {
-      right: 6%;
-      transform: rotate(8deg);
-    }
-
-    .product-float {
-      position: absolute;
-      right: 10%;
-      bottom: -8px;
-      z-index: 3;
-      width: clamp(82px, 14vw, 120px);
-      filter: drop-shadow(0 22px 26px rgba(44, 36, 23, 0.26));
-    }
-
     .health-form-block {
       width: min(100%, 760px);
-      margin: 0 auto;
+      margin: clamp(30px, 4vw, 44px) auto 0;
     }
 
     .health-question {
@@ -455,29 +353,6 @@
         display: none;
       }
 
-      .health-visual {
-        min-height: 220px;
-      }
-
-      .report-card {
-        width: min(92vw, 380px);
-        min-height: 215px;
-        border-width: 5px;
-      }
-
-      .report-row {
-        grid-template-columns: 104px 1fr;
-      }
-
-      .report-wing {
-        display: none;
-      }
-
-      .product-float {
-        right: 1%;
-        bottom: 0;
-      }
-
       .health-form-row {
         grid-template-columns: 1fr;
       }
@@ -511,20 +386,6 @@
       <p class="health-eyebrow">Free septic health check</p>
       <h1 class="health-title">Get Your Free Septic Health Check in Under 30 Seconds.</h1>
       <p class="health-subtitle">See whether your home looks routine, watch-worthy, or ready for a septic professional before a small warning sign turns into a giant bill.</p>
-
-      <div class="health-visual" aria-label="Free septic health check preview">
-        <div class="report-wing left" aria-hidden="true"></div>
-        <div class="report-wing right" aria-hidden="true"></div>
-        <div class="report-card">
-          <div class="report-grid">
-            <div class="report-row"><span>Smells</span><strong>What your odor pattern may mean</strong></div>
-            <div class="report-row"><span>Drains</span><strong>When slow drains are a warning sign</strong></div>
-            <div class="report-row"><span>Habits</span><strong>What to stop putting in the system</strong></div>
-            <div class="report-row"><span>Routine</span><strong>Your next best maintenance step</strong></div>
-          </div>
-        </div>
-        <img class="product-float" src="/product-hero.png" alt="Maintane natural septic treatment powder">
-      </div>
 
       <section class="health-form-block" aria-labelledby="health-form-title">
         <h2 class="health-question" id="health-form-title">What’s your <strong>name?</strong></h2>
