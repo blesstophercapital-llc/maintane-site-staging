@@ -765,6 +765,14 @@
               <input class="health-input" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required aria-label="Last name">
             </div>
             <input class="health-input" type="email" name="email" placeholder="Email address" autocomplete="email" required aria-label="Email address">
+            <input type="hidden" name="septic_health_result_key" value="">
+            <input type="hidden" name="septic_health_result" value="">
+            <input type="hidden" name="septic_health_identity_key" value="">
+            <input type="hidden" name="septic_health_identity" value="">
+            <input type="hidden" name="septic_health_score" value="">
+            <input type="hidden" name="septic_health_red_flags" value="">
+            <input type="hidden" name="septic_health_recommendation" value="">
+            <input type="hidden" name="septic_health_answers" value="">
             <input type="hidden" name="quiz_result" value="">
             <input type="hidden" name="quiz_score" value="">
             <input type="hidden" name="quiz_red_flags" value="">
@@ -777,7 +785,7 @@
         </section>
 
         <section class="health-result" data-health-check-result hidden>
-          <span class="health-result-badge" data-result-badge>Routine mode</span>
+          <span class="health-result-badge" data-result-badge>Just In Time</span>
           <h2 class="health-result-title" data-result-title>Your system looks ready for a simple monthly routine.</h2>
           <p class="health-result-body" data-result-body></p>
           <ul class="health-result-plan" data-result-plan></ul>

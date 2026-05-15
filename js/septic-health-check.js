@@ -30,11 +30,14 @@
 
   var results = {
     routine: {
-      badge: 'Routine mode',
-      title: 'Your system looks ready for a simple monthly routine.',
-      body: 'Based on your answers, you did not flag urgent symptoms. This is where monthly septic defense makes the most sense: stay consistent, keep harsh inputs low, and keep pump-outs and inspections on the calendar.',
+      resultKey: 'just_in_time',
+      badge: 'Just In Time',
+      identityKey: 'responsible_septic_owner',
+      identity: 'The Responsible Septic Owner',
+      title: 'You are just in time to start maintaining.',
+      body: 'Your system is not screaming for help yet. That is the point. You are just in time to start maintaining it before warning signs become expensive.',
       recommendation: 'Start monthly septic defense.',
-      primaryText: 'Shop Maintane',
+      primaryText: 'Start Monthly Septic Defense',
       primaryHref: 'https://getmaintane.com/shop.html',
       secondaryText: 'See dosing guide',
       secondaryHref: '/dosing-guide.html',
@@ -45,11 +48,14 @@
       ]
     },
     watch: {
-      badge: 'Watch mode',
-      title: 'Your answers show a few things worth tightening up.',
-      body: 'This does not automatically mean you have a failing system. It means your home may benefit from cleaner habits, better monthly consistency, and closer attention to smells, slow drains, or heavy water-use days.',
+      resultKey: 'almost_too_late',
+      badge: 'Almost Too Late',
+      identityKey: 'early_warning_catcher',
+      identity: 'The Early Warning Catcher',
+      title: 'This is the window responsible people do not waste.',
+      body: 'Your answers show signals worth taking seriously. This may still be a maintenance window, but it is not a window to waste.',
       recommendation: 'Tighten habits and start a monthly routine if there are no active red flags.',
-      primaryText: 'Take the next step',
+      primaryText: 'Get Ahead With Monthly Septic Defense',
       primaryHref: 'https://getmaintane.com/shop.html',
       secondaryText: 'Review warning signs',
       secondaryHref: '/septic-tank-full-signs.html',
@@ -60,10 +66,13 @@
       ]
     },
     pro: {
-      badge: 'Call-a-pro mode',
-      title: 'Your answers include signs that deserve a septic professional.',
-      body: 'Maintane is for routine monthly maintenance. Backup, alarms, wet or smelly drain fields, surfacing sewage, or persistent unresolved odor should not be treated like a normal product decision.',
-      recommendation: 'Call a septic professional before treating this like routine maintenance.',
+      resultKey: 'too_late_to_maintane',
+      badge: 'Too Late To Maintane',
+      identityKey: 'smart_escalator',
+      identity: 'The Smart Escalator',
+      title: 'Please come back after pump-out or professional assistance.',
+      body: 'Based on your answers, this may be too late for a maintenance product. Maintane is for maintenance, not emergencies.',
+      recommendation: 'Call a septic professional or schedule pump-out before treating this like routine maintenance.',
       primaryText: 'Review urgent warning signs',
       primaryHref: '/septic-backup.html',
       secondaryText: 'Shop after the system is stable',
@@ -147,6 +156,14 @@
 
   function fillLeadFields(classification) {
     var result = results[classification.type];
+    setLeadValue('septic_health_result_key', result.resultKey);
+    setLeadValue('septic_health_result', result.badge);
+    setLeadValue('septic_health_identity_key', result.identityKey);
+    setLeadValue('septic_health_identity', result.identity);
+    setLeadValue('septic_health_score', String(classification.score));
+    setLeadValue('septic_health_red_flags', classification.redFlags.join('; '));
+    setLeadValue('septic_health_recommendation', result.recommendation);
+    setLeadValue('septic_health_answers', JSON.stringify(classification.answers));
     setLeadValue('quiz_result', result.badge);
     setLeadValue('quiz_score', String(classification.score));
     setLeadValue('quiz_red_flags', classification.redFlags.join('; '));
@@ -163,9 +180,11 @@
     if (gate) gate.hidden = false;
     if (resultPanel) resultPanel.hidden = true;
     track('health_check_completed_before_gate', {
-      quiz_result_type: currentClassification.type,
-      quiz_score: currentClassification.score,
-      quiz_red_flags: currentClassification.redFlags.join('; ')
+      septic_health_result_key: results[currentClassification.type].resultKey,
+      septic_health_result: results[currentClassification.type].badge,
+      septic_health_identity: results[currentClassification.type].identity,
+      septic_health_score: currentClassification.score,
+      septic_health_red_flags: currentClassification.redFlags.join('; ')
     });
     if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -195,9 +214,11 @@
       }
     }
     track('health_check_result_view', {
-      quiz_result: result.badge,
-      quiz_score: currentClassification.score,
-      quiz_red_flags: currentClassification.redFlags.join('; ')
+      septic_health_result_key: result.resultKey,
+      septic_health_result: result.badge,
+      septic_health_identity: result.identity,
+      septic_health_score: currentClassification.score,
+      septic_health_red_flags: currentClassification.redFlags.join('; ')
     });
     resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
