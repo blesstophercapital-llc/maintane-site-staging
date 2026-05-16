@@ -12,7 +12,7 @@
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
   var DEFAULT_KLAVIYO_LIST_ID = 'Ue3eN8';
   var KLAVIYO_ENDPOINT   = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
-  var KLAVIYO_EVENTS_ENDPOINT = 'https://a.klaviyo.com/client/events/?company_id=' + KLAVIYO_COMPANY_ID;
+  var KLAVIYO_ONSITE_SRC = 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION   = '2024-10-15';
   var EMAIL_REGEX        = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var CONVERTED_COOKIE_DAYS = 365;
@@ -74,9 +74,10 @@
       signup_list_id: listId,
       source_page: window.location.pathname
     }, properties || {});
+    var profileProperties = Object.assign({ '$email': email }, eventProperties);
 
     if (IS_STAGING) {
-      console.log('[lead-capture] STAGING — would POST Klaviyo event', {
+      console.log('[lead-capture] STAGING — would track Klaviyo onsite event', {
         email: email,
         event: eventName,
         properties: eventProperties
@@ -84,48 +85,19 @@
       return;
     }
 
-    fetch(KLAVIYO_EVENTS_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/vnd.api+json',
-        'Accept': 'application/vnd.api+json',
-        'revision': KLAVIYO_REVISION
-      },
-      body: JSON.stringify({
-        data: {
-          type: 'event',
-          attributes: {
-            metric: {
-              data: {
-                type: 'metric',
-                attributes: {
-                  name: eventName
-                }
-              }
-            },
-            profile: {
-              data: {
-                type: 'profile',
-                attributes: {
-                  email: email,
-                  properties: eventProperties
-                }
-              }
-            },
-            properties: eventProperties,
-            time: new Date().toISOString(),
-            unique_id: source + ':' + email + ':' + Date.now()
-          }
-        }
-      })
-    }).then(function (r) {
-      if (r.status === 202 || r.status === 200) return;
-      r.text().then(function (body) {
-        console.warn('[lead-capture] Klaviyo event returned HTTP ' + r.status, body);
-      });
-    }).catch(function (err) {
-      console.warn('[lead-capture] Klaviyo event failed:', err);
-    });
+    window._learnq = window._learnq || [];
+    window._learnq.push(['identify', profileProperties]);
+    window._learnq.push(['track', eventName, eventProperties]);
+    loadKlaviyoOnsite();
+  }
+
+  function loadKlaviyoOnsite() {
+    if (document.querySelector('script[data-klaviyo-onsite]')) return;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = KLAVIYO_ONSITE_SRC;
+    script.setAttribute('data-klaviyo-onsite', 'true');
+    document.head.appendChild(script);
   }
 
   function initForm(form) {
