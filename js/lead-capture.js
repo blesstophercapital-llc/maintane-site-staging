@@ -85,10 +85,10 @@
       return;
     }
 
+    loadKlaviyoOnsite();
     window._learnq = window._learnq || [];
     window._learnq.push(['identify', profileProperties]);
     window._learnq.push(['track', eventName, eventProperties]);
-    loadKlaviyoOnsite();
   }
 
   function loadKlaviyoOnsite() {
@@ -114,6 +114,7 @@
     var successRedirect = form.getAttribute('data-success-redirect') || '';
     var customProperties = {};
     var submittedEmail = '';
+    var klaviyoEventTracked = false;
 
     if (!input) return;
 
@@ -152,6 +153,9 @@
         onSuccess();
         return;
       }
+
+      postKlaviyoEvent(submittedEmail, klaviyoEvent, source, listId, customProperties);
+      klaviyoEventTracked = Boolean(klaviyoEvent);
 
       fetch(KLAVIYO_ENDPOINT, {
         method: 'POST',
@@ -208,7 +212,9 @@
       track('generate_lead', eventParams);
       if (source.indexOf('waitlist') !== -1) track('waitlist_complete', eventParams);
       if (source.indexOf('checklist') !== -1) track('checklist_lead_submit', eventParams);
-      postKlaviyoEvent(submittedEmail, klaviyoEvent, source, listId, customProperties);
+      if (!klaviyoEventTracked) {
+        postKlaviyoEvent(submittedEmail, klaviyoEvent, source, listId, customProperties);
+      }
       if (explicitEvent) {
         track(explicitEvent, {
           signup_source: source,
