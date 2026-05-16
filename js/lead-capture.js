@@ -12,6 +12,7 @@
   var KLAVIYO_COMPANY_ID = 'UnVzdk';
   var DEFAULT_KLAVIYO_LIST_ID = 'Ue3eN8';
   var KLAVIYO_ENDPOINT   = 'https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_COMPANY_ID;
+  var KLAVIYO_EVENTS_ENDPOINT = 'https://a.klaviyo.com/client/events/?company_id=' + KLAVIYO_COMPANY_ID;
   var KLAVIYO_REVISION   = '2024-10-15';
   var EMAIL_REGEX        = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var CONVERTED_COOKIE_DAYS = 365;
@@ -65,6 +66,62 @@
     return true;
   }
 
+  function postKlaviyoEvent(email, eventName, source, listId, properties) {
+    if (!eventName) return;
+
+    var eventProperties = Object.assign({
+      signup_source: source,
+      signup_list_id: listId,
+      source_page: window.location.pathname
+    }, properties || {});
+
+    if (IS_STAGING) {
+      console.log('[lead-capture] STAGING — would POST Klaviyo event', {
+        email: email,
+        event: eventName,
+        properties: eventProperties
+      });
+      return;
+    }
+
+    fetch(KLAVIYO_EVENTS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'revision': KLAVIYO_REVISION
+      },
+      body: JSON.stringify({
+        data: {
+          type: 'event',
+          attributes: {
+            metric: {
+              data: {
+                type: 'metric',
+                attributes: {
+                  name: eventName
+                }
+              }
+            },
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  properties: eventProperties
+                }
+              }
+            },
+            properties: eventProperties,
+            time: new Date().toISOString(),
+            unique_id: source + ':' + email + ':' + Date.now()
+          }
+        }
+      })
+    }).catch(function (err) {
+      console.warn('[lead-capture] Klaviyo event failed:', err);
+    });
+  }
+
   function initForm(form) {
     var input = form.querySelector('input[type="email"]');
     var success = form.querySelector('[data-lead-success]');
@@ -75,8 +132,10 @@
     var listId = form.getAttribute('data-lead-list-id') || DEFAULT_KLAVIYO_LIST_ID;
     var explicitEvent = form.getAttribute('data-event') || '';
     var explicitEventLabel = form.getAttribute('data-event-label') || source;
+    var klaviyoEvent = form.getAttribute('data-klaviyo-event') || '';
     var successRedirect = form.getAttribute('data-success-redirect') || '';
     var customProperties = {};
+    var submittedEmail = '';
 
     if (!input) return;
 
@@ -106,6 +165,7 @@
       input.classList.remove('is-invalid');
       if (submit) submit.disabled = true;
       customProperties = collectFormProperties(form);
+      submittedEmail = email;
 
       if (IS_STAGING) {
         console.log('[lead-capture] STAGING — would POST to Klaviyo', {
@@ -170,6 +230,7 @@
       track('generate_lead', eventParams);
       if (source.indexOf('waitlist') !== -1) track('waitlist_complete', eventParams);
       if (source.indexOf('checklist') !== -1) track('checklist_lead_submit', eventParams);
+      postKlaviyoEvent(submittedEmail, klaviyoEvent, source, listId, customProperties);
       if (explicitEvent) {
         track(explicitEvent, {
           signup_source: source,
