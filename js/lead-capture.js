@@ -87,7 +87,8 @@
     fetch(KLAVIYO_EVENTS_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/vnd.api+json',
+        'Accept': 'application/vnd.api+json',
         'revision': KLAVIYO_REVISION
       },
       body: JSON.stringify({
@@ -117,6 +118,11 @@
           }
         }
       })
+    }).then(function (r) {
+      if (r.status === 202 || r.status === 200) return;
+      r.text().then(function (body) {
+        console.warn('[lead-capture] Klaviyo event returned HTTP ' + r.status, body);
+      });
     }).catch(function (err) {
       console.warn('[lead-capture] Klaviyo event failed:', err);
     });
