@@ -16,10 +16,15 @@
 
   window.MAINTANE_ANALYTICS_DISABLED = !isProduction || isFilePreview || optOut;
   window['ga-disable-' + GA_ID] = window.MAINTANE_ANALYTICS_DISABLED;
+
+  if (window.MAINTANE_ANALYTICS_DISABLED) {
+    window.dataLayer = [];
+    window.gtag = function () {};
+    return;
+  }
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-  if (window.MAINTANE_ANALYTICS_DISABLED) return;
 
   var script = document.createElement('script');
   script.async = true;
