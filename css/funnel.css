@@ -60,7 +60,7 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: clamp(1rem, 1.45vw, 1.75rem);
   list-style: none;
 }
 .funnel-nav a {

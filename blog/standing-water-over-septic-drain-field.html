@@ -87,7 +87,7 @@
   }
   .nav-left, .nav-right {
     display: flex; align-items: center;
-    list-style: none; padding: 0; margin: 0; gap: 2rem;
+    list-style: none; padding: 0; margin: 0; gap: clamp(1rem, 1.45vw, 1.75rem);
   }
   .nav-left { justify-self: center; }
   .nav-right { justify-self: center; }
@@ -112,7 +112,7 @@
     background: #3B5C3A !important; color: #FAF6F0 !important;
     padding: 0.75rem 1.75rem; border-radius: 100px;
     font-weight: 600 !important; font-size: 0.9rem;
-    margin-left: 1rem; transition: background 0.2s;
+    margin-left: 0.5rem; transition: background 0.2s;
   }
   .nav-cta:hover { background: #2d4a2c !important; }
 
@@ -2456,6 +2456,7 @@
     Maintane
   </a>
   <ul class="nav-right">
+    <li><a href="/review/">Reviews</a></li>
     <li><a href="/blog/" class="is-active">Blog</a></li>
     <li><a href="/#contact">Contact</a></li>
     <li><a href="/policy.html">Policy</a></li>
@@ -2468,6 +2469,7 @@
   <a href="https://getmaintane.com/shop.html">Shop Now</a>
   <a href="/how-it-works.html">How It Works</a>
   <a href="/dosing-guide.html">Dosing Guide</a>
+  <a href="/review/">Reviews</a>
   <a href="/blog/" class="is-active">Blog</a>
   <a href="/#contact">Contact</a>
   <a href="/policy.html">Policy</a>
