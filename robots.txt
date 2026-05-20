@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
-Sitemap: https://getmaintane.com/sitemap.xml
+Sitemap: https://staging.getmaintane.com/sitemap.xml
