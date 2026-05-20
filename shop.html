@@ -185,14 +185,15 @@
     .shop-section {
       width: min(1180px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: clamp(2.5rem, 7vw, 5.5rem) 0;
+      padding: clamp(1.75rem, 4.5vw, 3.5rem) 0;
     }
     .shop-section-first {
-      padding-top: clamp(2.5rem, 6vw, 4.5rem);
+      padding-top: clamp(2rem, 4vw, 3.25rem);
+      padding-bottom: clamp(1.25rem, 3vw, 2.25rem);
     }
     .section-heading {
       max-width: 760px;
-      margin-bottom: 2rem;
+      margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
     }
     .section-heading h1,
     .section-heading h2 {
@@ -373,12 +374,14 @@
       white-space: nowrap;
     }
     .shop-stack-section {
-      padding-top: clamp(2rem, 5vw, 4.5rem);
+      padding-top: clamp(1rem, 2vw, 1.6rem);
+      padding-bottom: clamp(1.25rem, 3vw, 2.25rem);
     }
     .shop-stack-section .section-heading {
       max-width: 820px;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: clamp(1.15rem, 2.4vw, 1.75rem);
       text-align: center;
     }
     .stack-table-wrap {
@@ -509,7 +512,14 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
-      margin-top: 2.25rem;
+      margin-top: clamp(1.15rem, 2vw, 1.7rem);
+    }
+    .shop-reviews-section {
+      padding-top: clamp(1.5rem, 3vw, 2.4rem);
+      padding-bottom: clamp(1.25rem, 2.8vw, 2.2rem);
+    }
+    .shop-reviews-section .section-heading {
+      margin-bottom: clamp(1.15rem, 2.2vw, 1.6rem);
     }
     .shop-review-card {
       min-height: 100%;
@@ -542,9 +552,13 @@
     }
     .final-cta {
       text-align: center;
-      padding: clamp(2rem, 5vw, 4rem);
+      padding: clamp(1.75rem, 4vw, 3.25rem);
       border-radius: 34px;
       background: linear-gradient(135deg, var(--soft-green), rgba(196,168,130,0.25));
+    }
+    .shop-final-section {
+      padding-top: clamp(1rem, 2vw, 1.6rem);
+      padding-bottom: clamp(2rem, 4.5vw, 3.75rem);
     }
     .final-cta h2 {
       margin: 0;
@@ -752,8 +766,17 @@
       .footer-legal-right { justify-content: flex-start; }
       .site-footer { padding: 56px 24px 40px; }
       .offer-media { min-height: 175px; }
-      .shop-section { width: min(100% - 1rem, 1180px); }
-      .shop-section-first { padding-top: 2rem; }
+      .shop-section {
+        width: min(100% - 1rem, 1180px);
+        padding: 1.75rem 0;
+      }
+      .shop-section-first {
+        padding-top: 1.6rem;
+        padding-bottom: 1rem;
+      }
+      .shop-stack-section { padding-top: 0.75rem; }
+      .shop-reviews-section { padding-top: 1.25rem; }
+      .shop-final-section { padding-top: 0.75rem; }
       .story-band,
       .final-cta { border-radius: 26px; }
     }
@@ -951,7 +974,7 @@
     </div>
   </section>
 
-  <section class="shop-section">
+  <section class="shop-section shop-final-section">
     <div class="final-cta">
       <p class="eyebrow">Ready when you are</p>
       <h2>Start with the supply that makes consistency easy.</h2>
