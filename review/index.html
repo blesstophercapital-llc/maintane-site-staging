@@ -1,50 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#3B5C3A">
-  <meta name="apple-mobile-web-app-title" content="Maintane">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
+  <title>Review Maintane | Share Your Routine</title>
+  <meta name="description" content="Share your Maintane experience, leave a review, or get support before reviewing your monthly septic care routine.">
   <link rel="canonical" href="https://getmaintane.com/review/">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <title>Review Maintane | Share Your Experience</title>
-  <meta name="description" content="Share your Maintane experience or contact support if something is off. Your review helps other septic homeowners find a simpler monthly routine.">
-  <meta property="og:site_name" content="Maintane">
-  <meta property="og:title" content="Review Maintane">
-  <meta property="og:description" content="Share your Maintane experience or contact support if something is off.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://getmaintane.com/review/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Review Maintane">
-  <meta name="twitter:description" content="Share your Maintane experience or contact support if something is off.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script src="/js/production-analytics.js" defer></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap');
-
     :root {
-      --cream: #fbf6ee;
-      --cream-deep: #f1e7d8;
-      --forest: #3b5c3a;
-      --forest-dark: #253d29;
-      --bark: #2c2417;
-      --moss: #7ea255;
-      --tan: #c4a882;
-      --line: rgba(44, 36, 23, 0.14);
-      --shadow: 0 24px 70px rgba(44, 36, 23, 0.12);
+      --forest: #3f633a;
+      --forest-dark: #2f4f2e;
+      --leaf: #75a85d;
+      --cream: #faf6ed;
+      --cream-strong: #fffdf8;
+      --sand: #c7ad83;
+      --sand-soft: #eadcc7;
+      --ink: #2b241c;
+      --muted: #746d62;
+      --line: rgba(63, 99, 58, 0.18);
+      --shadow: 0 30px 90px rgba(43, 36, 28, 0.12);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background: radial-gradient(circle at 15% 0%, rgba(126, 162, 85, 0.16), transparent 30%),
-        linear-gradient(180deg, #fffaf3 0%, var(--cream) 48%, var(--cream-deep) 100%);
-      color: var(--bark);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(117, 168, 93, 0.14), transparent 34rem),
+        linear-gradient(180deg, #fffaf0 0%, var(--cream) 58%, #f6f0e5 100%);
       font-family: "DM Sans", sans-serif;
-      min-height: 100vh;
     }
 
     a {
@@ -54,96 +50,99 @@
 
     .review-shell {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
     }
 
     .review-header {
+      width: 100%;
+      padding: clamp(1.1rem, 2.4vw, 1.9rem) clamp(1.25rem, 5vw, 5rem);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 1.35rem clamp(1.25rem, 4vw, 4rem);
-      border-bottom: 1px solid var(--line);
-      background: rgba(251, 246, 238, 0.86);
-      backdrop-filter: blur(14px);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      color: var(--forest);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      background: rgba(250, 246, 237, 0.92);
+      border-bottom: 1px solid rgba(63, 99, 58, 0.12);
+      backdrop-filter: blur(16px);
     }
 
     .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: var(--forest);
+      letter-spacing: -0.05em;
+    }
+
+    .leaf-logo {
+      width: 2.2rem;
+      height: 2.2rem;
       position: relative;
-      width: 2rem;
-      height: 1.55rem;
       display: inline-block;
     }
 
-    .brand-mark::before,
-    .brand-mark::after {
+    .leaf-logo::before,
+    .leaf-logo::after {
       content: "";
       position: absolute;
-      width: 1.05rem;
-      height: 1.45rem;
-      background: var(--moss);
-      border-radius: 1rem 1rem 0.25rem 1rem;
-      transform-origin: bottom center;
-    }
-
-    .brand-mark::before {
-      left: 0.1rem;
-      top: 0.1rem;
-      transform: rotate(30deg);
-    }
-
-    .brand-mark::after {
-      right: 0.1rem;
-      top: 0.15rem;
+      background: linear-gradient(135deg, var(--leaf), var(--forest));
+      border-radius: 70% 0 70% 0;
       transform: rotate(-35deg);
-      background: #5f8f4d;
     }
 
-    .header-link {
+    .leaf-logo::before {
+      width: 1.05rem;
+      height: 1.65rem;
+      left: 0.18rem;
+      top: 0.35rem;
+    }
+
+    .leaf-logo::after {
+      width: 1.25rem;
+      height: 1.85rem;
+      left: 0.95rem;
+      top: 0.6rem;
+      opacity: 0.88;
+    }
+
+    .header-action {
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 0.8rem 1.1rem;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      padding: 0.9rem 1.6rem;
       color: var(--forest-dark);
-      background: rgba(255, 255, 255, 0.52);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(255, 253, 248, 0.82);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
-    main {
-      flex: 1;
-      display: grid;
-      place-items: start center;
-      padding: clamp(1.8rem, 4.5vw, 4rem) clamp(1.1rem, 4vw, 3rem) clamp(2rem, 5vw, 4.5rem);
+    .header-action:hover {
+      transform: translateY(-1px);
+      border-color: rgba(63, 99, 58, 0.4);
+      background: #fff;
     }
 
-    .review-card {
-      width: min(1120px, 100%);
+    .review-main {
+      width: min(100%, 1500px);
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 4.5rem) clamp(3rem, 7vw, 6rem);
+    }
+
+    .review-hero {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(330px, 0.82fr);
-      gap: 0;
-      align-items: stretch;
-      background: rgba(255, 252, 246, 0.78);
-      border: 1px solid var(--line);
-      border-radius: 30px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
+      background: rgba(255, 253, 248, 0.84);
+      border: 1px solid rgba(63, 99, 58, 0.14);
+      border-radius: 2.4rem;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .review-copy {
-      padding: clamp(2rem, 4.5vw, 4.25rem);
+    .hero-copy {
+      padding: clamp(2.4rem, 6vw, 5.2rem);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -151,203 +150,618 @@
 
     .eyebrow {
       margin: 0 0 1rem;
-      color: var(--tan);
-      font-size: 0.92rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
+      color: var(--sand);
+      font-size: clamp(0.9rem, 1.4vw, 1.08rem);
+      font-weight: 900;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      color: var(--bark);
-      font-family: "Instrument Serif", serif;
-      font-size: clamp(3.1rem, 6.4vw, 5.85rem);
-      line-height: 0.92;
-      letter-spacing: -0.055em;
-      max-width: 6.7ch;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
-    .subhead {
-      margin: 1.4rem 0 0;
+    h1,
+    h2,
+    h3 {
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      line-height: 0.92;
+    }
+
+    h1 {
+      max-width: 8.5ch;
+      margin-bottom: 1.3rem;
+      font-size: clamp(4rem, 8vw, 8.4rem);
+    }
+
+    .hero-copy > p {
       max-width: 620px;
-      color: rgba(44, 36, 23, 0.78);
-      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      margin-bottom: 1.7rem;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.55vw, 1.4rem);
       line-height: 1.55;
     }
 
-    .truth-note {
-      margin-top: 1.55rem;
-      padding: 1rem 1.1rem;
-      border: 1px solid rgba(59, 92, 58, 0.18);
-      border-radius: 18px;
-      background: rgba(59, 92, 58, 0.08);
-      color: rgba(44, 36, 23, 0.78);
-      font-size: 0.95rem;
-      line-height: 1.5;
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
     }
 
-    .review-actions {
-      padding: clamp(1.4rem, 3vw, 2.35rem);
-      background: linear-gradient(180deg, var(--forest) 0%, var(--forest-dark) 100%);
-      color: #fffaf3;
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.35rem;
+      padding: 0.62rem 1rem;
+      border: 1px solid rgba(63, 99, 58, 0.15);
+      border-radius: 999px;
+      color: var(--forest-dark);
+      background: rgba(238, 245, 231, 0.62);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .review-router {
+      min-height: 630px;
+      padding: clamp(1.4rem, 4vw, 3.2rem);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 1rem;
+      background:
+        linear-gradient(150deg, rgba(47, 79, 46, 0.96), rgba(63, 99, 58, 0.94)),
+        radial-gradient(circle at top right, rgba(199, 173, 131, 0.28), transparent 22rem);
+      color: var(--cream);
+      border-top-left-radius: 2.1rem;
+      border-bottom-left-radius: 2.1rem;
+    }
+
+    .review-link {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.35rem 1.45rem;
+      border: 1px solid rgba(255, 253, 248, 0.17);
+      border-radius: 1.35rem;
+      background: rgba(255, 253, 248, 0.08);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .review-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 253, 248, 0.14);
+      border-color: rgba(255, 253, 248, 0.34);
+    }
+
+    .review-link.primary {
+      background: var(--sand);
+      color: var(--ink);
+      border-color: rgba(255, 253, 248, 0.2);
+    }
+
+    .review-link strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .review-link span {
+      color: inherit;
+      opacity: 0.78;
+      line-height: 1.45;
+    }
+
+    .review-link .arrow {
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .truth-note {
+      margin-top: 0.6rem;
+      padding: 1rem 1.1rem;
+      border-radius: 1rem;
+      color: rgba(250, 246, 237, 0.84);
+      background: rgba(0, 0, 0, 0.12);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .review-carousel {
+      margin-top: clamp(3rem, 7vw, 6rem);
+    }
+
+    .carousel-heading {
+      width: min(100%, 1230px);
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .carousel-heading h2 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(3.2rem, 5.6vw, 6.2rem);
+    }
+
+    .carousel-heading p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.2rem);
+      line-height: 1.55;
+    }
+
+    .carousel-controls {
+      display: flex;
       gap: 0.85rem;
     }
 
-    .action-card {
+    .carousel-button {
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid rgba(63, 99, 58, 0.24);
+      border-radius: 999px;
+      color: var(--forest-dark);
+      background: rgba(255, 253, 248, 0.78);
+      font-size: 1.35rem;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .carousel-button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(63, 99, 58, 0.45);
+      background: #fff;
+    }
+
+    .review-track {
+      display: flex;
+      gap: clamp(1rem, 2vw, 1.4rem);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: max(1rem, calc((100vw - 1230px) / 2));
+      padding: 0 max(1rem, calc((100vw - 1230px) / 2)) 0.5rem;
+      scrollbar-width: none;
+    }
+
+    .review-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .review-slide {
+      flex: 0 0 min(1040px, 86vw);
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 0.9fr 1fr;
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      padding: clamp(1.4rem, 3.5vw, 3.4rem);
+      scroll-snap-align: center;
+      background: rgba(255, 253, 248, 0.78);
+      border: 1px solid rgba(63, 99, 58, 0.14);
+      border-radius: 2rem;
+      box-shadow: 0 22px 70px rgba(43, 36, 28, 0.09);
+    }
+
+    .slide-media {
+      min-height: 360px;
+      border-radius: 1.4rem;
+      overflow: hidden;
+      background: var(--sand-soft);
+    }
+
+    .slide-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
       display: block;
-      padding: 1.05rem 1.12rem;
-      border: 1px solid rgba(255, 250, 243, 0.18);
-      border-radius: 20px;
-      background: rgba(255, 250, 243, 0.09);
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      object-fit: cover;
     }
 
-    .action-card:hover,
-    .action-card:focus-visible {
-      transform: translateY(-2px);
-      background: rgba(255, 250, 243, 0.15);
-      border-color: rgba(255, 250, 243, 0.34);
-      outline: none;
+    .slide-copy {
+      max-width: 520px;
     }
 
-    .action-card.primary {
-      background: var(--tan);
-      color: var(--bark);
-      border-color: transparent;
+    .stars {
+      margin-bottom: 1rem;
+      color: var(--forest-dark);
+      font-size: 1.08rem;
+      letter-spacing: 0.16em;
     }
 
-    .action-label {
+    .slide-copy h3 {
+      margin-bottom: 1rem;
+      font-size: clamp(2.4rem, 4.1vw, 4.6rem);
+    }
+
+    .slide-copy p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.45vw, 1.18rem);
+      line-height: 1.62;
+    }
+
+    .review-prompt {
+      margin-top: 1.15rem;
+      color: var(--forest-dark);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .carousel-dots {
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .dot {
+      width: 0.72rem;
+      height: 0.72rem;
+      padding: 0;
+      border: 1px solid rgba(63, 99, 58, 0.5);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .dot[aria-current="true"] {
+      background: var(--forest-dark);
+    }
+
+    .review-disclaimer {
+      max-width: 720px;
+      margin: 1.3rem auto 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .review-footer {
+      max-width: 1230px;
+      margin: clamp(3rem, 6vw, 5rem) auto 0;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(63, 99, 58, 0.12);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      font-size: 1.02rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
+      color: var(--muted);
+      font-size: 0.88rem;
     }
 
-    .action-label span:last-child {
-      font-size: 1.35rem;
+    .review-footer a {
+      color: var(--forest-dark);
+      font-weight: 800;
     }
 
-    .action-copy {
-      margin: 0.45rem 0 0;
-      color: rgba(255, 250, 243, 0.76);
-      font-size: 0.91rem;
-      line-height: 1.45;
-    }
+    @media (max-width: 980px) {
+      .review-hero {
+        grid-template-columns: 1fr;
+      }
 
-    .primary .action-copy {
-      color: rgba(44, 36, 23, 0.74);
-    }
+      .review-router {
+        min-height: auto;
+        border-radius: 0;
+      }
 
-    .review-footer {
-      padding: 0 1.25rem 1.25rem;
-      text-align: center;
-      color: rgba(44, 36, 23, 0.58);
-      font-size: 0.85rem;
+      h1 {
+        max-width: 9ch;
+      }
+
+      .carousel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 760px) {
       .review-header {
-        padding: 1rem 1.1rem;
+        padding: 1rem;
       }
 
-      .header-link {
-        padding: 0.68rem 0.85rem;
-        font-size: 0.68rem;
+      .brand-mark {
+        font-size: 1.7rem;
       }
 
-      main {
-        align-items: start;
-        padding: 1rem 1rem 1.6rem;
+      .header-action {
+        padding: 0.75rem 1rem;
+        font-size: 0.72rem;
       }
 
-      .review-card {
-        grid-template-columns: 1fr;
-        border-radius: 24px;
+      .review-main {
+        padding: 1rem 0.85rem 3rem;
       }
 
-      .review-copy {
-        padding: 1.55rem 1.35rem 1rem;
+      .review-hero,
+      .review-slide {
+        border-radius: 1.45rem;
+      }
+
+      .hero-copy {
+        padding: 2rem 1.25rem;
       }
 
       h1 {
-        font-size: clamp(3rem, 15vw, 4.35rem);
-        line-height: 0.94;
-        max-width: 7.8ch;
+        font-size: clamp(3.8rem, 18vw, 5.8rem);
       }
 
-      .subhead {
-        margin-top: 1rem;
-        font-size: 1.04rem;
+      .hero-copy > p {
+        font-size: 1.02rem;
       }
 
-      .truth-note {
-        margin-top: 1.3rem;
+      .hero-badges span {
+        font-size: 0.72rem;
       }
 
-      .review-actions {
+      .review-router {
         padding: 1rem;
       }
 
-      .action-card {
+      .review-link {
+        padding: 1.1rem;
+      }
+
+      .carousel-heading {
+        padding: 0 0.35rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .carousel-heading h2 {
+        font-size: clamp(3.15rem, 14vw, 4.6rem);
+      }
+
+      .carousel-controls {
+        display: none;
+      }
+
+      .review-track {
+        padding-inline: 0.2rem;
+        scroll-padding-inline: 0.2rem;
+      }
+
+      .review-slide {
+        flex-basis: calc(100vw - 2.1rem);
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 1.35rem;
         padding: 1rem;
+      }
+
+      .slide-media,
+      .slide-media img {
+        min-height: 230px;
+      }
+
+      .slide-copy {
+        padding: 0 0.25rem 0.35rem;
+      }
+
+      .slide-copy h3 {
+        font-size: clamp(2.45rem, 12vw, 3.65rem);
+      }
+
+      .review-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-inline: 0.35rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="review-shell">
-    <header class="review-header">
-      <a class="brand" href="/" aria-label="Maintane home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        Maintane
+    <header class="review-header" aria-label="Maintane review page header">
+      <a class="brand-mark" href="/" aria-label="Maintane home">
+        <span class="leaf-logo" aria-hidden="true"></span>
+        <span>Maintane</span>
       </a>
-      <a class="header-link" href="/shop.html" data-event="review_shop_click">Shop Refills</a>
+      <a class="header-action" href="/shop.html" data-event="review_header_shop_click">Shop Refills</a>
     </header>
 
-    <main>
-      <section class="review-card" aria-labelledby="review-title">
-        <div class="review-copy">
-          <p class="eyebrow">After Your First Jar</p>
-          <h1 id="review-title">How’s your Maintane routine going?</h1>
-          <p class="subhead">If your monthly septic routine feels simpler, a quick review helps other homeowners find us. If something is off, message us first so we can make it right.</p>
-          <p class="truth-note">Maintane supports routine septic maintenance between pump-outs and inspections. It does not replace pumping, inspection, repair, or professional diagnosis.</p>
+    <main class="review-main">
+      <section class="review-hero" aria-labelledby="review-title">
+        <div class="hero-copy">
+          <p class="eyebrow">After your first jar</p>
+          <h1 id="review-title">Tell another septic homeowner what changed.</h1>
+          <p>If Maintane made your monthly septic routine feel easier, leave a quick review. If something feels off, message us first so we can make it right.</p>
+          <div class="hero-badges" aria-label="Review values">
+            <span>Real experience</span>
+            <span>Routine first</span>
+            <span>Support before review</span>
+          </div>
         </div>
 
-        <div class="review-actions" aria-label="Review and support options">
-          <a class="action-card primary" href="https://www.trustpilot.com/evaluate/getmaintane.com" target="_blank" rel="noopener" data-event="review_trustpilot_click">
-            <span class="action-label">Leave a Trustpilot review <span aria-hidden="true">→</span></span>
-            <p class="action-copy">Best place to share your real experience with Maintane.</p>
+        <div class="review-router" aria-label="Review options">
+          <a class="review-link primary" href="https://www.trustpilot.com/review/getmaintane.com" target="_blank" rel="noopener" data-event="trustpilot_review_click">
+            <span>
+              <strong>Leave a Trustpilot review</strong>
+              <span>Best place to share your real Maintane experience.</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-
-          <a class="action-card" href="https://www.google.com/search?q=Maintane+natural+septic+treatment+reviews" target="_blank" rel="noopener" data-event="review_google_click">
-            <span class="action-label">Review on Google <span aria-hidden="true">→</span></span>
-            <p class="action-copy">Prefer Google? Search Maintane and leave feedback there.</p>
+          <a class="review-link" href="https://www.google.com/search?q=Maintane+septic+treatment+reviews" target="_blank" rel="noopener" data-event="google_review_click">
+            <span>
+              <strong>Review on Google</strong>
+              <span>Prefer Google? Search Maintane and leave feedback there.</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-
-          <a class="action-card" href="mailto:hello@getmaintane.com?subject=Maintane%20order%20support" data-event="review_support_click">
-            <span class="action-label">Need help first? <span aria-hidden="true">→</span></span>
-            <p class="action-copy">Order issue, dosing question, or something unexpected? Email us before reviewing.</p>
+          <a class="review-link" href="mailto:hello@getmaintane.com?subject=Maintane%20order%20support" data-event="review_support_click">
+            <span>
+              <strong>Need help first?</strong>
+              <span>Order issue, dosing question, or something unexpected? Email us before reviewing.</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-
-          <a class="action-card" href="/dosing-guide.html" data-event="review_dosing_click">
-            <span class="action-label">Check the dosing guide <span aria-hidden="true">→</span></span>
-            <p class="action-copy">Make sure your monthly routine is set up correctly.</p>
+          <a class="review-link" href="/dosing-guide.html" data-event="review_dosing_click">
+            <span>
+              <strong>Check the dosing guide</strong>
+              <span>Make sure your monthly routine matches the label.</span>
+            </span>
+            <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
+          <p class="truth-note">Maintane supports routine monthly maintenance. It does not replace pumping, inspections, repairs, or a septic professional when something is actively wrong.</p>
         </div>
       </section>
-    </main>
 
-    <footer class="review-footer">
-      © 2026 Maintane. Natural septic care, redefined.
-    </footer>
+      <section class="review-carousel" aria-labelledby="reviews-title">
+        <div class="carousel-heading">
+          <div>
+            <p class="eyebrow">Customer proof</p>
+            <h2 id="reviews-title">What people are saying</h2>
+            <p>Real reviews will live here as they come in. For now, these prompts show the kind of specific feedback that helps another homeowner understand Maintane.</p>
+          </div>
+          <div class="carousel-controls" aria-label="Review carousel controls">
+            <button class="carousel-button" type="button" aria-label="Previous review" data-carousel-prev>&lsaquo;</button>
+            <button class="carousel-button" type="button" aria-label="Next review" data-carousel-next>&rsaquo;</button>
+          </div>
+        </div>
+
+        <div class="review-track" data-review-track tabindex="0" aria-label="Review prompts carousel">
+          <article class="review-slide" data-review-slide>
+            <div class="slide-media">
+              <img src="/hero-family-under-trees.jpg" alt="A family standing outside near trees">
+            </div>
+            <div class="slide-copy">
+              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3>The routine finally feels simple.</h3>
+              <p>Tell people whether Maintane made septic care easier to remember, easier to understand, or easier to keep consistent month after month.</p>
+              <p class="review-prompt">Good review angle: consistency</p>
+            </div>
+          </article>
+
+          <article class="review-slide" data-review-slide>
+            <div class="slide-media">
+              <img src="/shop-product-hero.png" alt="Maintane jar product photo">
+            </div>
+            <div class="slide-copy">
+              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3>No harsh chemical panic cycle.</h3>
+              <p>Share why you wanted a natural monthly routine and what felt different compared with dumping random septic products in only when something seemed wrong.</p>
+              <p class="review-prompt">Good review angle: natural routine</p>
+            </div>
+          </article>
+
+          <article class="review-slide" data-review-slide>
+            <div class="slide-media">
+              <img src="/scoop-step.jpeg" alt="A scoop of Maintane septic treatment powder">
+            </div>
+            <div class="slide-copy">
+              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3>The dosing was easy to follow.</h3>
+              <p>Useful reviews mention the instructions, the monthly reminder habit, how the jar fits into your home routine, or whether the product felt premium in person.</p>
+              <p class="review-prompt">Good review angle: ease of use</p>
+            </div>
+          </article>
+
+          <article class="review-slide" data-review-slide>
+            <div class="slide-media">
+              <img src="/emotional-trigger-kid-dog.jpg" alt="A child sitting with a dog outside">
+            </div>
+            <div class="slide-copy">
+              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3>I wanted something that made sense around my home.</h3>
+              <p>If kids, pets, an older home, odors, backups, or avoiding surprise pump-out stress mattered to you, those details help the next homeowner decide.</p>
+              <p class="review-prompt">Good review angle: home confidence</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-dots" aria-label="Choose review slide">
+          <button class="dot" type="button" aria-label="Show review prompt 1" data-review-dot aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Show review prompt 2" data-review-dot></button>
+          <button class="dot" type="button" aria-label="Show review prompt 3" data-review-dot></button>
+          <button class="dot" type="button" aria-label="Show review prompt 4" data-review-dot></button>
+        </div>
+
+        <p class="review-disclaimer">We will swap these prompt cards for verified customer quotes as reviews come in. The page is built this way now so the structure is ready without faking social proof.</p>
+      </section>
+
+      <footer class="review-footer">
+        <span>&copy; 2026 Maintane. Natural monthly septic defense.</span>
+        <a href="/policy.html">Policies</a>
+      </footer>
+    </main>
   </div>
+
+  <script>
+    (() => {
+      const track = document.querySelector("[data-review-track]");
+      if (!track) return;
+
+      const slides = Array.from(track.querySelectorAll("[data-review-slide]"));
+      const dots = Array.from(document.querySelectorAll("[data-review-dot]"));
+      const prev = document.querySelector("[data-carousel-prev]");
+      const next = document.querySelector("[data-carousel-next]");
+      let active = 0;
+      let scrollFrame;
+
+      function updateDots(index) {
+        dots.forEach((dot, dotIndex) => {
+          dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
+        });
+      }
+
+      function setActive(index, shouldScroll = true) {
+        active = (index + slides.length) % slides.length;
+        updateDots(active);
+
+        if (shouldScroll) {
+          slides[active].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+          });
+        }
+      }
+
+      prev?.addEventListener("click", () => setActive(active - 1));
+      next?.addEventListener("click", () => setActive(active + 1));
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => setActive(index));
+      });
+
+      track.addEventListener("scroll", () => {
+        window.cancelAnimationFrame(scrollFrame);
+        scrollFrame = window.requestAnimationFrame(() => {
+          const trackCenter = track.scrollLeft + track.clientWidth / 2;
+          let nearestIndex = 0;
+          let nearestDistance = Infinity;
+
+          slides.forEach((slide, index) => {
+            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(slideCenter - trackCenter);
+            if (distance < nearestDistance) {
+              nearestDistance = distance;
+              nearestIndex = index;
+            }
+          });
+
+          if (nearestIndex !== active) {
+            active = nearestIndex;
+            updateDots(active);
+          }
+        });
+      }, { passive: true });
+
+      setActive(0, false);
+    })();
+  </script>
   <script src="/js/analytics-events.js" defer></script>
 </body>
 </html>
