@@ -643,15 +643,6 @@
       background: var(--forest-dark);
     }
 
-    .review-disclaimer {
-      max-width: 720px;
-      margin: 1.3rem auto 0;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
     .site-footer {
       width: 100%;
       margin-top: 0;
@@ -1086,8 +1077,7 @@
         line-height: 0.98;
       }
 
-      .slide-copy p,
-      .review-disclaimer {
+      .slide-copy p {
         max-width: calc(100vw - 2rem);
         overflow-wrap: anywhere;
       }
@@ -1185,10 +1175,6 @@
       .review-slide {
         flex-basis: min(342px, calc(100vw - 2.1rem));
         max-width: min(342px, calc(100vw - 2.1rem));
-      }
-
-      .review-disclaimer {
-        max-width: 342px;
       }
 
       .footer-inner {
@@ -1306,9 +1292,9 @@
       <section class="review-carousel" aria-labelledby="reviews-title">
         <div class="carousel-heading">
           <div>
-            <p class="eyebrow">Customer proof</p>
-            <h2 id="reviews-title">What people are saying</h2>
-            <p>Real reviews will live here as they come in. For now, these prompts show the kind of specific feedback that helps another homeowner understand Maintane.</p>
+            <p class="eyebrow">Review guidance</p>
+            <h2 id="reviews-title">What makes a review useful</h2>
+            <p>The best reviews give another homeowner one concrete detail: why you tried Maintane, how the monthly dose fit into your routine, and what felt different from the usual septic guesswork.</p>
           </div>
           <div class="carousel-controls" aria-label="Review carousel controls">
             <button class="carousel-button" type="button" aria-label="Previous review" data-carousel-prev>&lsaquo;</button>
@@ -1316,16 +1302,16 @@
           </div>
         </div>
 
-        <div class="review-track" data-review-track tabindex="0" aria-label="Review prompts carousel">
+        <div class="review-track" data-review-track tabindex="0" aria-label="Review guidance carousel">
           <article class="review-slide" data-review-slide>
             <div class="slide-media">
               <img src="/hero-family-under-trees.jpg" alt="A family standing outside near trees">
             </div>
             <div class="slide-copy">
-              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="stars" aria-label="Five star review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <h3>The routine finally feels simple.</h3>
-              <p>Tell people whether Maintane made septic care easier to remember, easier to understand, or easier to keep consistent month after month.</p>
-              <p class="review-prompt">Good review angle: consistency</p>
+              <p>Mention whether Maintane made septic care easier to remember, easier to understand, or easier to keep consistent month after month.</p>
+              <p class="review-prompt">Useful detail: consistency</p>
             </div>
           </article>
 
@@ -1334,10 +1320,10 @@
               <img src="/shop-product-hero.png" alt="Maintane jar product photo">
             </div>
             <div class="slide-copy">
-              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="stars" aria-label="Five star review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <h3>No harsh chemical panic cycle.</h3>
               <p>Share why you wanted a natural monthly routine and what felt different compared with dumping random septic products in only when something seemed wrong.</p>
-              <p class="review-prompt">Good review angle: natural routine</p>
+              <p class="review-prompt">Useful detail: natural routine</p>
             </div>
           </article>
 
@@ -1346,10 +1332,10 @@
               <img src="/scoop-step.jpeg" alt="A scoop of Maintane septic treatment powder">
             </div>
             <div class="slide-copy">
-              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="stars" aria-label="Five star review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <h3>The dosing was easy to follow.</h3>
               <p>Useful reviews mention the instructions, the monthly reminder habit, how the jar fits into your home routine, or whether the product felt premium in person.</p>
-              <p class="review-prompt">Good review angle: ease of use</p>
+              <p class="review-prompt">Useful detail: ease of use</p>
             </div>
           </article>
 
@@ -1358,22 +1344,20 @@
               <img src="/emotional-trigger-kid-dog.jpg" alt="A child sitting with a dog outside">
             </div>
             <div class="slide-copy">
-              <div class="stars" aria-label="Five star review prompt">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="stars" aria-label="Five star review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <h3>I wanted something that made sense around my home.</h3>
               <p>If kids, pets, an older home, odors, backups, or avoiding surprise pump-out stress mattered to you, those details help the next homeowner decide.</p>
-              <p class="review-prompt">Good review angle: home confidence</p>
+              <p class="review-prompt">Useful detail: home confidence</p>
             </div>
           </article>
         </div>
 
         <div class="carousel-dots" aria-label="Choose review slide">
-          <button class="dot" type="button" aria-label="Show review prompt 1" data-review-dot aria-current="true"></button>
-          <button class="dot" type="button" aria-label="Show review prompt 2" data-review-dot></button>
-          <button class="dot" type="button" aria-label="Show review prompt 3" data-review-dot></button>
-          <button class="dot" type="button" aria-label="Show review prompt 4" data-review-dot></button>
+          <button class="dot" type="button" aria-label="Show review topic 1" data-review-dot aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Show review topic 2" data-review-dot></button>
+          <button class="dot" type="button" aria-label="Show review topic 3" data-review-dot></button>
+          <button class="dot" type="button" aria-label="Show review topic 4" data-review-dot></button>
         </div>
-
-        <p class="review-disclaimer">We will swap these prompt cards for verified customer quotes as reviews come in. The page is built this way now so the structure is ready without faking social proof.</p>
       </section>
 
     </main>
