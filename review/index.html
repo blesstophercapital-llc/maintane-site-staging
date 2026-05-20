@@ -38,9 +38,11 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(117, 168, 93, 0.14), transparent 34rem),
-        linear-gradient(180deg, #fffaf0 0%, var(--cream) 58%, #f6f0e5 100%);
+        linear-gradient(90deg, rgba(47, 79, 46, 0.09) 1px, transparent 1px),
+        linear-gradient(180deg, #fffdf8 0%, var(--cream) 48%, #eee4d5 100%);
+      background-size: 56px 56px, auto;
       font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
     }
 
     a {
@@ -128,24 +130,51 @@
     .review-main {
       width: min(100%, 1500px);
       margin: 0 auto;
-      padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 4.5rem) clamp(3rem, 7vw, 6rem);
+      padding: clamp(1.5rem, 4vw, 3.6rem) clamp(1rem, 4vw, 4.5rem) clamp(3rem, 7vw, 6rem);
     }
 
     .review-hero {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
-      background: rgba(255, 253, 248, 0.84);
-      border: 1px solid rgba(63, 99, 58, 0.14);
-      border-radius: 2.4rem;
-      box-shadow: var(--shadow);
+      position: relative;
+      background: #fffdf8;
+      border: 1px solid rgba(43, 36, 28, 0.12);
+      border-radius: 1.7rem;
+      box-shadow: 0 34px 110px rgba(43, 36, 28, 0.14);
       overflow: hidden;
     }
 
-    .hero-copy {
-      padding: clamp(2.4rem, 6vw, 5.2rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .review-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(63, 99, 58, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(63, 99, 58, 0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 52%);
+    }
+
+    .review-masthead {
+      position: relative;
+      padding: clamp(2.4rem, 6vw, 6.2rem) clamp(1.25rem, 6vw, 6.5rem) clamp(7rem, 14vw, 12rem);
+      color: var(--cream-strong);
+      text-align: center;
+      background:
+        radial-gradient(circle at 14% 16%, rgba(199, 173, 131, 0.28), transparent 18rem),
+        radial-gradient(circle at 84% 20%, rgba(117, 168, 93, 0.24), transparent 20rem),
+        linear-gradient(145deg, #172417 0%, #2f4f2e 58%, #3f633a 100%);
+    }
+
+    .review-masthead::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -1px;
+      width: min(1180px, calc(100% - 2rem));
+      height: clamp(3.4rem, 8vw, 7rem);
+      transform: translateX(-50%);
+      background: #fffdf8;
+      border-radius: 2.4rem 2.4rem 0 0;
     }
 
     .eyebrow {
@@ -174,82 +203,63 @@
     }
 
     h1 {
-      max-width: 8.5ch;
-      margin-bottom: 1.3rem;
-      font-size: clamp(4rem, 8vw, 8.4rem);
+      max-width: 12ch;
+      margin: 0 auto 1.35rem;
+      font-size: clamp(4.2rem, 10.5vw, 10.5rem);
     }
 
-    .hero-copy > p {
-      max-width: 620px;
-      margin-bottom: 1.7rem;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 1.55vw, 1.4rem);
+    .review-masthead > p:not(.eyebrow) {
+      max-width: 820px;
+      margin: 0 auto;
+      color: rgba(255, 253, 248, 0.78);
+      font-size: clamp(1.08rem, 1.65vw, 1.42rem);
       line-height: 1.55;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-    }
-
-    .hero-badges span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.35rem;
-      padding: 0.62rem 1rem;
-      border: 1px solid rgba(63, 99, 58, 0.15);
-      border-radius: 999px;
-      color: var(--forest-dark);
-      background: rgba(238, 245, 231, 0.62);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
     .review-router {
-      min-height: 630px;
-      padding: clamp(1.4rem, 4vw, 3.2rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 1rem;
-      background:
-        linear-gradient(150deg, rgba(47, 79, 46, 0.96), rgba(63, 99, 58, 0.94)),
-        radial-gradient(circle at top right, rgba(199, 173, 131, 0.28), transparent 22rem);
-      color: var(--cream);
-      border-top-left-radius: 2.1rem;
-      border-bottom-left-radius: 2.1rem;
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 2rem));
+      margin: clamp(-5.8rem, -8vw, -3.2rem) auto 0;
+      padding: clamp(1rem, 2.5vw, 1.45rem);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      background: rgba(255, 253, 248, 0.96);
+      border: 1px solid rgba(43, 36, 28, 0.12);
+      border-radius: 1.35rem;
+      box-shadow: 0 24px 80px rgba(43, 36, 28, 0.14);
     }
 
     .review-link {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      padding: 1.35rem 1.45rem;
-      border: 1px solid rgba(255, 253, 248, 0.17);
-      border-radius: 1.35rem;
-      background: rgba(255, 253, 248, 0.08);
+      grid-template-columns: 1fr;
+      align-content: space-between;
+      gap: 1.25rem;
+      min-height: 178px;
+      padding: 1.25rem;
+      border: 1px solid rgba(63, 99, 58, 0.14);
+      border-radius: 0.95rem;
+      color: var(--ink);
+      background: #fffaf0;
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
     .review-link:hover {
       transform: translateY(-2px);
-      background: rgba(255, 253, 248, 0.14);
-      border-color: rgba(255, 253, 248, 0.34);
+      background: #fff;
+      border-color: rgba(63, 99, 58, 0.34);
     }
 
     .review-link.primary {
-      background: var(--sand);
-      color: var(--ink);
-      border-color: rgba(255, 253, 248, 0.2);
+      background: var(--forest-dark);
+      color: var(--cream-strong);
+      border-color: transparent;
     }
 
     .review-link strong {
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.45rem;
       font-size: clamp(1rem, 1.45vw, 1.2rem);
       letter-spacing: -0.02em;
     }
@@ -261,18 +271,97 @@
     }
 
     .review-link .arrow {
-      font-size: 1.7rem;
+      width: 2.35rem;
+      height: 2.35rem;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      justify-self: start;
+      font-size: 1.25rem;
       line-height: 1;
     }
 
-    .truth-note {
-      margin-top: 0.6rem;
-      padding: 1rem 1.1rem;
-      border-radius: 1rem;
-      color: rgba(250, 246, 237, 0.84);
-      background: rgba(0, 0, 0, 0.12);
-      font-size: 0.9rem;
-      line-height: 1.5;
+    .review-brief {
+      width: min(1180px, calc(100% - 2rem));
+      margin: clamp(1.1rem, 3vw, 2rem) auto clamp(2rem, 5vw, 4.2rem);
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: clamp(1rem, 2vw, 1.3rem);
+    }
+
+    .score-panel,
+    .guidance-panel {
+      background: rgba(250, 246, 237, 0.78);
+      border: 1px solid rgba(63, 99, 58, 0.14);
+      border-radius: 1.25rem;
+    }
+
+    .score-panel {
+      padding: clamp(1.4rem, 3vw, 2rem);
+      display: grid;
+      gap: 1.2rem;
+      align-content: center;
+    }
+
+    .score-number {
+      display: flex;
+      align-items: end;
+      gap: 0.7rem;
+      color: var(--forest-dark);
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(4.5rem, 8vw, 7.4rem);
+      letter-spacing: -0.055em;
+      line-height: 0.85;
+    }
+
+    .score-number span {
+      margin-bottom: 0.32rem;
+      color: var(--muted);
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .score-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .guidance-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      overflow: hidden;
+    }
+
+    .guidance-item {
+      padding: clamp(1.25rem, 2.4vw, 1.8rem);
+      border-left: 1px solid rgba(63, 99, 58, 0.12);
+    }
+
+    .guidance-item:first-child {
+      border-left: 0;
+    }
+
+    .guidance-item b {
+      display: block;
+      margin-bottom: 0.55rem;
+      color: var(--forest-dark);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .guidance-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.52;
     }
 
     .review-carousel {
@@ -450,41 +539,51 @@
     }
 
     @media (max-width: 980px) {
-      .review-hero {
-        grid-template-columns: 1fr;
-      }
-
       .review-router {
-        min-height: auto;
-        border-radius: 0;
-      }
-
-      h1 {
-        max-width: 9ch;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .carousel-heading {
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .review-brief {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 760px) {
       .review-header {
+        width: 100vw;
+        max-width: 100vw;
         padding: 1rem;
+        overflow: hidden;
       }
 
       .brand-mark {
-        font-size: 1.7rem;
+        gap: 0.55rem;
+        font-size: 1.45rem;
+      }
+
+      .leaf-logo {
+        width: 1.8rem;
+        height: 1.8rem;
       }
 
       .header-action {
-        padding: 0.75rem 1rem;
-        font-size: 0.72rem;
+        max-width: 7.5rem;
+        padding: 0.7rem 0.85rem;
+        font-size: 0.66rem;
+        text-align: center;
+        white-space: normal;
       }
 
       .review-main {
+        width: 100vw;
+        max-width: 100vw;
         padding: 1rem 0.85rem 3rem;
+        overflow: hidden;
       }
 
       .review-hero,
@@ -492,28 +591,55 @@
         border-radius: 1.45rem;
       }
 
-      .hero-copy {
-        padding: 2rem 1.25rem;
+      .review-masthead {
+        padding: 2.25rem 1.05rem 6rem;
       }
 
       h1 {
-        font-size: clamp(3.8rem, 18vw, 5.8rem);
+        max-width: 7.6ch;
+        font-size: clamp(3.05rem, 13.5vw, 4.2rem);
+        line-height: 0.96;
       }
 
-      .hero-copy > p {
+      .review-masthead > p:not(.eyebrow) {
         font-size: 1.02rem;
       }
 
-      .hero-badges span {
-        font-size: 0.72rem;
-      }
-
       .review-router {
-        padding: 1rem;
+        width: calc(100% - 1rem);
+        grid-template-columns: 1fr;
+        margin-top: -4.5rem;
       }
 
       .review-link {
+        min-height: 0;
+        min-width: 0;
         padding: 1.1rem;
+      }
+
+      .review-link span,
+      .review-link strong {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .review-brief {
+        width: calc(100% - 1rem);
+        margin-bottom: 2.6rem;
+      }
+
+      .guidance-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .guidance-item,
+      .guidance-item:first-child {
+        border-left: 0;
+        border-top: 1px solid rgba(63, 99, 58, 0.12);
+      }
+
+      .guidance-item:first-child {
+        border-top: 0;
       }
 
       .carousel-heading {
@@ -561,6 +687,36 @@
         padding-inline: 0.35rem;
       }
     }
+
+    @media (max-width: 520px) {
+      .review-header {
+        margin: 0;
+        max-width: 390px;
+      }
+
+      .header-action {
+        max-width: 5.9rem;
+      }
+
+      .review-main {
+        padding-inline: 0;
+      }
+
+      .review-hero {
+        width: min(360px, calc(100vw - 1.5rem));
+        margin-left: 0.75rem;
+        margin-right: 0;
+      }
+
+      .review-masthead > p:not(.eyebrow) {
+        max-width: 29ch;
+      }
+
+      .review-router,
+      .review-brief {
+        width: calc(100% - 1rem);
+      }
+    }
   </style>
 </head>
 <body>
@@ -575,15 +731,10 @@
 
     <main class="review-main">
       <section class="review-hero" aria-labelledby="review-title">
-        <div class="hero-copy">
-          <p class="eyebrow">After your first jar</p>
-          <h1 id="review-title">Tell another septic homeowner what changed.</h1>
-          <p>If Maintane made your monthly septic routine feel easier, leave a quick review. If something feels off, message us first so we can make it right.</p>
-          <div class="hero-badges" aria-label="Review values">
-            <span>Real experience</span>
-            <span>Routine first</span>
-            <span>Support before review</span>
-          </div>
+        <div class="review-masthead">
+          <p class="eyebrow">Maintane review hub</p>
+          <h1 id="review-title">Share the septic routine that finally stuck.</h1>
+          <p>Start with a public review if Maintane earned it. If something is off, use support first so the experience gets handled before it becomes feedback.</p>
         </div>
 
         <div class="review-router" aria-label="Review options">
@@ -615,7 +766,27 @@
             </span>
             <span class="arrow" aria-hidden="true">&rarr;</span>
           </a>
-          <p class="truth-note">Maintane supports routine monthly maintenance. It does not replace pumping, inspections, repairs, or a septic professional when something is actively wrong.</p>
+        </div>
+
+        <div class="review-brief" aria-label="What to include in your review">
+          <div class="score-panel">
+            <div class="score-number">5<span>minute ask</span></div>
+            <p>A useful review does not need to be polished. The most helpful thing is one concrete detail about your monthly routine before and after Maintane.</p>
+          </div>
+          <div class="guidance-panel">
+            <div class="guidance-item">
+              <b>Keep it specific</b>
+              <p>Mention odor worry, dosing, reminders, kids, pets, old plumbing, or why monthly maintenance mattered.</p>
+            </div>
+            <div class="guidance-item">
+              <b>Do not overclaim</b>
+              <p>Maintane supports routine septic maintenance. It is not a replacement for pumping, inspections, repair, or diagnosis.</p>
+            </div>
+            <div class="guidance-item">
+              <b>Need help first?</b>
+              <p>Order problem, dosing question, or something unexpected? Email support before posting a public review.</p>
+            </div>
+          </div>
         </div>
       </section>
 
