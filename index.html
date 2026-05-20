@@ -1144,18 +1144,44 @@
     .solution-sub { font-size: 1rem; margin-bottom: 56px; }
     .block-headline { font-size: 1.6rem; }
     .block-intro { font-size: 1rem; margin-bottom: 40px; }
-    .strain-grid { grid-template-columns: 1fr; }
-    .strain-card { padding: 28px 24px; }
-    .strain-name { font-size: 1.15rem; }
+    .strain-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
+    }
+    .strain-card {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 28px 24px;
+    }
+    .strain-name {
+      font-size: 1.15rem;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .strain-target,
+    .strain-role {
+      overflow-wrap: break-word;
+    }
     .solution-divider { margin: 64px auto; }
     .solution-cta { margin-top: 56px; }
     /* Phase 2.5a mobile: proof cards stay above the comparison table */
     .solution-inner { max-width: 100%; }
-    .solution-grid { grid-template-columns: 1fr; }
+    .solution-grid {
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
+    }
     .science-block {
+      min-width: 0;
       max-width: 100%;
     }
     .comparison-block {
+      min-width: 0;
       max-width: 100%;
     }
     .strain-card { padding: 24px 20px; }
