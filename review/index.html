@@ -835,28 +835,30 @@
     }
 
     .footer-badges {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(250, 246, 240, 0.18);
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+      justify-content: center;
+      gap: 64px;
+      margin-top: 56px;
     }
 
     .footer-badge {
-      min-height: 48px;
-      padding: 8px 18px;
+      width: 80px;
+      height: 80px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(250, 246, 240, 0.24);
-      border-radius: 999px;
-      color: rgba(250, 246, 240, 0.78);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      line-height: 1.2;
+      border: 2px solid var(--botanical-tan);
+      border-radius: 50%;
       text-align: center;
+    }
+
+    .footer-badge span {
+      color: var(--warm-cream);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      text-transform: uppercase;
     }
 
     .footer-legal {
@@ -1139,6 +1141,20 @@
       .footer-form-row input[type="email"],
       .footer-form-btn {
         width: 100%;
+      }
+
+      .footer-badges {
+        gap: 32px;
+        margin-top: 40px;
+      }
+
+      .footer-badge {
+        width: 64px;
+        height: 64px;
+      }
+
+      .footer-badge span {
+        font-size: 0.6rem;
       }
     }
 
