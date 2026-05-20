@@ -1094,7 +1094,7 @@
     [data-solution-anim] { opacity: 1; transform: none; transition: none; }
   }
 
-  /* ── Phase 2.5a: Solution full-width card + 2-col grid ── */
+  /* ── Phase 2.5a: Solution full-width proof stack ── */
   .solution-inner {
     max-width: 1280px;
     margin: 0 auto;
@@ -1104,25 +1104,27 @@
   .solution-sub { max-width: 640px !important; }
   .solution-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
+    gap: clamp(42px, 5vw, 72px);
     margin-top: 0;
   }
-  /* Subtle vertical hairline between columns + interior padding for breathing room */
+  /* Cards lead with the biology proof, then the comparison table closes the argument. */
   .science-block {
-    padding-right: 60px;
-    border-right: 1px solid rgba(196, 168, 130, 0.18);
+    max-width: 1120px;
+    margin: 0 auto;
   }
   .comparison-block {
-    padding-left: 60px;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
   }
-  /* Tighter strain card padding + child sizes for narrower column */
-  .strain-grid { gap: 16px; margin: 0; }
-  .strain-card { padding: 24px 18px; }
+  .strain-grid { gap: 18px; margin: 0; }
+  .strain-card { padding: 28px 24px; }
   .strain-num { margin-bottom: 12px; }
-  .strain-name { font-size: 1rem; margin-bottom: 8px; hyphens: auto; }
-  .strain-target { font-size: 0.75rem; margin-bottom: 14px; }
-  .strain-role { font-size: 0.88rem; line-height: 1.55; }
+  .strain-name { font-size: 1.08rem; margin-bottom: 8px; hyphens: auto; }
+  .strain-target { font-size: 0.78rem; margin-bottom: 14px; }
+  .strain-role { font-size: 0.92rem; line-height: 1.55; }
   /* Science claim block — left-aligned in narrower column */
   .science-claim {
     text-align: left !important;
@@ -1147,18 +1149,14 @@
     .strain-name { font-size: 1.15rem; }
     .solution-divider { margin: 64px auto; }
     .solution-cta { margin-top: 56px; }
-    /* Phase 2.5a mobile: stack 2-col grid + flip vertical divider to horizontal */
+    /* Phase 2.5a mobile: proof cards stay above the comparison table */
     .solution-inner { max-width: 100%; }
     .solution-grid { grid-template-columns: 1fr; }
     .science-block {
-      padding-right: 0;
-      border-right: none;
-      padding-bottom: 64px;
-      border-bottom: 1px solid rgba(196, 168, 130, 0.18);
+      max-width: 100%;
     }
     .comparison-block {
-      padding-left: 0;
-      padding-top: 64px;
+      max-width: 100%;
     }
     .strain-card { padding: 24px 20px; }
     .why-sub { font-size: 1rem; margin-bottom: 40px; }
